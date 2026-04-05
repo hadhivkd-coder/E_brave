@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12-Question Stream Selection Framework | E-Brave</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dk: #062a1f;
+            --mk: #0f4c3a;
+            --lk: #cdead1;
+            --neon: #4ade80;
+            --wh: #ffffff;
+            --tx: #1a1a1a;
+            --mu: #5c6b5e;
+        }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--tx);
+            background: #f8faf7;
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--wh);
+            padding: 60px;
+            border-radius: 30px;
+            box-shadow: 0 40px 100px rgba(6, 42, 31, 0.08);
+            border: 1px solid rgba(15, 76, 58, 0.05);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            border-bottom: 1px solid #edf2ed;
+            padding-bottom: 40px;
+        }
+        .logo {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--dk);
+            margin-bottom: 10px;
+        }
+        .logo em { color: var(--mk); font-style: normal; }
+        h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.4rem;
+            color: var(--dk);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .intro {
+            color: var(--mu);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .framework {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        .question {
+            background: #fafcfa;
+            padding: 30px;
+            border-radius: 20px;
+            border-left: 4px solid var(--neon);
+        }
+        .q-num {
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: var(--mk);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .q-text {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--dk);
+            margin-bottom: 15px;
+            display: block;
+        }
+        .q-desc {
+            color: var(--mu);
+            font-size: 0.95rem;
+        }
+        .footer-cta {
+            margin-top: 60px;
+            text-align: center;
+            padding: 40px;
+            background: var(--dk);
+            color: var(--wh);
+            border-radius: 24px;
+        }
+        .footer-cta h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin-bottom: 15px;
+        }
+        .footer-cta p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 25px;
+        }
+        .btn-print {
+            background: var(--wh);
+            color: var(--dk);
+            padding: 12px 30px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        @media print {
+            .footer-cta, .btn-print { display: none; }
+            body { background: white; padding: 0; }
+            .container { box-shadow: none; border: none; padding: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">E-BRAVE <em>Career Council</em></div>
+            <h1>The 12-Question Stream Selection Framework</h1>
+            <p class="intro">Choosing between Science, Commerce, or Arts is the first big decision of your career. Answer these 12 questions honestly to find your path.</p>
+        </div>
+
+        <div class="framework">
+            <div class="question">
+                <span class="q-num">Question 01</span>
+                <span class="q-text">Which subjects did you score highest in without excessive effort?</span>
+                <p class="q-desc">Your "natural aptitude" often shows in subjects where you grasp concepts quickly and retain them longer than your peers.</p>
+            </div>
+            
+            <div class="question">
+                <span class="q-num">Question 02</span>
+                <span class="q-text">In your free time, do you prefer solving puzzles or reading stories?</span>
+                <p class="q-desc">Puzzles indicate a logical/mathematical leaning (Science), while stories suggest a creative/humanities leaning (Arts/Commerce).</p>
+            </div>
+
+            <div class="question">
+                <span class="q-num">Question 03</span>
+                <span class="q-text">Do you enjoy working with numbers, people, or ideas?</span>
+                <p class="q-desc">Numbers = Commerce/Pure Science. People = Humanities/Medicine. Ideas = Creative Arts/Research.</p>
+            </div>
+
+            <div class="question">
+                <span class="q-num">Question 04</span>
+                <span class="q-text">Are you ready for the rigorous workload of entrance exams like KEAM/JEE/NEET?</span>
+                <p class="q-desc">Science requires a dedicated 2-year commitment to intensive coaching. Be honest about your readiness for this pace.</p>
+            </div>
+
+            <div class="question">
+                <span class="q-num">Question 05</span>
+                <span class="q-text">Does the idea of a 9-to-5 corporate job sound exciting or draining?</span>
+                <p class="q-desc">Exciting = Commerce/Business. Draining = Consider Creative fields or Government service (Humanities/Science).</p>
+            </div>
+
+            <div class="question">
+                <span class="q-num">Question 06</span>
+                <span class="q-text">What is more important to you: Starting a business or finding a secure job?</span>
+                <p class="q-desc">Starting a business leans towards Commerce. Secure, high-status roles usually lean towards Government Service (Humanities) or Specialized Science.</p>
+            </div>
+
+            <div class="question">
+                <span class="q-num">Question 07</span>
+                <span class="q-text">Do you prefer knowing "how things work" or "why people behave this way"?</span>
+                <p class="q-desc">How = Engineering/Science. Why = Psychology/Sociology (Humanities).</p>
+            </div>
+
+            <div class="question">
+                <span class="q-num">Question 08</span>
+                <span class="q-text">Rate your interest in Malayalam/English literature.</span>
+                <p class="q-desc">Strong interest suggests a flair for Humanities or Journalism.</p>
+            </div>
+
+            <div class="question">
+                <span class="q-num">Question 09</span>
+                <span class="q-text">Are you comfortable with abstract theories or do you need practical applications?</span>
+                <p class="q-desc">Abstract = Pure Research/Arts. Practical = Technical Science/Commerce.</p>
+            </div>
+
+            <div class="question">
+                <span class="q-num">Question 10</span>
+                <span class="q-text">Do you have a specific dream college or university in mind?</span>
+                <p class="q-desc">Research their admission requirements now. Most top tier Arts/Commerce colleges have mandatory subject requirements.</p>
+            </div>
+
+            <div class="question">
+                <span class="q-num">Question 11</span>
+                <span class="q-text">Is there a specific career you've always admired? (e.g. Doctor, CA, IAS)</span>
+                <p class="q-desc">Identify the stream that qualifies you for this. (IAS is open to all, but Humanities provides a syllabus advantage).</p>
+            </div>
+
+            <div class="question">
+                <span class="q-num">Question 12</span>
+                <span class="q-text">If money wasn't a factor, what would you spend your life doing?</span>
+                <p class="q-desc">This is your core passion. If you can align your stream with this, you'll never feel "burned out".</p>
+            </div>
+        </div>
+
+        <div class="footer-cta">
+            <h2>Need expert help to analyze your answers?</h2>
+            <p>Our certified counselors have guided over 10,000 students. Book your free 1-on-1 session to decoded your roadmap.</p>
+            <a href="/#register" class="btn-print" style="background: var(--neon); padding: 16px 40px; font-size: 1.1rem;">Book Free Consultation</a>
+            <br>
+            <a href="#" onclick="window.print(); return false;" class="btn-print" style="background: transparent; border: 1px solid white; color: white;">Print This Guide</a>
+        </div>
+    </div>
+</body>
+</html>

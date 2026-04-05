@@ -1,0 +1,14 @@
+<svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+    {/* Dark Green Background (optional, but keep it in the file for reference) */}
+    <rect width="500" height="500" rx="24" fill="#062a1f"/>
+    {/* Graduation Cap Top (Diamond) */}
+    <path d="M250 50L450 140L250 230L50 140Z" fill="white" />
+    {/* Cap Base */}
+    <path d="M400 170V280C400 280 250 340 100 280V170" fill="white" opacity="0.8" />
+    {/* Tassel */}
+    <rect x="440" y="140" width="10" height="120" fill="white" opacity="0.6" rx="5" />
+    {/* Serif 'e' (Stylized) */}
+    <text x="250" y="420" font-family="Georgia, serif" font-size="240" font-weight="bold" fill="white" text-anchor="middle">e</text>
+    {/* Bottom Swoosh / Curve */}
+    <path d="M100 450Q250 490 400 450" stroke="white" stroke-width="15" fill="none" stroke-linecap="round" opacity="0.6" />
+</svg>

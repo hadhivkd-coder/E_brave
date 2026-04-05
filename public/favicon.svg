@@ -1,0 +1,9 @@
+<svg viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1024" height="1024" rx="200" fill="#062a1f"/>
+    <path d="M512 80L912 260L512 440L112 260L512 80Z" fill="white" />
+    <path d="M812 320V520C812 520 512 620 212 520V320" fill="white" opacity="0.8" />
+    <rect x="880" y="260" width="40" height="240" fill="white" opacity="0.6" rx="20" />
+    <path d="M120 600Q512 450 904 600" stroke="white" strokeWidth="40" fill="none" strokeLinecap="round" opacity="0.7" />
+    <path fillRule="evenodd" clipRule="evenodd" d="M512 900C380 900 270 820 230 700H512C512 700 512 700 512 700H780C750 830 640 900 512 900ZM220 620C250 500 370 410 512 410C650 410 770 500 800 620H220Z" fill="white" />
+    <path d="M180 850Q512 980 844 850" stroke="white" strokeWidth="35" fill="none" strokeLinecap="round" opacity="0.5" />
+</svg>

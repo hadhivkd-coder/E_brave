@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10-Step Career Readiness Roadmap | E-Brave</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dk: #062a1f;
+            --mk: #0f4c3a;
+            --lk: #cdead1;
+            --neon: #4ade80;
+            --wh: #ffffff;
+            --tx: #1a1a1a;
+            --mu: #5c6b5e;
+        }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--tx);
+            background: #f8faf7;
+            margin: 0;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--wh);
+            padding: 60px;
+            border-radius: 30px;
+            box-shadow: 0 40px 100px rgba(6, 42, 31, 0.08);
+            border: 1px solid rgba(15, 76, 58, 0.05);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            border-bottom: 1px solid #edf2ed;
+            padding-bottom: 40px;
+        }
+        .logo {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--dk);
+            margin-bottom: 10px;
+        }
+        .logo em { color: var(--mk); font-style: normal; }
+        h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.4rem;
+            color: var(--dk);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .intro {
+            color: var(--mu);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .roadmap {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            counter-reset: roadmap-counter;
+        }
+        .step {
+            display: flex;
+            gap: 25px;
+            background: #fafcfa;
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(15, 76, 58, 0.05);
+            transition: all 0.3s ease;
+        }
+        .step:hover {
+            border-color: var(--neon);
+            box-shadow: 0 10px 20px rgba(6, 42, 31, 0.03);
+            transform: translateY(-2px);
+        }
+        .step::before {
+            counter-increment: roadmap-counter;
+            content: counter(roadmap-counter);
+            width: 45px;
+            height: 45px;
+            background: var(--dk);
+            color: var(--lk);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            flex-shrink: 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .step-content {
+            flex: 1;
+        }
+        .step-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dk);
+            margin-bottom: 10px;
+            display: block;
+        }
+        .step-desc {
+            color: var(--mu);
+            font-size: 0.95rem;
+        }
+        .footer-cta {
+            margin-top: 60px;
+            text-align: center;
+            padding: 40px;
+            background: var(--dk);
+            color: var(--wh);
+            border-radius: 24px;
+        }
+        .footer-cta h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin-bottom: 15px;
+        }
+        .footer-cta p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 25px;
+        }
+        .btn-print {
+            background: var(--wh);
+            color: var(--dk);
+            padding: 12px 30px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        @media print {
+            .footer-cta, .btn-print { display: none; }
+            body { background: white; padding: 0; }
+            .container { box-shadow: none; border: none; padding: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">E-BRAVE <em>Career Council</em></div>
+            <h1>10-Step Career Readiness Roadmap</h1>
+            <p class="intro">A step-by-step checklist designed for Kerala students (Class 8–12) to build a future-proof career.</p>
+        </div>
+
+        <div class="roadmap">
+            <div class="step">
+                <div class="step-content">
+                    <span class="step-title">Identify Your Core Strengths</span>
+                    <p class="step-desc">Before choosing a stream, take a scientific Psychometric Test. Don't rely on what your neighbors or parents say. Get real data on your aptitude.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-content">
+                    <span class="step-title">Research After-10th & After-12th Options</span>
+                    <p class="step-desc">Go beyond Engineering/Medicine. Research growing fields like AI, Data Science, Digital Marketing, and Pure Research scholarships.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-content">
+                    <span class="step-title">Understand Entrance Exam Requirements</span>
+                    <p class="step-desc">Check the syllabus and eligibility for KEAM, JEE, NEET, and CUET early. Most exams have strict subject paper requirements.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-content">
+                    <span class="step-title">Review Kerala vs Abroad Study Options</span>
+                    <p class="step-desc">Compare the costs and opportunities. Countries like Germany and Italy offer tuition-free education for Kerala students.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-content">
+                    <span class="step-title">Speak with a Certified Career Counselor</span>
+                    <p class="step-desc">One-on-one sessions in Malayalam/English ensure your unique family and cultural background is considered in your decisions.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-content">
+                    <span class="step-title">Master English Language Skills</span>
+                    <p class="step-desc">Regardless of your career, strong English communication is vital for global opportunities (IELTS/PTE preparation starts now).</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-content">
+                    <span class="step-title">Build a Digital Profile</span>
+                    <p class="step-desc">Start building your resume early. Document your projects, volunteer work, and extra-curricular achievements.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-content">
+                    <span class="step-title">Financial Planning for Higher Education</span>
+                    <p class="step-desc">Identify scholarships (E-Grants, Kerala Government schemes) and education loan options available for your chosen stream.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-content">
+                    <span class="step-title">Develop Resilience & Soft Skills</span>
+                    <p class="step-desc">Technical skills change every 5 years. Focus on learning "how to learn", critical thinking, and leadership.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-content">
+                    <span class="step-title">Finalize Your Goal & Stay Focussed</span>
+                    <p class="step-desc">Once you pick your stream, dedicate yourself 100%. Don't look back or compare with others. Your path is unique.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-cta">
+            <h2>Ready to start your roadmap today?</h2>
+            <p>Our counselors will help you check off every step in this roadmap. Book your free 1-on-1 session today.</p>
+            <a href="/#register" class="btn-print" style="background: var(--neon); padding: 16px 40px; font-size: 1.1rem;">Get Started Now</a>
+        </div>
+    </div>
+</body>
+</html>
