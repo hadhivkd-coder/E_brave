@@ -5,7 +5,6 @@ export default defineConfig({
   plugins: [react()],
   build: {
     sourcemap: false,      // Never expose source code in production
-    minify: 'esbuild',
-    target: 'es2015',
+    minify: true,
   }
 })
