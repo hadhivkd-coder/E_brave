@@ -1812,21 +1812,26 @@ footer p {
     .bento-feature { grid-column: auto; flex-direction: column; }
     
     .expert-grid { 
-        display: flex;
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 85%;
+        gap: 20px;
         overflow-x: auto;
         overflow-y: hidden;
+        overscroll-behavior-x: contain;
         scroll-snap-type: x mandatory;
         padding-bottom: 20px;
-        scroll-padding-left: 20px;
         -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
     }
     .expert-grid::-webkit-scrollbar {
-        display: none;
+        display: none; /* WebKit */
     }
     .expert-card {
-        flex: 0 0 85%;
         scroll-snap-align: center;
+        scroll-snap-stop: always;
+        height: 100%;
     }
 }
 
