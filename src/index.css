@@ -1805,35 +1805,37 @@ footer p {
 
 @media(max-width: 960px) {
     .bento-grid { grid-template-columns: repeat(2, 1fr); }
-    .expert-grid { grid-template-columns: 1fr 1fr; }
-}
-@media(max-width: 640px) {
-    .bento-grid { grid-template-columns: 1fr; }
-    .bento-main { grid-column: auto; grid-row: auto; }
-    .bento-feature { grid-column: auto; flex-direction: column; }
     
+    /* Mobile/Tablet Swipe Carousel */
     .expert-grid { 
-        display: grid;
-        grid-auto-flow: column;
-        grid-auto-columns: 85%;
-        gap: 20px;
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 16px;
         overflow-x: auto;
         overflow-y: hidden;
         overscroll-behavior-x: contain;
         scroll-snap-type: x mandatory;
         padding-bottom: 20px;
         -webkit-overflow-scrolling: touch;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        scrollbar-width: none;
     }
     .expert-grid::-webkit-scrollbar {
-        display: none; /* WebKit */
+        display: none;
     }
     .expert-card {
+        flex: 0 0 85%;
+        min-width: 85%;
+        max-width: 85%;
         scroll-snap-align: center;
         scroll-snap-stop: always;
-        height: 100%;
     }
+}
+
+@media(max-width: 640px) {
+    .bento-grid { grid-template-columns: 1fr; }
+    .bento-main { grid-column: auto; grid-row: auto; }
+    .bento-feature { grid-column: auto; flex-direction: column; }
+    /* expert-grid styles inherit from 960px */
 }
 
 /* ═══════════════════════════════════════════
