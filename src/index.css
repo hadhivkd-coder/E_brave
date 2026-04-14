@@ -1817,6 +1817,7 @@ footer p {
         scroll-snap-type: x mandatory;
         padding-bottom: 20px;
         -webkit-overflow-scrolling: touch;
+        touch-action: pan-x;
         scrollbar-width: none;
     }
     .expert-grid::-webkit-scrollbar {
