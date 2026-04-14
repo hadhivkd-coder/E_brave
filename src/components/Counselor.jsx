@@ -3,37 +3,37 @@ import React from 'react';
 export default function Counselor() {
     const experts = [
         {
-            name: 'Dr. Priya Menon',
-            title: 'Lead Career Strategist',
-            photo: '/portraits/counselor_priya.png',
-            rating: 4.9,
-            reviews: 312,
-            specialization: 'Medical & Engineering Entrance (Kerala)',
-            bio: 'M.Sc Psychology, B.Ed — 9 years guiding students through KEAM, NEET, and JEE streams across 15 districts of Kerala.',
-            tags: ['NEET', 'KEAM', 'Malayalam', 'English'],
-            badge: 'LEAD COUNSELOR'
-        },
-        {
-            name: 'Rahul Krishnan',
-            title: 'Overseas Admissions Expert',
-            photo: '/portraits/counselor_rahul.png',
+            name: 'CKM Rafeek',
+            title: 'CEO, WEFI Kerala',
+            photo: '/portraits/ckm_rafeek.jpg',
             rating: 5.0,
-            reviews: 198,
-            specialization: 'UK, Germany & Canadian Universities',
-            bio: 'MBA International Education (UK) — helped 200+ Kerala students secure admissions in top 100 QS-ranked universities.',
-            tags: ['UK', 'Germany', 'Canada', 'SOP Writing'],
-            badge: 'GLOBAL EXPERT'
+            reviews: 450,
+            specialization: 'Educational Leadership & Strategy',
+            bio: 'M.Sc & B.Ed in Physics, currently pursuing Strategic Management at IIM Kozhikode. Visionary leader dedicated to shaping educational and career pathways across Kerala.',
+            tags: ['Strategic Management', 'Leadership', 'Physics', 'IIMK'],
+            badge: 'CEO & LEAD MENTOR'
         },
         {
-            name: 'Dr. Sreelakshmi Nair',
-            title: 'Psychometric & Aptitude Analyst',
-            photo: '/portraits/counselor_sreelakshmi.png',
-            rating: 4.8,
-            reviews: 267,
-            specialization: 'Personality Mapping & Stream Selection',
-            bio: 'PhD Counseling Psychology — specializes in aptitude profiling and helping students align their innate strengths with the right career path.',
-            tags: ['Psychometrics', 'Stream Selection', 'Arts', 'Science'],
-            badge: 'VERIFIED EXPERT'
+            name: 'Navas Kuthiradam',
+            title: 'Professional Career Coach',
+            photo: '/portraits/navas.jpg',
+            rating: 4.9,
+            reviews: 320,
+            specialization: 'Holistic Career Guidance',
+            bio: 'B.Sc in Radiology and M.A in Sociology. Passionate career coach focused on leveraging sociological insights and mentoring to help students uncover their true professional potential.',
+            tags: ['Sociology', 'Career Coaching', 'Mentoring', 'Radiology'],
+            badge: 'CAREER COACH'
+        },
+        {
+            name: 'Muhammed Rameez C',
+            title: 'Certified Career Counselor',
+            photo: '/portraits/rameez.jpg',
+            rating: 4.9,
+            reviews: 4000,
+            specialization: 'Personal Guidance for Students & Professionals',
+            bio: 'B.Tech in EEE. Directorate Member of WEFI Kerala and Founder of Skillix Academy. Certified counselor under WEFI Kerala & Kerala Govt. Project (KKEM), with 4000+ successful sessions.',
+            tags: ['Govt Certified', 'KKEM', 'Skillix Academy', 'B.Tech EEE'],
+            badge: 'CERTIFIED EXPERT'
         }
     ];
 

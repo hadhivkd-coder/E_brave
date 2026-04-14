@@ -1790,7 +1790,7 @@ footer p {
 .expert-card h3 { font-size: 1.3rem; color: var(--dk); margin-bottom: 8px; }
 .expert-rating { color: var(--gd); font-weight: 700; margin-bottom: 15px; }
 .expert-rating span { color: var(--mu); font-size: 0.9rem; margin-left: 5px; }
-.expert-tags { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }
+.expert-tags { display: flex; justify-content: center; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
 .expert-tags span {
     font-size: 0.7rem; font-weight: 700;
     color: var(--mu); background: var(--pk);
@@ -2184,7 +2184,7 @@ footer p {
     }
 
     .hero-visual {
-        order: -1;
+        order: 2;
     }
 
     .hero-img-wrap {
@@ -2218,6 +2218,7 @@ footer p {
 .hvr-brand {
     display: flex;
     align-items: center;
+    flex-wrap: wrap; /* Allows text to wrap without pushing off screen */
     gap: 16px;
     margin-bottom: 32px;
     padding-bottom: 24px;
@@ -2251,9 +2252,8 @@ footer p {
 }
 
 .hvr-badge {
-    position: absolute;
-    right: 0;
-    top: 0;
+    position: relative;
+    margin-left: auto;
     font-size: 0.65rem;
     font-weight: 800;
     background: rgba(74, 222, 128, 0.1);
@@ -3598,4 +3598,94 @@ footer p {
     }
 }
 
-
+
+/* === HORIZONTAL CAROUSEL COMPACT LAYOUT FOR MOBILE === */
+@media (max-width: 900px) {
+    /* Base typography scaling */
+    h1, .hero-title { font-size: 2.5rem !important; }
+    h2, .section-title { font-size: 2rem !important; }
+    p, .hero-subtitle { font-size: 0.95rem !important; }
+    section { padding: 60px 4% !important; }
+
+    /* Horizontal Carousels for Grids */
+    .expert-grid, .testimonial-grid, .resources-grid, .roadmaps-container, .pricing-grid, .steps {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important; /* Smooth scrolling on iOS */
+        scrollbar-width: none; /* Hide scrollbar Firefox */
+        gap: 20px !important;
+        padding-bottom: 20px !important; /* Space for hidden scrollbar */
+        max-width: 100vw !important;
+        margin-left: -4% !important; /* Edge bleeding for a premium feel */
+        margin-right: -4% !important;
+        padding-left: 4% !important; 
+        padding-right: 4% !important;
+    }
+    
+    /* Hide scrollbars for Webkit browsers */
+    .expert-grid::-webkit-scrollbar, 
+    .testimonial-grid::-webkit-scrollbar, 
+    .resources-grid::-webkit-scrollbar, 
+    .roadmaps-container::-webkit-scrollbar, 
+    .pricing-grid::-webkit-scrollbar, 
+    .steps::-webkit-scrollbar {
+        display: none !important; 
+    }
+
+    /* Sizing child elements for partial screen view */
+    .expert-grid > *, 
+    .testimonial-grid > *, 
+    .resources-grid > *, 
+    .roadmaps-container > *, 
+    .pricing-grid > *, 
+    .steps > * {
+        flex: 0 0 80% !important; /* The card takes 80% width, letting users peek at the next one! */
+        scroll-snap-align: center !important;
+        min-width: 0 !important; 
+    }
+
+    /* Small tweaks for two-col internal elements */
+    .input-row {
+        grid-template-columns: 1fr 1fr !important;
+    }
+    .hero-stats {
+        flex-direction: row !important;
+        flex-wrap: wrap;
+    }
+    .hst {
+        flex: 1 1 45%;
+        padding: 15px !important;
+        border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Extreme typography shrinkage for tiny phones */
+    h1, .hero-title { font-size: 2rem !important; }
+    h2, .section-title { font-size: 1.6rem !important; }
+    h3 { font-size: 1.1rem !important; }
+    p, .hero-subtitle { font-size: 0.85rem !important; line-height: 1.4 !important; }
+    
+    /* Make internal detailings even smaller inside carousels */
+    .bento-feature, .pricing-card, .testimonial-card, .expert-card, .roadmap-card, .resource-card, .step-card {
+        padding: 20px !important;
+    }
+    
+    .expert-grid > *, 
+    .testimonial-grid > *, 
+    .resources-grid > *, 
+    .roadmaps-container > *, 
+    .pricing-grid > *, 
+    .steps > * {
+        flex: 0 0 86% !important; /* Small mobile adjustment */
+    }
+
+    /* Keep massive dual-layouts as 1 stack */
+    .register-grid, .about-grid, .hero-inner {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+    }
+}

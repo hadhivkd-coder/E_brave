@@ -35,7 +35,7 @@ export default function SocialProof() {
         if (!toast) return;
         // Show for 5 seconds, then hide, then show next after 12 seconds
         const hideTimer = setTimeout(() => setVisible(false), 5000);
-        const nextTimer = setTimeout(() => showToast(), 17000);
+        const nextTimer = setTimeout(() => showToast(), 120000); // 2 minutes
 
         return () => {
             clearTimeout(hideTimer);
