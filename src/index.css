@@ -1810,7 +1810,24 @@ footer p {
     .bento-grid { grid-template-columns: 1fr; }
     .bento-main { grid-column: auto; grid-row: auto; }
     .bento-feature { grid-column: auto; flex-direction: column; }
-    .expert-grid { grid-template-columns: 1fr; }
+    
+    .expert-grid { 
+        display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 20px;
+        scroll-padding-left: 20px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .expert-grid::-webkit-scrollbar {
+        display: none;
+    }
+    .expert-card {
+        flex: 0 0 85%;
+        scroll-snap-align: center;
+    }
 }
 
 /* ═══════════════════════════════════════════
