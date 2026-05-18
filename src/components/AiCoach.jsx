@@ -1,10 +1,19 @@
 import React, { useState } from 'react';
 
 export default function AiCoach({ onRegister }) {
-    const [step, setStep] = useState('register'); // 'register', 'q1', 'q2', 'q3', 'loading', 'result'
+    const [step, setStep] = useState('register'); // 'register', 'q1', 'q2', 'q3', 'q4', 'q5', 'loading', 'result'
     const [formData, setFormData] = useState({ name: '', phone: '', education: '' });
     const [errors, setErrors] = useState({});
-    const [answers, setAnswers] = useState({ interest: '', performance: '', confusion: '' });
+    
+    // Detailed 5-Step diagnostic selections
+    const [answers, setAnswers] = useState({
+        interest: '',
+        skill: '',
+        performance: '',
+        location: '',
+        confusion: ''
+    });
+
     const [loadingText, setLoadingText] = useState('');
 
     const handleChange = (e) => {
@@ -18,11 +27,14 @@ export default function AiCoach({ onRegister }) {
         e.preventDefault();
         const errs = {};
         if (!formData.name.trim()) errs.name = 'Full Name is required';
+        
+        const cleanPhone = formData.phone.replace(/[^0-9]/g, '');
         if (!formData.phone.trim()) {
             errs.phone = 'WhatsApp Number is required';
-        } else if (!/^\d{10}$/.test(formData.phone.replace(/[^0-9]/g, ''))) {
+        } else if (cleanPhone.length < 10) {
             errs.phone = 'Please enter a valid 10-digit number';
         }
+        
         if (!formData.education) errs.education = 'Please select your class';
 
         if (Object.keys(errs).length > 0) {
@@ -30,26 +42,28 @@ export default function AiCoach({ onRegister }) {
             return;
         }
 
-        // Save lead in admin list
-        if (onRegister) {
-            onRegister({
-                name: formData.name,
-                phone: formData.phone,
-                education: formData.education,
-                problems: 'Used AI Career Coach tool',
-                date: new Date().toLocaleDateString()
-            });
-        }
-
-        // Transition to first question
         setStep('q1');
     };
 
     const handleSelectOption = (field, val, nextStep) => {
-        setAnswers(p => ({ ...p, [field]: val }));
+        const updatedAnswers = { ...answers, [field]: val };
+        setAnswers(updatedAnswers);
         
         if (nextStep === 'loading') {
             setStep('loading');
+            
+            // Capture lead on final step with full diagnostic details bundled
+            if (onRegister) {
+                const fullDiagnosticProblems = `[AI Profile] Track: ${updatedAnswers.interest} | Skill: ${updatedAnswers.skill} | Performance: ${updatedAnswers.performance} | Target: ${updatedAnswers.location} | Core Problem: ${updatedAnswers.confusion}`;
+                onRegister({
+                    name: formData.name,
+                    phone: formData.phone.replace(/[^0-9]/g, ''),
+                    education: formData.education,
+                    problems: fullDiagnosticProblems,
+                    date: new Date().toLocaleDateString()
+                });
+            }
+            
             runAiLoader();
         } else {
             setStep(nextStep);
@@ -58,10 +72,10 @@ export default function AiCoach({ onRegister }) {
 
     const runAiLoader = () => {
         const texts = [
-            '🧠 Analyzing cognitive preferences...',
-            '📋 Mapping Kerala board stream criteria...',
-            '🎯 Matching entrance exam syllabus timelines...',
-            '✨ Generating your customized E-Brave roadmap...'
+            '🧠 Evaluating cognitive preferences & skill syncing...',
+            '📊 Analyzing modern tech, business & creative career clusters...',
+            '🎯 Mapping Indian entrance exams & global study options...',
+            '✨ Compiling your personalized future-proof career roadmap...'
         ];
         let idx = 0;
         setLoadingText(texts[0]);
@@ -76,69 +90,109 @@ export default function AiCoach({ onRegister }) {
         }, 1200);
     };
 
-    // Simple deterministic roadmap compiler based on selections
+    // Deep dynamic career compiler engine
     const compileRoadmap = () => {
-        const { interest, performance, confusion } = answers;
-        let mainTrack = '';
-        let exams = [];
-        let details = [];
+        const { interest, skill, performance, location, confusion } = answers;
+        let coreTrack = '';
+        let modernCourses = [];
+        let entranceExams = [];
+        let milestones = [];
 
-        if (interest === 'Science & Tech') {
-            mainTrack = performance === 'Top Tier (>90%)' 
-                ? 'Advanced Engineering & Research (IIT/IISER/IISc)'
-                : 'Applied Engineering, IT, & Computing (B.Tech / BCA)';
-            exams = ['JEE Advanced / Main', 'KEAM (Kerala)', 'VITEEE / BITSAT', 'CUET'];
-            details = [
-                'Focus on strong foundation in Physics, Chemistry, and Advanced Mathematics.',
-                'Target top-tier colleges: NITs, IIITs, or top state government engineering colleges.',
-                'Start mock entrance test practices at least 6 months in advance.'
+        // 1. DYNAMIC CORE TRACK DETERMINATION
+        if (interest === 'Science & Future-Tech') {
+            if (skill === 'Building & logical analysis') {
+                coreTrack = location === 'Study Abroad / Overseas' 
+                    ? 'Global Software Architecture & AI Engineering'
+                    : 'Advanced Computer Science & Intelligent Systems';
+                modernCourses = ['AI & Large Language Modeling (LLM)', 'Robotics & Automation', 'Cybersecurity & Blockchain Architecture'];
+                entranceExams = ['JEE Advanced / Main', 'KEAM (Kerala)', 'SAT (for global universities)', 'CUET (Computer Science)'];
+            } else {
+                coreTrack = 'Biotechnology & Computational Biology';
+                modernCourses = ['Bioinformatics', 'Sustainable Green Technology', 'Clinical Research & Genetics'];
+                entranceExams = ['NEET (UG)', 'CUET (Biosciences)', 'IISER Aptitude Test (IAT)'];
+            }
+            milestones = [
+                'Focus intensely on coding platforms (GitHub, LeetCode) and algorithmic logic.',
+                'If aiming overseas, target IELTS/TOEFL preparation early.',
+                'Engage in active STEM science fairs and build 2-3 real-world software/science prototypes.'
             ];
-        } else if (interest === 'Medical & Biology') {
-            mainTrack = performance === 'Top Tier (>90%)' 
-                ? 'Clinical Medicine / Dentistry (MBBS / BDS)'
-                : 'Allied Health Sciences, Nursing, or Biotechnology (B.Sc / Pharm.D)';
-            exams = ['NEET (UG)', 'KEAM Medical', 'CUET (Biology tracks)'];
-            details = [
-                'Build intense concept clarity in Botany and Zoology.',
-                'If NEET is not your path, consider emerging fields like Bioinformatics or Food Tech.',
-                'Ensure strong practical lab exposure and active volunteer observation.'
+        } 
+        else if (interest === 'Medical & Life Sciences') {
+            if (performance === 'Top Tier (>90%)') {
+                coreTrack = 'Clinical Medicine & Specialized Surgery';
+                modernCourses = ['MBBS / BDS', 'Digital Therapeutics', 'Genomics & Precision Medicine'];
+                entranceExams = ['NEET (UG)', 'KEAM Medical'];
+            } else {
+                coreTrack = 'Allied Health Sciences & Biotech Innovation';
+                modernCourses = ['Pharm.D (Doctor of Pharmacy)', 'Physiotherapy & Sports Medicine', 'Biotech Entrepreneurship'];
+                entranceExams = ['NEET (UG)', 'CUET (Allied Health Tracks)', 'KLEE / B.Sc Admission tests'];
+            }
+            milestones = [
+                'Ensure perfect conceptual mapping of biological cell functions and organic chemistry.',
+                'Research non-traditional high-paying medical careers such as Healthcare Data Analytics.',
+                'Secure hospital observation / volunteer programs during vacations.'
             ];
-        } else if (interest === 'Commerce & Finance') {
-            mainTrack = performance === 'Top Tier (>90%)'
-                ? 'Professional Accounts & Corporate Finance (CA / CMA / Actuary)'
-                : 'Business Administration & Management (BBA / B.Com)';
-            exams = ['CA Foundation', 'IPMAT (IIM Indore/Rohtak)', 'CUET (Commerce/Finance)'];
-            details = [
-                'Focus heavily on Accountancy, Economics, and Statistics.',
-                'Actuarial Science and Financial Analytics are highly lucrative options for high scorers.',
-                'Target premium institutes like IIMs (5-year Integrated Program) or SRCC.'
+        } 
+        else if (interest === 'Business & Modern Commerce') {
+            if (skill === 'Public speaking & leading people') {
+                coreTrack = location === 'Study Abroad / Overseas'
+                    ? 'Global Business Administration & International Trade'
+                    : 'Corporate Strategy & Venture Management (MBA Track)';
+                modernCourses = ['Growth Marketing & Branding', 'E-commerce Management', 'Fintech & Investment Banking'];
+                entranceExams = ['IPMAT (5-Year IIM Program)', 'CUET (BBA/BMS)', 'CAT (post-grad targeting)'];
+            } else {
+                coreTrack = 'Quantitative Finance & Professional Accounting';
+                modernCourses = ['Chartered Accountancy (CA)', 'Financial Risk Management (FRM)', 'Actuarial Science & Quantitative Analysis'];
+                entranceExams = ['CA Foundation', 'CMA Foundation', 'CUET (Financial Markets)'];
+            }
+            milestones = [
+                'Build advanced Excel, corporate math, and accounting foundation early.',
+                'Explore high-paying Fintech careers and micro-credentials in data modeling.',
+                'Read economic news daily and participate in mock stock market analysis programs.'
             ];
-        } else if (interest === 'Arts & Creative') {
-            mainTrack = 'Design, Media, UI/UX, or Liberal Arts (B.Des / BJMC)';
-            exams = ['UCEED (IIT Design)', 'NID / NIFT Entrance', 'CUET (Liberal Arts / Humanities)'];
-            details = [
-                'Build a strong portfolio of creative sketches, digital work, or writings.',
-                'UX/UI design is currently one of the highest-paying non-coding tech fields globally.',
-                'Target premium government design institutes: National Institute of Design (NID).'
+        } 
+        else if (interest === 'Creative Design & Digital Media') {
+            coreTrack = skill === 'Building & logical analysis'
+                ? 'Human-Computer Interaction & UX/UI Design'
+                : 'Digital Media Production & Visual Communication';
+            modernCourses = ['UI/UX Product Design', '3D Animation & Virtual Reality (VR)', 'Digital Content Creation & Brand Strategy'];
+            entranceExams = ['UCEED (IIT Design)', 'NID / NIFT Entrance Exam', 'CUCET (Media & Design Tracks)'];
+            milestones = [
+                'Build a stunning digital portfolio displaying your designs, videos, or UI layouts.',
+                'UI/UX design currently commands tech-counseling salary grades without standard engineering constraints.',
+                'Target premier design colleges like National Institute of Design (NID) or IIT Design departments.'
             ];
-        } else {
-            mainTrack = 'Civil Services, Law, or International Relations (BA.LL.B / B.Sc)';
-            exams = ['CLAT (Common Law Admission Test)', 'KLEE (Kerala Law Entrance)', 'CUET'];
-            details = [
-                'Read newspapers daily and practice logical reasoning.',
-                'Law is an outstanding foundational track leading to corporate consultation or judiciary.',
-                'A 5-year integrated BA.LL.B from a National Law University (NLU) is the gold standard.'
+        } 
+        else {
+            if (skill === 'Public speaking & leading people' || performance === 'Top Tier (>90%)') {
+                coreTrack = 'Judiciary & Corporate Jurisprudence (Integrated Law)';
+                modernCourses = ['Corporate & Cyber Law', 'Intellectual Property Rights', 'International Relations & Diplomacy'];
+                entranceExams = ['CLAT (Common Law Admission Test)', 'KLEE (Kerala Law Entrance)', 'LSAT India'];
+            } else {
+                coreTrack = 'Psychology & Behavioral Counseling';
+                modernCourses = ['Clinical Psychology', 'Organizational Psychology', 'Human Resources & Public Policy'];
+                entranceExams = ['CUET (Humanities)', 'TISSNET', 'State University Entrance Exams'];
+            }
+            milestones = [
+                'Hone critical verbal analysis, presentation styles, and persuasive writing skills.',
+                'A 5-year integrated B.A. LL.B from a National Law University (NLU) is the gold standard for high corporate packages.',
+                'Follow current affairs closely and practice mock debating/analytical writing regularly.'
             ];
         }
 
-        return { mainTrack, exams, details };
+        // Add parent-counseling alert dynamic milestone if parent alignment was the major issue
+        if (confusion === 'Parent alignment (They want Doctor/Engineer, I want my passion)') {
+            milestones.unshift('⭐ CRITICAL: Schedule parent alignment session. Prepare objective, science-backed salary and job market data for alternative careers to show them.');
+        }
+
+        return { coreTrack, modernCourses, entranceExams, milestones };
     };
 
     const roadmap = compileRoadmap();
 
     const getPrefilledWaMsg = () => {
         const waNum = '919544547861';
-        const text = `Hi! My name is ${formData.name}. I ran the E-Brave AI Career Coach and got "${roadmap.mainTrack}". I want to book a 1-on-1 human consultation to finalize my plan!`;
+        const text = `Hi! My name is ${formData.name}. I completed my E-Brave AI Career Coach and got a roadmap for: "${roadmap.coreTrack}". I would like to book my FREE 1-on-1 Consultation to finalize this roadmap with a human expert!`;
         return `https://wa.me/${waNum}?text=${encodeURIComponent(text)}`;
     };
 
@@ -147,17 +201,17 @@ export default function AiCoach({ onRegister }) {
             <div className="sw">
                 <div className="section-head text-center scroll-reveal-child">
                     <span className="stag">E-Brave AI Guidance</span>
-                    <h2 className="sec-h">Get Your Free AI Career Roadmap</h2>
-                    <p className="sec-p">Unlock a customized stream and entrance exam roadmap built in seconds by our specialized career algorithm.</p>
+                    <h2 className="sec-h">Deep AI Career Coach & Roadmap</h2>
+                    <p className="sec-p">Answer 5 quick, step-by-step diagnostic questions to compile a highly customized career strategy incorporating standard and futuristic options.</p>
                 </div>
 
                 <div className="ai-coach-container scroll-reveal-child delay-2">
-                    {/* STEP 1: LEAD CAPTURE FORM */}
+                    {/* STEP 0: LEAD CAPTURE FORM */}
                     {step === 'register' && (
                         <div className="ai-form-card">
-                            <div className="ai-card-badge">🔒 Locked · Register to Start</div>
-                            <h3>Unlock E-Brave AI Career Planner</h3>
-                            <p className="ai-form-desc">Provide your basic details so the AI can tailor the analysis and save your roadmap progress.</p>
+                            <div className="ai-card-badge">🔒 Private & Secure · Register to Start</div>
+                            <h3>Unlock E-Brave AI Career Coach</h3>
+                            <p className="ai-form-desc">Provide your basic details so the AI algorithm can customize options for your exact academic level.</p>
                             
                             <form onSubmit={handleRegisterSubmit} className="ai-mini-form">
                                 <div className="ai-input-group">
@@ -165,10 +219,11 @@ export default function AiCoach({ onRegister }) {
                                     <input 
                                         type="text" 
                                         id="aiName" 
-                                        placeholder="e.g. Rahul Das" 
+                                        placeholder="e.g. Sandra Joseph" 
                                         value={formData.name} 
                                         onChange={handleChange}
                                         className={errors.name ? 'input-error' : ''}
+                                        required
                                     />
                                     {errors.name && <span className="ai-field-error">{errors.name}</span>}
                                 </div>
@@ -183,6 +238,7 @@ export default function AiCoach({ onRegister }) {
                                             value={formData.phone} 
                                             onChange={handleChange}
                                             className={errors.phone ? 'input-error' : ''}
+                                            required
                                         />
                                         {errors.phone && <span className="ai-field-error">{errors.phone}</span>}
                                     </div>
@@ -195,6 +251,7 @@ export default function AiCoach({ onRegister }) {
                                                 value={formData.education} 
                                                 onChange={handleChange}
                                                 className={errors.education ? 'input-error' : ''}
+                                                required
                                             >
                                                 <option value="" disabled>Select Class</option>
                                                 {['Class 8','Class 9','Class 10','Class 11','Class 12','12th Pass','Graduate'].map(o => <option key={o} value={o}>{o}</option>)}
@@ -205,33 +262,33 @@ export default function AiCoach({ onRegister }) {
                                 </div>
 
                                 <button type="submit" className="btn-main ai-submit-btn">
-                                    Unlock AI Career Planner ⚡
+                                    Start AI Career Coach ⚡
                                 </button>
                             </form>
                         </div>
                     )}
 
-                    {/* STEP 2: CHOOSE INTEREST */}
+                    {/* STEP 1: INTEREST AREA */}
                     {step === 'q1' && (
                         <div className="ai-chat-card">
                             <div className="ai-chat-header">
                                 <div className="ai-avatar">🤖</div>
                                 <div>
                                     <h4>E-Brave AI Career Coach</h4>
-                                    <span>Online</span>
+                                    <span>Question 1 of 5</span>
                                 </div>
                             </div>
                             <div className="ai-chat-body">
                                 <div className="ai-bubble ai-bubble--bot">
-                                    Hi <strong>{formData.name}</strong>! I'm ready. Let's find your perfect track. First, select your primary area of interest or favorite subject category:
+                                    Hi <strong>{formData.name}</strong>! Let's get started. First, select the primary domain that naturally excites you most:
                                 </div>
                                 <div className="ai-options-grid">
                                     {[
-                                        ['Science & Tech', '💻 Science & Engineering'],
-                                        ['Medical & Biology', '🩺 Medical & Biosciences'],
-                                        ['Commerce & Finance', '📊 Commerce & Business'],
-                                        ['Arts & Creative', '🎨 Designing & Arts'],
-                                        ['Law & Humanities', '⚖️ Law & Social Science']
+                                        ['Science & Future-Tech', '💻 Science & Technology (AI, Software, Engineering)'],
+                                        ['Medical & Life Sciences', '🩺 Medicine & Life Sciences (Doctors, Biotech, Health)'],
+                                        ['Business & Modern Commerce', '📊 Business & Modern Commerce (Finance, Marketing, Management)'],
+                                        ['Creative Design & Digital Media', '🎨 Creative Design & Digital Media (UI/UX, Animation, Writing)'],
+                                        ['Law & Humanities', '⚖️ Law, Humanities & Psychology (Corporate Law, Civil Services)']
                                     ].map(([val, label]) => (
                                         <button 
                                             key={val} 
@@ -246,34 +303,31 @@ export default function AiCoach({ onRegister }) {
                         </div>
                     )}
 
-                    {/* STEP 3: CHOOSE ACADEMIC PERFORMANCE */}
+                    {/* STEP 2: CORE SKILL */}
                     {step === 'q2' && (
                         <div className="ai-chat-card">
                             <div className="ai-chat-header">
                                 <div className="ai-avatar">🤖</div>
                                 <div>
                                     <h4>E-Brave AI Career Coach</h4>
-                                    <span>Analyzing choice: {answers.interest}</span>
+                                    <span>Question 2 of 5</span>
                                 </div>
                             </div>
                             <div className="ai-chat-body">
-                                <div className="ai-bubble ai-bubble--user">
-                                    My interest is in {answers.interest}.
-                                </div>
                                 <div className="ai-bubble ai-bubble--bot">
-                                    Perfect choice. Now, let me understand your current or target academic performance level:
+                                    Excellent choice. Next, which of these activities feels most natural to you or represents your core skill?
                                 </div>
                                 <div className="ai-options-grid">
                                     {[
-                                        ['Top Tier (>90%)', '🏆 High Performer (>90%)'],
-                                        ['High Average (75-90%)', '📈 Good Scorer (75-90%)'],
-                                        ['Moderate (60-75%)', '🎯 Average Scorer (60-75%)'],
-                                        ['Passion-driven (explore)', '🌱 Passion-first (exploring)']
+                                        ['Building & logical analysis', '⚙️ Logical solving, building tools, or programming'],
+                                        ['Writing & storytelling', '✍️ Storytelling, designing visuals, or copywriting'],
+                                        ['Public speaking & leading people', '🗣️ Communicating, public speaking, leading, or sales'],
+                                        ['Deep research & organizing facts', '🔬 Fact checking, analyzing database sheets, or research']
                                     ].map(([val, label]) => (
                                         <button 
                                             key={val} 
                                             className="ai-option-chip" 
-                                            onClick={() => handleSelectOption('performance', val, 'q3')}
+                                            onClick={() => handleSelectOption('skill', val, 'q3')}
                                         >
                                             {label}
                                         </button>
@@ -283,29 +337,94 @@ export default function AiCoach({ onRegister }) {
                         </div>
                     )}
 
-                    {/* STEP 4: CHOOSE CONFUSION */}
+                    {/* STEP 3: ACADEMIC PERFORMANCE */}
                     {step === 'q3' && (
                         <div className="ai-chat-card">
                             <div className="ai-chat-header">
                                 <div className="ai-avatar">🤖</div>
                                 <div>
                                     <h4>E-Brave AI Career Coach</h4>
-                                    <span>Formulating strategy...</span>
+                                    <span>Question 3 of 5</span>
                                 </div>
                             </div>
                             <div className="ai-chat-body">
-                                <div className="ai-bubble ai-bubble--user">
-                                    Target level: {answers.performance}.
-                                </div>
                                 <div className="ai-bubble ai-bubble--bot">
-                                    Got it! Last question: What is your absolute biggest doubt or career confusion right now?
+                                    Got it. Now let me understand your current or target academic performance style:
                                 </div>
                                 <div className="ai-options-grid">
                                     {[
-                                        ['Stream after 10th', '❓ Choosing stream after 10th'],
-                                        ['Course after 12th', '🎓 Best course after 12th'],
-                                        ['Entrance exam strategy', '✍️ Entrance prep strategy'],
-                                        ['High-salary career options', '💼 Highest-paying career paths']
+                                        ['Top Tier (>90%)', '🏆 High Scorer (I enjoy scoring >90%)'],
+                                        ['Average/Pragmatic Scorer (75-90%)', '📈 Balanced (Typical scores between 75-90%)'],
+                                        ['Practical/Hands-on learner (60-75%)', '🎯 Practical Scorer (Scores between 60-75%, I prefer hands-on work)'],
+                                        ['Creative explorer (focus on passion over marks)', '🌱 Passion-first (I focus heavily on skill rather than marks)']
+                                    ].map(([val, label]) => (
+                                        <button 
+                                            key={val} 
+                                            className="ai-option-chip" 
+                                            onClick={() => handleSelectOption('performance', val, 'q4')}
+                                        >
+                                            {label}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* STEP 4: STUDY STYLE / LOCATION */}
+                    {step === 'q4' && (
+                        <div className="ai-chat-card">
+                            <div className="ai-chat-header">
+                                <div className="ai-avatar">🤖</div>
+                                <div>
+                                    <h4>E-Brave AI Career Coach</h4>
+                                    <span>Question 4 of 5</span>
+                                </div>
+                            </div>
+                            <div className="ai-chat-body">
+                                <div className="ai-bubble ai-bubble--bot">
+                                    Where or how are you currently planning to complete your university/higher education?
+                                </div>
+                                <div className="ai-options-grid">
+                                    {[
+                                        ['Elite Colleges in India (IIT/IIM/NIT)', '🏛️ Premium Indian Institutes (IIT, IIM, NIT, NLUs)'],
+                                        ['Professional degree in Kerala (KEAM/State Gov)', '🌴 Local State/Government (KEAM engineering/medical, Kerala Gov)'],
+                                        ['Study Abroad / Overseas', '✈️ Study Abroad / Global Universities (EU, UK, Canada, Gulf)'],
+                                        ['Fast-track direct careers (Freelancing/Bootcamps)', '🚀 Direct Career (Self-teaching, Bootcamps, starting business fast)']
+                                    ].map(([val, label]) => (
+                                        <button 
+                                            key={val} 
+                                            className="ai-option-chip" 
+                                            onClick={() => handleSelectOption('location', val, 'q5')}
+                                        >
+                                            {label}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* STEP 5: CORE CONFUSION */}
+                    {step === 'q5' && (
+                        <div className="ai-chat-card">
+                            <div className="ai-chat-header">
+                                <div className="ai-avatar">🤖</div>
+                                <div>
+                                    <h4>E-Brave AI Career Coach</h4>
+                                    <span>Final Step</span>
+                                </div>
+                            </div>
+                            <div className="ai-chat-body">
+                                <div className="ai-bubble ai-bubble--bot">
+                                    Last question: What is your absolute biggest source of worry or confusion right now?
+                               </div>
+                                <div className="ai-options-grid">
+                                    {[
+                                        ['Parent alignment (They want Doctor/Engineer, I want my passion)', '👪 Parent pressure (They want MBBS/Engineering, I have other passions)'],
+                                        ['Deciding post-10th stream options', '❓ Stream Selection (Confused between Science, Commerce, Arts post-10th)'],
+                                        ['Selecting best university degree courses post-12th', '🎓 College Course (Confused what degree to choose post-12th)'],
+                                        ['Finding high-paying non-traditional careers', '💼 Career Path (I don\'t know what high-paying jobs exist outside doctor/engineer)']
                                     ].map(([val, label]) => (
                                         <button 
                                             key={val} 
@@ -320,7 +439,7 @@ export default function AiCoach({ onRegister }) {
                         </div>
                     )}
 
-                    {/* STEP 5: LOADER */}
+                    {/* STEP 6: LOADING SCREEN */}
                     {step === 'loading' && (
                         <div className="ai-loader-card">
                             <div className="ai-spinner"></div>
@@ -328,46 +447,55 @@ export default function AiCoach({ onRegister }) {
                         </div>
                     )}
 
-                    {/* STEP 6: PERSONALIZED ROADMAP */}
+                    {/* STEP 7: MULTI-LEVEL DIVERSE RESULT ROADMAP */}
                     {step === 'result' && (
                         <div className="ai-result-card">
                             <div className="ai-result-header">
-                                <div className="ai-checkmark">⭐</div>
+                                <div className="ai-checkmark">⚡</div>
                                 <div>
-                                    <h4>AI Career Roadmap Generated</h4>
-                                    <span>Custom analysis for {formData.name} ({formData.education})</span>
+                                    <h4>Your Personalized AI Career Strategy</h4>
+                                    <span>Compiled for {formData.name} ({formData.education})</span>
                                 </div>
                             </div>
 
                             <div className="ai-result-body">
                                 <div className="ai-roadmap-block">
-                                    <span className="ai-roadmap-label">🎯 PRIMARY RECOMMENDATION</span>
-                                    <h3 className="ai-roadmap-title">{roadmap.mainTrack}</h3>
+                                    <span className="ai-roadmap-label">🎯 DIVERSE CORE CAREER TRACK</span>
+                                    <h3 className="ai-roadmap-title">{roadmap.coreTrack}</h3>
                                 </div>
 
                                 <div className="ai-roadmap-details">
                                     <div className="ai-detail-section">
-                                        <h5>📚 Recommended Actions:</h5>
+                                        <h5>📚 Recommended Specialized Courses:</h5>
+                                        <div className="ai-exam-tags" style={{ marginBottom: '20px' }}>
+                                            {roadmap.modernCourses.map((mc, i) => (
+                                                <span key={i} className="ai-exam-tag" style={{ background: '#f0fdf4', borderColor: 'rgba(74, 222, 128, 0.2)', color: 'var(--dk)' }}>
+                                                    {mc}
+                                                </span>
+                                            ))}
+                                        </div>
+
+                                        <h5>🚀 Key Action Milestones:</h5>
                                         <ul>
-                                            {roadmap.details.map((d, i) => <li key={i}>{d}</li>)}
+                                            {roadmap.milestones.map((d, i) => <li key={i}>{d}</li>)}
                                         </ul>
                                     </div>
 
                                     <div className="ai-detail-section">
-                                        <h5>✍️ Top Entrance Exams to Focus On:</h5>
+                                        <h5>🏛️ Target Entrance Exams & Universities:</h5>
                                         <div className="ai-exam-tags">
-                                            {roadmap.exams.map((ex, i) => <span key={i} className="ai-exam-tag">{ex}</span>)}
+                                            {roadmap.entranceExams.map((ex, i) => <span key={i} className="ai-exam-tag">{ex}</span>)}
                                         </div>
                                     </div>
                                 </div>
 
-                                {/* CRITICAL CALL TO ACTION (CTA) */}
+                                {/* MARKETING LEAD CAPTURE - COMPLIMENTARY 1-ON-1 VALUE UPGRADE */}
                                 <div className="ai-conversion-banner">
-                                    <div className="ai-banner-icon">💡</div>
+                                    <div className="ai-banner-icon">🎯</div>
                                     <div className="ai-banner-content">
-                                        <h5>AI Plan Generated! What Next?</h5>
+                                        <h5>Unlock Your Complimentary 1-on-1 Consultation</h5>
                                         <p>
-                                            AI roadmaps are an excellent starting baseline. However, choosing a university, preparing for entrances, and convincing parents require deep, personal human guidance. Speak with our Certified Counselors to lock in your exact admission path!
+                                            Your AI roadmap is a fantastic starting baseline. However, finalized admission paths require in-depth planning, financial discussion, and parent alignment. Claim your **complimentary 1-on-1 consultation** with a human expert to lock in your final roadmap!
                                         </p>
                                         <a 
                                             href={getPrefilledWaMsg()} 
@@ -375,13 +503,13 @@ export default function AiCoach({ onRegister }) {
                                             rel="noopener noreferrer" 
                                             className="btn-main ai-banner-cta btn-elite-gold"
                                         >
-                                            Confirm with 1-on-1 Counselor 📞
+                                            Claim Free 1-on-1 Consultation 📞
                                         </a>
                                     </div>
                                 </div>
 
                                 <button onClick={() => setStep('q1')} className="ai-retry-btn">
-                                    ↺ Re-run AI Analysis
+                                    ↺ Restart Diagnostic Assessment
                                 </button>
                             </div>
                         </div>
