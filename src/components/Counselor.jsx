@@ -38,9 +38,9 @@ export default function Counselor() {
     ];
 
     return (
-        <section id="experts" className="counselor scroll-reveal">
+        <section id="experts" className="counselor">
             <div className="sw">
-                <div className="section-head text-center scroll-reveal-child">
+                <div className="section-head text-center">
                     <span className="stag">The Expert Panel</span>
                     <h2 className="sec-h">Meet Your Lead Mentors</h2>
                     <p className="sec-p">Real counselors. Real credentials. Real results — for 10,000+ students across Kerala.</p>
@@ -48,7 +48,7 @@ export default function Counselor() {
 
                 <div className="expert-grid mt-4">
                     {experts.map((expert, i) => (
-                        <div key={i} className={`expert-card scroll-reveal-child delay-${i}`}>
+                        <div key={i} className="expert-card">
                             <div className="expert-badge-pro">{expert.badge}</div>
                             <div className="expert-avatar-box">
                                 <img
@@ -77,7 +77,7 @@ export default function Counselor() {
                     ))}
                 </div>
 
-                <div className="counselor-cta scroll-reveal-child">
+                <div className="counselor-cta">
                     <p>All counselors are background-verified and hold recognized certifications in career counseling.</p>
                     <a href="#register" className="btn-main">Book a Session with an Expert</a>
                 </div>

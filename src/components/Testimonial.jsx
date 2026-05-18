@@ -33,9 +33,9 @@ export default function Testimonial() {
     ];
 
     return (
-        <section id="reviews" className="testimonials scroll-reveal">
+        <section id="reviews" className="testimonials">
             <div className="sw">
-                <div className="section-head text-center scroll-reveal-child">
+                <div className="section-head text-center">
                     <span className="stag">Student Stories</span>
                     <h2 className="sec-h">What Our Students Say</h2>
                     <p className="sec-p">Unfiltered feedback from real students across Kerala who found clarity with our guidance.</p>
@@ -48,7 +48,7 @@ export default function Testimonial() {
 
                 <div className="testimonial-grid mt-4">
                     {reviews.map((review, index) => (
-                        <div key={index} className={`test-card scroll-reveal-child delay-${index + 1}`}>
+                        <div key={index} className="test-card">
                             <div className="test-quote-icon">"</div>
                             <p className="test-body">{review.text}</p>
                             <div className="test-stars">
