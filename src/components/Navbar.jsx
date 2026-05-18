@@ -13,7 +13,7 @@ export default function Navbar({ registrationsList }) {
     // Close mobile menu on link click
     const closeMenu = () => setMenuOpen(false);
 
-    const waNum = import.meta.env.VITE_WA_NUMBER || '919544547861';
+    const waNum = '919544547861';
 
     const downloadCSV = () => {
         if (!registrationsList.length) return;

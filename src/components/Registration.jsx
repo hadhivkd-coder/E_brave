@@ -6,6 +6,28 @@ const sanitize = (str) => str.replace(/<[^>]*>/g, '').trim().slice(0, 1000);
 // ── Phone validator: Indian mobile numbers (6–9 start, 10 digits)
 const isValidPhone = (ph) => /^[6-9]\d{9}$/.test(ph.replace(/\s/g, ''));
 
+// ── Standalone InputField defined outside to prevent focus loss on parent re-renders
+const InputField = ({ id, label, type = 'text', required, placeholder, value, onChange, onBlur, touched, error }) => {
+    const hasError = touched && error;
+    const isValid = touched && !error && value;
+    return (
+        <div className={`input-group ${hasError ? 'has-error' : ''} ${isValid ? 'is-valid' : ''}`}>
+            <label htmlFor={id}>{label}{required && <span className="req-star">*</span>}</label>
+            <input 
+                type={type} 
+                id={id} 
+                placeholder={placeholder}
+                value={value || ''} 
+                onChange={onChange} 
+                onBlur={onBlur}
+                required={required} 
+            />
+            {hasError && <span className="field-error">{error}</span>}
+            {isValid && <span className="field-valid">✓</span>}
+        </div>
+    );
+};
+
 export default function Registration({ onRegister }) {
     const [formData, setFormData] = useState({
         name: '', phone: '', education: '', problems: '', hp_field: ''
@@ -97,28 +119,10 @@ export default function Registration({ onRegister }) {
         setTouched({});
         setErrors({});
 
-        const waNum = import.meta.env.VITE_WA_NUMBER || '919544547861';
+        // Direct fallback and hardcoded new number to override any hosting environment variable cached values
+        const waNum = '919544547861';
         const msg = `Hi! My name is ${newRegistration.name}. I'd like to book a career counseling session.`;
         window.location.href = `https://wa.me/${waNum}?text=${encodeURIComponent(msg)}`;
-    };
-
-    const InputField = ({ id, label, type = 'text', required, placeholder, children }) => {
-        const keyMap = { regName: 'name', regPhone: 'phone', regEducation: 'education', regProblems: 'problems' };
-        const key = keyMap[id];
-        const hasError = touched[key] && errors[key];
-        const isValid = touched[key] && !errors[key] && formData[key];
-        return (
-            <div className={`input-group ${hasError ? 'has-error' : ''} ${isValid ? 'is-valid' : ''}`}>
-                <label htmlFor={id}>{label}{required && <span className="req-star">*</span>}</label>
-                {children || (
-                    <input type={type} id={id} placeholder={placeholder}
-                        value={formData[key] || ''} onChange={handleChange} onBlur={handleBlur}
-                        required={required} />
-                )}
-                {hasError && <span className="field-error">{errors[key]}</span>}
-                {isValid && <span className="field-valid">✓</span>}
-            </div>
-        );
     };
 
     return (
@@ -173,10 +177,31 @@ export default function Registration({ onRegister }) {
                                     value={formData.hp_field} onChange={handleChange} />
                             </div>
 
-                            <InputField id="regName" label="Full Name" required placeholder="e.g. Arun Kumar" />
+                            <InputField 
+                                id="regName" 
+                                label="Full Name" 
+                                required 
+                                placeholder="e.g. Arun Kumar" 
+                                value={formData.name}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                touched={touched.name}
+                                error={errors.name}
+                            />
 
                             <div className="input-row">
-                                <InputField id="regPhone" label="WhatsApp Number" type="tel" required placeholder="10-digit mobile" />
+                                <InputField 
+                                    id="regPhone" 
+                                    label="WhatsApp Number" 
+                                    type="tel" 
+                                    required 
+                                    placeholder="10-digit mobile" 
+                                    value={formData.phone}
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    touched={touched.phone}
+                                    error={errors.phone}
+                                />
                                 <div className={`input-group ${touched.education && errors.education ? 'has-error' : ''} ${touched.education && !errors.education && formData.education ? 'is-valid' : ''}`}>
                                     <label htmlFor="regEducation">Current Class <span className="req-star">*</span></label>
                                     <div className="custom-select-wrapper">
