@@ -1140,37 +1140,58 @@ footer p {
     padding: 120px 0;
     background: var(--wh);
 }
-.interactive-video-placeholder {
+.portrait-video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1080px;
+    margin: 50px auto 0;
+    justify-content: center;
+}
+.portrait-video-card {
     width: 100%;
-    max-width: 900px;
+    max-width: 320px;
     margin: 0 auto;
-    height: 500px;
     border-radius: 30px;
-    background: linear-gradient(135deg, rgba(6, 42, 31, 0.9), rgba(15, 76, 58, 0.95));
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(6, 42, 31, 0.15);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    background: linear-gradient(135deg, rgba(6, 42, 31, 0.95), rgba(15, 76, 58, 0.98));
+    position: relative;
+}
+.portrait-video-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 40px 80px rgba(74, 222, 128, 0.2);
+}
+.portrait-video-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 30px;
+}
+.portrait-video-element {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+    z-index: 1;
+}
+.video-overlay-ui {
+    position: absolute;
+    inset: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 40px 80px rgba(6, 42, 31, 0.15);
-    cursor: pointer;
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.interactive-video-placeholder::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 50% 50%, rgba(74, 222, 128, 0.15) 0%, transparent 60%);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-.interactive-video-placeholder:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 50px 100px rgba(74, 222, 128, 0.2);
-}
-.interactive-video-placeholder:hover::before {
-    opacity: 1;
+    background: radial-gradient(circle at 50% 50%, rgba(74, 222, 128, 0.08) 0%, rgba(6, 42, 31, 0.85) 90%);
+    z-index: 2;
+    transition: opacity 0.4s ease;
 }
 .play-button-overlay {
     width: 80px;
@@ -1192,7 +1213,7 @@ footer p {
     height: 40px;
     margin-left: 5px;
 }
-.interactive-video-placeholder:hover .play-button-overlay {
+.portrait-video-card:hover .play-button-overlay {
     background: var(--neon);
     color: var(--dk);
     transform: scale(1.1);
@@ -1207,10 +1228,17 @@ footer p {
     font-size: 0.9rem;
     z-index: 2;
 }
-@media(max-width: 768px) {
-    .interactive-video-placeholder {
-        height: 300px;
-        border-radius: 20px;
+@media(max-width: 960px) {
+    .portrait-video-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 720px;
+        gap: 24px;
+    }
+}
+@media(max-width: 640px) {
+    .portrait-video-grid {
+        grid-template-columns: 1fr;
+        max-width: 320px;
     }
 }
 

@@ -97,7 +97,7 @@ export default function Registration({ onRegister }) {
         setTouched({});
         setErrors({});
 
-        const waNum = import.meta.env.VITE_WA_NUMBER || '919605001733';
+        const waNum = import.meta.env.VITE_WA_NUMBER || '919544547861';
         const msg = `Hi! My name is ${newRegistration.name}. I'd like to book a career counseling session.`;
         window.location.href = `https://wa.me/${waNum}?text=${encodeURIComponent(msg)}`;
     };
