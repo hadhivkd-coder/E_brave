@@ -4150,3 +4150,16 @@ footer p {
         padding: 20px;
     }
 }
+
+/* === GLOBAL CLICK-LOCK & VISIBILITY RESCUE === */
+.scroll-reveal, .scroll-reveal-child {
+    pointer-events: auto !important;
+}
+
+@media (max-width: 900px) {
+    /* Ensure all elements are fully visible and responsive on mobile instantly */
+    .scroll-reveal, .scroll-reveal-child {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
