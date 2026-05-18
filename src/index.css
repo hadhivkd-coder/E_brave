@@ -3698,6 +3698,9 @@ footer p {
         flex: 0 0 80% !important; /* The card takes 80% width, letting users peek at the next one! */
         scroll-snap-align: center !important;
         min-width: 0 !important; 
+        opacity: 1 !important;
+        transform: none !important;
+        pointer-events: auto !important;
     }
 
     /* Small tweaks for two-col internal elements */
