@@ -54,15 +54,31 @@ export default function AiCoach({ onRegister }) {
             setStep('loading');
             
             // Capture lead on final step with full diagnostic details bundled
+            const fullDiagnosticProblems = `[AI Profile] Track: ${updatedAnswers.interest} | Skill: ${updatedAnswers.skill} | Performance: ${updatedAnswers.performance} | Target: ${updatedAnswers.location} | Core Problem: ${updatedAnswers.confusion}`;
+            const newRegistration = {
+                name: formData.name.trim(),
+                phone: formData.phone.replace(/[^0-9]/g, ''),
+                education: formData.education,
+                problems: fullDiagnosticProblems,
+                date: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+            };
+
             if (onRegister) {
-                const fullDiagnosticProblems = `[AI Profile] Track: ${updatedAnswers.interest} | Skill: ${updatedAnswers.skill} | Performance: ${updatedAnswers.performance} | Target: ${updatedAnswers.location} | Core Problem: ${updatedAnswers.confusion}`;
-                onRegister({
-                    name: formData.name,
-                    phone: formData.phone.replace(/[^0-9]/g, ''),
-                    education: formData.education,
-                    problems: fullDiagnosticProblems,
-                    date: new Date().toLocaleDateString()
-                });
+                onRegister(newRegistration);
+            }
+
+            const SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
+            if (SCRIPT_URL) {
+                try {
+                    fetch(SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(newRegistration)
+                    });
+                } catch (err) {
+                    console.error('AI Sheet error:', err);
+                }
             }
             
             runAiLoader();
