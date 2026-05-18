@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 export default function AiCoach({ onRegister }) {
     const [step, setStep] = useState('register'); // 'register', 'q1', 'q2', 'q3', 'q4', 'q5', 'loading', 'result'
     const [formData, setFormData] = useState({ name: '', phone: '', education: '' });
     const [errors, setErrors] = useState({});
-    const [countdown, setCountdown] = useState(3);
     
     // Detailed 5-Step diagnostic selections
     const [answers, setAnswers] = useState({
@@ -63,10 +62,12 @@ export default function AiCoach({ onRegister }) {
                 date: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
             };
 
+            // 1. Save in local registrationsList (fallback)
             if (onRegister) {
                 onRegister(newRegistration);
             }
 
+            // 2. Direct automatic post call to your Google Sheet spreadsheet webhook
             const SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
             if (SCRIPT_URL) {
                 try {
@@ -107,60 +108,110 @@ export default function AiCoach({ onRegister }) {
         }, 1200);
     };
 
-    // Deep dynamic career compiler engine (used to prefill the message with actual diagnostic value)
+    // Deep dynamic career compiler engine
     const compileRoadmap = () => {
-        const { interest, skill, performance, location } = answers;
+        const { interest, skill, performance, location, confusion } = answers;
         let coreTrack = '';
+        let modernCourses = [];
+        let entranceExams = [];
+        let milestones = [];
 
+        // DYNAMIC CORE TRACK DETERMINATION
         if (interest === 'Science & Future-Tech') {
+            if (skill === 'Building & logical analysis') {
+                coreTrack = location === 'Study Abroad / Overseas' 
+                    ? 'Global Software Architecture & AI Engineering'
+                    : 'Advanced Computer Science & Intelligent Systems';
+                modernCourses = ['AI & Large Language Modeling (LLM)', 'Robotics & Automation', 'Cybersecurity & Blockchain Architecture'];
+                entranceExams = ['JEE Advanced / Main', 'KEAM (Kerala)', 'SAT (for global universities)', 'CUET (Computer Science)'];
+            } else {
+                coreTrack = 'Biotechnology & Computational Biology';
+                modernCourses = ['Bioinformatics', 'Sustainable Green Technology', 'Clinical Research & Genetics'];
+                entranceExams = ['NEET (UG)', 'CUET (Biosciences)', 'IISER Aptitude Test (IAT)'];
+            }
+            milestones = [
+                'Focus intensely on coding platforms (GitHub, LeetCode) and algorithmic logic.',
+                'If aiming overseas, target IELTS/TOEFL preparation early.',
+                'Engage in active STEM science fairs and build 2-3 real-world software/science prototypes.'
+            ];
+        } 
+        else if (interest === 'Medical & Life Sciences') {
+            if (performance === 'Top Tier (>90%)') {
+                coreTrack = 'Clinical Medicine & Specialized Surgery';
+                modernCourses = ['MBBS / BDS', 'Digital Therapeutics', 'Genomics & Precision Medicine'];
+                entranceExams = ['NEET (UG)', 'KEAM Medical'];
+            } else {
+                coreTrack = 'Allied Health Sciences & Biotech Innovation';
+                modernCourses = ['Pharm.D (Doctor of Pharmacy)', 'Physiotherapy & Sports Medicine', 'Biotech Entrepreneurship'];
+                entranceExams = ['NEET (UG)', 'CUET (Allied Health Tracks)', 'KLEE / B.Sc Admission tests'];
+            }
+            milestones = [
+                'Ensure perfect conceptual mapping of biological cell functions and organic chemistry.',
+                'Research non-traditional high-paying medical careers such as Healthcare Data Analytics.',
+                'Secure hospital observation / volunteer programs during vacations.'
+            ];
+        } 
+        else if (interest === 'Business & Modern Commerce') {
+            if (skill === 'Public speaking & leading people') {
+                coreTrack = location === 'Study Abroad / Overseas'
+                    ? 'Global Business Administration & International Trade'
+                    : 'Corporate Strategy & Venture Management (MBA Track)';
+                modernCourses = ['Growth Marketing & Branding', 'E-commerce Management', 'Fintech & Investment Banking'];
+                entranceExams = ['IPMAT (5-Year IIM Program)', 'CUET (BBA/BMS)', 'CAT (post-grad targeting)'];
+            } else {
+                coreTrack = 'Quantitative Finance & Professional Accounting';
+                modernCourses = ['Chartered Accountancy (CA)', 'Financial Risk Management (FRM)', 'Actuarial Science & Quantitative Analysis'];
+                entranceExams = ['CA Foundation', 'CMA Foundation', 'CUET (Financial Markets)'];
+            }
+            milestones = [
+                'Build advanced Excel, corporate math, and accounting foundation early.',
+                'Explore high-paying Fintech careers and micro-credentials in data modeling.',
+                'Read economic news daily and participate in mock stock market analysis programs.'
+            ];
+        } 
+        else if (interest === 'Creative Design & Digital Media') {
             coreTrack = skill === 'Building & logical analysis'
-                ? 'Advanced Computer Science & AI Engineering'
-                : 'Biotechnology & Computational Biology';
-        } else if (interest === 'Medical & Life Sciences') {
-            coreTrack = performance === 'Top Tier (>90%)'
-                ? 'Clinical Medicine & Surgery'
-                : 'Allied Health Sciences & Biotech';
-        } else if (interest === 'Business & Modern Commerce') {
-            coreTrack = skill === 'Public speaking & leading people'
-                ? 'Corporate Strategy & Venture Management (MBA Track)'
-                : 'Quantitative Finance & Professional Accounting';
-        } else if (interest === 'Creative Design & Digital Media') {
-            coreTrack = 'Human-Computer Interaction & UX/UI Design';
-        } else {
-            coreTrack = 'Integrated Law & Corporate Jurisprudence (CLAT)';
+                ? 'Human-Computer Interaction & UX/UI Design'
+                : 'Digital Media Production & Visual Communication';
+            modernCourses = ['UI/UX Product Design', '3D Animation & Virtual Reality (VR)', 'Digital Content Creation & Brand Strategy'];
+            entranceExams = ['UCEED (IIT Design)', 'NID / NIFT Entrance Exam', 'CUCET (Media & Design Tracks)'];
+            milestones = [
+                'Build a stunning digital portfolio displaying your designs, videos, or UI layouts.',
+                'UI/UX design currently commands tech-counseling salary grades without standard engineering constraints.',
+                'Target premier design colleges like National Institute of Design (NID) or IIT Design departments.'
+            ];
+        } 
+        else {
+            if (skill === 'Public speaking & leading people' || performance === 'Top Tier (>90%)') {
+                coreTrack = 'Judiciary & Corporate Jurisprudence (Integrated Law)';
+                modernCourses = ['Corporate & Cyber Law', 'Intellectual Property Rights', 'International Relations & Diplomacy'];
+                entranceExams = ['CLAT (Common Law Admission Test)', 'KLEE (Kerala Law Entrance)', 'LSAT India'];
+            } else {
+                coreTrack = 'Psychology & Behavioral Counseling';
+                modernCourses = ['Clinical Psychology', 'Organizational Psychology', 'Human Resources & Public Policy'];
+                entranceExams = ['CUET (Humanities)', 'TISSNET', 'State University Entrance Exams'];
+            }
+            milestones = [
+                'Hone critical verbal analysis, presentation styles, and persuasive writing skills.',
+                'A 5-year integrated B.A. LL.B from a National Law University (NLU) is the gold standard for high corporate packages.',
+                'Follow current affairs closely and practice mock debating/analytical writing regularly.'
+            ];
         }
 
-        return { coreTrack };
+        if (confusion === 'Parent alignment (They want Doctor/Engineer, I want my passion)') {
+            milestones.unshift('⭐ CRITICAL: Schedule a parent alignment session. Use objective, science-backed salary and job market data for alternative careers to show them.');
+        }
+
+        return { coreTrack, modernCourses, entranceExams, milestones };
     };
 
     const roadmap = compileRoadmap();
 
     const getPrefilledWaMsg = () => {
         const waNum = '919544547861';
-        const text = `Hi! My name is ${formData.name}. I just completed my E-Brave AI Career Coach assessment and generated my Career Roadmap for: "${roadmap.coreTrack}". Please send me my custom roadmap and confirm my priority consultation!`;
+        const text = `Hi! My name is ${formData.name}. I just completed my E-Brave AI Career Coach assessment and generated my Career Roadmap for: "${roadmap.coreTrack}". I want to book a 1-on-1 professional session to finalize my plan!`;
         return `https://wa.me/${waNum}?text=${encodeURIComponent(text)}`;
     };
-
-    // COUNTDOWN AND AUTOMATIC REDIRECT ENGINE
-    useEffect(() => {
-        if (step !== 'result') return;
-
-        setCountdown(3); // Reset to 3 seconds
-
-        const timer = setInterval(() => {
-            setCountdown(prev => {
-                if (prev <= 1) {
-                    clearInterval(timer);
-                    // Automatic redirect to WhatsApp chat
-                    window.location.href = getPrefilledWaMsg();
-                    return 0;
-                }
-                return prev - 1;
-            });
-        }, 1000);
-
-        return () => clearInterval(timer);
-    }, [step]);
 
     return (
         <section id="ai-coach" className="ai-coach-section scroll-reveal">
@@ -168,7 +219,7 @@ export default function AiCoach({ onRegister }) {
                 <div className="section-head text-center scroll-reveal-child">
                     <span className="stag">E-Brave AI Guidance</span>
                     <h2 className="sec-h">Deep AI Career Coach & Roadmap</h2>
-                    <p className="sec-p">Answer 5 quick, step-by-step diagnostic questions to compile your customized career strategy delivered instantly to your WhatsApp.</p>
+                    <p className="sec-p">Answer 5 quick, step-by-step diagnostic questions to compile a highly customized career strategy incorporating standard and futuristic options.</p>
                 </div>
 
                 <div className="ai-coach-container scroll-reveal-child delay-2">
@@ -413,38 +464,71 @@ export default function AiCoach({ onRegister }) {
                         </div>
                     )}
 
-                    {/* STEP 7: REDIRECT & WHATSAPP DIRECT DELIVERY SCREEN */}
+                    {/* STEP 7: PERSONALIZED DIVERSE RESULT ROADMAP */}
                     {step === 'result' && (
-                        <div className="ai-result-card" style={{ textAlign: 'center', padding: '50px 30px' }}>
-                            <div className="ai-checkmark" style={{ margin: '0 auto 20px', background: '#dcfce7', color: '#15803d', display: 'flex', alignItems: 'center', justifyContent: 'center', width: '60px', height: '60px', borderRadius: '50%', fontSize: '1.8rem' }}>✓</div>
-                            
-                            <h3 style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--dk)', marginBottom: '10px' }}>
-                                Roadmap Ready for Delivery!
-                            </h3>
-                            
-                            <p style={{ color: 'var(--mu)', fontSize: '1.05rem', lineHeight: '1.6', maxWidth: '500px', margin: '0 auto 30px' }}>
-                                Hi <strong>{formData.name}</strong>, your custom career roadmap has been compiled successfully. To receive your official copy and finalize your path, we are transferring you directly to WhatsApp.
-                            </p>
-
-                            <div style={{ background: '#f0fdf4', border: '1px solid rgba(74,222,128,0.2)', borderRadius: '20px', padding: '24px', marginBottom: '35px', textAlign: 'left', maxWidth: '500px', margin: '0 auto 35px' }}>
-                                <h5 style={{ margin: '0 0 10px', color: 'var(--dk)', fontWeight: '700' }}>📋 Delivery Steps:</h5>
-                                <ol style={{ margin: 0, paddingLeft: '20px', color: 'var(--mu)', display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.95rem' }}>
-                                    <li>Click the button below to open WhatsApp.</li>
-                                    <li><strong>Send the pre-filled message</strong> (this sends your diagnostic profile to our counselor).</li>
-                                    <li>Our counselor will instantly deliver your custom roadmap on chat!</li>
-                                </ol>
+                        <div className="ai-result-card">
+                            <div className="ai-result-header">
+                                <div className="ai-checkmark">⚡</div>
+                                <div>
+                                    <h4>Your Personalized AI Career Strategy</h4>
+                                    <span>Compiled for {formData.name} ({formData.education})</span>
+                                </div>
                             </div>
 
-                            <a 
-                                href={getPrefilledWaMsg()} 
-                                className="btn-main btn-elite-gold pulsing-btn"
-                                style={{ width: '100%', maxWidth: '400px', justifyContent: 'center', padding: '18px', fontSize: '1.1rem', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}
-                            >
-                                Get Roadmap on WhatsApp 💬
-                            </a>
+                            <div className="ai-result-body">
+                                <div className="ai-roadmap-block">
+                                    <span className="ai-roadmap-label">🎯 DIVERSE CORE CAREER TRACK</span>
+                                    <h3 className="ai-roadmap-title">{roadmap.coreTrack}</h3>
+                                </div>
 
-                            <div style={{ marginTop: '20px', fontSize: '0.85rem', color: 'var(--mu)' }}>
-                                Redirecting automatically in <strong style={{ color: 'var(--dk)' }}>{countdown}s</strong>...
+                                <div className="ai-roadmap-details">
+                                    <div className="ai-detail-section">
+                                        <h5>📚 Recommended Specialized Courses:</h5>
+                                        <div className="ai-exam-tags" style={{ marginBottom: '20px' }}>
+                                            {roadmap.modernCourses.map((mc, i) => (
+                                                <span key={i} className="ai-exam-tag" style={{ background: '#f0fdf4', borderColor: 'rgba(74, 222, 128, 0.2)', color: 'var(--dk)' }}>
+                                                    {mc}
+                                                </span>
+                                            ))}
+                                        </div>
+
+                                        <h5>🚀 Key Action Milestones:</h5>
+                                        <ul>
+                                            {roadmap.milestones.map((d, i) => <li key={i}>{d}</li>)}
+                                        </ul>
+                                    </div>
+
+                                    <div className="ai-detail-section">
+                                        <h5>🏛️ Target Entrance Exams & Universities:</h5>
+                                        <div className="ai-exam-tags">
+                                            {roadmap.entranceExams.map((ex, i) => <span key={i} className="ai-exam-tag">{ex}</span>)}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* CONVERSION BANNER - ONE-ON-ONE VALUE UPGRADE */}
+                                <div className="ai-conversion-banner">
+                                    <div className="ai-banner-icon">🎯</div>
+                                    <div className="ai-banner-content">
+                                        <h5>Lock In Your Career Path With An Expert</h5>
+                                        <p>
+                                            Your AI roadmap is an excellent starting baseline. However, choosing a university, preparing for entrances, and convincing parents require deep, personal human guidance. Connect with our Certified Counselors to secure your exact career roadmap!
+                                        </p>
+                                        <a 
+                                            href={getPrefilledWaMsg()} 
+                                            target="_blank" 
+                                            rel="noopener noreferrer" 
+                                            className="btn-main ai-banner-cta btn-elite-gold"
+                                            style={{ textDecoration: 'none' }}
+                                        >
+                                            Book 1-on-1 Session on WhatsApp 📞
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <button onClick={() => setStep('q1')} className="ai-retry-btn">
+                                    ↺ Restart Diagnostic Assessment
+                                </button>
                             </div>
                         </div>
                     )}
