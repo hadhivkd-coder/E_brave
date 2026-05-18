@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Process from './components/Process';
 import VideoSection from './components/VideoSection';
+import AiCoach from './components/AiCoach';
 
 import Registration from './components/Registration';
 import Resources from './components/Resources';
@@ -52,6 +53,7 @@ function App() {
         <About />
         <Process />
         <VideoSection />
+        <AiCoach onRegister={handleRegister} />
         <Counselor />
         <Testimonial />
 
