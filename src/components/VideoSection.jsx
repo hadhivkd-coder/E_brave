@@ -1,10 +1,47 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 export default function VideoSection() {
-    const [activeVideo, setActiveVideo] = useState(null); // 'vid1', 'vid2', 'vid3' or null
+    const videoRef1 = useRef(null);
+    const videoRef2 = useRef(null);
+    const videoRef3 = useRef(null);
+    const [isPlaying1, setIsPlaying1] = useState(false);
+    const [isPlaying2, setIsPlaying2] = useState(false);
+    const [isPlaying3, setIsPlaying3] = useState(false);
 
-    const playVideo = (id) => {
-        setActiveVideo(id);
+    const togglePlay1 = () => {
+        if (videoRef1.current) {
+            if (isPlaying1) {
+                videoRef1.current.pause();
+                setIsPlaying1(false);
+            } else {
+                videoRef1.current.play().catch(err => console.log("Video 1 pending: ", err));
+                setIsPlaying1(true);
+            }
+        }
+    };
+
+    const togglePlay2 = () => {
+        if (videoRef2.current) {
+            if (isPlaying2) {
+                videoRef2.current.pause();
+                setIsPlaying2(false);
+            } else {
+                videoRef2.current.play().catch(err => console.log("Video 2 pending: ", err));
+                setIsPlaying2(true);
+            }
+        }
+    };
+
+    const togglePlay3 = () => {
+        if (videoRef3.current) {
+            if (isPlaying3) {
+                videoRef3.current.pause();
+                setIsPlaying3(false);
+            } else {
+                videoRef3.current.play().catch(err => console.log("Video 3 pending: ", err));
+                setIsPlaying3(true);
+            }
+        }
     };
 
     return (
@@ -18,18 +55,20 @@ export default function VideoSection() {
                 
                 <div className="portrait-video-grid scroll-reveal-child delay-2">
                     {/* Portrait Video 1 */}
-                    <div className="portrait-video-card" onClick={() => playVideo('vid1')}>
+                    <div className="portrait-video-card" onClick={togglePlay1}>
                         <div className="portrait-video-wrapper">
-                            {activeVideo === 'vid1' ? (
-                                <iframe 
-                                    src="https://drive.google.com/file/d/1Z6SGOO4cGTCy3I9s6PNXZobEkQRKgr-W/preview?autoplay=1" 
-                                    className="portrait-video-element"
-                                    allow="autoplay; encrypted-media"
-                                    allowFullScreen
-                                    style={{ border: 'none', width: '100%', height: '100%', borderRadius: '30px' }}
-                                    title="Student Success Story"
-                                ></iframe>
-                            ) : (
+                            <video 
+                                ref={videoRef1}
+                                src="/videos/portrait-video-1.mp4" 
+                                className="portrait-video-element"
+                                playsInline
+                                loop
+                                controls={isPlaying1}
+                                onClick={(e) => e.stopPropagation()} // Let native controls work without triggering togglePlay1
+                                onPlay={() => setIsPlaying1(true)}
+                                onPause={() => setIsPlaying1(false)}
+                            />
+                            {!isPlaying1 && (
                                 <div className="video-overlay-ui">
                                     <div className="play-button-overlay">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -43,18 +82,20 @@ export default function VideoSection() {
                     </div>
 
                     {/* Portrait Video 2 */}
-                    <div className="portrait-video-card" onClick={() => playVideo('vid2')}>
+                    <div className="portrait-video-card" onClick={togglePlay2}>
                         <div className="portrait-video-wrapper">
-                            {activeVideo === 'vid2' ? (
-                                <iframe 
-                                    src="https://drive.google.com/file/d/1bfLT4XqPbPzSzIU1R7igbKx8gKZqI40Z/preview?autoplay=1" 
-                                    className="portrait-video-element"
-                                    allow="autoplay; encrypted-media"
-                                    allowFullScreen
-                                    style={{ border: 'none', width: '100%', height: '100%', borderRadius: '30px' }}
-                                    title="Counselor Walkthrough"
-                                ></iframe>
-                            ) : (
+                            <video 
+                                ref={videoRef2}
+                                src="/videos/portrait-video-2.mp4" 
+                                className="portrait-video-element"
+                                playsInline
+                                loop
+                                controls={isPlaying2}
+                                onClick={(e) => e.stopPropagation()} // Let native controls work without triggering togglePlay2
+                                onPlay={() => setIsPlaying2(true)}
+                                onPause={() => setIsPlaying2(false)}
+                            />
+                            {!isPlaying2 && (
                                 <div className="video-overlay-ui">
                                     <div className="play-button-overlay">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -68,18 +109,20 @@ export default function VideoSection() {
                     </div>
 
                     {/* Portrait Video 3 */}
-                    <div className="portrait-video-card" onClick={() => playVideo('vid3')}>
+                    <div className="portrait-video-card" onClick={togglePlay3}>
                         <div className="portrait-video-wrapper">
-                            {activeVideo === 'vid3' ? (
-                                <iframe 
-                                    src="https://drive.google.com/file/d/1Z6SGOO4cGTCy3I9s6PNXZobEkQRKgr-W/preview?autoplay=1" 
-                                    className="portrait-video-element"
-                                    allow="autoplay; encrypted-media"
-                                    allowFullScreen
-                                    style={{ border: 'none', width: '100%', height: '100%', borderRadius: '30px' }}
-                                    title="Assessment Demo"
-                                ></iframe>
-                            ) : (
+                            <video 
+                                ref={videoRef3}
+                                src="/videos/portrait-video-3.mp4" 
+                                className="portrait-video-element"
+                                playsInline
+                                loop
+                                controls={isPlaying3}
+                                onClick={(e) => e.stopPropagation()} // Let native controls work without triggering togglePlay3
+                                onPlay={() => setIsPlaying3(true)}
+                                onPause={() => setIsPlaying3(false)}
+                            />
+                            {!isPlaying3 && (
                                 <div className="video-overlay-ui">
                                     <div className="play-button-overlay">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
