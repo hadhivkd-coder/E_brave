@@ -18,12 +18,12 @@ const resources = [
         target: '_blank',
     },
     {
-        tag: 'Free Session',
+        tag: '1-on-1 Session',
         emoji: '📞',
-        badge: '30 Min · No Commitment',
-        title: 'Book a Free Discovery Call with a Certified Counselor',
-        benefit: 'Talk to a real expert in Malayalam or English. Walk away with clarity on your next step — completely free.',
-        cta: 'Book Free Call Now',
+        badge: '30 Min · Professional',
+        title: 'Book a Discovery Call with a Certified Counselor',
+        benefit: 'Talk to a real expert in Malayalam or English. Walk away with absolute clarity on your next step.',
+        cta: 'Book Your Session Now',
         ctaIcon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="16" height="16">
                 <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.5 1.18 2 2 0 012.5 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
@@ -57,7 +57,7 @@ export default function Resources() {
             <div className="sw">
                 <div className="section-head text-center scroll-reveal-child">
                     <span className="stag">Free Career Resources</span>
-                    <h2 className="sec-h">Start Your Journey — For Free</h2>
+                    <h2 className="sec-h">Start Your Journey Today</h2>
                     <p className="sec-p">
                         Every resource below gives you something real and actionable — no fluff, no paywalls.
                         Pick what's most useful for you right now.

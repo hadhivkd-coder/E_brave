@@ -37,13 +37,13 @@ export default function ExitIntent() {
             <div className="exit-modal" onClick={(e) => e.stopPropagation()}>
                 <button className="exit-close" onClick={dismiss}>&times;</button>
                 <div className="exit-emoji">🎯</div>
-                <h3 className="exit-title">Wait! Don't Leave Without Your Free Career Clarity Session</h3>
+                <h3 className="exit-title">Wait! Don't Leave Without Your Career Clarity Session</h3>
                 <p className="exit-text">
                     Over <strong>500+ students from Kerala</strong> discovered their ideal career path this month alone. 
                     Your future is just one conversation away.
                 </p>
                 <a href="#register" className="btn-main exit-cta" onClick={dismiss}>
-                    Yes, I Want Free Guidance →
+                    Yes, I Want Career Guidance →
                 </a>
                 <button className="exit-skip" onClick={dismiss}>No thanks, I'll figure it out myself</button>
             </div>

@@ -118,7 +118,7 @@ export default function Pricing() {
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                     </svg>
-                    <p>All plans include a <strong>100% satisfaction guarantee</strong>. If you are not satisfied after your session, we will schedule a free re-session — no questions asked.</p>
+                    <p>All plans include a <strong>100% satisfaction guarantee</strong>. If you are not satisfied after your session, we will schedule a complimentary follow-up session — no questions asked.</p>
                 </div>
             </div>
         </section>

@@ -132,7 +132,7 @@ export default function Registration({ onRegister }) {
                     <div className="register-text scroll-reveal-child">
                         <span className="stag stag-inv">Secure Your Spot Today</span>
                         <h2 className="sec-h">Your Roadmap Starts Here</h2>
-                        <p className="sec-p">We keep sessions small — <strong>15 students per week</strong> — so every student gets focused, personal guidance. Reserve your free consultation before this week's slots close.</p>
+                        <p className="sec-p">We keep sessions small — <strong>15 students per week</strong> — so every student gets focused, personal guidance. Reserve your consultation before this week's slots close.</p>
 
                         <div className="reg-benefits">
                             <div className="reg-benefit">
@@ -167,7 +167,7 @@ export default function Registration({ onRegister }) {
 
                     <div className="register-form-box scroll-reveal-child delay-2">
                         <div className="form-header">
-                            <h3>Book Your Free Consultation</h3>
+                            <h3>Book Your Consultation</h3>
                             <p>Takes less than 60 seconds · No payment required</p>
                         </div>
                         <form id="registrationForm" className="styled-form" onSubmit={handleSubmit} noValidate>
@@ -224,7 +224,7 @@ export default function Registration({ onRegister }) {
                             </div>
 
                             <button type="submit" className="btn-main submit-btn btn-elite-gold" disabled={submitting}>
-                                <span>{submitting ? 'Booking your slot…' : 'Book My Free Consultation'}</span>
+                                <span>{submitting ? 'Booking your slot…' : 'Book My Consultation'}</span>
                                 {!submitting && (
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
