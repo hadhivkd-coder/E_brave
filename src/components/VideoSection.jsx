@@ -59,7 +59,7 @@ export default function VideoSection() {
                         <div className="portrait-video-wrapper">
                             <video 
                                 ref={videoRef1}
-                                src="/videos/portrait-video-1.mp4" 
+                                src="https://docs.google.com/uc?export=download&id=1Z6SGOO4cGTCy3I9s6PNXZobEkQRKgr-W" 
                                 className="portrait-video-element"
                                 playsInline
                                 loop
@@ -86,7 +86,7 @@ export default function VideoSection() {
                         <div className="portrait-video-wrapper">
                             <video 
                                 ref={videoRef2}
-                                src="/videos/portrait-video-2.mp4" 
+                                src="https://docs.google.com/uc?export=download&id=1bfLT4XqPbPzSzIU1R7igbKx8gKZqI40Z" 
                                 className="portrait-video-element"
                                 playsInline
                                 loop
@@ -113,7 +113,7 @@ export default function VideoSection() {
                         <div className="portrait-video-wrapper">
                             <video 
                                 ref={videoRef3}
-                                src="/videos/portrait-video-3.mp4" 
+                                src="https://docs.google.com/uc?export=download&id=1Z6SGOO4cGTCy3I9s6PNXZobEkQRKgr-W" 
                                 className="portrait-video-element"
                                 playsInline
                                 loop
