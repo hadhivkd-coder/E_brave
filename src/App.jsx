@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SplashScreen from './components/SplashScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -6,7 +7,6 @@ import About from './components/About';
 import Process from './components/Process';
 import VideoSection from './components/VideoSection';
 import AiCoach from './components/AiCoach';
-
 import Registration from './components/Registration';
 import Resources from './components/Resources';
 import FAQ from './components/FAQ';
@@ -14,13 +14,15 @@ import Testimonial from './components/Testimonial';
 import Counselor from './components/Counselor';
 import Footer from './components/Footer';
 import PrestigeTicker from './components/PrestigeTicker';
-
 import FloatingWhatsApp from './components/FloatingWhatsApp';
 import ScrollToTop from './components/ScrollToTop';
 import SocialProof from './components/SocialProof';
 import ExitIntent from './components/ExitIntent';
 
-function App() {
+import AdminApp from './admin/AdminApp';
+
+// Public website component (unchanged)
+function PublicSite() {
   const [registrationsList, setRegistrationsList] = useState([]);
 
   useEffect(() => {
@@ -56,7 +58,6 @@ function App() {
         <AiCoach onRegister={handleRegister} />
         <Counselor />
         <Testimonial />
-
         <Registration onRegister={handleRegister} />
         <Resources />
         <FAQ />
@@ -67,6 +68,19 @@ function App() {
       <SocialProof />
       <ExitIntent />
     </>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        {/* Admin panel — all /admin/* routes */}
+        <Route path="/admin/*" element={<AdminApp />} />
+        {/* Public website — root route */}
+        <Route path="/*" element={<PublicSite />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
