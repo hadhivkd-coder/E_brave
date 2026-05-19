@@ -975,7 +975,32 @@ export async function generateEOSResponse(message, context = {}, quickAnswer = f
     return { response: 'Please type a message to get started.', type: 'error' };
   }
 
-  // If Supabase is configured, use secure Edge Function routing to OpenAI
+  // 1. Try Vercel Serverless Function relative endpoint first (active on Vercel deployment)
+  try {
+    const memoryContext = getRelevantMemory(message);
+    const res = await fetch('/api/eos-ai', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message,
+        context: {
+          ...context,
+          memoryContext
+        },
+        quickAnswer
+      })
+    });
+    if (res.ok) {
+      const data = await res.json();
+      if (data && data.response) {
+        return { response: data.response, type: data.type || 'ai_generation' };
+      }
+    }
+  } catch (err) {
+    // Fail silently, try next fallback
+  }
+
+  // 2. If Supabase is configured, use secure Edge Function routing to OpenAI
   if (isSupabaseConfigured()) {
     try {
       const memoryContext = getRelevantMemory(message);
@@ -998,7 +1023,7 @@ export async function generateEOSResponse(message, context = {}, quickAnswer = f
     }
   }
 
-  // Fallback local pattern/regex processing engine
+  // 3. Fallback local pattern/regex processing engine
   const intent = detectIntent(message);
 
   try {
@@ -1034,7 +1059,31 @@ export async function generateEOSResponse(message, context = {}, quickAnswer = f
  * @returns {Promise<{ response: string, type: string }>}
  */
 export async function generateEOSGreeting(context = {}) {
-  // If Supabase is configured, generate personalized greet from AI Edge Function
+  // 1. Try Vercel Serverless Function relative endpoint first
+  try {
+    const memoryContext = getRelevantMemory('greeting report');
+    const res = await fetch('/api/eos-ai', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: "Generate your initial greeting overview dashboard report.",
+        context: {
+          ...context,
+          memoryContext
+        }
+      })
+    });
+    if (res.ok) {
+      const data = await res.json();
+      if (data && data.response) {
+        return { response: data.response, type: 'greeting' };
+      }
+    }
+  } catch (err) {
+    // Fail silently, try next fallback
+  }
+
+  // 2. If Supabase is configured, generate personalized greet from AI Edge Function
   if (isSupabaseConfigured()) {
     try {
       const memoryContext = getRelevantMemory('greeting report');
