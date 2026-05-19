@@ -99,4 +99,8 @@ To deploy the secure OpenAI agent route to Supabase:
 ## 🔒 Security Practices
 - **Never expose secrets:** Frontend contains zero API keys. All keys (OpenAI, database service roles) are stored server-side in Supabase Secrets or Edge environments.
 - **Strict CSP:** Built-in Content Security Policy checks block arbitrary script execution, allowing only verified CDNs for analytics.
-- **Row-Level Security (RLS):** All tables are shielded using Postgres policies, restricting read/write access based on authentication state.
+- **Row-Level Security (RLS):** All tables are shielded using Postgres policies, restricting read/write access based on authentication state. Hardened in `supabase/migrations/20260521_harden_rls.sql` to isolate financial records to Super Admin/Ops roles, leads/sessions to counselors, and verify that offline users cannot execute actions.
+- **Failed Login Lockout:** Accounts are temporarily locked out on the client after 3 consecutive failed authentication attempts, with telemetry alerts logging the client's User-Agent and IP to console/audit streams.
+- **Administrative Audit Logging:** Destructive actions (such as lead deletions or rule removals) require typing confirmation values in a unified glassmorphism safety dialog and are recorded in the central `activity_logs` table detailing the actor, action type, entity, and previous states.
+- **Prioritized AI Memory (Token Budgets):** Implements dynamic session weights in `EOSMemory.js` to rank and budget relevant context inputs, capping query sizes under a 1,400-character ceiling to control execution costs.
+- **Quick Answer Mode:** Supported via a frontend interface toggle, instructing the `eos-ai` Edge Function to bypass verbose multi-section Markdown summaries in favor of direct, token-efficient responses.
