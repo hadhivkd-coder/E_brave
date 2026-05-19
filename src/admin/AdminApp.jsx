@@ -92,7 +92,7 @@ function AdminRoutes() {
         <Route path="finance" element={<ProtectedRoute requiredPermission="finance"><Finance /></ProtectedRoute>} />
         <Route path="analytics" element={<ProtectedRoute requiredPermission="analytics"><Analytics /></ProtectedRoute>} />
         <Route path="campaigns" element={<ProtectedRoute requiredPermission="campaigns"><Campaigns /></ProtectedRoute>} />
-        <Route path="funnels" element={<ProtectedRoute><Funnels /></ProtectedRoute>} />
+        <Route path="funnels" element={<ProtectedRoute requiredPermission="funnels"><Funnels /></ProtectedRoute>} />
         <Route path="team" element={<ProtectedRoute requiredPermission="team"><Team /></ProtectedRoute>} />
         <Route path="tasks" element={<ProtectedRoute requiredPermission="tasks"><Tasks /></ProtectedRoute>} />
         <Route path="workflow" element={<ProtectedRoute requiredPermission="workflow"><Workflow /></ProtectedRoute>} />

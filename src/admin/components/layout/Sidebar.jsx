@@ -10,50 +10,48 @@ const NAV_GROUPS = [
     label: 'CORE',
     items: [
       { path: '/admin/dashboard',     label: 'Dashboard',         icon: '⊞',  key: 'dashboard' },
-      { path: '/admin/leads',         label: 'Leads',             icon: '🎯', key: 'leads',    badge: 'newLeads' },
-      { path: '/admin/students',      label: 'Students',          icon: '🎓', key: 'students' },
-      { path: '/admin/counseling',    label: 'Counseling',        icon: '💬', key: 'counseling' },
-      { path: '/admin/webinars',      label: 'Webinars',          icon: '📡', key: 'webinars' },
-      { path: '/admin/content',       label: 'Content',           icon: '📄', key: 'content' },
-      { path: '/admin/finance',       label: 'Finance',           icon: '💰', key: 'finance' },
+      { path: '/admin/leads',         label: 'Leads',             icon: '🎯', key: 'leads',    badge: 'newLeads',    permission: 'leads' },
+      { path: '/admin/students',      label: 'Students',          icon: '🎓', key: 'students', permission: 'students' },
+      { path: '/admin/counseling',    label: 'Counseling',        icon: '💬', key: 'counseling', permission: 'counseling' },
+      { path: '/admin/webinars',      label: 'Webinars',          icon: '📡', key: 'webinars', permission: 'webinars' },
+      { path: '/admin/content',       label: 'Content',           icon: '📄', key: 'content',  permission: 'content' },
+      { path: '/admin/finance',       label: 'Finance',           icon: '💰', key: 'finance',  permission: 'finance' },
     ],
   },
   {
     label: 'GROWTH',
     items: [
-      { path: '/admin/website-intel', label: 'Website Intelligence', icon: '🌐', key: 'website-intel' },
-      { path: '/admin/ads',           label: 'Ads & Campaigns',      icon: '📣', key: 'ads' },
-      { path: '/admin/funnels',       label: 'Funnels',              icon: '🔻', key: 'funnels' },
-      { path: '/admin/analytics',     label: 'Analytics',            icon: '📊', key: 'analytics' },
-      { path: '/admin/testimonials',  label: 'Testimonials',         icon: '⭐', key: 'testimonials' },
+      { path: '/admin/campaigns',     label: 'Ads & Campaigns',      icon: '📣', key: 'campaigns', permission: 'campaigns' },
+      { path: '/admin/funnels',       label: 'Funnels',              icon: '🔻', key: 'funnels',   permission: 'funnels' },
+      { path: '/admin/analytics',     label: 'Analytics',            icon: '📊', key: 'analytics', permission: 'analytics' },
     ],
   },
   {
     label: 'MANAGEMENT',
     items: [
-      { path: '/admin/team',          label: 'Team',          icon: '👥', key: 'team' },
-      { path: '/admin/tasks',         label: 'Tasks',         icon: '✅', key: 'tasks' },
-      { path: '/admin/workflow',      label: 'Workflow',      icon: '⚙️', key: 'workflow' },
-      { path: '/admin/notifications', label: 'Notifications', icon: '🔔', key: 'notifications', badge: 'notifications' },
+      { path: '/admin/team',          label: 'Team Directory',icon: '👥', key: 'team',      permission: 'team' },
+      { path: '/admin/tasks',         label: 'Tasks',         icon: '✅', key: 'tasks',     permission: 'tasks' },
+      { path: '/admin/workflow',      label: 'Workflow',      icon: '⚙️', key: 'workflow',  permission: 'workflow' },
+      { path: '/admin/notifications', label: 'Notifications', icon: '🔔', key: 'notifications', badge: 'notifications', permission: 'notifications' },
     ],
   },
   {
     label: 'AI SYSTEMS',
     items: [
-      { path: '/admin/eos-ai',        label: 'EOS AI',            icon: '🤖', key: 'eos-ai',    isAI: true },
-      { path: '/admin/automation',    label: 'Automation Center', icon: '⚡', key: 'automation' },
-      { path: '/admin/ai-insights',   label: 'AI Insights',       icon: '🧠', key: 'ai-insights' },
-      { path: '/admin/ai-reports',    label: 'AI Reports',        icon: '📈', key: 'ai-reports' },
+      { path: '/admin/eos-ai',        label: 'EOS AI',            icon: '🤖', key: 'eos-ai',    isAI: true, permission: 'eos_ai' },
+      { path: '/admin/automation',    label: 'Automation Center', icon: '⚡', key: 'automation', permission: 'automation' },
+      { path: '/admin/ai-insights',   label: 'AI Insights',       icon: '🧠', key: 'ai-insights', permission: 'ai_insights' },
+      { path: '/admin/ai-reports',    label: 'AI Reports',        icon: '📈', key: 'ai-reports', permission: 'ai_reports' },
     ],
   },
   {
     label: 'SYSTEM',
     items: [
-      { path: '/admin/knowledge-base',    label: 'Knowledge Base',    icon: '📚', key: 'knowledge-base' },
-      { path: '/admin/settings',          label: 'Settings',          icon: '🔧', key: 'settings' },
-      { path: '/admin/integrations',      label: 'Integrations',      icon: '🔗', key: 'integrations' },
-      { path: '/admin/permissions',       label: 'Permissions',       icon: '🛡️', key: 'permissions' },
-      { path: '/admin/api-config',        label: 'API Configurations',icon: '🔑', key: 'api-config' },
+      { path: '/admin/knowledge-base',    label: 'Knowledge Base',    icon: '📚', key: 'knowledge-base', permission: 'knowledge_base' },
+      { path: '/admin/settings',          label: 'Settings',          icon: '🔧', key: 'settings',       permission: 'settings' },
+      { path: '/admin/integrations',      label: 'Integrations',      icon: '🔗', key: 'integrations',   permission: 'integrations' },
+      { path: '/admin/permissions',       label: 'Permissions',       icon: '🛡️', key: 'permissions',    permission: 'permissions' },
+      { path: '/admin/api-config',        label: 'API Configurations',icon: '🔑', key: 'api-config',     permission: 'api_config' },
     ],
   },
 ];
@@ -97,7 +95,7 @@ function NavItemEl({ item, collapsed, newLeadsCount, unreadCount }) {
 }
 
 export default function Sidebar({ collapsed, setCollapsed }) {
-  const { user, role, logout } = useAuth();
+  const { user, role, logout, hasPermission } = useAuth();
   const { leads } = useData();
   const { unreadCount } = useNotifications();
   const navigate = useNavigate();
@@ -114,6 +112,17 @@ export default function Sidebar({ collapsed, setCollapsed }) {
   const initials = user
     ? (user.name || user.email || 'A').slice(0, 2).toUpperCase()
     : 'A';
+
+  // Filter groups and items based on permissions dynamically
+  const filteredNavGroups = NAV_GROUPS.map(group => {
+    const visibleItems = group.items.filter(item => {
+      if (item.permission) {
+        return hasPermission(item.permission);
+      }
+      return true; // Always allow dashboard
+    });
+    return { ...group, items: visibleItems };
+  }).filter(group => group.items.length > 0);
 
   return (
     <aside className={`adm-sidebar${collapsed ? ' collapsed' : ''}`}>
@@ -156,7 +165,7 @@ export default function Sidebar({ collapsed, setCollapsed }) {
 
       {/* Nav */}
       <nav className="adm-sidebar-nav">
-        {NAV_GROUPS.map(group => (
+        {filteredNavGroups.map(group => (
           <div key={group.label} className="adm-nav-group">
             {!collapsed && (
               <span className="adm-nav-group-label">{group.label}</span>

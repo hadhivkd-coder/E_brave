@@ -8,15 +8,13 @@ const AuthContext = createContext(null);
 const PERMISSIONS = {
   'Super Admin': ['*'],
   'Operations Manager': [
-    'dashboard', 'leads', 'students', 'counseling', 'webinars', 'content', 'finance', 'analytics',
-    'team', 'tasks', 'workflow', 'notifications', 'eos_ai', 'automation', 'ai_insights', 'ai_reports',
-    'knowledge_base', 'settings', 'integrations', 'permissions', 'api_config'
+    'dashboard', 'leads', 'students', 'counseling', 'webinars', 'tasks', 'analytics', 'workflow', 'notifications'
   ],
   'Counselor': [
-    'dashboard', 'leads', 'students', 'counseling', 'notifications', 'eos_ai', 'knowledge_base', 'tasks'
+    'dashboard', 'leads', 'students', 'counseling', 'tasks', 'notifications'
   ],
   'Content Manager': [
-    'dashboard', 'content', 'analytics', 'notifications', 'eos_ai', 'knowledge_base', 'campaigns', 'tasks'
+    'dashboard', 'content', 'campaigns', 'webinars', 'funnels', 'tasks', 'notifications'
   ]
 };
 

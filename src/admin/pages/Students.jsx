@@ -133,13 +133,19 @@ function StudentProfile({ student, sessions, onClose }) {
   );
 }
 
+import { useAuth } from '../context/AuthContext';
+
 export default function Students() {
   const { students, sessions } = useData();
+  const { user } = useAuth();
   const [search, setSearch] = useState('');
   const [selectedStudent, setSelectedStudent] = useState(null);
   const [statusFilter, setStatusFilter] = useState('All');
 
   const filtered = students.filter(s => {
+    if (user?.role === 'Counselor' && s.counselorId !== user.id) {
+      return false;
+    }
     const q = search.toLowerCase();
     const matchSearch = !search || s.name?.toLowerCase().includes(q) || s.email?.toLowerCase().includes(q) || s.city?.toLowerCase().includes(q);
     const matchStatus = statusFilter === 'All' || s.status === statusFilter;

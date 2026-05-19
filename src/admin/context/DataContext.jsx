@@ -815,6 +815,76 @@ export function DataProvider({ children }) {
     };
   };
 
+  const addTeamMember = async (memberData) => {
+    if (!isSupabaseConfigured()) {
+      const newMember = {
+        id: `t_${Date.now()}`,
+        avatar: memberData.name.charAt(0).toUpperCase(),
+        joinedDate: new Date().toISOString().split('T')[0],
+        tasksCompleted: 0,
+        activeLeads: 0,
+        ...memberData
+      };
+      setTeam(prev => [newMember, ...prev]);
+      logActivity('system', `Added team member: ${memberData.name}`);
+      return;
+    }
+    try {
+      const { data, error } = await supabase.from('profiles').insert([{
+        name: memberData.name,
+        role: memberData.role,
+        email: memberData.email,
+        phone: memberData.phone,
+        status: memberData.status || 'Active'
+      }]).select();
+      if (error) throw error;
+      if (data && data[0]) {
+        setTeam(prev => [...prev, data[0]]);
+        logActivity('system', `Added team member: ${memberData.name}`);
+      }
+    } catch (err) {
+      console.error('Supabase addTeamMember error:', err);
+    }
+  };
+
+  const updateTeamMember = async (id, updatedFields) => {
+    if (!isSupabaseConfigured()) {
+      setTeam(prev => prev.map(t => t.id === id ? { ...t, ...updatedFields } : t));
+      logActivity('system', `Updated team member: ${id}`);
+      return;
+    }
+    try {
+      const { error } = await supabase.from('profiles').update({
+        name: updatedFields.name,
+        role: updatedFields.role,
+        email: updatedFields.email,
+        phone: updatedFields.phone,
+        status: updatedFields.status
+      }).eq('id', id);
+      if (error) throw error;
+      setTeam(prev => prev.map(t => t.id === id ? { ...t, ...updatedFields } : t));
+      logActivity('system', `Updated team member: ${id}`);
+    } catch (err) {
+      console.error('Supabase updateTeamMember error:', err);
+    }
+  };
+
+  const deleteTeamMember = async (id) => {
+    if (!isSupabaseConfigured()) {
+      setTeam(prev => prev.filter(t => t.id !== id));
+      logActivity('system', `Removed team member: ${id}`);
+      return;
+    }
+    try {
+      const { error } = await supabase.from('profiles').delete().eq('id', id);
+      if (error) throw error;
+      setTeam(prev => prev.filter(t => t.id !== id));
+      logActivity('system', `Removed team member: ${id}`);
+    } catch (err) {
+      console.error('Supabase deleteTeamMember error:', err);
+    }
+  };
+
   return (
     <DataContext.Provider value={{
       leads, students, sessions, webinars, content, finances, tasks, team, activityLog, analytics, notifications,
@@ -826,7 +896,8 @@ export function DataProvider({ children }) {
       addTask, updateTask,
       addWebinar, updateWebinar,
       addContent, updateContent,
-      addTransaction
+      addTransaction,
+      addTeamMember, updateTeamMember, deleteTeamMember
     }}>
       {children}
     </DataContext.Provider>

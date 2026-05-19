@@ -202,6 +202,9 @@ export default function Leads() {
 
   const filteredLeads = useMemo(() => {
     let result = [...leads];
+    if (user?.role === 'Counselor') {
+      result = result.filter(l => l.counselorId === user.id);
+    }
     if (search) {
       const q = search.toLowerCase();
       result = result.filter(l =>
@@ -224,7 +227,7 @@ export default function Leads() {
       return sortDir === 'asc' ? (av > bv ? 1 : -1) : (av < bv ? 1 : -1);
     });
     return result;
-  }, [leads, search, statusFilter, sourceFilter, scoreFilter, sortBy, sortDir]);
+  }, [leads, search, statusFilter, sourceFilter, scoreFilter, sortBy, sortDir, user]);
 
   const paginatedLeads = filteredLeads.slice((page - 1) * perPage, page * perPage);
   const totalPages = Math.ceil(filteredLeads.length / perPage);

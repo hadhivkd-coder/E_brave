@@ -156,8 +156,11 @@ function BookingModal({ onSubmit, onClose, team, students }) {
   );
 }
 
+import { useAuth } from '../context/AuthContext';
+
 export default function Counseling() {
   const { sessions, students, team, updateSession, addSession } = useData();
+  const { user } = useAuth();
   const { showToast } = useNotifications();
   const [statusFilter, setStatusFilter] = useState('All');
   const [typeFilter, setTypeFilter] = useState('All');
@@ -167,7 +170,9 @@ export default function Counseling() {
   const [notesSession, setNotesSession] = useState(null);
   const [selectedSession, setSelectedSession] = useState(null);
 
-  const filtered = sessions.filter(s => {
+  const scopeSessions = user?.role === 'Counselor' ? sessions.filter(s => s.counselorId === user.id) : sessions;
+
+  const filtered = scopeSessions.filter(s => {
     const matchStatus = statusFilter === 'All' || s.status === statusFilter;
     const matchType = typeFilter === 'All' || s.sessionType === typeFilter;
     const q = search.toLowerCase();
@@ -176,9 +181,11 @@ export default function Counseling() {
   });
 
   const today = new Date().toISOString().split('T')[0];
-  const todaySessions = sessions.filter(s => s.scheduledAt?.startsWith(today));
-  const completedTotal = sessions.filter(s => s.status === 'Completed').length;
-  const scheduledTotal = sessions.filter(s => s.status === 'Scheduled').length;
+  const todaySessions = scopeSessions.filter(s => s.scheduledAt?.startsWith(today));
+  const completedTotal = scopeSessions.filter(s => s.status === 'Completed').length;
+  const scheduledTotal = scopeSessions.filter(s => s.status === 'Scheduled').length;
+  const cancelledTotal = scopeSessions.filter(s => s.status === 'Cancelled').length;
+  const noShowTotal = scopeSessions.filter(s => s.status === 'No Show').length;
 
   // Weekly calendar view
   const getWeekDays = () => {
@@ -201,7 +208,7 @@ export default function Counseling() {
       <div className="adm-page-header">
         <div>
           <h1 className="adm-page-title">Counseling Management</h1>
-          <p className="adm-page-subtitle">{sessions.length} total sessions · {scheduledTotal} upcoming</p>
+          <p className="adm-page-subtitle">{scopeSessions.length} total sessions · {scheduledTotal} upcoming</p>
         </div>
         <div className="adm-page-actions">
           <div className="adm-view-toggle">
@@ -218,8 +225,8 @@ export default function Counseling() {
           { label: 'Today\'s Sessions', value: todaySessions.length, icon: '📅', color: '#6366f1' },
           { label: 'Completed', value: completedTotal, icon: '✅', color: '#10b981' },
           { label: 'Scheduled', value: scheduledTotal, icon: '🗓️', color: '#3b82f6' },
-          { label: 'Cancelled', value: sessions.filter(s => s.status === 'Cancelled').length, icon: '❌', color: '#ef4444' },
-          { label: 'No Show', value: sessions.filter(s => s.status === 'No Show').length, icon: '⚠️', color: '#f59e0b' },
+          { label: 'Cancelled', value: cancelledTotal, icon: '❌', color: '#ef4444' },
+          { label: 'No Show', value: noShowTotal, icon: '⚠️', color: '#f59e0b' },
         ].map(stat => (
           <div key={stat.label} className="adm-quick-stat" style={{ borderLeft: `3px solid ${stat.color}` }}>
             <span className="adm-quick-stat-icon">{stat.icon}</span>
@@ -254,7 +261,7 @@ export default function Counseling() {
           <div className="adm-calendar-grid">
             {weekDays.map(day => {
               const ds = day.toISOString().split('T')[0];
-              const daySessions = sessions.filter(s => s.scheduledAt?.startsWith(ds));
+              const daySessions = scopeSessions.filter(s => s.scheduledAt?.startsWith(ds));
               const isToday = ds === today;
               return (
                 <div key={ds} className={`adm-calendar-day ${isToday ? 'adm-calendar-day-today' : ''}`}>
