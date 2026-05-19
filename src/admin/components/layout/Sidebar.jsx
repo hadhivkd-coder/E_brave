@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { useData } from '../../context/DataContext';
 import { useNotifications } from '../../context/NotificationContext';
+import EbraveLogo from '../../../components/icons/EbraveLogo';
 import '../../admin.css';
 
 const NAV_GROUPS = [
@@ -127,24 +128,41 @@ export default function Sidebar({ collapsed, setCollapsed }) {
   return (
     <aside className={`adm-sidebar${collapsed ? ' collapsed' : ''}`}>
       {/* Logo */}
-      <div className="adm-sidebar-logo">
-        <div className="adm-sidebar-logo-icon">
-          <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
-            <path
-              d="M14 2L3 7.5V14c0 5.523 4.477 10 11 12 6.523-2 11-6.477 11-12V7.5L14 2z"
-              fill="#0f4c3a"
-              opacity="0.9"
-            />
-            <path
-              d="M14 6L6 10v5.5c0 3.59 3.09 6.86 8 8.5 4.91-1.64 8-4.91 8-8.5V10L14 6z"
-              fill="#d4af37"
-            />
-          </svg>
+      <div className="adm-sidebar-logo" style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
+        <div 
+          className="adm-sidebar-logo-icon"
+          style={{
+            background: 'var(--adm-accent)',
+            borderRadius: '8px',
+            padding: '5px',
+            width: '28px',
+            height: '28px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+        >
+          <EbraveLogo width={18} height={18} />
         </div>
         {!collapsed && (
-          <div className="adm-sidebar-logo-text">
-            <span className="adm-sidebar-logo-brand">E-Brave</span>
-            <span className="adm-sidebar-logo-sub">EOS</span>
+          <div className="adm-sidebar-logo-text" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <span className="adm-sidebar-logo-brand" style={{ color: 'var(--adm-accent)', fontSize: '15px', fontWeight: 800 }}>
+              E-<em style={{ fontStyle: 'italic', fontWeight: 800 }}>Brave</em>
+            </span>
+            <span 
+              className="adm-badge adm-badge-green" 
+              style={{ 
+                fontSize: '8px', 
+                padding: '1px 4px', 
+                background: 'rgba(15, 76, 58, 0.08)', 
+                color: 'var(--adm-accent)', 
+                border: 'none', 
+                letterSpacing: '0.05em', 
+                fontWeight: 800 
+              }}
+            >
+              EOS
+            </span>
           </div>
         )}
         <button
