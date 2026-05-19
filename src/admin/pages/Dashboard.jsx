@@ -109,14 +109,33 @@ export default function Dashboard() {
         </div>
       </div>
 
+      {/* Attention Required Banner */}
+      {pendingFollowUps > 0 && (
+        <div className="adm-alert-banner adm-card">
+          <div className="adm-alert-banner-header">
+            <span className="adm-alert-icon">⚠️</span>
+            <h4>Attention Required</h4>
+          </div>
+          <div className="adm-alert-banner-body">
+            <p>
+              You have <strong>{pendingFollowUps}</strong> leads requiring immediate follow-up. 
+              Prompt follow-up increases lead-to-counseling conversion by up to 40%.
+            </p>
+            <div className="adm-alert-banner-actions">
+              <a href="/admin/leads" className="adm-btn adm-btn-sm adm-btn-primary">View Pending Leads</a>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Metric Cards Grid */}
-      <div className="adm-metrics-grid">
+      <div className="adm-metrics-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))' }}>
         <MetricCard
           title="Total Leads"
           value={leads.length}
           change={+12.5}
           icon="🎯"
-          color="indigo"
+          color="green"
           subtitle={`${newLeadsToday} new today · ${hotLeads} hot`}
           sparkData={weeklyLeads}
         />
@@ -127,14 +146,6 @@ export default function Dashboard() {
           icon="📈"
           color="green"
           subtitle={`${leads.filter(l => l.status === 'Converted').length} converted`}
-        />
-        <MetricCard
-          title="Pending Follow-ups"
-          value={pendingFollowUps}
-          change={-3}
-          icon="⏰"
-          color="amber"
-          subtitle="Requires immediate action"
         />
         <MetricCard
           title="Monthly Revenue"
@@ -149,16 +160,8 @@ export default function Dashboard() {
           value={sessionsToday}
           change={0}
           icon="📅"
-          color="blue"
+          color="green"
           subtitle={`${upcomingSessions} upcoming · ${completedSessions} done`}
-        />
-        <MetricCard
-          title="Webinar Revenue"
-          value={formatCurrency(totalWebinarRev)}
-          change={+8.7}
-          icon="🎬"
-          color="purple"
-          subtitle={`${totalWebinarAttendees} total attendees`}
         />
       </div>
 
@@ -184,7 +187,7 @@ export default function Dashboard() {
                   label: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'][i],
                   value: v
                 }))}
-                color="#6366f1"
+                color="#0f4c3a"
                 height={140}
               />
             </div>
@@ -201,12 +204,12 @@ export default function Dashboard() {
             </div>
             <div className="adm-pipeline">
               {[
-                { status: 'New Lead', color: '#6366f1' },
-                { status: 'Contacted', color: '#3b82f6' },
-                { status: 'Interested', color: '#f59e0b' },
-                { status: 'Webinar Registered', color: '#8b5cf6' },
+                { status: 'New Lead', color: '#0f4c3a' },
+                { status: 'Contacted', color: '#1c634c' },
+                { status: 'Interested', color: '#d4af37' },
+                { status: 'Webinar Registered', color: '#7c3aed' },
                 { status: 'Counseling Booked', color: '#10b981' },
-                { status: 'Converted', color: '#06b6d4' },
+                { status: 'Converted', color: '#0284c7' },
               ].map(({ status, color }) => {
                 const count = leads.filter(l => l.status === status).length;
                 const pct = leads.length > 0 ? Math.round((count / leads.length) * 100) : 0;
@@ -240,10 +243,10 @@ export default function Dashboard() {
             </div>
             <div className="adm-revenue-breakdown">
               {[
-                { label: 'Counseling Revenue', amount: finances.filter(t => t.type === 'Counseling Revenue' && t.amount > 0).reduce((s, t) => s + t.amount, 0), color: '#6366f1', icon: '🎯' },
+                { label: 'Counseling Revenue', amount: finances.filter(t => t.type === 'Counseling Revenue' && t.amount > 0).reduce((s, t) => s + t.amount, 0), color: '#0f4c3a', icon: '🎯' },
                 { label: 'Webinar Revenue', amount: finances.filter(t => t.type === 'Webinar Revenue' && t.amount > 0).reduce((s, t) => s + t.amount, 0), color: '#10b981', icon: '🎬' },
-                { label: 'Ad Spend', amount: finances.filter(t => t.type === 'Ad Spend').reduce((s, t) => s + Math.abs(t.amount), 0), color: '#f59e0b', icon: '📢', expense: true },
-                { label: 'Operational', amount: finances.filter(t => t.type === 'Operational').reduce((s, t) => s + Math.abs(t.amount), 0), color: '#ef4444', icon: '⚙️', expense: true },
+                { label: 'Ad Spend', amount: finances.filter(t => t.type === 'Ad Spend').reduce((s, t) => s + Math.abs(t.amount), 0), color: '#d97706', icon: '📢', expense: true },
+                { label: 'Operational', amount: finances.filter(t => t.type === 'Operational').reduce((s, t) => s + Math.abs(t.amount), 0), color: '#e11d48', icon: '⚙️', expense: true },
               ].map(item => (
                 <div key={item.label} className="adm-revenue-row">
                   <span className="adm-revenue-icon">{item.icon}</span>
@@ -269,12 +272,12 @@ export default function Dashboard() {
         <div className="adm-dashboard-col-side">
 
           {/* EOS AI Quick Panel */}
-          <div className="adm-card adm-eos-panel">
+          <div className="adm-card adm-eos-panel" style={{ borderLeft: '3px solid #d4af37' }}>
             <div className="adm-eos-panel-header">
-              <div className="adm-eos-icon">
+              <div className="adm-eos-icon" style={{ background: 'rgba(212,175,55,0.1)' }}>
                 <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
-                  <path d="M16 2L28 8V16C28 22.627 22.627 28 16 29.6C9.373 28 4 22.627 4 16V8L16 2Z" fill="#6366f1" fillOpacity="0.3" stroke="#6366f1" strokeWidth="1.5"/>
-                  <path d="M11 16L14 19L21 12" stroke="#6366f1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M16 2L28 8V16C28 22.627 22.627 28 16 29.6C9.373 28 4 22.627 4 16V8L16 2Z" fill="#d4af37" fillOpacity="0.2" stroke="#d4af37" strokeWidth="1.5"/>
+                  <path d="M11 16L14 19L21 12" stroke="#0f4c3a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
               <div>
@@ -299,7 +302,7 @@ export default function Dashboard() {
                 </div>
               ))}
             </div>
-            <a href="/admin/eos-ai" className="adm-btn adm-btn-ghost adm-btn-full adm-btn-sm">
+            <a href="/admin/eos-ai" className="adm-btn adm-btn-ghost adm-btn-full adm-btn-sm" style={{ borderColor: 'rgba(15,76,58,0.2)', color: '#0f4c3a' }}>
               Ask EOS AI anything →
             </a>
           </div>
@@ -318,7 +321,7 @@ export default function Dashboard() {
                 <p className="adm-empty-state">No hot leads right now</p>
               ) : hotLeadsList.map(lead => (
                 <div key={lead.id} className="adm-hot-lead-item">
-                  <div className="adm-avatar adm-avatar-sm" style={{ background: '#6366f120', color: '#6366f1' }}>
+                  <div className="adm-avatar adm-avatar-sm" style={{ background: 'rgba(15,76,58,0.08)', color: '#0f4c3a' }}>
                     {lead.name?.charAt(0)}
                   </div>
                   <div className="adm-hot-lead-info">
@@ -326,8 +329,8 @@ export default function Dashboard() {
                     <div className="adm-hot-lead-meta">{lead.source} · {lead.city}</div>
                   </div>
                   <div className="adm-lead-score" style={{
-                    background: lead.leadScore >= 9 ? '#ef444420' : '#f59e0b20',
-                    color: lead.leadScore >= 9 ? '#ef4444' : '#f59e0b'
+                    background: lead.leadScore >= 9 ? 'rgba(16,185,129,0.1)' : 'rgba(217,119,6,0.1)',
+                    color: lead.leadScore >= 9 ? '#10b981' : '#d97706'
                   }}>
                     {lead.leadScore}/10
                   </div>

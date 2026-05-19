@@ -41,7 +41,7 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
-  background: linear-gradient(135deg, rgba(99,102,241,0.06) 0%, transparent 70%);
+  background: linear-gradient(135deg, rgba(15,76,58,0.05) 0%, transparent 70%);
 }
 
 .eos-status-logo {
@@ -116,9 +116,8 @@
   background: conic-gradient(
     from 0deg,
     var(--adm-accent),
-    #a78bfa,
-    #60a5fa,
-    var(--adm-green),
+    #d4af37,
+    #86efac,
     var(--adm-accent)
   );
   opacity: 0.5;
@@ -136,20 +135,20 @@
   z-index: 1;
   width: 100%;
   height: 100%;
-  background: #1a1a2e;
+  background: #062a1f; /* Forest green base */
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1.5px solid rgba(99,102,241,0.4);
+  border: 1.5px solid rgba(212,175,55,0.4); /* Gold accent border */
 }
 
 .eos-avatar-text {
   font-weight: 800;
-  color: var(--adm-accent-hover);
+  color: #d4af37; /* Gold text */
   letter-spacing: 0.05em;
-  font-family: 'Courier New', monospace;
-  text-shadow: 0 0 8px rgba(99,102,241,0.6);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  text-shadow: 0 0 8px rgba(212,175,55,0.4);
 }
 
 /* ── SECTIONS ── */
@@ -241,10 +240,10 @@
 
 .eos-action-btn:hover:not(:disabled) {
   background: var(--adm-accent-dim);
-  border-color: rgba(99,102,241,0.3);
-  color: var(--adm-accent-hover);
+  border-color: rgba(15,76,58,0.2);
+  color: var(--adm-accent);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(99,102,241,0.15);
+  box-shadow: 0 4px 12px rgba(15,76,58,0.05);
 }
 
 .eos-action-btn:active:not(:disabled) {
@@ -476,11 +475,11 @@
   height: 30px;
   border-radius: 50%;
   background: var(--adm-accent-dim);
-  border: 1px solid rgba(99,102,241,0.3);
+  border: 1px solid rgba(15, 76, 58, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--adm-accent-hover);
+  color: var(--adm-accent);
   flex-shrink: 0;
   margin-top: 4px;
 }
@@ -687,8 +686,8 @@
 }
 
 .eos-input-row:focus-within {
-  border-color: rgba(99,102,241,0.45);
-  box-shadow: 0 0 0 3px rgba(99,102,241,0.08);
+  border-color: rgba(15,76,58,0.35);
+  box-shadow: 0 0 0 3px rgba(15,76,58,0.05);
 }
 
 .eos-input {
@@ -751,7 +750,7 @@
   background: var(--adm-accent);
   opacity: 1;
   cursor: pointer;
-  box-shadow: 0 3px 10px rgba(99,102,241,0.35);
+  box-shadow: 0 3px 10px rgba(15, 76, 58, 0.2);
 }
 
 .eos-send-btn.active:hover {

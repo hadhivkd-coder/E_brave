@@ -1,39 +1,40 @@
 /* ============================================================
    E-BRAVE ADMIN PANEL — DESIGN SYSTEM
-   Dark mode · Linear/Notion inspired · All classes prefixed adm-
+   Light theme with Forest Green & Gold brand details
+   All classes prefixed adm-
    ============================================================ */
 
 /* ── CSS VARIABLES ─────────────────────────────────────────── */
 :root {
-  --adm-bg:              #0f0f11;
-  --adm-surface:         #16161a;
-  --adm-card:            #1e1e24;
-  --adm-card-hover:      #252530;
-  --adm-border:          rgba(255, 255, 255, 0.07);
-  --adm-border-light:    rgba(255, 255, 255, 0.04);
-  --adm-accent:          #6366f1;
-  --adm-accent-hover:    #818cf8;
-  --adm-accent-dim:      rgba(99, 102, 241, 0.15);
+  --adm-bg:              #f7faf8; /* Warm off-white canvas */
+  --adm-surface:         #fcfdfc;
+  --adm-card:            #ffffff; /* Pure white cards */
+  --adm-card-hover:      #f9fbf9;
+  --adm-border:          rgba(15, 76, 58, 0.08); /* Forest green tint borders */
+  --adm-border-light:    rgba(15, 76, 58, 0.04);
+  --adm-accent:          #0f4c3a; /* E-Brave Medium Green */
+  --adm-accent-hover:    #062a1f; /* E-Brave Dark Forest Green */
+  --adm-accent-dim:      rgba(15, 76, 58, 0.06);
   --adm-green:           #10b981;
-  --adm-green-dim:       rgba(16, 185, 129, 0.15);
-  --adm-red:             #ef4444;
-  --adm-red-dim:         rgba(239, 68, 68, 0.15);
-  --adm-amber:           #f59e0b;
-  --adm-amber-dim:       rgba(245, 158, 11, 0.15);
-  --adm-blue:            #3b82f6;
-  --adm-blue-dim:        rgba(59, 130, 246, 0.15);
-  --adm-purple:          #a855f7;
-  --adm-purple-dim:      rgba(168, 85, 247, 0.15);
-  --adm-text:            #e4e4e7;
-  --adm-text-secondary:  #a1a1aa;
-  --adm-muted:           #52525b;
+  --adm-green-dim:       rgba(16, 185, 129, 0.08);
+  --adm-red:             #e11d48; /* Vibrant Rose for alerts */
+  --adm-red-dim:         rgba(225, 29, 72, 0.08);
+  --adm-amber:           #d97706; /* Vibrant Amber for warnings */
+  --adm-amber-dim:       rgba(217, 119, 6, 0.08);
+  --adm-blue:            #2563eb;
+  --adm-blue-dim:        rgba(37, 99, 235, 0.08);
+  --adm-purple:          #7c3aed; /* Webinar purple */
+  --adm-purple-dim:      rgba(124, 58, 237, 0.08);
+  --adm-text:            #1a1a1a; /* Charcoal dark text */
+  --adm-text-secondary:  #5c6b5e; /* Muted brand olive text */
+  --adm-muted:           #7f9282;
   --adm-sidebar-width:   240px;
   --adm-topbar-height:   60px;
-  --adm-radius:          10px;
-  --adm-radius-sm:       6px;
-  --adm-radius-lg:       14px;
-  --adm-shadow:          0 4px 24px rgba(0, 0, 0, 0.4);
-  --adm-shadow-lg:       0 8px 40px rgba(0, 0, 0, 0.6);
+  --adm-radius:          12px;
+  --adm-radius-sm:       8px;
+  --adm-radius-lg:       16px;
+  --adm-shadow:          0 4px 20px rgba(15, 76, 58, 0.02);
+  --adm-shadow-lg:       0 10px 30px rgba(15, 76, 58, 0.05);
   --adm-transition:      0.18s ease;
 }
 
@@ -47,11 +48,11 @@
 }
 
 .adm-root {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 14px;
   line-height: 1.5;
   color: var(--adm-text);
-  background: var(--adm-surface);
+  background: var(--adm-bg);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -82,15 +83,18 @@
 
 .adm-root h1, .adm-root h2, .adm-root h3,
 .adm-root h4, .adm-root h5, .adm-root h6 {
-  font-weight: 600;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
   line-height: 1.25;
+  color: var(--adm-accent-hover);
+  letter-spacing: -0.02em;
 }
 
 /* ── LAYOUT ─────────────────────────────────────────────────── */
 .adm-layout {
   display: flex;
   min-height: 100vh;
-  background: var(--adm-surface);
+  background: var(--adm-bg);
 }
 
 .adm-content {
@@ -99,7 +103,7 @@
   padding-top: var(--adm-topbar-height);
   min-height: 100vh;
   transition: margin-left var(--adm-transition);
-  background: var(--adm-surface);
+  background: var(--adm-bg);
   overflow-x: hidden;
 }
 
@@ -119,8 +123,8 @@
   left: 0;
   width: var(--adm-sidebar-width);
   height: 100vh;
-  background: var(--adm-bg);
-  border-right: 1px solid var(--adm-border);
+  background: #062a1f; /* E-Brave Dark Forest Green */
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
   display: flex;
   flex-direction: column;
   z-index: 200;
@@ -137,7 +141,7 @@
   display: flex;
   align-items: center;
   padding: 0 18px;
-  border-bottom: 1px solid var(--adm-border);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   flex-shrink: 0;
   gap: 10px;
 }
@@ -145,21 +149,21 @@
 .adm-sidebar-logo-icon {
   width: 32px;
   height: 32px;
-  background: var(--adm-accent);
+  background: #d4af37; /* E-Brave Elite Gold */
   border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
   font-size: 15px;
-  color: #fff;
+  color: #062a1f;
   flex-shrink: 0;
 }
 
 .adm-sidebar-logo-text {
   font-size: 15px;
   font-weight: 700;
-  color: var(--adm-text);
+  color: #ffffff; /* Contrast on dark sidebar */
   white-space: nowrap;
   overflow: hidden;
   opacity: 1;
@@ -192,7 +196,7 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--adm-muted);
+  color: rgba(255, 255, 255, 0.35); /* Muted labels on dark */
   padding: 0 10px 6px;
   white-space: nowrap;
   overflow: hidden;
@@ -210,7 +214,7 @@
   gap: 10px;
   padding: 8px 10px;
   border-radius: var(--adm-radius-sm);
-  color: var(--adm-text-secondary);
+  color: rgba(255, 255, 255, 0.65); /* High readability on dark */
   cursor: pointer;
   transition: background var(--adm-transition), color var(--adm-transition);
   white-space: nowrap;
@@ -220,13 +224,13 @@
 }
 
 .adm-nav-item:hover {
-  background: var(--adm-card);
-  color: var(--adm-text);
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
 }
 
 .adm-nav-item.active {
-  background: var(--adm-accent-dim);
-  color: var(--adm-accent-hover);
+  background: rgba(205, 234, 209, 0.12); /* Warm light green tint */
+  color: #4ade80; /* Vibrant E-Brave light green */
 }
 
 .adm-nav-item.active::before {
@@ -237,7 +241,7 @@
   transform: translateY(-50%);
   width: 3px;
   height: 60%;
-  background: var(--adm-accent);
+  background: #d4af37; /* E-Brave Gold active strip */
   border-radius: 0 2px 2px 0;
 }
 
@@ -283,19 +287,19 @@
 
 .adm-sidebar-collapse-btn {
   height: 48px;
-  border-top: 1px solid var(--adm-border);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
   display: flex;
   align-items: center;
   padding: 0 22px;
   cursor: pointer;
-  color: var(--adm-text-secondary);
+  color: rgba(255, 255, 255, 0.5);
   transition: color var(--adm-transition), background var(--adm-transition);
   flex-shrink: 0;
 }
 
 .adm-sidebar-collapse-btn:hover {
-  color: var(--adm-text);
-  background: var(--adm-card);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 /* Tooltip for collapsed sidebar */
@@ -305,13 +309,13 @@
   left: 72px;
   top: 50%;
   transform: translateY(-50%);
-  background: var(--adm-card);
-  color: var(--adm-text);
+  background: #062a1f;
+  color: #ffffff;
   font-size: 12px;
   font-weight: 500;
   padding: 5px 10px;
   border-radius: var(--adm-radius-sm);
-  border: 1px solid var(--adm-border);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   white-space: nowrap;
   pointer-events: none;
   opacity: 0;
@@ -331,7 +335,7 @@
   left: var(--adm-sidebar-width);
   right: 0;
   height: var(--adm-topbar-height);
-  background: var(--adm-bg);
+  background: #ffffff; /* Crisp white topbar */
   border-bottom: 1px solid var(--adm-border);
   display: flex;
   align-items: center;
@@ -681,7 +685,7 @@
 
 .adm-btn:hover {
   background: var(--adm-card-hover);
-  border-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(15, 76, 58, 0.18);
 }
 
 .adm-btn:active {
@@ -720,7 +724,7 @@
 .adm-btn-danger {
   background: var(--adm-red-dim);
   color: var(--adm-red);
-  border-color: rgba(239, 68, 68, 0.25);
+  border-color: rgba(225, 29, 72, 0.25);
 }
 
 .adm-btn-danger:hover {
@@ -931,8 +935,8 @@
 .adm-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(4px);
+  background: rgba(6, 42, 31, 0.35); /* E-Brave brand green tint */
+  backdrop-filter: blur(5px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2450,3 +2454,38 @@
 .adm-relative  { position: relative; }
 .adm-w-full    { width: 100%; }
 .adm-h-full    { height: 100%; }
+
+/* ── ALERT BANNER ────────────────────────────────────────────── */
+.adm-alert-banner {
+  border-left: 4px solid var(--adm-red) !important;
+  background: rgba(225, 29, 72, 0.02) !important;
+  margin-bottom: 24px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.adm-alert-banner-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.adm-alert-banner-header h4 {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--adm-red);
+  margin: 0;
+}
+.adm-alert-banner-body {
+  font-size: 13.5px;
+  color: var(--adm-text-secondary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.adm-alert-banner-actions {
+  display: flex;
+  gap: 8px;
+}
