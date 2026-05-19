@@ -40,9 +40,9 @@ export default function AdminLayout({ children, title }) {
         />
       )}
 
-      {/* Sidebar */}
+      {/* Sidebar Wrapper */}
       <div
-        className={`adm-sidebar-wrapper${isMobile ? ' adm-sidebar-wrapper--mobile' : ''}${isMobile && mobileOpen ? ' adm-sidebar-wrapper--open' : ''}`}
+        className={`adm-sidebar-wrapper${collapsed ? ' collapsed' : ''}${isMobile ? ' mobile' : ''}${mobileOpen ? ' mobile-open' : ''}`}
       >
         <Sidebar
           collapsed={isMobile ? false : collapsed}
@@ -51,22 +51,15 @@ export default function AdminLayout({ children, title }) {
       </div>
 
       {/* Main content area */}
-      <div
-        className="adm-main"
-        style={{
-          marginLeft: isMobile
-            ? 0
-            : collapsed
-            ? 'var(--adm-sidebar-collapsed-width, 64px)'
-            : 'var(--adm-sidebar-width)',
-        }}
-      >
+      <div className="adm-main">
         <TopBar
           title={title}
           onToggleSidebar={handleToggleSidebar}
         />
         <main className="adm-content">
-          {children}
+          <div className="adm-page">
+            {children}
+          </div>
         </main>
       </div>
     </div>

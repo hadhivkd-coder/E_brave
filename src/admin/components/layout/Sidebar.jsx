@@ -67,7 +67,7 @@ function NavItemEl({ item, collapsed, newLeadsCount, unreadCount }) {
 
   return (
     <div
-      className={`adm-nav-item-wrap${item.isAI ? ' adm-nav-ai' : ''}`}
+      className={`adm-nav-item-wrap${item.isAI ? ' is-ai-wrap' : ''}`}
       style={{ position: 'relative' }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -75,7 +75,7 @@ function NavItemEl({ item, collapsed, newLeadsCount, unreadCount }) {
       <NavLink
         to={item.path}
         className={({ isActive }) =>
-          `adm-nav-item${isActive ? ' adm-nav-item--active' : ''}${item.isAI ? ' adm-nav-item--ai' : ''}`
+          `adm-nav-item${isActive ? ' active' : ''}${item.isAI ? ' is-ai' : ''}`
         }
       >
         <span className="adm-nav-icon">{item.icon}</span>
@@ -86,7 +86,7 @@ function NavItemEl({ item, collapsed, newLeadsCount, unreadCount }) {
           <span className="adm-nav-badge">{badgeValue > 99 ? '99+' : badgeValue}</span>
         )}
         {collapsed && badgeValue != null && (
-          <span className="adm-nav-badge adm-nav-badge--dot" />
+          <span className="adm-nav-badge-dot" />
         )}
       </NavLink>
       {collapsed && hovered && (
@@ -116,39 +116,39 @@ export default function Sidebar({ collapsed, setCollapsed }) {
     : 'A';
 
   return (
-    <aside className={`adm-sidebar${collapsed ? ' adm-sidebar--collapsed' : ''}`}>
+    <aside className={`adm-sidebar${collapsed ? ' collapsed' : ''}`}>
       {/* Logo */}
       <div className="adm-sidebar-logo">
-        <div className="adm-logo-icon">
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <div className="adm-sidebar-logo-icon">
+          <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
             <path
               d="M14 2L3 7.5V14c0 5.523 4.477 10 11 12 6.523-2 11-6.477 11-12V7.5L14 2z"
-              fill="var(--adm-accent)"
+              fill="#0f4c3a"
               opacity="0.9"
             />
             <path
               d="M14 6L6 10v5.5c0 3.59 3.09 6.86 8 8.5 4.91-1.64 8-4.91 8-8.5V10L14 6z"
-              fill="var(--adm-bg)"
+              fill="#d4af37"
             />
-            <text x="10" y="19" fontFamily="sans-serif" fontSize="10" fontWeight="bold" fill="var(--adm-accent)">E</text>
           </svg>
         </div>
         {!collapsed && (
-          <div className="adm-logo-text">
-            <span className="adm-logo-brand">E-Brave</span>
-            <span className="adm-logo-sub">EOS Admin</span>
+          <div className="adm-sidebar-logo-text">
+            <span className="adm-sidebar-logo-brand">E-Brave</span>
+            <span className="adm-sidebar-logo-sub">EOS</span>
           </div>
         )}
         <button
-          className="adm-collapse-btn"
-          onClick={() => setCollapsed(c => !c)}
+          className="adm-sidebar-collapse-btn"
+          onClick={() => setCollapsed(!collapsed)}
           title={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+          type="button"
         >
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             {collapsed ? (
-              <path d="M4 5h10M4 9h10M4 13h10" stroke="var(--adm-text-secondary)" strokeWidth="1.5" strokeLinecap="round" />
+              <path d="M9 18l6-6-6-6" />
             ) : (
-              <path d="M4 5h10M4 9h10M4 13h10" stroke="var(--adm-text-secondary)" strokeWidth="1.5" strokeLinecap="round" />
+              <path d="M15 19l-7-7 7-7" />
             )}
           </svg>
         </button>
@@ -187,15 +187,12 @@ export default function Sidebar({ collapsed, setCollapsed }) {
           className="adm-logout-btn"
           onClick={handleLogout}
           title="Logout"
+          type="button"
         >
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path
-              d="M6 14H3a1 1 0 01-1-1V3a1 1 0 011-1h3M11 11l3-3-3-3M14 8H6"
-              stroke="var(--adm-text-secondary)"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+            <polyline points="16 17 21 12 16 7" />
+            <line x1="21" y1="12" x2="9" y2="12" />
           </svg>
         </button>
       </div>
