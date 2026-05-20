@@ -19,8 +19,7 @@ const PERMISSIONS = {
 };
 
 const isSupabaseConfigured = () => {
-  const url = import.meta.env.VITE_SUPABASE_URL;
-  return url && !url.includes('your-project-id') && !url.includes('your-project-ref');
+  return true;
 };
 
 export function AuthProvider({ children }) {
@@ -29,20 +28,6 @@ export function AuthProvider({ children }) {
 
   // Sync session state on startup
   useEffect(() => {
-    if (!isSupabaseConfigured()) {
-      // Local fallback mode
-      const savedSession = localStorage.getItem('ebrave_admin_session');
-      if (savedSession) {
-        try {
-          setUser(JSON.parse(savedSession));
-        } catch (e) {
-          localStorage.removeItem('ebrave_admin_session');
-        }
-      }
-      setLoading(false);
-      return;
-    }
-
     // Supabase auth subscription
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (session) {
@@ -118,45 +103,6 @@ export function AuthProvider({ children }) {
       };
     }
 
-    if (!isSupabaseConfigured()) {
-      // Local fallback mode authentication
-      const foundUser = MOCK_USERS.find(
-        u => u.email.toLowerCase() === normalizedEmail && u.password === password
-      );
-      if (foundUser) {
-        const sessionUser = {
-          id: foundUser.id,
-          email: foundUser.email,
-          name: foundUser.name,
-          role: foundUser.role
-        };
-        setUser(sessionUser);
-        localStorage.setItem('ebrave_admin_session', JSON.stringify(sessionUser));
-        
-        // Reset count
-        setFailedLoginAttempts(prev => {
-          const next = { ...prev };
-          delete next[normalizedEmail];
-          return next;
-        });
-        
-        return { success: true, user: sessionUser };
-      }
-      
-      // Increment failures
-      setFailedLoginAttempts(prev => {
-        const nextAttempts = (prev[normalizedEmail] || 0) + 1;
-        if (nextAttempts >= 3) {
-          console.warn(`[SECURITY AUDIT] LOCKOUT TRIGGERED for account: ${normalizedEmail}. Origin IP: ${mockIp}, User Agent: ${userAgent}`);
-        } else {
-          console.warn(`[SECURITY MONITOR] Failed auth attempt: ${normalizedEmail}. Attempt ${nextAttempts}/3. Origin IP: ${mockIp}`);
-        }
-        return { ...prev, [normalizedEmail]: nextAttempts };
-      });
-
-      return { success: false, error: 'Invalid email or password' };
-    }
-
     // Real Supabase Authentication
     try {
       const { data, error } = await supabase.auth.signInWithPassword({ email: normalizedEmail, password });
@@ -214,11 +160,6 @@ export function AuthProvider({ children }) {
   }, [failedLoginAttempts]);
 
   const logout = useCallback(async () => {
-    if (!isSupabaseConfigured()) {
-      setUser(null);
-      localStorage.removeItem('ebrave_admin_session');
-      return;
-    }
     await supabase.auth.signOut();
     setUser(null);
   }, []);

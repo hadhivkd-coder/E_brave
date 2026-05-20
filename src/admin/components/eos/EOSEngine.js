@@ -956,8 +956,7 @@ import { supabase } from '../../../supabaseClient';
 import { getRelevantMemory } from './EOSMemory';
 
 const isSupabaseConfigured = () => {
-  const url = import.meta.env.VITE_SUPABASE_URL;
-  return url && !url.includes('your-project-id') && !url.includes('your-project-ref');
+  return true;
 };
 
 // ─────────────────────────────────────────

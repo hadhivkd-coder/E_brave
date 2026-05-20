@@ -5,8 +5,7 @@ import { supabase } from '../../supabaseClient';
 const DataContext = createContext(null);
 
 const isSupabaseConfigured = () => {
-  const url = import.meta.env.VITE_SUPABASE_URL;
-  return url && !url.includes('your-project-id') && !url.includes('your-project-ref');
+  return true;
 };
 
 // ────────────────────────────────────────────────────────
