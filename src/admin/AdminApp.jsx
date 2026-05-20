@@ -119,8 +119,10 @@ export default function AdminApp() {
     <AuthProvider>
       <DataProvider>
         <NotificationProvider>
-          <AdminRoutes />
-          <Toast />
+          <div className="adm-root">
+            <AdminRoutes />
+            <Toast />
+          </div>
         </NotificationProvider>
       </DataProvider>
     </AuthProvider>
