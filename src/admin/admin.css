@@ -2792,6 +2792,29 @@
   border-radius: var(--adm-radius);
 }
 
+.adm-filter-chip {
+  padding: 6px 14px;
+  background: var(--adm-bg);
+  border: 1px solid var(--adm-border);
+  border-radius: var(--adm-radius-sm);
+  color: var(--adm-text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--adm-transition);
+}
+
+.adm-filter-chip:hover {
+  border-color: var(--adm-accent);
+  color: var(--adm-accent);
+}
+
+.adm-filter-chip.active {
+  background: var(--adm-accent-dim);
+  border-color: var(--adm-accent);
+  color: var(--adm-accent);
+}
+
 .adm-filter-group {
   display: flex;
   align-items: center;

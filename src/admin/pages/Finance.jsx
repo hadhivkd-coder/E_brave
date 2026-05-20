@@ -72,23 +72,34 @@ export default function Finance() {
       </div>
 
       {/* Summary Row */}
-      <div className="adm-metrics-grid adm-metrics-grid-4">
+      <div className="adm-metrics-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '20px', marginBottom: '32px' }}>
         {[
-          { label: 'Total Revenue', value: `₹${totalRev.toLocaleString()}`, change: 12.4, color: '#10b981', icon: '📈' },
-          { label: 'Operational Expenses', value: `₹${totalExp.toLocaleString()}`, change: -4.2, color: '#ef4444', icon: '📉' },
-          { label: 'Net Profit Margin', value: `₹${netProfit.toLocaleString()}`, change: 8.9, color: '#6366f1', icon: '💰' },
-          { label: 'CAC / Ad Return ROI', value: '2.8x', change: 15, color: '#3b82f6', icon: '🎯' }
+          { label: 'Total Revenue', value: `₹${totalRev.toLocaleString()}`, change: '+12.4%', colorClass: 'green', icon: '📈' },
+          { label: 'Operational Expenses', value: `₹${totalExp.toLocaleString()}`, change: '-4.2%', colorClass: 'red', icon: '📉' },
+          { label: 'Net Profit Margin', value: `₹${netProfit.toLocaleString()}`, change: '+8.9%', colorClass: 'blue', icon: '💰' },
+          { label: 'CAC / Ad Return ROI', value: '2.8x', change: '+15.0%', colorClass: 'amber', icon: '🎯' }
         ].map(s => (
-          <div key={s.label} className="adm-card adm-stat-mini">
-            <div className="adm-stat-mini-icon" style={{ color: s.color }}>{s.icon}</div>
-            <div className="adm-stat-mini-value" style={{ color: s.color }}>{s.value}</div>
-            <div className="adm-stat-mini-label">{s.label}</div>
+          <div key={s.label} className={`adm-metric-card ${s.colorClass}`}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div className={`adm-metric-icon ${s.colorClass}`} style={{ fontSize: '1.2rem' }}>{s.icon}</div>
+              <span className={`adm-metric-delta ${s.change.startsWith('+') ? 'up' : 'down'}`} style={{ fontSize: '0.8rem', fontWeight: 700 }}>
+                {s.change}
+              </span>
+            </div>
+            <div style={{ marginTop: '8px' }}>
+              <div className="adm-metric-label" style={{ textTransform: 'uppercase', fontSize: '0.72rem', letterSpacing: '0.05em', color: 'var(--adm-text-secondary)', marginBottom: '4px' }}>
+                {s.label}
+              </div>
+              <div className="adm-metric-value" style={{ fontSize: '1.75rem', fontWeight: 800, color: 'var(--adm-accent)' }}>
+                {s.value}
+              </div>
+            </div>
           </div>
         ))}
       </div>
 
       {/* Charts Grid */}
-      <div className="adm-funnel-container" style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr', gap: 24, marginBottom: 32 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px', marginBottom: '32px' }}>
         <div className="adm-card">
           <h3 className="adm-card-title" style={{ marginBottom: 16 }}>Revenue Performance Trend</h3>
           <div style={{ height: 260 }}>
@@ -108,7 +119,7 @@ export default function Finance() {
       </div>
 
       {/* Filters & Table */}
-      <div className="adm-filters-bar">
+      <div className="adm-filter-bar">
         <div style={{ display: 'flex', gap: 8 }}>
           {['All', 'Revenue', 'Expense'].map(type => (
             <button
