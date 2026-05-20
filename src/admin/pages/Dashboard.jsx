@@ -222,25 +222,85 @@ export default function Dashboard() {
 
   return (
     <AdminLayout title="Operational Center">
-      {/* TOP SECTION: GREETINGS & HEALTH STATUS */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 20, marginBottom: 32 }}>
-        <div>
-          <h1 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '1.75rem', fontWeight: 800, color: 'var(--adm-accent)', letterSpacing: '-0.02em', marginBottom: 4 }}>
+      {/* WELCOMING HERO BANNER */}
+      <div 
+        className="adm-welcome-banner"
+        style={{
+          background: 'linear-gradient(135deg, rgba(15, 76, 58, 0.05) 0%, rgba(244, 248, 245, 0.6) 100%)',
+          border: '1px solid rgba(15, 76, 58, 0.08)',
+          borderRadius: '16px',
+          padding: '24px 32px',
+          marginBottom: '32px',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          gap: '24px',
+          boxShadow: '0 4px 20px rgba(15, 76, 58, 0.02)'
+        }}
+      >
+        <div style={{ flex: '1 1 300px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+            <span style={{ fontSize: '1.4rem' }}>👋</span>
+            <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--adm-accent)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              Welcome back
+            </span>
+            <div style={{ background: '#ffffff', border: '1px solid var(--adm-border)', borderRadius: 24, padding: '2px 10px', display: 'flex', alignItems: 'center', gap: 6, marginLeft: 8 }}>
+              <span style={{ width: 6, height: 6, background: 'var(--adm-green)', borderRadius: '50%', display: 'inline-block', boxShadow: '0 0 6px var(--adm-green)' }} />
+              <span style={{ fontSize: '0.7rem', fontWeight: 600, color: 'var(--adm-accent)' }}>Live System</span>
+            </div>
+          </div>
+          <h1 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '1.85rem', fontWeight: 800, color: 'var(--adm-accent)', letterSpacing: '-0.02em', marginBottom: '8px', lineHeight: 1.2 }}>
             {getGreeting()}, {user?.name?.split(' ')[0] || 'Operational Leader'}
           </h1>
-          <p style={{ color: 'var(--adm-text-secondary)', fontSize: '0.9rem' }}>
-            {currentTime.toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' })}
-            {' · '}
-            {currentTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true })}
-            {' (IST)'}
+          <p style={{ color: 'var(--adm-text-secondary)', fontSize: '0.9rem', maxWidth: '500px', lineHeight: 1.5 }}>
+            Ready to guide our students today? Here is your daily operational status. Everything looks clean and structured.
           </p>
         </div>
 
-        {/* Operational Health Pulse */}
-        <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-          <div style={{ background: '#ffffff', border: '1px solid var(--adm-border)', borderRadius: 24, padding: '6px 16px', display: 'flex', alignItems: 'center', gap: 8 }}>
-            <span style={{ width: 8, height: 8, background: 'var(--adm-green)', borderRadius: '50%', display: 'inline-block', boxShadow: '0 0 8px var(--adm-green)' }} />
-            <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--adm-accent)' }}>System Online</span>
+        <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', alignItems: 'center' }}>
+          {/* Calendar Time widget */}
+          <div 
+            style={{
+              background: '#ffffff',
+              border: '1px solid var(--adm-border)',
+              borderRadius: '12px',
+              padding: '12px 18px',
+              minWidth: '180px',
+              boxShadow: 'var(--adm-shadow)'
+            }}
+          >
+            <span style={{ fontSize: '0.7rem', fontWeight: 600, color: 'var(--adm-text-secondary)', display: 'block', textTransform: 'uppercase', marginBottom: '4px' }}>
+              Local Time
+            </span>
+            <strong style={{ fontSize: '1.15rem', color: 'var(--adm-accent)', display: 'block', fontWeight: 800 }}>
+              {currentTime.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true })}
+            </strong>
+            <span style={{ fontSize: '0.75rem', color: 'var(--adm-muted)' }}>
+              {currentTime.toLocaleDateString('en-IN', { weekday: 'short', month: 'short', day: 'numeric' })}
+            </span>
+          </div>
+
+          {/* Quick Metrics Pillar */}
+          <div 
+            style={{
+              background: '#ffffff',
+              border: '1px solid var(--adm-border)',
+              borderRadius: '12px',
+              padding: '12px 18px',
+              minWidth: '160px',
+              boxShadow: 'var(--adm-shadow)'
+            }}
+          >
+            <span style={{ fontSize: '0.7rem', fontWeight: 600, color: 'var(--adm-text-secondary)', display: 'block', textTransform: 'uppercase', marginBottom: '4px' }}>
+              Counseling Today
+            </span>
+            <strong style={{ fontSize: '1.4rem', color: 'var(--adm-accent)', display: 'block', fontWeight: 800, lineHeight: 1.1 }}>
+              {todaysSessions.length}
+            </strong>
+            <span style={{ fontSize: '0.75rem', color: 'var(--adm-muted)' }}>
+              sessions scheduled
+            </span>
           </div>
         </div>
       </div>
