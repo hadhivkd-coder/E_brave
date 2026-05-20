@@ -7,8 +7,14 @@
 create extension if not exists "uuid-ossp";
 
 -- ────────────────────────────────────────────────────────
--- DROP EXISTING TABLES TO PREVENT CONFLICTS
+-- DROP ALL POTENTIAL RELATIONS OF THE NAME 'PROFILES'
 -- ────────────────────────────────────────────────────────
+drop table if exists public.profiles cascade;
+drop view if exists public.profiles cascade;
+drop materialized view if exists public.profiles cascade;
+drop type if exists public.profiles cascade;
+
+-- DROP OTHER TABLES
 drop table if exists public.automation_rules cascade;
 drop table if exists public.activity_logs cascade;
 drop table if exists public.notifications cascade;
@@ -21,7 +27,6 @@ drop table if exists public.webinars cascade;
 drop table if exists public.counseling_sessions cascade;
 drop table if exists public.students cascade;
 drop table if exists public.leads cascade;
-drop table if exists public.profiles cascade;
 
 -- ────────────────────────────────────────────────────────
 -- 1. Profiles Table (Extends auth.users)
