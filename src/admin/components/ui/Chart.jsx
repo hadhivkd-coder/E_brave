@@ -21,28 +21,29 @@ export function BarChart({ data = [], height = 200, title }) {
   if (!data.length) return null;
 
   return (
-    <div className="adm-chart adm-bar-chart">
-      {title && <div className="adm-chart-title">{title}</div>}
-      <div className="adm-bar-chart-inner" style={{ height }}>
+    <div className="adm-chart-wrap" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+      {title && <div className="adm-chart-title" style={{ fontSize: '11px', fontWeight: 600, textTransform: 'uppercase', color: 'var(--adm-muted)', marginBottom: '12px' }}>{title}</div>}
+      <div className="adm-chart-bar" style={{ height: height - 40, display: 'flex', width: '100%' }}>
         {data.map((item, i) => {
           const val = typeof item === 'number' ? item : item.value;
           const pct = max > 0 ? (val / max) * 100 : 0;
           const color = item.color || 'var(--adm-accent)';
           const label = item.label || '';
           return (
-            <div key={i} className="adm-bar-col">
-              <div className="adm-bar-wrap" style={{ height: height - 30 }}>
-                <div
-                  className="adm-bar"
-                  style={{
-                    height: animated ? `${clamp(pct, 2, 100)}%` : '0%',
-                    background: color,
-                    transition: `height 0.6s cubic-bezier(.22,.61,.36,1) ${i * 40}ms`,
-                  }}
-                  title={`${label}: ${val}`}
-                />
+            <div key={i} className="adm-chart-bar-col">
+              <div className="adm-chart-bar-value" style={{ marginBottom: 4 }}>
+                {val >= 1000 ? `₹${(val / 1000).toFixed(0)}k` : `₹${val}`}
               </div>
-              <span className="adm-bar-label">{label}</span>
+              <div
+                className="adm-chart-bar-fill"
+                style={{
+                  height: animated ? `${clamp(pct, 5, 80)}%` : '0%',
+                  background: color,
+                  transition: `height 0.6s cubic-bezier(.22,.61,.36,1) ${i * 40}ms`
+                }}
+                title={`${label}: ₹${val.toLocaleString()}`}
+              />
+              <span className="adm-chart-bar-label" style={{ marginTop: 4 }}>{label}</span>
             </div>
           );
         })}
