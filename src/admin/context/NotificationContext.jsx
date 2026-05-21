@@ -1,12 +1,17 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
-import { MOCK_NOTIFICATIONS } from '../data/mockData';
 
 const NotificationContext = createContext(null);
 
 export function NotificationProvider({ children }) {
   const [notifications, setNotifications] = useState(() => {
     const saved = localStorage.getItem('ebrave_notifications');
-    return saved ? JSON.parse(saved) : MOCK_NOTIFICATIONS;
+    if (!saved) return [];
+    try {
+      const parsed = JSON.parse(saved);
+      // Clear old mock notifications (they have id starting with 'notif-')
+      const real = parsed.filter(n => !n.id?.startsWith('notif-'));
+      return real;
+    } catch { return []; }
   });
 
   const [toasts, setToasts] = useState([]);

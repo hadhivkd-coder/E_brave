@@ -302,17 +302,31 @@ export function DataProvider({ children }) {
   // Initialize and Fetch Live Data
   useEffect(() => {
     if (!isSupabaseConfigured()) {
-      // Local fallback mode
-      setLeads(JSON.parse(localStorage.getItem('ebrave_leads')) || mockData.MOCK_LEADS);
-      setStudents(JSON.parse(localStorage.getItem('ebrave_students')) || mockData.MOCK_STUDENTS);
-      setSessions(JSON.parse(localStorage.getItem('ebrave_sessions')) || mockData.MOCK_SESSIONS);
-      setWebinars(JSON.parse(localStorage.getItem('ebrave_webinars')) || mockData.MOCK_WEBINARS);
-      setContent(JSON.parse(localStorage.getItem('ebrave_content')) || mockData.MOCK_CONTENT);
-      setFinances(JSON.parse(localStorage.getItem('ebrave_finances')) || mockData.MOCK_TRANSACTIONS);
-      setTasks(JSON.parse(localStorage.getItem('ebrave_tasks')) || mockData.MOCK_TASKS);
-      setTeam(JSON.parse(localStorage.getItem('ebrave_team')) || mockData.MOCK_TEAM);
-      setActivityLog(JSON.parse(localStorage.getItem('ebrave_activity_log')) || mockData.MOCK_ACTIVITY);
-      setNotifications(JSON.parse(localStorage.getItem('ebrave_notifications')) || mockData.MOCK_NOTIFICATIONS);
+      // No Supabase configured — start fresh with empty state (no fake data)
+      // Clear any stale mock data from previous localStorage sessions
+      const STORAGE_KEYS = ['ebrave_leads','ebrave_students','ebrave_sessions','ebrave_webinars','ebrave_content','ebrave_finances','ebrave_tasks','ebrave_activity_log','ebrave_notifications'];
+      STORAGE_KEYS.forEach(k => {
+        const val = localStorage.getItem(k);
+        // Clear if it contains old mock data (array length > 5 on first clean run)
+        if (val) {
+          try {
+            const parsed = JSON.parse(val);
+            if (Array.isArray(parsed) && parsed.length > 5 && parsed[0]?.id?.startsWith?.('lead-')) {
+              localStorage.removeItem(k);
+            }
+          } catch { localStorage.removeItem(k); }
+        }
+      });
+      setLeads(JSON.parse(localStorage.getItem('ebrave_leads')) || []);
+      setStudents(JSON.parse(localStorage.getItem('ebrave_students')) || []);
+      setSessions(JSON.parse(localStorage.getItem('ebrave_sessions')) || []);
+      setWebinars(JSON.parse(localStorage.getItem('ebrave_webinars')) || []);
+      setContent(JSON.parse(localStorage.getItem('ebrave_content')) || []);
+      setFinances(JSON.parse(localStorage.getItem('ebrave_finances')) || []);
+      setTasks(JSON.parse(localStorage.getItem('ebrave_tasks')) || []);
+      setTeam(JSON.parse(localStorage.getItem('ebrave_team')) || []);
+      setActivityLog(JSON.parse(localStorage.getItem('ebrave_activity_log')) || []);
+      setNotifications(JSON.parse(localStorage.getItem('ebrave_notifications')) || []);
       setLoading(false);
       return;
     }

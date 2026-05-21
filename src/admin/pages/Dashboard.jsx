@@ -584,71 +584,60 @@ export default function Dashboard() {
             ))}
           </div>
         </div>
-
       </div>
-
-      {/* SECONDARY SECTION: INTENTIONAL SUMMARY REPORTS */}
-      <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '1.2rem', fontWeight: 700, color: 'var(--adm-accent)', marginBottom: 16, borderBottom: '1px solid var(--adm-border-light)', paddingBottom: 8 }}>
-        AI Analysis & Pipeline Performance
-      </h2>
-
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: 24, marginBottom: 24 }}>
-        
-        {/* EOS AI Glow Recommendations */}
-        <div style={{ background: '#ffffff', borderRadius: 12, border: '1px solid var(--adm-border)', padding: 20, boxShadow: '0 4px 24px rgba(15, 76, 58, 0.03)', borderLeft: '4px solid var(--adm-purple)' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
+   
+      {/* EOS AI DAILY BRIEFING */}
+      <div style={{ marginBottom: 24 }}>
+        <div style={{
+          background: '#fff',
+          border: '1px solid var(--adm-border)',
+          borderLeft: '4px solid var(--adm-accent)',
+          borderRadius: 12,
+          padding: '20px 24px',
+          boxShadow: 'var(--adm-shadow)'
+        }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 14 }}>
             <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-              <span style={{ fontSize: '1.1rem' }}>✦</span>
-              <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--adm-accent)' }}>EOS AI Insights</h3>
+              <span style={{ fontSize: '1.1rem' }}>🤖</span>
+              <span style={{ fontSize: '0.92rem', fontWeight: 800, color: 'var(--adm-accent)' }}>EOS AI — Daily Briefing</span>
             </div>
-            <Badge variant="purple" size="sm">Active</Badge>
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-            <div style={{ fontSize: '0.8rem', color: 'var(--adm-text)', borderLeft: '2px solid rgba(15, 76, 58, 0.1)', paddingLeft: 10 }}>
-              <strong>Campaign Allocation:</strong> Instagram leads are converting at 23.5% vs WhatsApp organic at 12%. Recommending shifting 15% Counselor focus to Instagram leads.
-            </div>
-            <div style={{ fontSize: '0.8rem', color: 'var(--adm-text)', borderLeft: '2px solid rgba(15, 76, 58, 0.1)', paddingLeft: 10 }}>
-              <strong>Capacity Balance:</strong> Aarav Gupta has completed 12 tasks this week and has counselor capacity. Assign Bangalore incoming leads to Aarav.
-            </div>
-          </div>
-          <div style={{ marginTop: 16, borderTop: '1px solid var(--adm-border-light)', paddingTop: 12 }}>
-            <button 
-              className="adm-btn adm-btn-ghost adm-btn-sm" 
-              style={{ width: '100%', color: 'var(--adm-purple)', borderColor: 'rgba(124, 58, 237, 0.2)', fontSize: '0.75rem' }}
+            <button
+              className="adm-btn adm-btn-ghost adm-btn-sm"
+              style={{ fontSize: '0.75rem' }}
               onClick={() => navigate('/admin/eos-ai')}
             >
-              Consult EOS AI Companion →
+              Ask EOS AI →
             </button>
           </div>
-        </div>
-
-        {/* Funnel Ratios summary */}
-        <div style={{ background: '#ffffff', borderRadius: 12, border: '1px solid var(--adm-border)', padding: 20, boxShadow: 'var(--adm-shadow)' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
-            <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--adm-accent)' }}>Conversion Funnel Ratio</h3>
-            <span style={{ fontSize: '0.75rem', color: 'var(--adm-muted)' }}>Conversion status map</span>
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-            {[
-              { label: 'New Signups', count: leads.filter(l => l.status === 'New Lead').length, pct: 100, color: 'var(--adm-accent)' },
-              { label: 'Webinar Reg', count: leads.filter(l => l.status === 'Webinar Registered' || l.status === 'Webinar Attended').length, pct: Math.round((leads.filter(l => l.status === 'Webinar Registered' || l.status === 'Webinar Attended').length / (leads.length || 1)) * 100), color: '#7c3aed' },
-              { label: 'Booked Sessions', count: leads.filter(l => l.status === 'Counseling Booked' || l.status === 'Counseling Completed').length, pct: Math.round((leads.filter(l => l.status === 'Counseling Booked' || l.status === 'Counseling Completed').length / (leads.length || 1)) * 100), color: '#10b981' },
-              { label: 'Converted Students', count: leads.filter(l => l.status === 'Converted').length, pct: Math.round((leads.filter(l => l.status === 'Converted').length / (leads.length || 1)) * 100), color: '#d4af37' }
-            ].map(stage => (
-              <div key={stage.label}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem', fontWeight: 600, color: 'var(--adm-text-secondary)', marginBottom: 4 }}>
-                  <span>{stage.label}</span>
-                  <span>{stage.count} leads ({stage.pct}%)</span>
-                </div>
-                <div style={{ width: '100%', height: 6, background: '#f0f3f1', borderRadius: 4, overflow: 'hidden' }}>
-                  <div style={{ width: `${stage.pct}%`, height: '100%', background: stage.color, borderRadius: 4 }} />
-                </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 9 }}>
+            {pendingFollowUps.length > 0 && (
+              <div style={{ fontSize: '0.84rem', color: '#d97706', display: 'flex', alignItems: 'flex-start', gap: 8 }}>
+                <span>⚠️</span>
+                <span><strong>{pendingFollowUps.length} lead{pendingFollowUps.length > 1 ? 's' : ''}</strong> {pendingFollowUps.length > 1 ? 'need' : 'needs'} a follow-up today.</span>
               </div>
-            ))}
+            )}
+            {todaysSessions.length > 0 && (
+              <div style={{ fontSize: '0.84rem', color: 'var(--adm-accent)', display: 'flex', alignItems: 'flex-start', gap: 8 }}>
+                <span>📅</span>
+                <span><strong>{todaysSessions.length} counseling session{todaysSessions.length > 1 ? 's' : ''}</strong> scheduled for today.</span>
+              </div>
+            )}
+            {urgentTasks.length > 0 && (
+              <div style={{ fontSize: '0.84rem', color: 'var(--adm-text)', display: 'flex', alignItems: 'flex-start', gap: 8 }}>
+                <span>✅</span>
+                <span><strong>{urgentTasks.length} open task{urgentTasks.length > 1 ? 's' : ''}</strong> in your queue.</span>
+              </div>
+            )}
+            {pendingFollowUps.length === 0 && todaysSessions.length === 0 && urgentTasks.length === 0 && (
+              <div style={{ fontSize: '0.84rem', color: 'var(--adm-green)', display: 'flex', alignItems: 'center', gap: 8 }}>
+                <span>🟢</span>
+                <span>All clear. No pending actions for today — great work!</span>
+              </div>
+            )}
           </div>
         </div>
-
       </div>
+
 
       {/* QUICK ADD LEAD MODAL */}
       <Modal isOpen={showAddLead} onClose={() => setShowAddLead(false)} title="Add New Lead Manually" size="sm">

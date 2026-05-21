@@ -8,51 +8,44 @@ import '../../admin.css';
 
 const NAV_GROUPS = [
   {
-    label: 'CORE',
+    label: 'OPERATIONS',
     items: [
       { path: '/admin/dashboard',     label: 'Dashboard',         icon: '⊞',  key: 'dashboard' },
       { path: '/admin/leads',         label: 'Leads',             icon: '🎯', key: 'leads',    badge: 'newLeads',    permission: 'leads' },
       { path: '/admin/students',      label: 'Students',          icon: '🎓', key: 'students', permission: 'students' },
       { path: '/admin/counseling',    label: 'Counseling',        icon: '💬', key: 'counseling', permission: 'counseling' },
+      { path: '/admin/tasks',         label: 'Tasks',             icon: '✅', key: 'tasks',     permission: 'tasks' },
+    ],
+  },
+  {
+    label: 'MARKETING',
+    items: [
       { path: '/admin/webinars',      label: 'Webinars',          icon: '📡', key: 'webinars', permission: 'webinars' },
+      { path: '/admin/campaigns',     label: 'Ads & Campaigns',   icon: '📣', key: 'campaigns', permission: 'campaigns' },
       { path: '/admin/content',       label: 'Content',           icon: '📄', key: 'content',  permission: 'content' },
-      { path: '/admin/finance',       label: 'Finance',           icon: '💰', key: 'finance',  permission: 'finance' },
     ],
   },
   {
-    label: 'GROWTH',
+    label: 'TEAM',
     items: [
-      { path: '/admin/campaigns',     label: 'Ads & Campaigns',      icon: '📣', key: 'campaigns', permission: 'campaigns' },
-      { path: '/admin/funnels',       label: 'Funnels',              icon: '🔻', key: 'funnels',   permission: 'funnels' },
-      { path: '/admin/analytics',     label: 'Analytics',            icon: '📊', key: 'analytics', permission: 'analytics' },
+      { path: '/admin/team',          label: 'Team',              icon: '👥', key: 'team',          permission: 'team' },
+      { path: '/admin/finance',       label: 'Finance',           icon: '💰', key: 'finance',       permission: 'finance' },
+      { path: '/admin/notifications', label: 'Notifications',     icon: '🔔', key: 'notifications', badge: 'notifications', permission: 'notifications' },
     ],
   },
   {
-    label: 'MANAGEMENT',
-    items: [
-      { path: '/admin/team',          label: 'Team Directory',icon: '👥', key: 'team',      permission: 'team' },
-      { path: '/admin/tasks',         label: 'Tasks',         icon: '✅', key: 'tasks',     permission: 'tasks' },
-      { path: '/admin/workflow',      label: 'Workflow',      icon: '⚙️', key: 'workflow',  permission: 'workflow' },
-      { path: '/admin/notifications', label: 'Notifications', icon: '🔔', key: 'notifications', badge: 'notifications', permission: 'notifications' },
-    ],
-  },
-  {
-    label: 'AI SYSTEMS',
+    label: 'AI ASSISTANT',
     items: [
       { path: '/admin/eos-ai',        label: 'EOS AI',            icon: '🤖', key: 'eos-ai',    isAI: true, permission: 'eos_ai' },
-      { path: '/admin/automation',    label: 'Automation Center', icon: '⚡', key: 'automation', permission: 'automation' },
-      { path: '/admin/ai-insights',   label: 'AI Insights',       icon: '🧠', key: 'ai-insights', permission: 'ai_insights' },
-      { path: '/admin/ai-reports',    label: 'AI Reports',        icon: '📈', key: 'ai-reports', permission: 'ai_reports' },
     ],
   },
   {
     label: 'SYSTEM',
     items: [
       { path: '/admin/knowledge-base',    label: 'Knowledge Base',    icon: '📚', key: 'knowledge-base', permission: 'knowledge_base' },
-      { path: '/admin/settings',          label: 'Settings',          icon: '🔧', key: 'settings',       permission: 'settings' },
       { path: '/admin/integrations',      label: 'Integrations',      icon: '🔗', key: 'integrations',   permission: 'integrations' },
       { path: '/admin/permissions',       label: 'Permissions',       icon: '🛡️', key: 'permissions',    permission: 'permissions' },
-      { path: '/admin/api-config',        label: 'API Configurations',icon: '🔑', key: 'api-config',     permission: 'api_config' },
+      { path: '/admin/settings',          label: 'Settings',          icon: '🔧', key: 'settings',       permission: 'settings' },
     ],
   },
 ];
