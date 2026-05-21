@@ -308,6 +308,20 @@ alter table public.automation_rules enable row level security;
 -- HARDENED RLS POLICIES
 -- ────────────────────────────────────────────────────────
 
+-- Create security definer function to avoid infinite recursion in policies
+create or replace function public.is_super_admin()
+returns boolean
+language plpgsql
+security definer -- Bypasses RLS to prevent recursion
+as $$
+begin
+  return exists (
+    select 1 from public.profiles
+    where id = auth.uid() and role = 'Super Admin'
+  );
+end;
+$$;
+
 -- 1. Profiles Table Policies
 create policy "Allow authenticated read to profiles" on public.profiles
   for select using (auth.role() = 'authenticated');
@@ -319,12 +333,7 @@ create policy "Allow users to update their own profile" on public.profiles
   for update using (auth.uid() = id);
 
 create policy "Allow Super Admins to manage profiles" on public.profiles
-  for all using (
-    exists (
-      select 1 from public.profiles
-      where id = auth.uid() and role = 'Super Admin' and status != 'Offline'
-    )
-  );
+  for all using (public.is_super_admin());
 
 -- 2. Leads CRM Policies
 create policy "Allow select leads" on public.leads
