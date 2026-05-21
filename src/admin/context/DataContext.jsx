@@ -829,20 +829,28 @@ export function DataProvider({ children }) {
       return;
     }
     try {
-      const { data, error } = await supabase.from('profiles').insert([{
-        name: memberData.name,
-        role: memberData.role,
-        email: memberData.email,
-        phone: memberData.phone,
-        status: memberData.status || 'Active'
-      }]).select();
+      const { data, error } = await supabase.rpc('create_new_staff_member', {
+        staff_email: memberData.email,
+        staff_password: memberData.tempPassword || 'EB-Start123',
+        staff_name: memberData.name,
+        staff_role: memberData.role,
+        staff_phone: memberData.phone || ''
+      });
       if (error) throw error;
-      if (data && data[0]) {
-        setTeam(prev => [...prev, data[0]]);
-        logActivity('system', `Added team member: ${memberData.name}`);
+      if (data && data.success) {
+        const { data: newProfile, error: profileErr } = await supabase
+          .from('profiles')
+          .select('*')
+          .eq('id', data.userId)
+          .single();
+        if (!profileErr && newProfile) {
+          setTeam(prev => [...prev, mapProfileFromDB(newProfile)]);
+          logActivity('system', `Added team member: ${memberData.name}`);
+        }
       }
     } catch (err) {
       console.error('Supabase addTeamMember error:', err);
+      throw err;
     }
   };
 
@@ -862,7 +870,7 @@ export function DataProvider({ children }) {
       }).eq('id', id);
       if (error) throw error;
       setTeam(prev => prev.map(t => t.id === id ? { ...t, ...updatedFields } : t));
-      logActivity('system', `Updated team member: ${id}`);
+      logActivity('system', `Updated team member: ${updatedFields.name}`);
     } catch (err) {
       console.error('Supabase updateTeamMember error:', err);
     }
@@ -875,12 +883,39 @@ export function DataProvider({ children }) {
       return;
     }
     try {
-      const { error } = await supabase.from('profiles').delete().eq('id', id);
+      const { data, error } = await supabase.rpc('delete_staff_member', {
+        staff_id: id
+      });
       if (error) throw error;
-      setTeam(prev => prev.filter(t => t.id !== id));
-      logActivity('system', `Removed team member: ${id}`);
+      if (data && data.success) {
+        setTeam(prev => prev.filter(t => t.id !== id));
+        logActivity('system', `Removed team member: ${id}`);
+      }
     } catch (err) {
       console.error('Supabase deleteTeamMember error:', err);
+      throw err;
+    }
+  };
+
+  const resetTeamMemberPassword = async (id, newPassword) => {
+    if (!isSupabaseConfigured()) {
+      logActivity('system', `Reset password mock for team member: ${id}`);
+      return { success: true };
+    }
+    try {
+      const { data, error } = await supabase.rpc('reset_staff_password', {
+        staff_id: id,
+        new_password: newPassword
+      });
+      if (error) throw error;
+      if (data && data.success) {
+        logActivity('system', `Reset password for team member ID: ${id}`);
+        return { success: true };
+      }
+      return { success: false };
+    } catch (err) {
+      console.error('Supabase resetTeamMemberPassword error:', err);
+      throw err;
     }
   };
 
@@ -896,7 +931,7 @@ export function DataProvider({ children }) {
       addWebinar, updateWebinar,
       addContent, updateContent,
       addTransaction,
-      addTeamMember, updateTeamMember, deleteTeamMember
+      addTeamMember, updateTeamMember, deleteTeamMember, resetTeamMemberPassword
     }}>
       {children}
     </DataContext.Provider>

@@ -8,7 +8,7 @@ import Modal from '../components/ui/Modal';
 import ConfirmDialog from '../components/ui/ConfirmDialog';
 
 export default function Team() {
-  const { team, tasks, leads, addTeamMember, updateTeamMember, deleteTeamMember } = useData();
+  const { team, tasks, leads, addTeamMember, updateTeamMember, deleteTeamMember, resetTeamMemberPassword } = useData();
   const { user: currentUser } = useAuth();
   const { showToast } = useNotifications();
 
@@ -162,9 +162,14 @@ export default function Team() {
     setResettingUser(member);
   };
 
-  const handleConfirmReset = () => {
-    showToast(`Password reset code generated for ${resettingUser.name}`, 'success');
-    setResettingUser(null);
+  const handleConfirmReset = async () => {
+    try {
+      await resetTeamMemberPassword(resettingUser.id, generatedPassword);
+      showToast(`Password successfully reset for ${resettingUser.name}. Temp Password: ${generatedPassword}`, 'success');
+      setResettingUser(null);
+    } catch (err) {
+      showToast('Failed to reset password: ' + err.message, 'error');
+    }
   };
 
   const handleConfirmDelete = () => {
