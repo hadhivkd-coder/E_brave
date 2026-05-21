@@ -26,7 +26,16 @@ insert into auth.users (
   raw_app_meta_data,
   raw_user_meta_data,
   created_at,
-  updated_at
+  updated_at,
+  confirmation_token,
+  email_change,
+  email_change_token_new,
+  recovery_token,
+  is_sso_user,
+  email_change_token_current,
+  email_change_confirm_status,
+  reauthentication_token,
+  is_anonymous
 ) values 
 -- Super Admin (Password: admin123)
 (
@@ -40,7 +49,16 @@ insert into auth.users (
   '{"provider":"email","providers":["email"]}',
   '{}',
   now(),
-  now()
+  now(),
+  '',
+  '',
+  '',
+  '',
+  false,
+  '',
+  0,
+  '',
+  false
 ),
 -- Operations Manager (Password: ops123)
 (
@@ -54,7 +72,16 @@ insert into auth.users (
   '{"provider":"email","providers":["email"]}',
   '{}',
   now(),
-  now()
+  now(),
+  '',
+  '',
+  '',
+  '',
+  false,
+  '',
+  0,
+  '',
+  false
 ),
 -- Counselor (Password: counsel123)
 (
@@ -68,7 +95,16 @@ insert into auth.users (
   '{"provider":"email","providers":["email"]}',
   '{}',
   now(),
-  now()
+  now(),
+  '',
+  '',
+  '',
+  '',
+  false,
+  '',
+  0,
+  '',
+  false
 ),
 -- Content Manager (Password: content123)
 (
@@ -82,7 +118,16 @@ insert into auth.users (
   '{"provider":"email","providers":["email"]}',
   '{}',
   now(),
-  now()
+  now(),
+  '',
+  '',
+  '',
+  '',
+  false,
+  '',
+  0,
+  '',
+  false
 );
 
 -- 3. Insert matching profiles into public.profiles
