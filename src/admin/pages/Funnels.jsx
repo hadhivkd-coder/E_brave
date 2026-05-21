@@ -34,16 +34,15 @@ export default function Funnels() {
     <AdminLayout title="Funnel Analytics">
       <div className="adm-page-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px', marginBottom: '28px' }}>
         <div>
-          <h1 className="adm-page-title" style={{ fontSize: '24px', fontWeight: '800', color: '#fff', margin: '0 0 4px 0' }}>Funnel Analytics</h1>
-          <p className="adm-page-subtitle" style={{ color: '#a1a1aa', fontSize: '0.85rem', margin: 0 }}>
+          <h1 className="adm-page-title" style={{ fontSize: '24px', fontWeight: '800', margin: '0 0 4px 0' }}>Funnel Analytics</h1>
+          <p className="adm-page-subtitle" style={{ fontSize: '0.85rem', margin: 0 }}>
             Track conversion drop-offs between Instagram impressions, webinar registrations, and counselor bookings
           </p>
         </div>
-        <div style={{ display: 'flex', gap: '8px', background: 'rgba(30, 41, 59, 0.5)', padding: '4px', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.05)' }}>
+        <div style={{ display: 'flex', gap: '8px', background: 'var(--adm-accent-dim)', padding: '4px', borderRadius: '8px', border: '1px solid var(--adm-border)' }}>
           {['main', 'instagram', 'google'].map(t => (
             <button
               key={t}
-              className={`adm-filter-chip ${funnelType === t ? 'active' : ''}`}
               onClick={() => setFunnelType(t)}
               style={{
                 textTransform: 'capitalize',
@@ -55,7 +54,7 @@ export default function Funnels() {
                 fontWeight: '600',
                 transition: 'all 0.2s',
                 background: funnelType === t ? 'var(--adm-accent)' : 'transparent',
-                color: funnelType === t ? '#fff' : '#a1a1aa'
+                color: funnelType === t ? '#fff' : 'var(--adm-accent)'
               }}
             >
               {t} Funnel
@@ -69,7 +68,7 @@ export default function Funnels() {
         <div className="adm-card" style={{ padding: '24px', background: 'var(--adm-card)', borderRadius: '16px', border: '1px solid var(--adm-border)' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
             <h3 className="adm-card-title" style={{ margin: 0, fontSize: '1.1rem', fontWeight: '700' }}>Visual Dropoff Funnel</h3>
-            <span style={{ fontSize: '0.75rem', color: '#a1a1aa', background: 'rgba(255,255,255,0.05)', padding: '4px 10px', borderRadius: '20px' }}>
+            <span style={{ fontSize: '0.75rem', color: 'var(--adm-text-secondary)', background: 'var(--adm-accent-dim)', padding: '4px 10px', borderRadius: '20px' }}>
               Dynamic View
             </span>
           </div>
@@ -82,38 +81,42 @@ export default function Funnels() {
               const dropoff = nextStep ? Math.round((1 - (nextStep.count / item.count)) * 100) : 0;
               const lostCount = nextStep ? (item.count - nextStep.count) : 0;
 
+              // Cascading Green-to-Gold premium gradients (Theme Matching)
               const colors = [
-                'linear-gradient(135deg, #6366f1, #4f46e5)', // Stage 1 (Indigo)
-                'linear-gradient(135deg, #3b82f6, #2563eb)', // Stage 2 (Blue)
-                'linear-gradient(135deg, #06b6d4, #0891b2)', // Stage 3 (Cyan)
-                'linear-gradient(135deg, #0d9488, #0f766e)', // Stage 4 (Teal)
-                'linear-gradient(135deg, #10b981, #059669)', // Stage 5 (Emerald)
-                'linear-gradient(135deg, #84cc16, #65a30d)'  // Stage 6 (Lime)
+                'linear-gradient(135deg, #093024, #0f4c3a)', // Stage 1 (Deep Forest Green)
+                'linear-gradient(135deg, #0f4c3a, #156b52)', // Stage 2 (Medium Forest Green)
+                'linear-gradient(135deg, #156b52, #1b8768)', // Stage 3 (Emerald Green)
+                'linear-gradient(135deg, #1b8768, #10b981)', // Stage 4 (Fresh Green)
+                'linear-gradient(135deg, #10b981, #d97706)', // Stage 5 (Green to Gold transition)
+                'linear-gradient(135deg, #d97706, #f59e0b)'  // Stage 6 (Warm Amber Gold)
               ];
 
               return (
                 <div key={item.stage} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
                   
+                  {/* Stage row block */}
                   <div 
                     style={{
                       width: `${Math.max(40, relativeWidth)}%`,
                       minWidth: '290px',
-                      background: 'rgba(30, 41, 59, 0.45)',
-                      border: '1px solid rgba(255, 255, 255, 0.05)',
+                      background: 'var(--adm-surface)',
+                      border: '1px solid var(--adm-border)',
                       borderRadius: '12px',
                       padding: '16px 20px',
-                      boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
+                      boxShadow: 'var(--adm-shadow)',
                       position: 'relative',
                       overflow: 'hidden',
-                      transition: 'transform 0.2s ease, border-color 0.2s ease',
+                      transition: 'transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease',
                       cursor: 'pointer'
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = 'rgba(99, 102, 241, 0.3)';
+                      e.currentTarget.style.borderColor = 'var(--adm-accent)';
+                      e.currentTarget.style.boxShadow = 'var(--adm-shadow-lg)';
                       e.currentTarget.style.transform = 'translateY(-2px)';
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.05)';
+                      e.currentTarget.style.borderColor = 'var(--adm-border)';
+                      e.currentTarget.style.boxShadow = 'var(--adm-shadow)';
                       e.currentTarget.style.transform = 'translateY(0)';
                     }}
                   >
@@ -140,24 +143,24 @@ export default function Funnels() {
                           }}>
                             STAGE {idx + 1}
                           </span>
-                          <h4 style={{ margin: 0, fontWeight: '700', fontSize: '0.9rem', color: '#f4f4f5' }}>
+                          <h4 style={{ margin: 0, fontWeight: '700', fontSize: '0.9rem', color: 'var(--adm-text)' }}>
                             {item.stage}
                           </h4>
                         </div>
-                        <p style={{ margin: 0, fontSize: '0.75rem', color: '#a1a1aa' }}>{item.label}</p>
+                        <p style={{ margin: 0, fontSize: '0.75rem', color: 'var(--adm-text-secondary)' }}>{item.label}</p>
                       </div>
 
                       <div style={{ textAlign: 'right' }}>
-                        <div style={{ fontWeight: '800', fontSize: '1.05rem', color: '#fff' }}>
+                        <div style={{ fontWeight: '800', fontSize: '1.05rem', color: 'var(--adm-text)' }}>
                           {item.count.toLocaleString()}
                         </div>
-                        <span style={{ fontSize: '0.72rem', color: '#38bdf8', fontWeight: '700' }}>
+                        <span style={{ fontSize: '0.72rem', color: 'var(--adm-accent)', fontWeight: '700' }}>
                           {idx === 0 ? '100% Traffic' : `${Math.round((item.count / activeFunnel[idx-1].count) * 100)}% conv`}
                         </span>
                       </div>
                     </div>
 
-                    <div style={{ background: 'rgba(255, 255, 255, 0.04)', height: '5px', borderRadius: '4px', marginTop: '12px', overflow: 'hidden' }}>
+                    <div style={{ background: 'var(--adm-border-light)', height: '5px', borderRadius: '4px', marginTop: '12px', overflow: 'hidden' }}>
                       <div style={{
                         height: '100%',
                         width: `${relativeWidth}%`,
@@ -179,12 +182,12 @@ export default function Funnels() {
                       <div style={{
                         height: '20px',
                         width: '2px',
-                        borderLeft: '2px dashed rgba(239, 68, 68, 0.35)'
+                        borderLeft: '2px dashed var(--adm-red-dim)'
                       }} />
                       
                       <div style={{
-                        background: 'rgba(239, 68, 68, 0.08)',
-                        border: '1px solid rgba(239, 68, 68, 0.25)',
+                        background: 'var(--adm-red-dim)',
+                        border: '1px solid rgba(225, 29, 72, 0.15)',
                         borderRadius: '30px',
                         padding: '4px 12px',
                         display: 'flex',
@@ -192,18 +195,18 @@ export default function Funnels() {
                         gap: '6px',
                         fontSize: '0.72rem',
                         fontWeight: '700',
-                        color: '#fca5a5',
-                        boxShadow: '0 2px 8px rgba(0,0,0,0.2)'
+                        color: 'var(--adm-red)',
+                        boxShadow: 'var(--adm-shadow)'
                       }}>
-                        <span style={{ color: '#ef4444' }}>🔻 Drop-off: {dropoff}%</span>
-                        <span style={{ color: 'rgba(255,255,255,0.15)' }}>|</span>
+                        <span>🔻 Drop-off: {dropoff}%</span>
+                        <span style={{ color: 'var(--adm-border)' }}>|</span>
                         <span>-{lostCount.toLocaleString()} lost</span>
                       </div>
 
                       <div style={{
                         height: '20px',
                         width: '2px',
-                        borderLeft: '2px dashed rgba(239, 68, 68, 0.35)'
+                        borderLeft: '2px dashed var(--adm-red-dim)'
                       }} />
                     </div>
                   )}
@@ -219,15 +222,15 @@ export default function Funnels() {
             <span style={{ fontSize: '1.2rem' }}>✨</span>
             <h3 className="adm-card-title" style={{ margin: 0, fontSize: '1.1rem', fontWeight: '700' }}>EOS Funnel Audit</h3>
           </div>
-          <p className="adm-td-sub" style={{ margin: '0 0 20px 0', fontSize: '0.8rem', color: '#a1a1aa' }}>
+          <p className="adm-td-sub" style={{ margin: '0 0 20px 0', fontSize: '0.8rem', color: 'var(--adm-text-secondary)' }}>
             AI-generated diagnostic review of current conversion funnel stages.
           </p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             
             <div style={{
-              background: 'rgba(239, 68, 68, 0.03)',
-              border: '1px solid rgba(239, 68, 68, 0.1)',
+              background: 'var(--adm-red-dim)',
+              border: '1px solid rgba(225, 29, 72, 0.15)',
               borderRadius: '12px',
               padding: '16px',
               display: 'flex',
@@ -236,10 +239,10 @@ export default function Funnels() {
             }}>
               <span style={{ fontSize: '1.1rem', marginTop: '-2px' }}>⚠️</span>
               <div>
-                <strong style={{ display: 'block', fontSize: '0.85rem', color: '#fca5a5', fontWeight: '700', marginBottom: '4px' }}>
+                <strong style={{ display: 'block', fontSize: '0.85rem', color: 'var(--adm-red)', fontWeight: '700', marginBottom: '4px' }}>
                   Critical Bottleneck Detected
                 </strong>
-                <p style={{ margin: 0, fontSize: '0.78rem', color: '#d4d4d8', lineHeight: '1.4' }}>
+                <p style={{ margin: 0, fontSize: '0.78rem', color: 'var(--adm-text)', lineHeight: '1.4' }}>
                   {funnelType === 'main' && "85% of Landing Page visitors fail to register for webinars. Optimize page form count and heading copy to improve signups."}
                   {funnelType === 'instagram' && "80% drop-off between Bio Link clicks and Webinar signups. Check if landing page loading speed is slow on mobile devices."}
                   {funnelType === 'google' && "92% drop-off from Search impressions to website clicks. Revamp metadata descriptions and target search query intent."}
@@ -248,8 +251,8 @@ export default function Funnels() {
             </div>
 
             <div style={{
-              background: 'rgba(16, 185, 129, 0.03)',
-              border: '1px solid rgba(16, 185, 129, 0.1)',
+              background: 'var(--adm-green-dim)',
+              border: '1px solid rgba(16, 185, 129, 0.15)',
               borderRadius: '12px',
               padding: '16px',
               display: 'flex',
@@ -258,10 +261,10 @@ export default function Funnels() {
             }}>
               <span style={{ fontSize: '1.1rem', marginTop: '-2px' }}>🔥</span>
               <div>
-                <strong style={{ display: 'block', fontSize: '0.85rem', color: '#a7f3d0', fontWeight: '700', marginBottom: '4px' }}>
+                <strong style={{ display: 'block', fontSize: '0.85rem', color: 'var(--adm-green)', fontWeight: '700', marginBottom: '4px' }}>
                   High Conversion Highlight
                 </strong>
-                <p style={{ margin: 0, fontSize: '0.78rem', color: '#d4d4d8', lineHeight: '1.4' }}>
+                <p style={{ margin: 0, fontSize: '0.78rem', color: 'var(--adm-text)', lineHeight: '1.4' }}>
                   {funnelType === 'main' && "33% of counseling bookers convert to paid students. High counselor qualification rate ensures booking values."}
                   {funnelType === 'instagram' && "43.7% of counselor leads convert to paid memberships. Organic outreach brings highly motivated leads."}
                   {funnelType === 'google' && "49% conversion rate from inquiries to completed calls. Search engine intent shows immediate purchase urgency."}
@@ -269,8 +272,8 @@ export default function Funnels() {
               </div>
             </div>
 
-            <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '20px', marginTop: '4px' }}>
-              <label style={{ display: 'block', fontSize: '0.8rem', color: '#fff', fontWeight: '700', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+            <div style={{ borderTop: '1px solid var(--adm-border)', paddingTop: '20px', marginTop: '4px' }}>
+              <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--adm-text)', fontWeight: '700', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                 Key Improvements Checklist
               </label>
               
@@ -282,7 +285,7 @@ export default function Funnels() {
                 ].map((item, index) => (
                   <div key={index} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
                     <span style={{ color: 'var(--adm-accent)', fontSize: '0.8rem', marginTop: '1px' }}>✓</span>
-                    <span style={{ fontSize: '0.78rem', color: '#d4d4d8', lineHeight: '1.4' }}>{item}</span>
+                    <span style={{ fontSize: '0.78rem', color: 'var(--adm-text)', lineHeight: '1.4' }}>{item}</span>
                   </div>
                 ))}
               </div>
