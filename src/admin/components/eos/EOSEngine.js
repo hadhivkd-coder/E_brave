@@ -952,7 +952,7 @@ function handleGeneral(message, context) {
   };
 }
 
-import { supabase } from '../../../supabaseClient';
+import { supabase } from '../../../lib/supabase';
 import { getRelevantMemory } from './EOSMemory';
 
 const isSupabaseConfigured = () => {

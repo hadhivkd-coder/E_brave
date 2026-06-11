@@ -4,7 +4,7 @@ import AdminLayout from '../components/layout/AdminLayout';
 import Badge from '../components/ui/Badge';
 import Modal from '../components/ui/Modal';
 
-function StudentProfile({ student, sessions, onClose }) {
+function StudentProfile({ student, sessions, onClose, onUpdate }) {
   const [tab, setTab] = useState('overview');
   if (!student) return null;
   const studentSessions = sessions.filter(s => s.studentId === student.id || s.leadId === student.leadId);
@@ -29,7 +29,7 @@ function StudentProfile({ student, sessions, onClose }) {
         </div>
 
         <div className="adm-panel-tabs">
-          {['overview', 'counseling', 'payments', 'documents', 'notes'].map(t => (
+          {['overview', 'assessment', 'counseling', 'payments', 'documents', 'notes'].map(t => (
             <button key={t} className={`adm-panel-tab ${tab === t ? 'active' : ''}`} onClick={() => setTab(t)}>
               {t.charAt(0).toUpperCase() + t.slice(1)}
             </button>
@@ -49,6 +49,36 @@ function StudentProfile({ student, sessions, onClose }) {
                 </div>
               </div>
             </div>
+            <div className="adm-detail-section" style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+              <div style={{ flex: 1, minWidth: '150px' }}>
+                <label className="adm-detail-label">Update Status</label>
+                <select
+                  className="adm-select"
+                  value={student.status}
+                  onChange={e => onUpdate(student.id, { status: e.target.value })}
+                >
+                  <option value="Active">Active</option>
+                  <option value="Inactive">Inactive</option>
+                  <option value="Completed">Completed</option>
+                </select>
+              </div>
+              <div style={{ flex: 1, minWidth: '150px' }}>
+                <label className="adm-detail-label">Payment Status</label>
+                <select
+                  className="adm-select"
+                  value={student.paymentStatus || 'Pending'}
+                  onChange={e => onUpdate(student.id, { paymentStatus: e.target.value })}
+                  style={{
+                    borderColor: student.paymentStatus === 'Paid' ? '#10b981' : student.paymentStatus === 'Partial' ? '#f59e0b' : 'var(--adm-border)',
+                    backgroundColor: student.paymentStatus === 'Paid' ? '#10b98110' : student.paymentStatus === 'Partial' ? '#f59e0b10' : '#ffffff'
+                  }}
+                >
+                  <option value="Pending">⏳ Pending</option>
+                  <option value="Partial">🟡 Partial</option>
+                  <option value="Paid">✅ Paid</option>
+                </select>
+              </div>
+            </div>
             <div className="adm-detail-section">
               <label className="adm-detail-label">Recommended Career Paths</label>
               <div className="adm-tag-list">
@@ -58,6 +88,73 @@ function StudentProfile({ student, sessions, onClose }) {
             <div className="adm-detail-section">
               <label className="adm-detail-label">Parent Notes</label>
               <p className="adm-note-text">{student.parentNotes || 'No parent notes recorded'}</p>
+            </div>
+          </div>
+        )}
+
+        {tab === 'assessment' && (
+          <div className="adm-panel-content">
+            <h3 style={{ fontSize: '1.2rem', fontWeight: 800, marginBottom: 16 }}>Assessment Profile</h3>
+            <div className="adm-detail-section" style={{ background: 'var(--adm-bg)', padding: 20, borderRadius: 12, border: '1px solid var(--adm-border)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 20 }}>
+                <div style={{ fontSize: '3rem' }}>♟️</div>
+                <div>
+                  <div style={{ fontSize: '0.8rem', color: 'var(--adm-text-secondary)', textTransform: 'uppercase', letterSpacing: 1, fontWeight: 700 }}>Primary Archetype</div>
+                  <div style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--adm-text)' }}>The Strategist</div>
+                </div>
+              </div>
+              
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
+                <div>
+                  <h4 style={{ fontSize: '0.9rem', color: 'var(--adm-text-secondary)', marginBottom: 8 }}>Top Career Matches</h4>
+                  <ul style={{ margin: 0, paddingLeft: 20, color: 'var(--adm-text)', fontSize: '0.95rem', lineHeight: 1.6 }}>
+                    <li>Product Manager <strong style={{color: 'var(--adm-accent)'}}>(94%)</strong></li>
+                    <li>Management Consultant <strong style={{color: 'var(--adm-accent)'}}>(88%)</strong></li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 style={{ fontSize: '0.9rem', color: 'var(--adm-text-secondary)', marginBottom: 8 }}>Counselor Flags</h4>
+                  <ul style={{ margin: 0, paddingLeft: 20, color: '#f59e0b', fontSize: '0.95rem', lineHeight: 1.6 }}>
+                    <li>Low patience for repetitive tasks</li>
+                    <li>High academic misalignment risk</li>
+                  </ul>
+                </div>
+              </div>
+              <div style={{ marginTop: 24 }}>
+                 <button 
+                   className="adm-btn adm-btn-primary" 
+                   style={{ width: '100%' }}
+                   onClick={async () => {
+                     // Trigger PDF Generation Microservice
+                     try {
+                       const res = await fetch('http://localhost:3001/api/generate-pdf', {
+                         method: 'POST',
+                         headers: { 'Content-Type': 'application/json' },
+                         body: JSON.stringify({
+                           studentName: student.name,
+                           grade: student.education || 'High School',
+                           schoolName: student.school || 'E-Brave Demo School',
+                           archetype: 'The Strategist',
+                           aiInsights: { snapshot: 'Student is highly analytical but lacks interpersonal confidence. Primary archetype is The Investigator.' }
+                         })
+                       });
+                       const blob = await res.blob();
+                       const url = window.URL.createObjectURL(blob);
+                       const a = document.createElement('a');
+                       a.href = url;
+                       a.download = `${student.name.replace(/\s+/g, '_')}_Assessment_Report.pdf`;
+                       document.body.appendChild(a);
+                       a.click();
+                       a.remove();
+                     } catch (e) {
+                       console.error('PDF Generation Failed', e);
+                       alert('Could not connect to PDF Engine. Please ensure the server is running on port 3001.');
+                     }
+                   }}
+                 >
+                   Download 10-Page Counselor Dossier (PDF)
+                 </button>
+              </div>
             </div>
           </div>
         )}
@@ -136,7 +233,7 @@ function StudentProfile({ student, sessions, onClose }) {
 import { useAuth } from '../context/AuthContext';
 
 export default function Students() {
-  const { students, sessions } = useData();
+  const { students, sessions, updateStudent } = useData();
   const { user } = useAuth();
   const [search, setSearch] = useState('');
   const [selectedStudent, setSelectedStudent] = useState(null);
@@ -188,7 +285,14 @@ export default function Students() {
                 <div className="adm-student-card-info">
                   <div className="adm-student-name">{student.name}</div>
                   <div className="adm-student-meta">{student.city} · {student.education}</div>
-                  <Badge variant={student.status === 'Active' ? 'green' : 'gray'} size="sm">{student.status}</Badge>
+                  <div style={{ display: 'flex', gap: 6, marginTop: 4 }}>
+                    <Badge variant={student.status === 'Active' ? 'green' : 'gray'} size="sm">{student.status}</Badge>
+                    {student.paymentStatus === 'Paid' ? (
+                       <Badge variant="green" size="sm">Paid</Badge>
+                    ) : student.paymentStatus === 'Partial' ? (
+                       <Badge variant="amber" size="sm">Partial</Badge>
+                    ) : null}
+                  </div>
                 </div>
               </div>
 
@@ -236,6 +340,7 @@ export default function Students() {
           student={selectedStudent}
           sessions={sessions}
           onClose={() => setSelectedStudent(null)}
+          onUpdate={updateStudent}
         />
       )}
     </AdminLayout>

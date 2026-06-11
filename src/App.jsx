@@ -20,6 +20,7 @@ import SocialProof from './components/SocialProof';
 import ExitIntent from './components/ExitIntent';
 
 import AdminApp from './admin/AdminApp';
+import StudentApp from './student/StudentApp';
 
 // Public website component (unchanged)
 function PublicSite() {
@@ -77,6 +78,8 @@ function App() {
       <Routes>
         {/* Admin panel — all /admin/* routes */}
         <Route path="/admin/*" element={<AdminApp />} />
+        {/* Student portal — all /student/* routes */}
+        <Route path="/student/*" element={<StudentApp />} />
         {/* Public website — root route */}
         <Route path="/*" element={<PublicSite />} />
       </Routes>

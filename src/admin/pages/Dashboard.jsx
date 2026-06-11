@@ -59,6 +59,9 @@ export default function Dashboard() {
     return isCounselor ? sessions.filter(s => s.counselorId === user.id) : sessions;
   }, [sessions, isCounselor, user]);
 
+  const isSales = user?.role === 'Sales';
+  const isAdmin = user?.role === 'Super Admin' || user?.role === 'Operations Manager';
+
   const scopeTasks = useMemo(() => {
     return isCounselor ? tasks.filter(t => t.assignedTo === user.id) : tasks;
   }, [tasks, isCounselor, user]);
@@ -282,44 +285,72 @@ export default function Dashboard() {
           </div>
 
           {/* Quick Metrics Pillar */}
-          <div 
-            style={{
-              background: '#ffffff',
-              border: '1px solid var(--adm-border)',
-              borderRadius: '12px',
-              padding: '12px 18px',
-              minWidth: '160px',
-              boxShadow: 'var(--adm-shadow)'
-            }}
-          >
-            <span style={{ fontSize: '0.7rem', fontWeight: 600, color: 'var(--adm-text-secondary)', display: 'block', textTransform: 'uppercase', marginBottom: '4px' }}>
-              Counseling Today
-            </span>
-            <strong style={{ fontSize: '1.4rem', color: 'var(--adm-accent)', display: 'block', fontWeight: 800, lineHeight: 1.1 }}>
-              {todaysSessions.length}
-            </strong>
-            <span style={{ fontSize: '0.75rem', color: 'var(--adm-muted)' }}>
-              sessions scheduled
-            </span>
-          </div>
+          {(!isSales) && (
+            <div 
+              style={{
+                background: '#ffffff',
+                border: '1px solid var(--adm-border)',
+                borderRadius: '12px',
+                padding: '12px 18px',
+                minWidth: '160px',
+                boxShadow: 'var(--adm-shadow)'
+              }}
+            >
+              <span style={{ fontSize: '0.7rem', fontWeight: 600, color: 'var(--adm-text-secondary)', display: 'block', textTransform: 'uppercase', marginBottom: '4px' }}>
+                Counseling Today
+              </span>
+              <strong style={{ fontSize: '1.4rem', color: 'var(--adm-accent)', display: 'block', fontWeight: 800, lineHeight: 1.1 }}>
+                {todaysSessions.length}
+              </strong>
+              <span style={{ fontSize: '0.75rem', color: 'var(--adm-muted)' }}>
+                sessions scheduled
+              </span>
+            </div>
+          )}
+          {(isSales || isAdmin) && (
+            <div 
+              style={{
+                background: '#ffffff',
+                border: '1px solid var(--adm-border)',
+                borderRadius: '12px',
+                padding: '12px 18px',
+                minWidth: '160px',
+                boxShadow: 'var(--adm-shadow)'
+              }}
+            >
+              <span style={{ fontSize: '0.7rem', fontWeight: 600, color: 'var(--adm-text-secondary)', display: 'block', textTransform: 'uppercase', marginBottom: '4px' }}>
+                New Leads Today
+              </span>
+              <strong style={{ fontSize: '1.4rem', color: 'var(--adm-accent)', display: 'block', fontWeight: 800, lineHeight: 1.1 }}>
+                {newLeadsToday.length}
+              </strong>
+              <span style={{ fontSize: '0.75rem', color: 'var(--adm-muted)' }}>
+                waiting to be contacted
+              </span>
+            </div>
+          )}
         </div>
       </div>
 
       {/* QUICK ACTIONS TOOLBAR */}
       <div style={{ background: 'var(--adm-surface)', border: '1px solid var(--adm-border)', padding: 16, borderRadius: 12, display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center', marginBottom: 32 }}>
         <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--adm-text-secondary)', marginRight: 8 }}>Quick Operations:</span>
-        <button className="adm-btn adm-btn-primary adm-btn-sm" onClick={() => setShowAddLead(true)}>
-          ⚡ Add New Lead
-        </button>
-        <button className="adm-btn adm-btn-ghost adm-btn-sm" onClick={() => setShowBookSession(true)} style={{ borderColor: 'var(--adm-accent)' }}>
-          🗓️ Book Counseling Session
-        </button>
+        {(isAdmin || isSales) && (
+          <button className="adm-btn adm-btn-primary adm-btn-sm" onClick={() => setShowAddLead(true)}>
+            ⚡ Add New Lead
+          </button>
+        )}
+        {(!isSales) && (
+          <button className="adm-btn adm-btn-ghost adm-btn-sm" onClick={() => setShowBookSession(true)} style={{ borderColor: 'var(--adm-accent)' }}>
+            🗓️ Book Session
+          </button>
+        )}
         <button className="adm-btn adm-btn-ghost adm-btn-sm" onClick={() => setShowAddTask(true)} style={{ borderColor: 'var(--adm-accent)' }}>
-          ✍️ Create Task Checklist
+          ✍️ Create Task
         </button>
         {isCounselor && (
           <button className="adm-btn adm-btn-ghost adm-btn-sm" onClick={() => navigate('/admin/counseling')} style={{ marginLeft: 'auto' }}>
-            My Board →
+            My Schedule →
           </button>
         )}
       </div>
@@ -331,47 +362,49 @@ export default function Dashboard() {
       
       <div className="adm-ops-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: 24, marginBottom: 36 }}>
         
-        {/* Today's Counseling Card */}
-        <div className="adm-dashboard-card" style={{ background: '#ffffff', borderRadius: 12, border: '1px solid var(--adm-border)', padding: 20, boxShadow: 'var(--adm-shadow)', display: 'flex', flexDirection: 'column' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
-            <div>
-              <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--adm-accent)' }}>Today's Counseling</h3>
-              <p style={{ fontSize: '0.75rem', color: 'var(--adm-text-secondary)' }}>Status of scheduled student sessions</p>
-            </div>
-            <Badge variant="green" size="sm">{todaysSessions.length} Scheduled</Badge>
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 10, flex: 1 }}>
-            {todaysSessions.length === 0 ? (
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '32px 0', color: 'var(--adm-muted)', fontSize: '0.85rem', flex: 1 }}>
-                <span>☕</span>
-                <span style={{ marginTop: 8 }}>No sessions scheduled for today.</span>
+        {/* Today's Counseling Card (Hidden for Sales) */}
+        {!isSales && (
+          <div className="adm-dashboard-card" style={{ background: '#ffffff', borderRadius: 12, border: '1px solid var(--adm-border)', padding: 20, boxShadow: 'var(--adm-shadow)', display: 'flex', flexDirection: 'column' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
+              <div>
+                <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--adm-accent)' }}>Today's Sessions</h3>
+                <p style={{ fontSize: '0.75rem', color: 'var(--adm-text-secondary)' }}>Status of scheduled student sessions</p>
               </div>
-            ) : (
-              todaysSessions.map(session => (
-                <div 
-                  key={session.id} 
-                  className="adm-dashboard-list-row"
-                  style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 12px', border: '1px solid var(--adm-border-light)', borderRadius: 8, cursor: 'pointer' }}
-                  onClick={() => navigate('/admin/counseling')}
-                >
-                  <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-                    <div style={{ textAlign: 'center', minWidth: 50 }}>
-                      <strong style={{ fontSize: '0.9rem', color: 'var(--adm-accent)', display: 'block' }}>
-                        {new Date(session.scheduledAt).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: false })}
-                      </strong>
-                      <span style={{ fontSize: '0.65rem', color: 'var(--adm-muted)' }}>{session.duration} min</span>
-                    </div>
-                    <div>
-                      <span style={{ fontSize: '0.85rem', fontWeight: 600, display: 'block', color: 'var(--adm-text)' }}>{session.studentName}</span>
-                      <span style={{ fontSize: '0.75rem', color: 'var(--adm-text-secondary)' }}>{session.sessionType || 'Career Session'}</span>
-                    </div>
-                  </div>
-                  <Badge variant={session.status === 'Completed' ? 'green' : 'blue'} size="sm">{session.status}</Badge>
+              <Badge variant="green" size="sm">{todaysSessions.length} Scheduled</Badge>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10, flex: 1 }}>
+              {todaysSessions.length === 0 ? (
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '32px 0', color: 'var(--adm-muted)', fontSize: '0.85rem', flex: 1 }}>
+                  <span>☕</span>
+                  <span style={{ marginTop: 8 }}>No sessions scheduled for today.</span>
                 </div>
-              ))
-            )}
+              ) : (
+                todaysSessions.map(session => (
+                  <div 
+                    key={session.id} 
+                    className="adm-dashboard-list-row"
+                    style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 12px', border: '1px solid var(--adm-border-light)', borderRadius: 8, cursor: 'pointer' }}
+                    onClick={() => navigate('/admin/counseling')}
+                  >
+                    <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+                      <div style={{ textAlign: 'center', minWidth: 50 }}>
+                        <strong style={{ fontSize: '0.9rem', color: 'var(--adm-accent)', display: 'block' }}>
+                          {new Date(session.scheduledAt).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: false })}
+                        </strong>
+                        <span style={{ fontSize: '0.65rem', color: 'var(--adm-muted)' }}>{session.duration} min</span>
+                      </div>
+                      <div>
+                        <span style={{ fontSize: '0.85rem', fontWeight: 600, display: 'block', color: 'var(--adm-text)' }}>{session.studentName || 'Student Session'}</span>
+                        <span style={{ fontSize: '0.75rem', color: 'var(--adm-text-secondary)' }}>{session.sessionType || 'Career Session'}</span>
+                      </div>
+                    </div>
+                    <Badge variant={session.status === 'Completed' ? 'green' : 'blue'} size="sm">{session.status}</Badge>
+                  </div>
+                ))
+              )}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Pending Follow-ups Card */}
         <div className="adm-dashboard-card" style={{ background: '#ffffff', borderRadius: 12, border: '1px solid var(--adm-border)', padding: 20, boxShadow: 'var(--adm-shadow)', display: 'flex', flexDirection: 'column' }}>
@@ -416,46 +449,50 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* New Leads Card */}
-        <div className="adm-dashboard-card" style={{ background: '#ffffff', borderRadius: 12, border: '1px solid var(--adm-border)', padding: 20, boxShadow: 'var(--adm-shadow)', display: 'flex', flexDirection: 'column' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
-            <div>
-              <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--adm-accent)' }}>New Leads Today</h3>
-              <p style={{ fontSize: '0.75rem', color: 'var(--adm-text-secondary)' }}>Signups from Instagram & Organic Channels</p>
-            </div>
-            <Badge variant="indigo" size="sm">{newLeadsToday.length} Registered</Badge>
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 10, flex: 1 }}>
-            {newLeadsToday.length === 0 ? (
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '32px 0', color: 'var(--adm-muted)', fontSize: '0.85rem', flex: 1 }}>
-                <span>🎯</span>
-                <span style={{ marginTop: 8 }}>Waiting for new campaigns registrations.</span>
+        {/* New Leads Card (Hidden for Counselors) */}
+        {!isCounselor && (
+          <div className="adm-dashboard-card" style={{ background: '#ffffff', borderRadius: 12, border: '1px solid var(--adm-border)', padding: 20, boxShadow: 'var(--adm-shadow)', display: 'flex', flexDirection: 'column' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
+              <div>
+                <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--adm-accent)' }}>New Leads Today</h3>
+                <p style={{ fontSize: '0.75rem', color: 'var(--adm-text-secondary)' }}>Requires immediate WhatsApp/Call contact</p>
               </div>
-            ) : (
-              newLeadsToday.slice(0, 5).map(lead => (
-                <div 
-                  key={lead.id} 
-                  className="adm-dashboard-list-row"
-                  style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 12px', border: '1px solid var(--adm-border-light)', borderRadius: 8, cursor: 'pointer' }}
-                  onClick={() => navigate('/admin/leads')}
-                >
-                  <div>
-                    <span style={{ fontSize: '0.85rem', fontWeight: 600, display: 'block', color: 'var(--adm-text)' }}>{lead.name}</span>
-                    <span style={{ fontSize: '0.75rem', color: 'var(--adm-text-secondary)' }}>{lead.education} · {lead.city}</span>
-                  </div>
-                  <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
-                    <span style={{ fontSize: '0.7rem', padding: '2px 6px', background: 'rgba(15, 76, 58, 0.05)', color: 'var(--adm-accent)', borderRadius: 4 }}>
-                      {lead.source}
-                    </span>
-                    <span style={{ fontSize: '0.7rem', fontWeight: 700, padding: '2px 6px', background: 'rgba(212, 175, 55, 0.1)', color: '#b48a07', borderRadius: 4 }}>
-                      ★ {lead.leadScore}
-                    </span>
-                  </div>
+              <Badge variant="indigo" size="sm">{newLeadsToday.length} Registered</Badge>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10, flex: 1 }}>
+              {newLeadsToday.length === 0 ? (
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '32px 0', color: 'var(--adm-muted)', fontSize: '0.85rem', flex: 1 }}>
+                  <span>🎯</span>
+                  <span style={{ marginTop: 8 }}>Waiting for new campaigns registrations.</span>
                 </div>
-              ))
-            )}
+              ) : (
+                newLeadsToday.slice(0, 5).map(lead => (
+                  <div 
+                    key={lead.id} 
+                    className="adm-dashboard-list-row"
+                    style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '8px 12px', border: '1px solid var(--adm-border-light)', borderRadius: 8, cursor: 'pointer' }}
+                    onClick={() => navigate('/admin/leads')}
+                  >
+                    <div>
+                      <span style={{ fontSize: '0.85rem', fontWeight: 600, display: 'block', color: 'var(--adm-text)' }}>{lead.name}</span>
+                      <span style={{ fontSize: '0.75rem', color: 'var(--adm-text-secondary)' }}>{lead.phone}</span>
+                    </div>
+                    <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
+                      <span style={{ fontSize: '0.7rem', padding: '2px 6px', background: 'rgba(15, 76, 58, 0.05)', color: 'var(--adm-accent)', borderRadius: 4 }}>
+                        {lead.source}
+                      </span>
+                      {lead.paymentStatus === 'Paid' && (
+                        <span style={{ fontSize: '0.7rem', fontWeight: 700, padding: '2px 6px', background: 'rgba(16, 185, 129, 0.1)', color: '#059669', borderRadius: 4 }}>
+                          Paid
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Tasks Needing Action Card */}
         <div className="adm-dashboard-card" style={{ background: '#ffffff', borderRadius: 12, border: '1px solid var(--adm-border)', padding: 20, boxShadow: 'var(--adm-shadow)', display: 'flex', flexDirection: 'column' }}>

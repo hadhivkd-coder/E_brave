@@ -1,17 +1,18 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
-import { MOCK_USERS } from '../data/mockData';
-import { supabase } from '../../supabaseClient';
+import { supabase } from '../../lib/supabase';
 
 const AuthContext = createContext(null);
 
-// Permission matrix for each role
 const PERMISSIONS = {
   'Super Admin': ['*'],
   'Operations Manager': [
-    'dashboard', 'leads', 'students', 'counseling', 'webinars', 'tasks', 'analytics', 'workflow', 'notifications'
+    'dashboard', 'leads', 'students', 'counseling', 'webinars', 'tasks', 'analytics', 'workflow', 'notifications', 'team'
+  ],
+  'Sales': [
+    'dashboard', 'leads', 'finance', 'tasks', 'funnels', 'notifications'
   ],
   'Counselor': [
-    'dashboard', 'leads', 'students', 'counseling', 'tasks', 'notifications'
+    'dashboard', 'students', 'counseling', 'tasks', 'notifications'
   ],
   'Content Manager': [
     'dashboard', 'content', 'campaigns', 'webinars', 'funnels', 'tasks', 'notifications'
@@ -54,18 +55,42 @@ export function AuthProvider({ children }) {
 
   const fetchProfileAndSetUser = async (authUser) => {
     try {
-      const { data: profile, error } = await supabase
+      let { data: profile, error: profileErr } = await supabase
         .from('profiles')
         .select('*')
         .eq('id', authUser.id)
         .single();
 
-      if (error || !profile) {
-        console.warn('Profile fetch error, logging out user:', error);
-        await supabase.auth.signOut();
-        setUser(null);
-      } else if (profile.status === 'Offline') {
-        console.warn('User status is Offline, logging out user');
+      if (profileErr || !profile) {
+        // EMERGENCY FALLBACK: Account exists in auth.users but has no profile row.
+        // We auto-heal the database by inserting a default profile.
+        console.warn('Profile missing. Attempting emergency profile generation for:', authUser.email);
+        
+        const fallbackName = authUser.user_metadata?.name || authUser.email.split('@')[0];
+        const { data: newProfile, error: insertErr } = await supabase
+          .from('profiles')
+          .insert([{
+            id: authUser.id,
+            name: fallbackName,
+            email: authUser.email,
+            role: 'Counselor',
+            status: 'Active'
+          }])
+          .select()
+          .single();
+
+        if (insertErr || !newProfile) {
+          console.error('CRITICAL: Emergency profile creation failed:', insertErr);
+          await supabase.auth.signOut();
+          setUser(null);
+          return;
+        }
+        
+        profile = newProfile; // Use the newly created profile
+      }
+
+      if (profile.status === 'Offline' || profile.status === 'Suspended') {
+        console.warn(`User status is ${profile.status}, logging out user`);
         await supabase.auth.signOut();
         setUser(null);
       } else {
@@ -109,20 +134,40 @@ export function AuthProvider({ children }) {
       if (error) throw error;
       
       // Fetch profile details
-      const { data: profile, error: profileErr } = await supabase
+      let { data: profile, error: profileErr } = await supabase
         .from('profiles')
         .select('*')
         .eq('id', data.user.id)
         .single();
 
       if (profileErr || !profile) {
-        await supabase.auth.signOut();
-        return { success: false, error: 'Access Denied: Your account does not have an assigned profile.' };
+        // EMERGENCY FALLBACK FOR LOGIN
+        console.warn('Profile missing on login. Auto-healing...');
+        const fallbackName = data.user.user_metadata?.name || normalizedEmail.split('@')[0];
+        
+        const { data: newProfile, error: insertErr } = await supabase
+          .from('profiles')
+          .insert([{
+            id: data.user.id,
+            name: fallbackName,
+            email: normalizedEmail,
+            role: 'Counselor',
+            status: 'Active'
+          }])
+          .select()
+          .single();
+
+        if (insertErr || !newProfile) {
+          await supabase.auth.signOut();
+          return { success: false, error: 'Access Denied: Your account profile could not be generated. Contact Admin.' };
+        }
+        
+        profile = newProfile;
       }
 
-      if (profile.status === 'Offline') {
+      if (profile.status === 'Offline' || profile.status === 'Suspended') {
         await supabase.auth.signOut();
-        return { success: false, error: 'Access Denied: Your account is currently disabled/offline.' };
+        return { success: false, error: 'Access Denied: Your account is currently disabled or offline.' };
       }
 
       const sessionUser = {

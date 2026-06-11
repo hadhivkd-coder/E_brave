@@ -4,7 +4,7 @@ import Badge from '../components/ui/Badge';
 import { useData } from '../context/DataContext';
 import { useAuth } from '../context/AuthContext';
 import ConfirmDialog from '../components/ui/ConfirmDialog';
-import { supabase } from '../../supabaseClient';
+import { supabase } from '../../lib/supabase';
 
 const isSupabaseConfigured = () => {
   const url = import.meta.env.VITE_SUPABASE_URL;

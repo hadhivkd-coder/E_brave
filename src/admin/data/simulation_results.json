@@ -1,0 +1,81 @@
+[
+  {
+    "profileName": "High STEM Student",
+    "archetype": "The Builder",
+    "flags": [
+      {
+        "flag": "Yellow",
+        "title": "The Lone Wolf"
+      }
+    ],
+    "keyScores": {
+      "Tech": 100,
+      "Arts": 31,
+      "Business": 31,
+      "Healthcare": 34,
+      "Confusion": 36,
+      "Parent_Pressure": 42
+    }
+  },
+  {
+    "profileName": "Creative Student",
+    "archetype": "The Creator",
+    "flags": [],
+    "keyScores": {
+      "Tech": 38,
+      "Arts": 94,
+      "Business": 33,
+      "Healthcare": 37,
+      "Confusion": 23,
+      "Parent_Pressure": 33
+    }
+  },
+  {
+    "profileName": "Business / Entrepreneurial Student",
+    "archetype": "Pending",
+    "flags": [],
+    "keyScores": {
+      "Tech": 40,
+      "Arts": 39,
+      "Business": 87,
+      "Healthcare": 31,
+      "Confusion": 34,
+      "Parent_Pressure": 42
+    }
+  },
+  {
+    "profileName": "Healthcare-Oriented Student",
+    "archetype": "The Helper",
+    "flags": [],
+    "keyScores": {
+      "Tech": 36,
+      "Arts": 33,
+      "Business": 34,
+      "Healthcare": 92,
+      "Confusion": 37,
+      "Parent_Pressure": 42
+    }
+  },
+  {
+    "profileName": "Career Confused Student",
+    "archetype": "Pending",
+    "flags": [
+      {
+        "flag": "Red",
+        "title": "High Parental Pressure"
+      },
+      {
+        "flag": "Yellow",
+        "title": "Pressure-Induced Paralysis"
+      }
+    ],
+    "keyScores": {
+      "Tech": 40,
+      "Arts": 42,
+      "Business": 32,
+      "Healthcare": 34,
+      "Confusion": 100,
+      "Parent_Pressure": 89
+    }
+  }
+]

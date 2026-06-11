@@ -32,6 +32,7 @@ export default function Navbar({ registrationsList }) {
                     <li><a href="#about">About</a></li>
                     <li><a href="#how-it-works">How It Works</a></li>
                     <li><a href="#experts">Experts</a></li>
+                    <li><a href="/student/assessment">Assessment</a></li>
                     <li><a href="#pricing">Pricing</a></li>
                     <li><a href="#reviews">Reviews</a></li>
                     <li><a href="#faq">FAQ</a></li>
@@ -74,6 +75,7 @@ export default function Navbar({ registrationsList }) {
                             ['#about', 'About'],
                             ['#how-it-works', 'How It Works'],
                             ['#experts', 'Our Experts'],
+                            ['/student/assessment', 'Assessment'],
                             ['#pricing', 'Pricing'],
                             ['#reviews', 'Reviews'],
                             ['#faq', 'FAQ'],

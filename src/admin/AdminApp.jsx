@@ -30,6 +30,7 @@ const Settings = lazy(() => import('./pages/Settings'));
 const Integrations = lazy(() => import('./pages/Integrations'));
 const Permissions = lazy(() => import('./pages/Permissions'));
 const APIConfig = lazy(() => import('./pages/APIConfig'));
+const AssessmentConfig = lazy(() => import('./pages/AssessmentConfig'));
 
 // Loading fallback
 function PageLoader() {
@@ -106,6 +107,7 @@ function AdminRoutes() {
         <Route path="integrations" element={<ProtectedRoute requiredPermission="integrations"><Integrations /></ProtectedRoute>} />
         <Route path="permissions" element={<ProtectedRoute requiredPermission="permissions"><Permissions /></ProtectedRoute>} />
         <Route path="api-config" element={<ProtectedRoute requiredPermission="api_config"><APIConfig /></ProtectedRoute>} />
+        <Route path="assessment-config" element={<ProtectedRoute requiredPermission="assessment_config"><AssessmentConfig /></ProtectedRoute>} />
         <Route path="" element={<Navigate to="/admin/dashboard" replace />} />
         <Route path="*" element={<Navigate to="/admin/dashboard" replace />} />
       </Routes>

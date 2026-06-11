@@ -1,952 +1,426 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import mockData from '../data/mockData';
-import { supabase } from '../../supabaseClient';
+import React, { createContext, useContext, useState, useEffect, useCallback, useMemo } from 'react';
+import { supabase } from '../../lib/supabase';
 
 const DataContext = createContext(null);
 
-const isSupabaseConfigured = () => {
-  return true;
-};
-
-// ────────────────────────────────────────────────────────
-// MAPPING HELPERS (Database snake_case <=> Frontend camelCase)
-// ────────────────────────────────────────────────────────
-
-const mapLeadFromDB = (db) => {
-  if (!db) return null;
-  return {
-    id: db.id,
-    name: db.name,
-    phone: db.phone,
-    email: db.email,
-    education: db.education,
-    city: db.city,
-    state: db.state,
-    parentContact: db.parent_contact,
-    source: db.source,
-    counselorId: db.counselor_id,
-    leadScore: db.lead_score,
-    notes: db.notes,
-    tags: db.tags || [],
-    followUpDate: db.follow_up_date,
-    status: db.status,
-    createdAt: db.created_at,
-    activityHistory: db.activity_history || []
-  };
-};
-
-const mapLeadToDB = (fe) => {
-  if (!fe) return null;
-  return {
-    name: fe.name,
-    phone: fe.phone,
-    email: fe.email,
-    education: fe.education,
-    city: fe.city,
-    state: fe.state,
-    parent_contact: fe.parentContact,
-    source: fe.source || 'Google',
-    counselor_id: fe.counselorId || null,
-    lead_score: Number(fe.leadScore) || 1,
-    notes: fe.notes,
-    tags: fe.tags || [],
-    follow_up_date: fe.followUpDate || null,
-    status: fe.status || 'New Lead'
-  };
-};
-
-const mapStudentFromDB = (db) => {
-  if (!db) return null;
-  return {
-    id: db.id,
-    leadId: db.lead_id,
-    name: db.name,
-    phone: db.phone,
-    email: db.email,
-    education: db.education,
-    city: db.city,
-    counselorId: db.counselor_id,
-    enrolledDate: db.enrolled_date,
-    status: db.status,
-    recommendedPaths: db.recommended_paths || [],
-    counselorNotes: db.counselor_notes,
-    progressScore: db.progress_score,
-    parentNotes: db.parent_notes,
-    createdAt: db.created_at,
-    paymentHistory: db.payment_history || [],
-    documents: db.documents || []
-  };
-};
-
-const mapStudentToDB = (fe) => {
-  if (!fe) return null;
-  return {
-    lead_id: fe.leadId || null,
-    name: fe.name,
-    phone: fe.phone,
-    email: fe.email,
-    education: fe.education,
-    city: fe.city,
-    counselor_id: fe.counselorId || null,
-    enrolled_date: fe.enrolledDate || new Date().toISOString().split('T')[0],
-    status: fe.status || 'Active',
-    recommended_paths: fe.recommendedPaths || [],
-    counselor_notes: fe.counselorNotes || '',
-    progress_score: Number(fe.progressScore) || 10,
-    parent_notes: fe.parentNotes || ''
-  };
-};
-
-const mapSessionFromDB = (db, studentsList = [], teamList = []) => {
-  if (!db) return null;
-  const stud = studentsList.find(s => s.id === db.student_id);
-  const coun = teamList.find(t => t.id === db.counselor_id);
-  return {
-    id: db.id,
-    studentId: db.student_id,
-    studentName: stud?.name || 'Unknown Student',
-    counselorId: db.counselor_id,
-    counselorName: coun?.name || 'Unassigned',
-    scheduledAt: db.scheduled_at,
-    duration: db.duration,
-    status: db.status,
-    sessionType: db.session_type,
-    notes: db.notes || {},
-    followUpDate: db.follow_up_date,
-    createdAt: db.created_at
-  };
-};
-
-const mapSessionToDB = (fe) => {
-  if (!fe) return null;
-  return {
-    student_id: fe.studentId,
-    counselor_id: fe.counselorId || null,
-    scheduled_at: fe.scheduledAt,
-    duration: Number(fe.duration) || 30,
-    status: fe.status || 'Scheduled',
-    session_type: fe.sessionType || 'Initial',
-    notes: fe.notes || {},
-    follow_up_date: fe.followUpDate || null
-  };
-};
-
-const mapWebinarFromDB = (db) => {
-  if (!db) return null;
-  return {
-    id: db.id,
-    title: db.title,
-    topic: db.topic,
-    scheduledAt: db.scheduled_at,
-    duration: db.duration,
-    price: db.price,
-    hostId: db.host_id,
-    status: db.status,
-    platform: db.platform,
-    revenue: db.revenue,
-    conversionCount: db.conversion_count,
-    replayViews: db.replay_views,
-    engagementScore: db.engagement_score,
-    createdAt: db.created_at,
-    registrations: db.registrations || [],
-    attendees: db.attendees || []
-  };
-};
-
-const mapWebinarToDB = (fe) => {
-  if (!fe) return null;
-  return {
-    title: fe.title,
-    topic: fe.topic,
-    scheduled_at: fe.scheduledAt,
-    duration: Number(fe.duration) || 60,
-    price: Number(fe.price) || 0.00,
-    host_id: fe.hostId || null,
-    status: fe.status || 'Upcoming',
-    platform: fe.platform || 'Zoom',
-    revenue: Number(fe.revenue) || 0.00,
-    conversion_count: Number(fe.conversionCount) || 0,
-    replay_views: Number(fe.replayViews) || 0,
-    engagement_score: Number(fe.engagementScore) || 0.0
-  };
-};
-
-const mapContentFromDB = (db) => {
-  if (!db) return null;
-  return {
-    id: db.id,
-    title: db.title,
-    hook: db.hook,
-    script: db.script,
-    caption: db.caption,
-    platform: db.platform,
-    cta: db.cta,
-    status: db.status,
-    assignedTo: db.assigned_to,
-    publishDate: db.publish_date,
-    views: db.views,
-    likes: db.likes,
-    shares: db.shares,
-    comments: db.comments,
-    leadsGenerated: db.leads_generated,
-    engagementRate: db.engagement_rate,
-    createdAt: db.created_at
-  };
-};
-
-const mapContentToDB = (fe) => {
-  if (!fe) return null;
-  return {
-    title: fe.title,
-    hook: fe.hook,
-    script: fe.script,
-    caption: fe.caption,
-    platform: fe.platform,
-    cta: fe.cta,
-    status: fe.status || 'Idea',
-    assigned_to: fe.assignedTo || null,
-    publish_date: fe.publishDate || null,
-    views: Number(fe.views) || 0,
-    likes: Number(fe.likes) || 0,
-    shares: Number(fe.shares) || 0,
-    comments: Number(fe.comments) || 0,
-    leads_generated: Number(fe.leadsGenerated) || 0,
-    engagement_rate: Number(fe.engagementRate) || 0.0
-  };
-};
-
-const mapTaskFromDB = (db) => {
-  if (!db) return null;
-  return {
-    id: db.id,
-    title: db.title,
-    description: db.description,
-    status: db.status,
-    priority: db.priority,
-    assignedTo: db.assigned_to,
-    dueDate: db.due_date,
-    tags: db.tags || [],
-    createdAt: db.created_at,
-    comments: db.comments || []
-  };
-};
-
-const mapTaskToDB = (fe) => {
-  if (!fe) return null;
-  return {
-    title: fe.title,
-    description: fe.description,
-    status: fe.status || 'Todo',
-    priority: fe.priority || 'Medium',
-    assigned_to: fe.assignedTo || null,
-    due_date: fe.dueDate || null,
-    tags: fe.tags || []
-  };
-};
-
-const mapProfileFromDB = (db) => {
-  if (!db) return null;
-  return {
-    id: db.id,
-    name: db.name,
-    role: db.role,
-    phone: db.phone,
-    status: db.status,
-    joinedDate: db.joined_date,
-    createdAt: db.created_at,
-    avatar: db.name.split(' ').map(n => n[0]).join('').toUpperCase()
-  };
-};
-
-const mapActivityFromDB = (db) => {
-  if (!db) return null;
-  return {
-    id: db.id,
-    type: db.type,
-    message: db.message,
-    userId: db.user_id,
-    relatedId: db.related_id,
-    createdAt: db.created_at
-  };
-};
-
-const mapNotificationFromDB = (db) => {
-  if (!db) return null;
-  return {
-    id: db.id,
-    userId: db.user_id,
-    type: db.type,
-    title: db.title,
-    message: db.message,
-    isRead: db.is_read,
-    priority: db.priority,
-    actionUrl: db.action_url,
-    createdAt: db.created_at
-  };
-};
-
 export function DataProvider({ children }) {
+  // Core Operational Data
   const [leads, setLeads] = useState([]);
   const [students, setStudents] = useState([]);
   const [sessions, setSessions] = useState([]);
-  const [webinars, setWebinars] = useState([]);
-  const [content, setContent] = useState([]);
-  const [finances, setFinances] = useState([]);
   const [tasks, setTasks] = useState([]);
+  
+  // Secondary Data
   const [team, setTeam] = useState([]);
+  const [webinars, setWebinars] = useState([]);
+  const [finances, setFinances] = useState([]);
   const [activityLog, setActivityLog] = useState([]);
   const [notifications, setNotifications] = useState([]);
-  const [analytics, setAnalytics] = useState(mockData.MOCK_ANALYTICS);
+
+  // Deprecated/Removed modules (kept for UI backwards compatibility)
+  const [content, setContent] = useState([]);
+  const [analytics, setAnalytics] = useState({});
+  
   const [loading, setLoading] = useState(true);
 
-  // Initialize and Fetch Live Data
-  useEffect(() => {
-    if (!isSupabaseConfigured()) {
-      // No Supabase configured — start fresh with empty state (no fake data)
-      // Clear any stale mock data from previous localStorage sessions
-      const STORAGE_KEYS = ['ebrave_leads','ebrave_students','ebrave_sessions','ebrave_webinars','ebrave_content','ebrave_finances','ebrave_tasks','ebrave_activity_log','ebrave_notifications'];
-      STORAGE_KEYS.forEach(k => {
-        const val = localStorage.getItem(k);
-        // Clear if it contains old mock data (array length > 5 on first clean run)
-        if (val) {
-          try {
-            const parsed = JSON.parse(val);
-            if (Array.isArray(parsed) && parsed.length > 5 && parsed[0]?.id?.startsWith?.('lead-')) {
-              localStorage.removeItem(k);
-            }
-          } catch { localStorage.removeItem(k); }
-        }
-      });
-      setLeads(JSON.parse(localStorage.getItem('ebrave_leads')) || []);
-      setStudents(JSON.parse(localStorage.getItem('ebrave_students')) || []);
-      setSessions(JSON.parse(localStorage.getItem('ebrave_sessions')) || []);
-      setWebinars(JSON.parse(localStorage.getItem('ebrave_webinars')) || []);
-      setContent(JSON.parse(localStorage.getItem('ebrave_content')) || []);
-      setFinances(JSON.parse(localStorage.getItem('ebrave_finances')) || []);
-      setTasks(JSON.parse(localStorage.getItem('ebrave_tasks')) || []);
-      setTeam(JSON.parse(localStorage.getItem('ebrave_team')) || []);
-      setActivityLog(JSON.parse(localStorage.getItem('ebrave_activity_log')) || []);
-      setNotifications(JSON.parse(localStorage.getItem('ebrave_notifications')) || []);
+  const fetchRealData = useCallback(async () => {
+    try {
+      setLoading(true);
+
+      // Fetch all tables in parallel
+      const [
+        { data: leadsData },
+        { data: studentsData },
+        { data: sessionsData },
+        { data: tasksData },
+        { data: profilesData },
+        { data: webinarsData }
+      ] = await Promise.all([
+        supabase.from('leads').select('*').order('created_at', { ascending: false }),
+        supabase.from('students').select('*').order('enrolled_at', { ascending: false }),
+        supabase.from('counseling_sessions').select('*').order('scheduled_at', { ascending: true }),
+        supabase.from('tasks').select('*').order('due_date', { ascending: true }),
+        supabase.from('profiles').select('*'),
+        supabase.from('webinars').select('*')
+      ]);
+
+      // Mappings (snake_case -> camelCase) to avoid breaking existing UI
+      setLeads((leadsData || []).map(l => ({
+        id: l.id,
+        name: l.name,
+        phone: l.phone,
+        email: l.email,
+        education: l.education,
+        city: l.city,
+        source: l.source,
+        status: l.status,
+        leadScore: l.lead_score,
+        counselorId: l.counselor_id,
+        followUpDate: l.follow_up_date,
+        parentContact: l.parent_contact,
+        paymentStatus: l.payment_status || 'Pending',
+        createdAt: l.created_at
+      })));
+
+      setStudents((studentsData || []).map(s => ({
+        id: s.id,
+        leadId: s.lead_id,
+        name: s.name,
+        phone: s.phone,
+        email: s.email,
+        education: s.education,
+        city: s.city,
+        status: s.status,
+        paymentStatus: s.payment_status || 'Pending',
+        counselorId: s.counselor_id,
+        enrolledDate: s.enrolled_at
+      })));
+
+      setSessions((sessionsData || []).map(s => ({
+        id: s.id,
+        leadId: s.lead_id,
+        studentId: s.student_id,
+        counselorId: s.counselor_id,
+        sessionType: s.session_type,
+        status: s.status,
+        scheduledAt: s.scheduled_at,
+        duration: s.duration,
+        notes: s.notes
+      })));
+
+      setTasks((tasksData || []).map(t => ({
+        id: t.id,
+        title: t.title,
+        description: t.description,
+        status: t.status,
+        priority: t.priority,
+        assignedTo: t.assigned_to,
+        dueDate: t.due_date,
+        createdAt: t.created_at
+      })));
+
+      setTeam((profilesData || []).map(p => ({
+        id: p.id,
+        name: p.name,
+        email: p.email,
+        role: p.role,
+        department: p.department,
+        status: p.status,
+        joinedDate: p.created_at
+      })));
+
+      setWebinars((webinarsData || []).map(w => ({
+        id: w.id,
+        title: w.title,
+        topic: w.topic,
+        scheduledAt: w.scheduled_at,
+        duration: w.duration,
+        price: w.price,
+        hostId: w.host_id,
+        platform: w.platform,
+        status: w.status
+      })));
+
+    } catch (error) {
+      console.error("Error fetching data from Supabase:", error);
+    } finally {
       setLoading(false);
-      return;
     }
-
-    const fetchAllData = async () => {
-      try {
-        const [
-          { data: dbLeads, error: errLeads },
-          { data: dbStudents, error: errStudents },
-          { data: dbProfiles, error: errProfiles },
-          { data: dbSessions, error: errSessions },
-          { data: dbWebinars, error: errWebinars },
-          { data: dbContent, error: errContent },
-          { data: dbFinances, error: errFinances },
-          { data: dbTasks, error: errTasks },
-          { data: dbActivity, error: errActivity },
-          { data: dbNotifications, error: errNotifications }
-        ] = await Promise.all([
-          supabase.from('leads').select('*').order('created_at', { ascending: false }),
-          supabase.from('students').select('*').order('created_at', { ascending: false }),
-          supabase.from('profiles').select('*').order('name'),
-          supabase.from('counseling_sessions').select('*').order('scheduled_at', { ascending: false }),
-          supabase.from('webinars').select('*').order('scheduled_at', { ascending: false }),
-          supabase.from('content').select('*').order('created_at', { ascending: false }),
-          supabase.from('transactions').select('*').order('date', { ascending: false }),
-          supabase.from('tasks').select('*').order('created_at', { ascending: false }),
-          supabase.from('activity_logs').select('*').order('created_at', { ascending: false }),
-          supabase.from('notifications').select('*').order('created_at', { ascending: false })
-        ]);
-
-        if (errLeads) console.warn('[RLS/Auth Warning] leads fetch restricted:', errLeads.message);
-        if (errStudents) console.warn('[RLS/Auth Warning] students fetch restricted:', errStudents.message);
-        if (errProfiles) console.warn('[RLS/Auth Warning] profiles fetch restricted:', errProfiles.message);
-        if (errSessions) console.warn('[RLS/Auth Warning] sessions fetch restricted:', errSessions.message);
-        if (errWebinars) console.warn('[RLS/Auth Warning] webinars fetch restricted:', errWebinars.message);
-        if (errContent) console.warn('[RLS/Auth Warning] content fetch restricted:', errContent.message);
-        if (errFinances) console.warn('[RLS/Auth Warning] transactions fetch restricted:', errFinances.message);
-        if (errTasks) console.warn('[RLS/Auth Warning] tasks fetch restricted:', errTasks.message);
-        if (errActivity) console.warn('[RLS/Auth Warning] activity logs fetch restricted:', errActivity.message);
-        if (errNotifications) console.warn('[RLS/Auth Warning] notifications fetch restricted:', errNotifications.message);
-
-        const mappedTeam = (dbProfiles || []).map(mapProfileFromDB);
-        const mappedStudents = (dbStudents || []).map(mapStudentFromDB);
-
-        setTeam(mappedTeam);
-        setStudents(mappedStudents);
-        setLeads((dbLeads || []).map(mapLeadFromDB));
-        setSessions((dbSessions || []).map(s => mapSessionFromDB(s, mappedStudents, mappedTeam)));
-        setWebinars((dbWebinars || []).map(mapWebinarFromDB));
-        setContent((dbContent || []).map(mapContentFromDB));
-        setFinances(dbFinances || []);
-        setTasks((dbTasks || []).map(mapTaskFromDB));
-        setActivityLog((dbActivity || []).map(mapActivityFromDB));
-        setNotifications((dbNotifications || []).map(mapNotificationFromDB));
-      } catch (err) {
-        console.error('Error fetching Supabase data:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchAllData();
-
-    // Set up real-time sync channel
-    const realtimeChannel = supabase
-      .channel('eos_realtime')
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'leads' }, () => fetchAllData())
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'students' }, () => fetchAllData())
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'counseling_sessions' }, () => fetchAllData())
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'webinars' }, () => fetchAllData())
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'content' }, () => fetchAllData())
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'transactions' }, () => fetchAllData())
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'tasks' }, () => fetchAllData())
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'profiles' }, () => fetchAllData())
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'activity_logs' }, () => fetchAllData())
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'notifications' }, () => fetchAllData())
-      .subscribe();
-
-    return () => {
-      supabase.removeChannel(realtimeChannel);
-    };
   }, []);
 
-  // Sync to local storage for mock fallback mode
   useEffect(() => {
-    if (!isSupabaseConfigured()) {
-      localStorage.setItem('ebrave_leads', JSON.stringify(leads));
-      localStorage.setItem('ebrave_students', JSON.stringify(students));
-      localStorage.setItem('ebrave_sessions', JSON.stringify(sessions));
-      localStorage.setItem('ebrave_webinars', JSON.stringify(webinars));
-      localStorage.setItem('ebrave_content', JSON.stringify(content));
-      localStorage.setItem('ebrave_finances', JSON.stringify(finances));
-      localStorage.setItem('ebrave_tasks', JSON.stringify(tasks));
-      localStorage.setItem('ebrave_team', JSON.stringify(team));
-      localStorage.setItem('ebrave_activity_log', JSON.stringify(activityLog));
-      localStorage.setItem('ebrave_notifications', JSON.stringify(notifications));
-    }
-  }, [leads, students, sessions, webinars, content, finances, tasks, team, activityLog, notifications]);
+    fetchRealData();
+  }, [fetchRealData]);
 
-  // Log activity helper
-  const logActivity = async (type, message, userId = null, relatedId = null, metadata = null) => {
-    let formattedMessage = message;
-    if (metadata) {
-      const parts = [];
-      if (metadata.actor) parts.push(`Actor: ${metadata.actor}`);
-      if (metadata.entity) parts.push(`Entity: ${metadata.entity}`);
-      if (metadata.previousValues) parts.push(`Prev: ${JSON.stringify(metadata.previousValues)}`);
-      if (metadata.newValues) parts.push(`New: ${JSON.stringify(metadata.newValues)}`);
-      if (parts.length > 0) {
-        formattedMessage = `${message} (${parts.join(' | ')})`;
-      }
-    }
-
-    const newAct = {
-      type,
-      message: formattedMessage,
-      user_id: userId,
-      related_id: relatedId
-    };
-
-    if (isSupabaseConfigured()) {
-      try {
-        await supabase.from('activity_logs').insert([newAct]);
-      } catch (err) {
-        console.error('Failed to log activity in DB:', err);
-      }
-    } else {
-      const offlineAct = {
-        id: `act_${Date.now()}`,
-        ...newAct,
-        userId: userId || 't1',
-        relatedId: relatedId || '',
-        createdAt: new Date().toISOString()
-      };
-      setActivityLog(prev => [offlineAct, ...prev]);
-    }
-  };
-
-  // CRUD Leads
-  const addLead = async (leadData) => {
-    if (!isSupabaseConfigured()) {
-      const newLead = {
-        id: `l_${Date.now()}`,
-        createdAt: new Date().toISOString(),
-        activityHistory: [{ id: `ah_${Date.now()}`, message: 'Lead added manually', createdAt: new Date().toISOString() }],
-        ...leadData
-      };
-      setLeads(prev => [newLead, ...prev]);
-      logActivity('lead', `Added new lead: ${leadData.name}`);
-      return;
-    }
-
-    try {
-      const dbPayload = mapLeadToDB(leadData);
-      const { data, error } = await supabase.from('leads').insert([dbPayload]).select();
-      if (error) throw error;
-      if (data && data[0]) {
-        logActivity('lead', `Added new lead: ${leadData.name}`, null, data[0].id);
-      }
-    } catch (err) {
-      console.error('Supabase addLead error:', err);
-    }
-  };
-
-  const updateLead = async (id, updatedFields) => {
-    if (!isSupabaseConfigured()) {
-      setLeads(prev => prev.map(l => {
-        if (l.id === id) {
-          if (updatedFields.status === 'Converted' && l.status !== 'Converted') {
-            enrollStudentFromLead(l);
-          }
-          return {
-            ...l,
-            ...updatedFields,
-            activityHistory: [
-              ...(l.activityHistory || []),
-              { id: `ah_${Date.now()}`, message: `Updated fields: ${Object.keys(updatedFields).join(', ')}`, createdAt: new Date().toISOString() }
-            ]
-          };
-        }
-        return l;
-      }));
-      logActivity('lead', `Updated lead details: ${id}`, 't1', id);
-      return;
-    }
-
-    try {
-      const dbPayload = mapLeadToDB(updatedFields);
-      // Clean undefined keys
-      Object.keys(dbPayload).forEach(key => dbPayload[key] === undefined && delete dbPayload[key]);
-      
-      const { error } = await supabase.from('leads').update(dbPayload).eq('id', id);
-      if (error) throw error;
-      logActivity('lead', `Updated lead details: ${id}`, null, id);
-
-      if (updatedFields.status === 'Converted') {
-        const lead = leads.find(l => l.id === id);
-        if (lead) enrollStudentFromLead({ ...lead, ...updatedFields });
-      }
-    } catch (err) {
-      console.error('Supabase updateLead error:', err);
-    }
-  };
-
-  const deleteLead = async (id, metadata = null) => {
-    const lead = leads.find(l => l.id === id);
-    const leadName = lead ? lead.name : id;
+  // Activity Log Writer
+  const logActivity = async (action, entity_type, entity_id, details = {}) => {
+    const { data: { session } } = await supabase.auth.getSession();
+    const userId = session?.user?.id || null;
     
-    if (!isSupabaseConfigured()) {
-      setLeads(prev => prev.filter(l => l.id !== id));
-      logActivity('lead', `Deleted lead: ${leadName}`, 't1', id, metadata);
-      return;
-    }
-
-    try {
-      const { error } = await supabase.from('leads').delete().eq('id', id);
-      if (error) throw error;
-      logActivity('lead', `Deleted lead: ${leadName}`, null, id, metadata);
-    } catch (err) {
-      console.error('Supabase deleteLead error:', err);
-    }
+    await supabase.from('activity_logs').insert([{
+      user_id: userId,
+      action,
+      entity_type,
+      entity_id,
+      details
+    }]);
   };
 
-  // Helper: Auto-enroll student from lead
-  const enrollStudentFromLead = async (lead) => {
-    const isAlreadyStudent = students.some(s => s.leadId === lead.id || s.email === lead.email);
-    if (isAlreadyStudent) return;
-
-    if (!isSupabaseConfigured()) {
-      const newStudent = {
-        id: `s_${Date.now()}`,
-        leadId: lead.id,
-        name: lead.name,
-        phone: lead.phone,
-        email: lead.email,
-        education: lead.education,
-        city: lead.city,
-        counselorId: lead.counselorId || 't3',
-        enrolledDate: new Date().toISOString().split('T')[0],
-        status: 'Active',
-        recommendedPaths: lead.tags || ['Career Discovery'],
-        counselorNotes: lead.notes || '',
-        progressScore: 10,
-        paymentHistory: [],
-        documents: []
-      };
-      setStudents(prev => [newStudent, ...prev]);
-      logActivity('payment', `Student account created for converted lead: ${lead.name}`, 't1', newStudent.id);
-      return;
-    }
-
-    try {
-      const studentData = mapStudentToDB(lead);
-      const { data, error } = await supabase.from('students').insert([studentData]).select();
-      if (error) throw error;
-      if (data && data[0]) {
-        logActivity('payment', `Student account created for converted lead: ${lead.name}`, null, data[0].id);
-      }
-    } catch (err) {
-      console.error('Supabase student enrollment error:', err);
-    }
-  };
-
-  // CRUD Sessions
-  const addSession = async (sessionData) => {
-    if (!isSupabaseConfigured()) {
-      const newSession = {
-        id: `ses_${Date.now()}`,
-        studentName: students.find(s => s.id === sessionData.studentId)?.name || 'Unknown Student',
-        counselorName: team.find(t => t.id === sessionData.counselorId)?.name || 'Unassigned',
-        status: 'Scheduled',
-        ...sessionData
-      };
-      setSessions(prev => [newSession, ...prev]);
-      logActivity('session', `Scheduled session for student: ${newSession.studentName}`, 't1', newSession.id);
-      return;
-    }
-
-    try {
-      const dbPayload = mapSessionToDB(sessionData);
-      const { error } = await supabase.from('counseling_sessions').insert([dbPayload]);
-      if (error) throw error;
-      logActivity('session', 'Scheduled counseling session', null, sessionData.studentId);
-    } catch (err) {
-      console.error('Supabase addSession error:', err);
-    }
-  };
-
-  const updateSession = async (id, updatedFields) => {
-    if (!isSupabaseConfigured()) {
-      setSessions(prev => prev.map(s => {
-        if (s.id === id) {
-          if (updatedFields.status === 'Completed' && s.status !== 'Completed') {
-            setStudents(studs => studs.map(st => {
-              if (st.id === s.studentId) {
-                return { ...st, progressScore: Math.min(100, (st.progressScore || 10) + 15) };
-              }
-              return st;
-            }));
-          }
-          return { ...s, ...updatedFields };
-        }
-        return s;
-      }));
-      logActivity('session', `Updated session: ${id}`, 't1', id);
-      return;
-    }
-
-    try {
-      const dbPayload = mapSessionToDB(updatedFields);
-      // Clean undefined keys
-      Object.keys(dbPayload).forEach(key => dbPayload[key] === undefined && delete dbPayload[key]);
-
-      const { error } = await supabase.from('counseling_sessions').update(dbPayload).eq('id', id);
-      if (error) throw error;
-      logActivity('session', `Updated counseling session status: ${id}`, null, id);
-    } catch (err) {
-      console.error('Supabase updateSession error:', err);
-    }
-  };
-
-  // CRUD Tasks
-  const addTask = async (taskData) => {
-    if (!isSupabaseConfigured()) {
-      const newTask = {
-        id: `tsk_${Date.now()}`,
-        createdAt: new Date().toISOString().split('T')[0],
-        comments: [],
-        ...taskData
-      };
-      setTasks(prev => [newTask, ...prev]);
-      logActivity('task', `Task created: ${taskData.title}`, 't1', newTask.id);
-      return;
-    }
-
-    try {
-      const dbPayload = mapTaskToDB(taskData);
-      const { error } = await supabase.from('tasks').insert([dbPayload]);
-      if (error) throw error;
-      logActivity('task', `Task created: ${taskData.title}`);
-    } catch (err) {
-      console.error('Supabase addTask error:', err);
-    }
-  };
-
-  const updateTask = async (id, updatedFields) => {
-    if (!isSupabaseConfigured()) {
-      setTasks(prev => prev.map(t => t.id === id ? { ...t, ...updatedFields } : t));
-      return;
-    }
-
-    try {
-      const dbPayload = mapTaskToDB(updatedFields);
-      // Clean undefined keys
-      Object.keys(dbPayload).forEach(key => dbPayload[key] === undefined && delete dbPayload[key]);
-
-      const { error } = await supabase.from('tasks').update(dbPayload).eq('id', id);
-      if (error) throw error;
-    } catch (err) {
-      console.error('Supabase updateTask error:', err);
-    }
-  };
-
-  // CRUD Webinars
-  const addWebinar = async (webinarData) => {
-    if (!isSupabaseConfigured()) {
-      const newWebinar = {
-        id: `w_${Date.now()}`,
-        registrations: [],
-        attendees: [],
-        revenue: 0,
-        conversionCount: 0,
-        replayViews: 0,
-        status: 'Upcoming',
-        ...webinarData
-      };
-      setWebinars(prev => [newWebinar, ...prev]);
-      logActivity('webinar', `Created webinar: ${webinarData.title}`, 't1', newWebinar.id);
-      return;
-    }
-
-    try {
-      const dbPayload = mapWebinarToDB(webinarData);
-      const { error } = await supabase.from('webinars').insert([dbPayload]);
-      if (error) throw error;
-      logActivity('webinar', `Created webinar: ${webinarData.title}`);
-    } catch (err) {
-      console.error('Supabase addWebinar error:', err);
-    }
-  };
-
-  const updateWebinar = async (id, updatedFields) => {
-    if (!isSupabaseConfigured()) {
-      setWebinars(prev => prev.map(w => w.id === id ? { ...w, ...updatedFields } : w));
-      return;
-    }
-
-    try {
-      const dbPayload = mapWebinarToDB(updatedFields);
-      Object.keys(dbPayload).forEach(key => dbPayload[key] === undefined && delete dbPayload[key]);
-
-      const { error } = await supabase.from('webinars').update(dbPayload).eq('id', id);
-      if (error) throw error;
-    } catch (err) {
-      console.error('Supabase updateWebinar error:', err);
-    }
-  };
-
-  // CRUD Content
-  const addContent = async (contentData) => {
-    if (!isSupabaseConfigured()) {
-      const newContent = {
-        id: `c_${Date.now()}`,
-        views: 0, likes: 0, shares: 0, comments: 0, leadsGenerated: 0, engagementRate: 0,
-        ...contentData
-      };
-      setContent(prev => [newContent, ...prev]);
-      logActivity('ai', `Drafted content: ${contentData.title}`, 't1', newContent.id);
-      return;
-    }
-
-    try {
-      const dbPayload = mapContentToDB(contentData);
-      const { error } = await supabase.from('content').insert([dbPayload]);
-      if (error) throw error;
-      logActivity('ai', `Drafted content pipeline: ${contentData.title}`);
-    } catch (err) {
-      console.error('Supabase addContent error:', err);
-    }
-  };
-
-  const updateContent = async (id, updatedFields) => {
-    if (!isSupabaseConfigured()) {
-      setContent(prev => prev.map(c => c.id === id ? { ...c, ...updatedFields } : c));
-      return;
-    }
-
-    try {
-      const dbPayload = mapContentToDB(updatedFields);
-      Object.keys(dbPayload).forEach(key => dbPayload[key] === undefined && delete dbPayload[key]);
-
-      const { error } = await supabase.from('content').update(dbPayload).eq('id', id);
-      if (error) throw error;
-    } catch (err) {
-      console.error('Supabase updateContent error:', err);
-    }
-  };
-
-  // CRUD Transactions
-  const addTransaction = async (transData) => {
-    if (!isSupabaseConfigured()) {
-      const newTrans = {
-        id: `t_${Date.now()}`,
-        ...transData
-      };
-      setFinances(prev => [newTrans, ...prev]);
-      logActivity('payment', `${transData.type} transaction recorded: ${transData.description}`, 't1', newTrans.id);
-      return;
-    }
-
-    try {
-      const { error } = await supabase.from('transactions').insert([transData]);
-      if (error) throw error;
-      logActivity('payment', `${transData.type} transaction recorded: ${transData.description}`);
-    } catch (err) {
-      console.error('Supabase addTransaction error:', err);
-    }
-  };
-
-  // Computed Dashboard Metrics
-  const getMetrics = () => {
-    const totalLeads = leads.length;
-    const newLeads = leads.filter(l => {
-      const created = new Date(l.createdAt || l.created_at);
-      const today = new Date();
-      return created.toDateString() === today.toDateString();
-    }).length;
-
-    const completedSessionsCount = sessions.filter(s => s.status === 'Completed').length;
-    const pendingSessionsCount = sessions.filter(s => s.status === 'Scheduled').length;
-
-    const totalRev = finances.filter(f => f.type === 'Revenue').reduce((sum, f) => sum + Number(f.amount), 0);
-    const totalExp = finances.filter(f => f.type === 'Expense').reduce((sum, f) => sum + Number(f.amount), 0);
-    const netProfit = totalRev - totalExp;
-
-    const conversionRate = totalLeads > 0
-      ? ((leads.filter(l => l.status === 'Converted').length / totalLeads) * 100).toFixed(1)
-      : '0.0';
-
-    return {
-      totalLeads,
-      newLeads,
-      completedSessions: completedSessionsCount,
-      pendingSessions: pendingSessionsCount,
-      totalRevenue: totalRev,
-      totalExpense: totalExp,
-      netProfit,
-      conversionRate
+  // CRUD Helpers
+  const addLead = async (leadData) => {
+    const dbPayload = {
+      name: leadData.name,
+      phone: leadData.phone,
+      email: leadData.email || null,
+      education: leadData.education || null,
+      city: leadData.city || null,
+      source: leadData.source || 'Manual',
+      status: leadData.status || 'New Lead',
+      counselor_id: leadData.counselorId || null,
+      follow_up_date: leadData.followUpDate || null,
+      parent_contact: leadData.parentContact || null,
+      payment_status: leadData.paymentStatus || 'Pending'
     };
+
+    const { data, error } = await supabase.from('leads').insert([dbPayload]).select().single();
+    if (error) throw error;
+    if (data) {
+      logActivity('Created', 'lead', data.id);
+      setLeads(prev => [{
+        id: data.id, name: data.name, phone: data.phone, email: data.email,
+        education: data.education, city: data.city, source: data.source,
+        status: data.status, leadScore: data.lead_score, counselorId: data.counselor_id,
+        followUpDate: data.follow_up_date, parentContact: data.parent_contact, 
+        paymentStatus: data.payment_status, createdAt: data.created_at
+      }, ...prev]);
+    }
   };
 
-  const addTeamMember = async (memberData) => {
-    if (!isSupabaseConfigured()) {
-      const newMember = {
-        id: `t_${Date.now()}`,
-        avatar: memberData.name.charAt(0).toUpperCase(),
-        joinedDate: new Date().toISOString().split('T')[0],
-        tasksCompleted: 0,
-        activeLeads: 0,
-        ...memberData
-      };
-      setTeam(prev => [newMember, ...prev]);
-      logActivity('system', `Added team member: ${memberData.name}`);
-      return;
+  const updateLead = async (id, updates) => {
+    const dbPayload = {
+      name: updates.name,
+      phone: updates.phone,
+      email: updates.email,
+      education: updates.education,
+      city: updates.city,
+      source: updates.source,
+      status: updates.status,
+      counselor_id: updates.counselorId,
+      follow_up_date: updates.followUpDate,
+      parent_contact: updates.parentContact,
+      payment_status: updates.paymentStatus
+    };
+    Object.keys(dbPayload).forEach(key => dbPayload[key] === undefined && delete dbPayload[key]);
+
+    const { data, error } = await supabase.from('leads').update(dbPayload).eq('id', id).select().single();
+    if (error) throw error;
+    if (data) {
+      logActivity('Updated', 'lead', id);
+      setLeads(prev => prev.map(l => l.id === id ? { ...l, ...updates, status: data.status, counselorId: data.counselor_id, paymentStatus: data.payment_status } : l));
     }
-    try {
-      const { data, error } = await supabase.rpc('create_new_staff_member', {
-        staff_email: memberData.email,
-        staff_password: memberData.tempPassword || 'EB-Start123',
-        staff_name: memberData.name,
-        staff_role: memberData.role,
-        staff_phone: memberData.phone || ''
-      });
-      if (error) throw error;
-      if (data && data.success) {
-        const { data: newProfile, error: profileErr } = await supabase
-          .from('profiles')
-          .select('*')
-          .eq('id', data.userId)
-          .single();
-        if (!profileErr && newProfile) {
-          setTeam(prev => [...prev, mapProfileFromDB(newProfile)]);
-          logActivity('system', `Added team member: ${memberData.name}`);
+  };
+
+  const deleteLead = async (id) => {
+    const { error } = await supabase.from('leads').delete().eq('id', id);
+    if (error) throw error;
+    logActivity('Deleted', 'lead', id);
+    setLeads(prev => prev.filter(l => l.id !== id));
+  };
+
+  const addTask = async (taskData) => {
+    const { data: { session } } = await supabase.auth.getSession();
+    const dbPayload = {
+      title: taskData.title,
+      description: taskData.description || null,
+      status: taskData.status || 'Todo',
+      priority: taskData.priority || 'Medium',
+      assigned_to: taskData.assignedTo || null,
+      due_date: taskData.dueDate || null,
+      created_by: session?.user?.id || null
+    };
+    const { data, error } = await supabase.from('tasks').insert([dbPayload]).select().single();
+    if (error) throw error;
+    if (data) {
+      logActivity('Created', 'task', data.id);
+      setTasks(prev => [...prev, {
+        id: data.id, title: data.title, description: data.description, status: data.status,
+        priority: data.priority, assignedTo: data.assigned_to, dueDate: data.due_date, createdAt: data.created_at
+      }]);
+    }
+  };
+
+  const updateTask = async (id, updates) => {
+    const dbPayload = {
+      title: updates.title,
+      description: updates.description,
+      status: updates.status,
+      priority: updates.priority,
+      assigned_to: updates.assignedTo,
+      due_date: updates.dueDate
+    };
+    Object.keys(dbPayload).forEach(key => dbPayload[key] === undefined && delete dbPayload[key]);
+
+    const { data, error } = await supabase.from('tasks').update(dbPayload).eq('id', id).select().single();
+    if (error) throw error;
+    if (data) {
+      logActivity('Updated', 'task', id);
+      setTasks(prev => prev.map(t => t.id === id ? { ...t, ...updates, status: data.status, assignedTo: data.assigned_to } : t));
+    }
+  };
+
+  const addSession = async (sessionData) => {
+    const dbPayload = {
+      lead_id: sessionData.leadId || null,
+      student_id: sessionData.studentId || null,
+      counselor_id: sessionData.counselorId || null,
+      session_type: sessionData.sessionType || 'Initial',
+      status: sessionData.status || 'Scheduled',
+      scheduled_at: sessionData.scheduledAt,
+      duration: sessionData.duration || 30,
+      notes: sessionData.notes || {}
+    };
+    const { data, error } = await supabase.from('counseling_sessions').insert([dbPayload]).select().single();
+    if (error) throw error;
+    if (data) {
+      logActivity('Created', 'session', data.id);
+      setSessions(prev => [...prev, {
+        id: data.id, leadId: data.lead_id, studentId: data.student_id, counselorId: data.counselor_id,
+        sessionType: data.session_type, status: data.status, scheduledAt: data.scheduled_at,
+        duration: data.duration, notes: data.notes
+      }]);
+    }
+  };
+
+  const updateSession = async (id, updates) => {
+    const dbPayload = {
+      status: updates.status,
+      scheduled_at: updates.scheduledAt,
+      duration: updates.duration,
+      notes: updates.notes
+    };
+    Object.keys(dbPayload).forEach(key => dbPayload[key] === undefined && delete dbPayload[key]);
+
+    const { data, error } = await supabase.from('counseling_sessions').update(dbPayload).eq('id', id).select().single();
+    if (error) throw error;
+    if (data) {
+      logActivity('Updated', 'session', id);
+      setSessions(prev => prev.map(s => s.id === id ? { ...s, ...updates, status: data.status } : s));
+    }
+  };
+
+  const updateStudent = async (id, updates) => {
+    const dbPayload = {
+      status: updates.status,
+      payment_status: updates.paymentStatus,
+      progress_score: updates.progressScore
+    };
+    Object.keys(dbPayload).forEach(key => dbPayload[key] === undefined && delete dbPayload[key]);
+
+    const { data, error } = await supabase.from('students').update(dbPayload).eq('id', id).select().single();
+    if (error) throw error;
+    if (data) {
+      logActivity('Updated', 'student', id);
+      setStudents(prev => prev.map(s => s.id === id ? { ...s, ...updates, status: data.status, paymentStatus: data.payment_status } : s));
+    }
+  };
+
+  const addWebinar = async (data) => {}; // Placeholder for now
+  const updateWebinar = async (id, data) => {};
+  const addContent = async (data) => {};
+  const updateContent = async (id, data) => {};
+  const addTransaction = async (data) => {};
+  const addTeamMember = async (memberData) => {
+    // SECURITY WORKAROUND: To create a user without logging the admin out, 
+    // we instantiate a temporary Supabase client just for signup.
+    const tempClient = (await import('@supabase/supabase-js')).createClient(
+      import.meta.env.VITE_SUPABASE_URL,
+      import.meta.env.VITE_SUPABASE_ANON_KEY
+    );
+
+    const tempPassword = memberData.tempPassword || Math.random().toString(36).slice(-8) + 'A1!';
+    
+    const { data, error } = await tempClient.auth.signUp({
+      email: memberData.email,
+      password: tempPassword,
+      options: {
+        data: {
+          name: memberData.name,
+          role: memberData.role || 'Counselor',
+          department: memberData.department || ''
         }
       }
-    } catch (err) {
-      console.error('Supabase addTeamMember error:', err);
-      throw err;
+    });
+
+    if (error) {
+      console.error('Error creating auth user:', error);
+      throw error;
     }
+    
+    await tempClient.auth.signOut(); // immediately sign out the temp client
+    
+    logActivity('Created', 'team_member', data.user.id);
+    fetchRealData();
+    return { success: true, tempPassword };
   };
 
-  const updateTeamMember = async (id, updatedFields) => {
-    if (!isSupabaseConfigured()) {
-      setTeam(prev => prev.map(t => t.id === id ? { ...t, ...updatedFields } : t));
-      logActivity('system', `Updated team member: ${id}`);
-      return;
-    }
-    try {
-      const { error } = await supabase.from('profiles').update({
-        name: updatedFields.name,
-        role: updatedFields.role,
-        email: updatedFields.email,
-        phone: updatedFields.phone,
-        status: updatedFields.status
-      }).eq('id', id);
-      if (error) throw error;
-      setTeam(prev => prev.map(t => t.id === id ? { ...t, ...updatedFields } : t));
-      logActivity('system', `Updated team member: ${updatedFields.name}`);
-    } catch (err) {
-      console.error('Supabase updateTeamMember error:', err);
-    }
+  const updateTeamMember = async (id, updates) => {
+    const dbPayload = {
+      name: updates.name,
+      role: updates.role,
+      department: updates.department,
+      status: updates.status
+    };
+    Object.keys(dbPayload).forEach(key => dbPayload[key] === undefined && delete dbPayload[key]);
+
+    const { data, error } = await supabase.from('profiles').update(dbPayload).eq('id', id).select().single();
+    if (error) throw error;
+    
+    logActivity('Updated', 'team_member', id);
+    setTeam(prev => prev.map(t => t.id === id ? { ...t, ...updates, status: data.status, role: data.role } : t));
   };
 
   const deleteTeamMember = async (id) => {
-    if (!isSupabaseConfigured()) {
-      setTeam(prev => prev.filter(t => t.id !== id));
-      logActivity('system', `Removed team member: ${id}`);
-      return;
-    }
-    try {
-      const { data, error } = await supabase.rpc('delete_staff_member', {
-        staff_id: id
-      });
-      if (error) throw error;
-      if (data && data.success) {
-        setTeam(prev => prev.filter(t => t.id !== id));
-        logActivity('system', `Removed team member: ${id}`);
-      }
-    } catch (err) {
-      console.error('Supabase deleteTeamMember error:', err);
-      throw err;
-    }
+    const { error } = await supabase.from('profiles').update({ status: 'Suspended' }).eq('id', id);
+    if (error) throw error;
+    
+    logActivity('Suspended', 'team_member', id);
+    setTeam(prev => prev.map(t => t.id === id ? { ...t, status: 'Suspended' } : t));
   };
 
-  const resetTeamMemberPassword = async (id, newPassword) => {
-    if (!isSupabaseConfigured()) {
-      logActivity('system', `Reset password mock for team member: ${id}`);
-      return { success: true };
+  const resetTeamMemberPassword = async (id, email) => {
+    // Send password reset email directly via Supabase Auth
+    if (!email) {
+      // If email isn't provided directly, look it up from team state
+      const targetUser = team.find(t => t.id === id);
+      email = targetUser?.email;
     }
-    try {
-      const { data, error } = await supabase.rpc('reset_staff_password', {
-        staff_id: id,
-        new_password: newPassword
-      });
-      if (error) throw error;
-      if (data && data.success) {
-        logActivity('system', `Reset password for team member ID: ${id}`);
-        return { success: true };
-      }
-      return { success: false };
-    } catch (err) {
-      console.error('Supabase resetTeamMemberPassword error:', err);
-      throw err;
-    }
+    if (!email) throw new Error("Email is required to send password reset.");
+
+    const { error } = await supabase.auth.resetPasswordForEmail(email);
+    if (error) throw error;
+    
+    logActivity('Password Reset Requested', 'team_member', id);
+    return { success: true };
   };
+
+  const getMetrics = () => {
+    const newLeads = leads.filter(l => l.status === 'New Lead').length;
+    const activeStudents = students.filter(s => s.status === 'Enrolled').length;
+    const pendingFollowUps = leads.filter(l => l.status === 'Follow-up Required').length;
+    const todayStr = new Date().toISOString().split('T')[0];
+    const todaysSessions = sessions.filter(s => s.scheduledAt && s.scheduledAt.startsWith(todayStr)).length;
+    const urgentTasks = tasks.filter(t => t.priority === 'Urgent' && t.status !== 'Done').length;
+
+    return {
+      totalLeads: leads.length,
+      newLeadsToday: newLeads,
+      activeStudents,
+      pendingFollowUps,
+      todaysSessions,
+      urgentTasks
+    };
+  };
+
+  const contextValue = useMemo(() => ({
+    leads, students, sessions, webinars, content, finances, tasks, team, activityLog, analytics, notifications,
+    metrics: getMetrics(),
+    loading,
+    logActivity,
+    addLead, updateLead, deleteLead,
+    addSession, updateSession, updateStudent,
+    addTask, updateTask,
+    addWebinar, updateWebinar,
+    addContent, updateContent,
+    addTransaction,
+    addTeamMember, updateTeamMember, deleteTeamMember, resetTeamMemberPassword,
+    refreshData: fetchRealData
+  }), [
+    leads, students, sessions, webinars, content, finances, tasks, team, activityLog, analytics, notifications,
+    loading, fetchRealData
+  ]);
 
   return (
-    <DataContext.Provider value={{
-      leads, students, sessions, webinars, content, finances, tasks, team, activityLog, analytics, notifications,
-      metrics: getMetrics(),
-      loading,
-      logActivity,
-      addLead, updateLead, deleteLead,
-      addSession, updateSession,
-      addTask, updateTask,
-      addWebinar, updateWebinar,
-      addContent, updateContent,
-      addTransaction,
-      addTeamMember, updateTeamMember, deleteTeamMember, resetTeamMemberPassword
-    }}>
+    <DataContext.Provider value={contextValue}>
       {children}
     </DataContext.Provider>
   );

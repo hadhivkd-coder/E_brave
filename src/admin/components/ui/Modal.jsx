@@ -22,10 +22,6 @@ export default function Modal({ isOpen, onClose, title, children, size = 'md' })
     if (isOpen) {
       document.addEventListener('keydown', handleKey);
       document.body.style.overflow = 'hidden';
-      // Focus the dialog on open
-      setTimeout(() => {
-        if (dialogRef.current) dialogRef.current.focus();
-      }, 50);
     } else {
       document.body.style.overflow = '';
     }
@@ -34,6 +30,18 @@ export default function Modal({ isOpen, onClose, title, children, size = 'md' })
       document.body.style.overflow = '';
     };
   }, [isOpen, handleKey]);
+
+  // Focus the dialog only when it opens
+  useEffect(() => {
+    if (isOpen) {
+      const timer = setTimeout(() => {
+        if (dialogRef.current && !dialogRef.current.contains(document.activeElement)) {
+          dialogRef.current.focus();
+        }
+      }, 50);
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen]);
 
   // Focus trap
   useEffect(() => {

@@ -164,6 +164,7 @@ const CAPABILITIES = [
   { icon: '⚙️', label: 'Task & Automation Oversight' },
   { icon: '📋', label: 'Weekly Operational Reports' },
   { icon: '🤖', label: 'AI-Powered Recommendations' },
+  { icon: '🧠', label: 'Student Assessment Intelligence' },
 ];
 
 // ─────────────────────────────────────────────────────────
@@ -178,6 +179,7 @@ const CONTEXT_CHIPS = [
   { label: 'Revenue',   icon: '💰', key: 'finances' },
   { label: 'Tasks',     icon: '✅', key: 'tasks' },
   { label: 'Analytics', icon: '📊', key: 'analytics' },
+  { label: 'Assessments', icon: '♟️', key: 'assessments' },
 ];
 
 function formatTime(date) {
@@ -188,7 +190,7 @@ function formatTime(date) {
 // MAIN PAGE COMPONENT
 // ─────────────────────────────────────────────────────────
 export default function EosAI() {
-  const { leads, students, sessions, webinars, content, finances, tasks, notifications } = useData();
+  const { leads, students, sessions, webinars, content, finances, tasks, notifications, assessmentResults } = useData();
 
   const context = useMemo(() => ({
     leads:     leads     || [],
@@ -200,7 +202,11 @@ export default function EosAI() {
     tasks:     tasks     || [],
     notifications: notifications || [],
     analytics: {},
-  }), [leads, students, sessions, webinars, content, finances, tasks, notifications]);
+    assessments: assessmentResults || [
+      // Placeholder data until connected to Supabase
+      { studentId: 'mock-1', archetype: 'The Strategist', careerMatch: 'Product Manager', flags: ['Low patience'] }
+    ],
+  }), [leads, students, sessions, webinars, content, finances, tasks, notifications, assessmentResults]);
 
   const [messages, setMessages] = useState([]);
   const [inputVal, setInputVal] = useState('');
@@ -323,8 +329,9 @@ export default function EosAI() {
     content:   (content   || []).length,
     finances:  (finances  || []).length,
     tasks:     (tasks     || []).length,
+    assessments: (context.assessments || []).length,
     analytics: 0,
-  }), [leads, students, sessions, webinars, content, finances, tasks]);
+  }), [leads, students, sessions, webinars, content, finances, tasks, context.assessments]);
 
   return (
     <AdminLayout>

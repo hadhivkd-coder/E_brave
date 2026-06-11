@@ -81,18 +81,39 @@ function LeadDetailPanel({ lead, onClose, onUpdate, onDelete, team }) {
               <div className="adm-detail-item"><span className="adm-detail-label">Follow-up</span><span>{lead.followUpDate || '—'}</span></div>
             </div>
 
-            <div className="adm-detail-section">
-              <label className="adm-detail-label">Update Status</label>
-              <select
-                className="adm-select"
-                value={editStatus}
-                onChange={e => {
-                  setEditStatus(e.target.value);
-                  onUpdate(lead.id, { status: e.target.value });
-                }}
-              >
-                {ALL_STATUSES.map(s => <option key={s}>{s}</option>)}
-              </select>
+            <div className="adm-detail-section" style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+              <div style={{ flex: 1, minWidth: '150px' }}>
+                <label className="adm-detail-label">Update Status</label>
+                <select
+                  className="adm-select"
+                  value={editStatus}
+                  onChange={e => {
+                    setEditStatus(e.target.value);
+                    onUpdate(lead.id, { status: e.target.value });
+                  }}
+                >
+                  {ALL_STATUSES.map(s => <option key={s}>{s}</option>)}
+                </select>
+              </div>
+              
+              <div style={{ flex: 1, minWidth: '150px' }}>
+                <label className="adm-detail-label">Payment Status</label>
+                <select
+                  className="adm-select"
+                  value={lead.paymentStatus || 'Pending'}
+                  onChange={e => {
+                    onUpdate(lead.id, { paymentStatus: e.target.value });
+                  }}
+                  style={{
+                    borderColor: lead.paymentStatus === 'Paid' ? '#10b981' : lead.paymentStatus === 'Partial' ? '#f59e0b' : 'var(--adm-border)',
+                    backgroundColor: lead.paymentStatus === 'Paid' ? '#10b98110' : lead.paymentStatus === 'Partial' ? '#f59e0b10' : '#ffffff'
+                  }}
+                >
+                  <option value="Pending">⏳ Pending</option>
+                  <option value="Partial">🟡 Partial</option>
+                  <option value="Paid">✅ Paid</option>
+                </select>
+              </div>
             </div>
 
             <div className="adm-panel-actions">
@@ -388,7 +409,16 @@ export default function Leads() {
                         <div className="adm-td-sub">{lead.email}</div>
                       </td>
                       <td><Badge variant="blue" size="sm">{lead.source}</Badge></td>
-                      <td><Badge variant={STATUS_COLORS[lead.status] || 'gray'} size="sm">{lead.status}</Badge></td>
+                      <td>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                          <Badge variant={STATUS_COLORS[lead.status] || 'gray'} size="sm">{lead.status}</Badge>
+                          {lead.paymentStatus === 'Paid' ? (
+                             <Badge variant="green" size="sm">Paid</Badge>
+                          ) : lead.paymentStatus === 'Partial' ? (
+                             <Badge variant="amber" size="sm">Partial</Badge>
+                          ) : null}
+                        </div>
+                      </td>
                       <td>
                         <div className="adm-score-badge" style={{
                           background: lead.leadScore >= 8 ? '#ef444420' : lead.leadScore >= 5 ? '#f59e0b20' : '#6366f120',

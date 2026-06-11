@@ -9,87 +9,37 @@ const SESSION_STATUSES = ['Scheduled', 'In Progress', 'Completed', 'Cancelled', 
 const SESSION_TYPES = ['Initial', 'Follow-up', 'Parent Meeting', 'Career Planning'];
 
 function SessionNotesForm({ session, onSave, onClose }) {
-  const [notes, setNotes] = useState(session?.notes || {
-    confusion: '', strengths: '', weaknesses: '', interests: '',
-    careerPaths: [], actionPlan: '', followUpTasks: []
-  });
-  const [newPath, setNewPath] = useState('');
-  const [newTask, setNewTask] = useState('');
+  const [notes, setNotes] = useState(session?.notes || { summary: '', actionPlan: '' });
+  const [status, setStatus] = useState('Completed');
 
   const handleSave = () => {
-    onSave({ ...session, notes, status: 'Completed' });
+    onSave({ ...session, notes, status });
     onClose();
   };
 
   return (
     <div className="adm-notes-form">
       <div className="adm-form-group">
-        <label>Student Confusion / Key Concerns</label>
-        <textarea className="adm-textarea" rows={2} value={notes.confusion}
-          onChange={e => setNotes(n => ({ ...n, confusion: e.target.value }))}
-          placeholder="What is the student confused about?" />
-      </div>
-      <div className="adm-input-row">
-        <div className="adm-form-group">
-          <label>Strengths</label>
-          <textarea className="adm-textarea" rows={2} value={notes.strengths}
-            onChange={e => setNotes(n => ({ ...n, strengths: e.target.value }))}
-            placeholder="Key strengths observed..." />
-        </div>
-        <div className="adm-form-group">
-          <label>Weaknesses / Gaps</label>
-          <textarea className="adm-textarea" rows={2} value={notes.weaknesses}
-            onChange={e => setNotes(n => ({ ...n, weaknesses: e.target.value }))}
-            placeholder="Areas to work on..." />
-        </div>
+        <label>Session Summary</label>
+        <textarea className="adm-textarea" rows={5} value={notes.summary || ''}
+          onChange={e => setNotes(n => ({ ...n, summary: e.target.value }))}
+          placeholder="Quick summary of the session, student interests, and concerns..." autoFocus />
       </div>
       <div className="adm-form-group">
-        <label>Interests & Passions</label>
-        <textarea className="adm-textarea" rows={2} value={notes.interests}
-          onChange={e => setNotes(n => ({ ...n, interests: e.target.value }))}
-          placeholder="What excites the student?" />
-      </div>
-      <div className="adm-form-group">
-        <label>Suggested Career Paths</label>
-        <div className="adm-tag-input-wrap">
-          {notes.careerPaths.map(p => (
-            <span key={p} className="adm-tag adm-tag-removable">
-              {p}
-              <button onClick={() => setNotes(n => ({ ...n, careerPaths: n.careerPaths.filter(x => x !== p) }))}>×</button>
-            </span>
-          ))}
-        </div>
-        <div style={{ display: 'flex', gap: 8 }}>
-          <input className="adm-input" value={newPath} onChange={e => setNewPath(e.target.value)}
-            placeholder="e.g. Data Science, CA, Design..." onKeyDown={e => { if (e.key === 'Enter' && newPath.trim()) { setNotes(n => ({ ...n, careerPaths: [...n.careerPaths, newPath.trim()] })); setNewPath(''); }}} />
-          <button className="adm-btn adm-btn-ghost adm-btn-sm" onClick={() => { if (newPath.trim()) { setNotes(n => ({ ...n, careerPaths: [...n.careerPaths, newPath.trim()] })); setNewPath(''); }}}>Add</button>
-        </div>
-      </div>
-      <div className="adm-form-group">
-        <label>Action Plan</label>
-        <textarea className="adm-textarea" rows={3} value={notes.actionPlan}
+        <label>Action Plan / Next Steps</label>
+        <textarea className="adm-textarea" rows={2} value={notes.actionPlan || ''}
           onChange={e => setNotes(n => ({ ...n, actionPlan: e.target.value }))}
-          placeholder="Next steps and action items for the student..." />
+          placeholder="What should the student do next?" />
       </div>
       <div className="adm-form-group">
-        <label>Follow-up Tasks</label>
-        <div className="adm-task-list">
-          {notes.followUpTasks.map((task, i) => (
-            <div key={i} className="adm-follow-task">
-              <span>✓ {task}</span>
-              <button onClick={() => setNotes(n => ({ ...n, followUpTasks: n.followUpTasks.filter((_, j) => j !== i) }))}>×</button>
-            </div>
-          ))}
-        </div>
-        <div style={{ display: 'flex', gap: 8 }}>
-          <input className="adm-input" value={newTask} onChange={e => setNewTask(e.target.value)}
-            placeholder="Add a follow-up task..." onKeyDown={e => { if (e.key === 'Enter' && newTask.trim()) { setNotes(n => ({ ...n, followUpTasks: [...n.followUpTasks, newTask.trim()] })); setNewTask(''); }}} />
-          <button className="adm-btn adm-btn-ghost adm-btn-sm" onClick={() => { if (newTask.trim()) { setNotes(n => ({ ...n, followUpTasks: [...n.followUpTasks, newTask.trim()] })); setNewTask(''); }}}>Add</button>
-        </div>
+        <label>Update Status</label>
+        <select className="adm-select" value={status} onChange={e => setStatus(e.target.value)}>
+          {SESSION_STATUSES.map(s => <option key={s}>{s}</option>)}
+        </select>
       </div>
-      <div style={{ display: 'flex', gap: 12, justifyContent: 'flex-end' }}>
+      <div style={{ display: 'flex', gap: 12, justifyContent: 'flex-end', marginTop: 16 }}>
         <button className="adm-btn adm-btn-ghost" onClick={onClose}>Cancel</button>
-        <button className="adm-btn adm-btn-primary" onClick={handleSave}>Save & Complete Session</button>
+        <button className="adm-btn adm-btn-primary" onClick={handleSave}>Save Session</button>
       </div>
     </div>
   );
