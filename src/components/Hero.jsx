@@ -6,6 +6,19 @@ export default function Hero() {
     const [counts, setCounts] = useState({ counselors: 0, students: 0, rating: 0 });
     const animatedRef = useRef(false);
 
+    const animateCount = (key, target, duration, isDecimal = false) => {
+        const start = performance.now();
+        const tick = (now) => {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = eased * target;
+            setCounts(prev => ({ ...prev, [key]: isDecimal ? parseFloat(current.toFixed(1)) : Math.floor(current) }));
+            if (progress < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+    };
+
     // ── ANIMATED COUNTERS ──
     useEffect(() => {
         const el = countersRef.current;
@@ -21,19 +34,6 @@ export default function Hero() {
         observer.observe(el);
         return () => observer.disconnect();
     }, []);
-
-    const animateCount = (key, target, duration, isDecimal = false) => {
-        const start = performance.now();
-        const tick = (now) => {
-            const elapsed = now - start;
-            const progress = Math.min(elapsed / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            const current = eased * target;
-            setCounts(prev => ({ ...prev, [key]: isDecimal ? parseFloat(current.toFixed(1)) : Math.floor(current) }));
-            if (progress < 1) requestAnimationFrame(tick);
-        };
-        requestAnimationFrame(tick);
-    };
 
     const fmt = (n) => n >= 1000 ? (n / 1000).toFixed(0) + 'k' : n;
 

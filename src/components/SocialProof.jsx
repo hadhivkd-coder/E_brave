@@ -24,6 +24,12 @@ export default function SocialProof() {
     const [toast, setToast] = useState(null);
     const [visible, setVisible] = useState(false);
 
+    const showToast = () => {
+        const person = names[Math.floor(Math.random() * names.length)];
+        setToast({ ...person, time: timeAgo() });
+        setVisible(true);
+    };
+
     useEffect(() => {
         // Start after 6 seconds
         const initialDelay = setTimeout(() => showToast(), 6000);
@@ -32,22 +38,21 @@ export default function SocialProof() {
     }, []);
 
     useEffect(() => {
-        if (!toast) return;
-        // Show for 5 seconds, then hide, then show next after 12 seconds
-        const hideTimer = setTimeout(() => setVisible(false), 5000);
-        const nextTimer = setTimeout(() => showToast(), 120000); // 2 minutes
+        if (visible) {
+            const hideDelay = setTimeout(() => {
+                setVisible(false);
+            }, 5000); // stay visible for 5s
 
-        return () => {
-            clearTimeout(hideTimer);
-            clearTimeout(nextTimer);
-        };
-    }, [toast]);
+            return () => clearTimeout(hideDelay);
+        } else if (toast) {
+            // Next popup in 10-25 seconds
+            const nextDelay = setTimeout(() => {
+                showToast();
+            }, Math.random() * 15000 + 10000);
 
-    const showToast = () => {
-        const person = names[Math.floor(Math.random() * names.length)];
-        setToast({ ...person, time: timeAgo() });
-        setVisible(true);
-    };
+            return () => clearTimeout(nextDelay);
+        }
+    }, [visible, toast]);
 
     if (!toast) return null;
 
