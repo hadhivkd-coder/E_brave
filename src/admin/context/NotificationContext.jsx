@@ -24,6 +24,16 @@ export function NotificationProvider({ children }) {
   // Compute unread counts
   const unreadCount = notifications.filter(n => !n.isRead).length;
 
+  // Toast Queue Systems
+  const showToast = useCallback((message, type = 'success') => {
+    const newToast = {
+      id: `toast_${Date.now()}`,
+      message,
+      type // 'success', 'error', 'warning', 'info'
+    };
+    setToasts(prev => [...prev, newToast]);
+  }, []);
+
   const addNotification = useCallback((type, title, message, priority = 'medium', actionUrl = '') => {
     const newNotif = {
       id: `notif_${Date.now()}`,
@@ -37,7 +47,7 @@ export function NotificationProvider({ children }) {
     };
     setNotifications(prev => [newNotif, ...prev]);
     showToast(`${title}: ${message}`, type === 'error' ? 'error' : 'info');
-  }, []);
+  }, [showToast]);
 
   const markRead = useCallback((id) => {
     setNotifications(prev =>
@@ -53,16 +63,6 @@ export function NotificationProvider({ children }) {
 
   const clearAll = useCallback(() => {
     setNotifications([]);
-  }, []);
-
-  // Toast Queue Systems
-  const showToast = useCallback((message, type = 'success') => {
-    const newToast = {
-      id: `toast_${Date.now()}`,
-      message,
-      type // 'success', 'error', 'warning', 'info'
-    };
-    setToasts(prev => [...prev, newToast]);
   }, []);
 
   const dismissToast = useCallback((id) => {

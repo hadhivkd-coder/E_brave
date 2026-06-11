@@ -133,13 +133,13 @@ export function DonutChart({ data = [], size = 160 }) {
   const cy = size / 2;
   const circumference = 2 * Math.PI * radius;
 
-  let cumulativePct = 0;
-  const segments = data.map(item => {
+  const segments = data.reduce((acc, item) => {
     const pct = total > 0 ? item.value / total : 0;
-    const offset = cumulativePct * circumference;
-    cumulativePct += pct;
-    return { ...item, pct, offset };
-  });
+    const offset = acc.cumulativePct * circumference;
+    acc.items.push({ ...item, pct, offset });
+    acc.cumulativePct += pct;
+    return acc;
+  }, { items: [], cumulativePct: 0 }).items;
 
   return (
     <div className="adm-chart adm-donut-chart" style={{ width: size }}>
