@@ -197,8 +197,15 @@ export default function AssessmentEngine() {
       console.error('Failed to sync assessment data:', err);
     }
 
-    showToast('Assessment Complete! Generating Dossier...', 'success');
-    navigate('/student/assessment/complete');
+    const waNum = '919162829122';
+    const schoolInfo = studentInfo.schoolName ? ` from ${studentInfo.schoolName}` : '';
+    const waText = `Hi! I am ${studentInfo.fullName}, studying in Class ${studentInfo.grade}${schoolInfo}. I have attended the career assessment and I want to get to know about the result.`;
+    
+    showToast('Assessment Complete! Redirecting to WhatsApp...', 'success');
+    
+    setTimeout(() => {
+      window.location.href = `https://wa.me/${waNum}?text=${encodeURIComponent(waText)}`;
+    }, 1500);
   };
 
   const getTranslatedText = (textObj) => {
