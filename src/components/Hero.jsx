@@ -62,12 +62,15 @@ export default function Hero() {
                         Psychometric testing, stream selection, and overseas guidance — in <strong>Malayalam &amp; English</strong>.
                     </p>
 
-                    <div className="hero-btns">
-                        <a href="#register" className="btn-main" aria-label="Book a career consultation session">
+                    <div className="hero-btns" style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', alignItems: 'center' }}>
+                        <a href="#register" className="btn-main" style={{ background: '#2E6B3A', color: '#fff', border: 'none', padding: '14px 28px', borderRadius: '8px', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px', boxShadow: '0 4px 12px rgba(46, 107, 58, 0.25)' }} aria-label="Book a career consultation session">
                             Book Consultation
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="18" height="18"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                         </a>
-                        <a href="/student/assessment" className="btn-main" style={{ background: 'var(--accent)', color: '#fff' }} aria-label="Take Career Assessment">
+                        <a href="#ai-coach" className="btn-ghost" style={{ background: 'rgba(255, 255, 255, 0.9)', color: '#2E6B3A', border: '1px solid rgba(46, 107, 58, 0.2)', padding: '14px 28px', borderRadius: '8px', fontWeight: 600, backdropFilter: 'blur(10px)', transition: 'all 0.3s ease' }} aria-label="Try E-Brave AI Career Coach">
+                            Talk to AI Counselor 🤖
+                        </a>
+                        <a href="/student/assessment" className="btn-main" style={{ background: 'linear-gradient(135deg, #7FA86E, #2E6B3A)', color: '#fff', border: 'none', padding: '14px 28px', borderRadius: '8px', fontWeight: 600, boxShadow: '0 4px 15px rgba(127, 168, 110, 0.4)', transition: 'transform 0.2s ease' }} aria-label="Take Career Assessment">
                             Take Career Assessment 🎯
                         </a>
                     </div>
