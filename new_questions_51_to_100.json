@@ -1,0 +1,552 @@
+[
+  {
+    "id": "q51",
+    "text": { "en": "You are organizing a massive surprise birthday party for your best friend." },
+    "options": [
+      { "id": "A", "text": { "en": "I meticulously hide the gifts and keep track of the RSVPs." }, "traits": ["conscientiousness"] },
+      { "id": "B", "text": { "en": "When they almost find out early, I stay completely calm and divert their attention." }, "traits": ["emotional_stability"] },
+      { "id": "C", "text": { "en": "I throw out the standard party idea and suggest an alien-invasion theme." }, "traits": ["openness"] },
+      { "id": "D", "text": { "en": "I figure out how to fix the broken speaker system just before they arrive." }, "traits": ["problem_solving"] },
+      { "id": "E", "text": { "en": "I make sure everyone has a specific task so we all work together seamlessly." }, "traits": ["collaboration"] }
+    ]
+  },
+  {
+    "id": "q52",
+    "text": { "en": "A fire drill goes off right in the middle of a very important final exam." },
+    "options": [
+      { "id": "A", "text": { "en": "I calmly put down my pencil and tell others not to panic." }, "traits": ["emotional_stability"] },
+      { "id": "B", "text": { "en": "I actually enjoy the random disruption and treat it like a fun break." }, "traits": ["openness"] },
+      { "id": "C", "text": { "en": "I quickly grab a paperweight to keep our exams from blowing away." }, "traits": ["problem_solving"] },
+      { "id": "D", "text": { "en": "I help the teacher make sure the entire class stays together in line." }, "traits": ["collaboration"] },
+      { "id": "E", "text": { "en": "I analyze the situation to determine if the test will likely be voided." }, "traits": ["critical_thinking"] }
+    ]
+  },
+  {
+    "id": "q53",
+    "text": { "en": "You enter a school photography contest with a vague theme." },
+    "options": [
+      { "id": "A", "text": { "en": "I take pictures from completely weird, upside-down angles just to be different." }, "traits": ["openness"] },
+      { "id": "B", "text": { "en": "I build a custom tripod rig out of PVC pipes to get the perfect shot." }, "traits": ["problem_solving"] },
+      { "id": "C", "text": { "en": "I share my expensive camera lenses with other students who need them." }, "traits": ["collaboration"] },
+      { "id": "D", "text": { "en": "I critique the lighting in my photos and adjust the exposure settings logically." }, "traits": ["critical_thinking"] },
+      { "id": "E", "text": { "en": "I invent a completely new editing style that makes the photos look like paintings." }, "traits": ["creativity_innov"] }
+    ]
+  },
+  {
+    "id": "q54",
+    "text": { "en": "Your bike tire pops halfway to school and you are running late." },
+    "options": [
+      { "id": "A", "text": { "en": "I temporarily fix the inner tube using some duct tape from my backpack." }, "traits": ["problem_solving"] },
+      { "id": "B", "text": { "en": "I text a friend who drives to school and ask them to pick me up." }, "traits": ["collaboration"] },
+      { "id": "C", "text": { "en": "I realize I can't make it to first period, so I email my teacher immediately." }, "traits": ["critical_thinking"] },
+      { "id": "D", "text": { "en": "I ditch the bike at a shop and use my skateboard for the rest of the way." }, "traits": ["creativity_innov"] },
+      { "id": "E", "text": { "en": "I quickly look up a video and learn how to patch a tire in two minutes." }, "traits": ["learning_agility"] }
+    ]
+  },
+  {
+    "id": "q55",
+    "text": { "en": "Your history teacher assigns a group project to make an educational TikTok." },
+    "options": [
+      { "id": "A", "text": { "en": "I choreograph a dance that gets all group members involved." }, "traits": ["collaboration"] },
+      { "id": "B", "text": { "en": "I analyze the TikTok algorithm to figure out what hooks will get the most views." }, "traits": ["critical_thinking"] },
+      { "id": "C", "text": { "en": "I design a hilarious historical costume out of cardboard and aluminum foil." }, "traits": ["creativity_innov"] },
+      { "id": "D", "text": { "en": "I pick up the complex video editing software incredibly fast." }, "traits": ["learning_agility"] },
+      { "id": "E", "text": { "en": "I use an AI voice generator to narrate the script perfectly." }, "traits": ["ai_readiness"] }
+    ]
+  },
+  {
+    "id": "q56",
+    "text": { "en": "You are designing a custom organizer for your messy school locker." },
+    "options": [
+      { "id": "A", "text": { "en": "I analyze the flaws in standard lockers and figure out why they waste space." }, "traits": ["critical_thinking"] },
+      { "id": "B", "text": { "en": "I invent a fold-out desk that pops out when the door opens." }, "traits": ["creativity_innov"] },
+      { "id": "C", "text": { "en": "I rapidly build and test multiple cardboard prototypes until one works." }, "traits": ["learning_agility"] },
+      { "id": "D", "text": { "en": "I ask an AI to calculate the optimal shelf dimensions based on standard textbooks." }, "traits": ["ai_readiness"] },
+      { "id": "E", "text": { "en": "I use a CAD program to 3D print the exact pieces I need." }, "traits": ["technology"] }
+    ]
+  },
+  {
+    "id": "q57",
+    "text": { "en": "Your best friend breaks their dominant arm and needs help at school." },
+    "options": [
+      { "id": "A", "text": { "en": "I invent a clever shoulder-strap system to carry both our backpacks." }, "traits": ["creativity_innov"] },
+      { "id": "B", "text": { "en": "I learn how to write legibly with my non-dominant hand just to show them how." }, "traits": ["learning_agility"] },
+      { "id": "C", "text": { "en": "I set up an AI speech-to-text program on their laptop so they can 'type' essays." }, "traits": ["ai_readiness"] },
+      { "id": "D", "text": { "en": "I reconfigure their keyboard settings for one-handed accessibility." }, "traits": ["technology"] },
+      { "id": "E", "text": { "en": "I make sure they are eating calcium-rich foods to help their bone heal faster." }, "traits": ["healthcare"] }
+    ]
+  },
+  {
+    "id": "q58",
+    "text": { "en": "You decide to make an indie film with your friends over the summer." },
+    "options": [
+      { "id": "A", "text": { "en": "I learn the basics of cinematography and color grading over a single weekend." }, "traits": ["learning_agility"] },
+      { "id": "B", "text": { "en": "I use AI tools to generate crazy sci-fi backgrounds we can't afford to film." }, "traits": ["ai_readiness"] },
+      { "id": "C", "text": { "en": "I manage the camera equipment, microphones, and the massive video files." }, "traits": ["technology"] },
+      { "id": "D", "text": { "en": "I ensure all our action scenes and stunts have proper safety pads." }, "traits": ["healthcare"] },
+      { "id": "E", "text": { "en": "I spend hours directing the actors to get the perfect emotional performance." }, "traits": ["arts"] }
+    ]
+  },
+  {
+    "id": "q59",
+    "text": { "en": "You start a sneaker resale side hustle to make some extra cash." },
+    "options": [
+      { "id": "A", "text": { "en": "I use AI models to predict which sneaker drops will skyrocket in value." }, "traits": ["ai_readiness"] },
+      { "id": "B", "text": { "en": "I write scripts and use bots to automate the checkout process." }, "traits": ["technology"] },
+      { "id": "C", "text": { "en": "I carefully clean and restore old shoes using special chemicals." }, "traits": ["healthcare"] },
+      { "id": "D", "text": { "en": "I take highly aesthetic, stylized photos of the shoes for my Instagram page." }, "traits": ["arts"] },
+      { "id": "E", "text": { "en": "I track every purchase, sale, and shipping cost in a detailed spreadsheet." }, "traits": ["business"] }
+    ]
+  },
+  {
+    "id": "q60",
+    "text": { "en": "Your smartphone screen shatters and you decide to fix it yourself." },
+    "options": [
+      { "id": "A", "text": { "en": "I follow a teardown video to disconnect the tiny ribbon cables." }, "traits": ["technology"] },
+      { "id": "B", "text": { "en": "I make sure no tiny glass shards cut my fingers during the repair." }, "traits": ["healthcare"] },
+      { "id": "C", "text": { "en": "I buy a customized, hand-painted replacement back glass just for fun." }, "traits": ["arts"] },
+      { "id": "D", "text": { "en": "I find the cheapest wholesale supplier for screens to save money." }, "traits": ["business"] },
+      { "id": "E", "text": { "en": "I read the warranty terms carefully to see if opening the phone voids it." }, "traits": ["law"] }
+    ]
+  },
+  {
+    "id": "q61",
+    "text": { "en": "You volunteer to help run a massive city marathon." },
+    "options": [
+      { "id": "A", "text": { "en": "I stand at the medical tent handing out water and checking for dehydration." }, "traits": ["healthcare"] },
+      { "id": "B", "text": { "en": "I paint cool face designs and numbers on the runners before the race." }, "traits": ["arts"] },
+      { "id": "C", "text": { "en": "I manage the merchandise booth, selling t-shirts to the spectators." }, "traits": ["business"] },
+      { "id": "D", "text": { "en": "I verify that the running route has all the required city permits." }, "traits": ["law"] },
+      { "id": "E", "text": { "en": "I help construct the massive scaffolding for the finish line." }, "traits": ["engineering"] }
+    ]
+  },
+  {
+    "id": "q62",
+    "text": { "en": "Your art club takes a field trip to an impressive modern museum." },
+    "options": [
+      { "id": "A", "text": { "en": "I sit quietly in front of the statues and try to sketch them accurately." }, "traits": ["arts"] },
+      { "id": "B", "text": { "en": "I go to the gift shop and calculate what I can buy with my ten dollars." }, "traits": ["business"] },
+      { "id": "C", "text": { "en": "I make sure everyone follows the strict 'no flash photography' rules." }, "traits": ["law"] },
+      { "id": "D", "text": { "en": "I fix a wobbly display stand that was about to fall over." }, "traits": ["engineering"] },
+      { "id": "E", "text": { "en": "I talk to the tour guide, asking them lots of questions about their job." }, "traits": ["social"] }
+    ]
+  },
+  {
+    "id": "q63",
+    "text": { "en": "You are put in charge of the school's student supply store." },
+    "options": [
+      { "id": "A", "text": { "en": "I run sales promotions to get rid of the old pencil inventory." }, "traits": ["business"] },
+      { "id": "B", "text": { "en": "I check the tax regulations on selling snacks on school property." }, "traits": ["law"] },
+      { "id": "C", "text": { "en": "I build new, sturdy display racks out of spare lumber." }, "traits": ["engineering"] },
+      { "id": "D", "text": { "en": "I eagerly greet the freshmen and help them find their classes." }, "traits": ["social"] },
+      { "id": "E", "text": { "en": "I replace all our plastic products with eco-friendly, recycled alternatives." }, "traits": ["environment"] }
+    ]
+  },
+  {
+    "id": "q64",
+    "text": { "en": "You join the school's Model United Nations conference." },
+    "options": [
+      { "id": "A", "text": { "en": "I aggressively debate international treaties and international law." }, "traits": ["law"] },
+      { "id": "B", "text": { "en": "I run the microphone and timer system to keep the speeches on track." }, "traits": ["engineering"] },
+      { "id": "C", "text": { "en": "I pass notes and form alliances with other delegates during breaks." }, "traits": ["social"] },
+      { "id": "D", "text": { "en": "I sponsor a resolution focused entirely on global carbon emissions." }, "traits": ["environment"] },
+      { "id": "E", "text": { "en": "I read hundreds of pages of background guides on the countries." }, "traits": ["research"] }
+    ]
+  },
+  {
+    "id": "q65",
+    "text": { "en": "You decide to build a treehouse in your backyard." },
+    "options": [
+      { "id": "A", "text": { "en": "I hammer the nails and construct the wooden frame myself." }, "traits": ["engineering"] },
+      { "id": "B", "text": { "en": "I invite all my friends over to hang out in it once it's built." }, "traits": ["social"] },
+      { "id": "C", "text": { "en": "I make sure to use reclaimed wood so I don't harm new trees." }, "traits": ["environment"] },
+      { "id": "D", "text": { "en": "I calculate the load-bearing capacity of the main branches." }, "traits": ["research"] },
+      { "id": "E", "text": { "en": "I shout to all the neighbors and throw a massive treehouse party." }, "traits": ["extroversion"] }
+    ]
+  },
+  {
+    "id": "q66",
+    "text": { "en": "You organize a weekend cleanup event at the local state park." },
+    "options": [
+      { "id": "A", "text": { "en": "I hand out trash bags and make sure every volunteer feels welcome." }, "traits": ["social"] },
+      { "id": "B", "text": { "en": "I focus on planting new native flowers near the park entrance." }, "traits": ["environment"] },
+      { "id": "C", "text": { "en": "I track the types of litter we find to report to the city council." }, "traits": ["research"] },
+      { "id": "D", "text": { "en": "I stand on a bench and give a loud, motivating speech to the crowd." }, "traits": ["extroversion"] },
+      { "id": "E", "text": { "en": "I put my headphones on and quietly pick up trash deep in the woods alone." }, "traits": ["introversion"] }
+    ]
+  },
+  {
+    "id": "q67",
+    "text": { "en": "Your science lab group has to dissect a frog." },
+    "options": [
+      { "id": "A", "text": { "en": "I make sure all biological waste is disposed of in the eco-friendly bin." }, "traits": ["environment"] },
+      { "id": "B", "text": { "en": "I read the textbook manual ahead of time so I know the anatomy." }, "traits": ["research"] },
+      { "id": "C", "text": { "en": "I take charge and enthusiastically lead the dissection for the squeamish kids." }, "traits": ["extroversion"] },
+      { "id": "D", "text": { "en": "I prefer to do the cutting quietly and carefully without making jokes." }, "traits": ["introversion"] },
+      { "id": "E", "text": { "en": "I meticulously clean and organize the scalpels and trays afterward." }, "traits": ["conscientiousness"] }
+    ]
+  },
+  {
+    "id": "q68",
+    "text": { "en": "You are writing a massive 20-page research paper for history class." },
+    "options": [
+      { "id": "A", "text": { "en": "I dive into primary source documents and ancient books to find evidence." }, "traits": ["research"] },
+      { "id": "B", "text": { "en": "I do a highly animated oral presentation of my findings to the class." }, "traits": ["extroversion"] },
+      { "id": "C", "text": { "en": "I lock myself in my room for three days to write in absolute silence." }, "traits": ["introversion"] },
+      { "id": "D", "text": { "en": "I format every single citation flawlessly according to the rubric." }, "traits": ["conscientiousness"] },
+      { "id": "E", "text": { "en": "When I get a bad grade on the draft, I just sigh and start rewriting calmly." }, "traits": ["emotional_stability"] }
+    ]
+  },
+  {
+    "id": "q69",
+    "text": { "en": "You go to a massive, incredibly crowded mall on Black Friday." },
+    "options": [
+      { "id": "A", "text": { "en": "I thrive in the chaos and loudly bargain with the kiosk vendors." }, "traits": ["extroversion"] },
+      { "id": "B", "text": { "en": "I retreat to the quietest corner of the bookstore to escape the noise." }, "traits": ["introversion"] },
+      { "id": "C", "text": { "en": "I bring a map and strike off every store we need to visit in order." }, "traits": ["conscientiousness"] },
+      { "id": "D", "text": { "en": "I don't get annoyed by the long lines; I just patiently wait my turn." }, "traits": ["emotional_stability"] },
+      { "id": "E", "text": { "en": "I decide to try a completely strange new food from the food court." }, "traits": ["openness"] }
+    ]
+  },
+  {
+    "id": "q70",
+    "text": { "en": "You are playing a notoriously difficult, frustrating video game." },
+    "options": [
+      { "id": "A", "text": { "en": "I turn off the multiplayer chat so I can focus on the single-player mode." }, "traits": ["introversion"] },
+      { "id": "B", "text": { "en": "I carefully manage my inventory and organize my potions by color." }, "traits": ["conscientiousness"] },
+      { "id": "C", "text": { "en": "When I lose to the boss 50 times, I don't rage-quit, I just try again." }, "traits": ["emotional_stability"] },
+      { "id": "D", "text": { "en": "I equip completely random, bizarre armor just to see what happens." }, "traits": ["openness"] },
+      { "id": "E", "text": { "en": "I memorize the boss's attack patterns and calculate the exact dodge timing." }, "traits": ["problem_solving"] }
+    ]
+  },
+  {
+    "id": "q71",
+    "text": { "en": "You are putting together a 5,000 piece model kit with friends." },
+    "options": [
+      { "id": "A", "text": { "en": "I sort all the tiny plastic pieces into numbered bags before we start." }, "traits": ["conscientiousness"] },
+      { "id": "B", "text": { "en": "When someone accidentally steps on a piece, I tell them it's not a big deal." }, "traits": ["emotional_stability"] },
+      { "id": "C", "text": { "en": "I suggest we build the spaceship backward just for a challenge." }, "traits": ["openness"] },
+      { "id": "D", "text": { "en": "I figure out how to substitute a lost gear with a spare part from another set." }, "traits": ["problem_solving"] },
+      { "id": "E", "text": { "en": "I pass pieces to the builder and read the instructions out loud." }, "traits": ["collaboration"] }
+    ]
+  },
+  {
+    "id": "q72",
+    "text": { "en": "A massive thunderstorm knocks out your home's internet for the night." },
+    "options": [
+      { "id": "A", "text": { "en": "I relax and enjoy the break from social media without complaining." }, "traits": ["emotional_stability"] },
+      { "id": "B", "text": { "en": "I dig out a strange, dusty board game my family has never played before." }, "traits": ["openness"] },
+      { "id": "C", "text": { "en": "I reset the router and check the IP settings to see if it's a local issue." }, "traits": ["problem_solving"] },
+      { "id": "D", "text": { "en": "I gather my siblings in the living room for a game of charades." }, "traits": ["collaboration"] },
+      { "id": "E", "text": { "en": "I check the cellular outage map to determine if the whole grid is down." }, "traits": ["critical_thinking"] }
+    ]
+  },
+  {
+    "id": "q73",
+    "text": { "en": "You are making a custom Halloween costume for a huge party." },
+    "options": [
+      { "id": "A", "text": { "en": "I come up with a highly abstract, conceptual costume idea." }, "traits": ["openness"] },
+      { "id": "B", "text": { "en": "I figure out how to wire battery-powered LEDs into the fabric safely." }, "traits": ["problem_solving"] },
+      { "id": "C", "text": { "en": "I coordinate with three friends so we can go as a matching group." }, "traits": ["collaboration"] },
+      { "id": "D", "text": { "en": "I analyze the weather forecast to decide if the costume needs a coat." }, "traits": ["critical_thinking"] },
+      { "id": "E", "text": { "en": "I sculpt a completely original monster mask out of foam and clay." }, "traits": ["creativity_innov"] }
+    ]
+  },
+  {
+    "id": "q74",
+    "text": { "en": "You completely forget your lunch at home and have no money." },
+    "options": [
+      { "id": "A", "text": { "en": "I figure out a clever way to trade a pencil for an apple." }, "traits": ["problem_solving"] },
+      { "id": "B", "text": { "en": "I tell my friends, knowing they will all pitch in and share their snacks." }, "traits": ["collaboration"] },
+      { "id": "C", "text": { "en": "I realize missing one meal won't hurt me and just drink water instead." }, "traits": ["critical_thinking"] },
+      { "id": "D", "text": { "en": "I make a bizarre 'soup' out of free ketchup packets and crackers." }, "traits": ["creativity_innov"] },
+      { "id": "E", "text": { "en": "I learn the cafeteria's policy on free emergency lunch vouchers." }, "traits": ["learning_agility"] }
+    ]
+  },
+  {
+    "id": "q75",
+    "text": { "en": "Your class is planning a harmless but legendary senior prank." },
+    "options": [
+      { "id": "A", "text": { "en": "I coordinate the group chat so nobody accidentally leaks the plan." }, "traits": ["collaboration"] },
+      { "id": "B", "text": { "en": "I analyze the school's camera blind spots to find the safest route." }, "traits": ["critical_thinking"] },
+      { "id": "C", "text": { "en": "I come up with the hilarious idea to cover the hallways in sticky notes." }, "traits": ["creativity_innov"] },
+      { "id": "D", "text": { "en": "I quickly learn how to pick the cheap padlock on the gym doors." }, "traits": ["learning_agility"] },
+      { "id": "E", "text": { "en": "I use an AI voice tool to leave a fake voicemail from the principal." }, "traits": ["ai_readiness"] }
+    ]
+  },
+  {
+    "id": "q76",
+    "text": { "en": "You are upgrading an old PC to make it run games faster." },
+    "options": [
+      { "id": "A", "text": { "en": "I benchmark the system to see if the CPU or GPU is the bottleneck." }, "traits": ["critical_thinking"] },
+      { "id": "B", "text": { "en": "I design a really cool custom water-cooling loop with neon lights." }, "traits": ["creativity_innov"] },
+      { "id": "C", "text": { "en": "I read the motherboard manual and figure out the front panel pins fast." }, "traits": ["learning_agility"] },
+      { "id": "D", "text": { "en": "I use an AI utility program to safely auto-overclock the processor." }, "traits": ["ai_readiness"] },
+      { "id": "E", "text": { "en": "I carefully apply the thermal paste and slot the new RAM sticks." }, "traits": ["technology"] }
+    ]
+  },
+  {
+    "id": "q77",
+    "text": { "en": "A friend has a sudden panic attack in the middle of the hallway." },
+    "options": [
+      { "id": "A", "text": { "en": "I invent a silly distraction game to help ground them in reality." }, "traits": ["creativity_innov"] },
+      { "id": "B", "text": { "en": "I rapidly recall the grounding techniques I read about in health class." }, "traits": ["learning_agility"] },
+      { "id": "C", "text": { "en": "I load up an AI-guided breathing exercise on my phone for them to follow." }, "traits": ["ai_readiness"] },
+      { "id": "D", "text": { "en": "I text the school counselor on their secure messaging portal." }, "traits": ["technology"] },
+      { "id": "E", "text": { "en": "I get them a cup of water and monitor their heart rate." }, "traits": ["healthcare"] }
+    ]
+  },
+  {
+    "id": "q78",
+    "text": { "en": "You and your friends decide to start a rock band in a garage." },
+    "options": [
+      { "id": "A", "text": { "en": "I learn how to play the bass guitar from scratch in two weeks." }, "traits": ["learning_agility"] },
+      { "id": "B", "text": { "en": "I generate cool synth backing tracks using an AI music generator." }, "traits": ["ai_readiness"] },
+      { "id": "C", "text": { "en": "I set up the amplifiers, pedals, and PA system so we don't blow a fuse." }, "traits": ["technology"] },
+      { "id": "D", "text": { "en": "I make everyone wear earplugs so we don't get hearing damage." }, "traits": ["healthcare"] },
+      { "id": "E", "text": { "en": "I draw the edgy skull artwork for our band's first album cover." }, "traits": ["arts"] }
+    ]
+  },
+  {
+    "id": "q79",
+    "text": { "en": "You run a highly popular meme page for your high school." },
+    "options": [
+      { "id": "A", "text": { "en": "I use an AI bot to generate hilarious captions based on school news." }, "traits": ["ai_readiness"] },
+      { "id": "B", "text": { "en": "I write a script that automatically posts at the highest traffic times." }, "traits": ["technology"] },
+      { "id": "C", "text": { "en": "I post memes about getting enough sleep and staying hydrated." }, "traits": ["healthcare"] },
+      { "id": "D", "text": { "en": "I hand-draw funny caricatures of the teachers to use as templates." }, "traits": ["arts"] },
+      { "id": "E", "text": { "en": "I sell sponsored shoutouts to local pizza places to make money." }, "traits": ["business"] }
+    ]
+  },
+  {
+    "id": "q80",
+    "text": { "en": "You buy a cheap smart-home hub to control your bedroom lights." },
+    "options": [
+      { "id": "A", "text": { "en": "I splice the power wires and solder the LED strips myself." }, "traits": ["technology"] },
+      { "id": "B", "text": { "en": "I set the lights to a warm tone that helps reduce eye strain at night." }, "traits": ["healthcare"] },
+      { "id": "C", "text": { "en": "I program the lights to sync perfectly with the colors in my favorite movies." }, "traits": ["arts"] },
+      { "id": "D", "text": { "en": "I track the wattage to see how much money the LEDs save on the electric bill." }, "traits": ["business"] },
+      { "id": "E", "text": { "en": "I read the privacy policy to make sure the microphone isn't recording me." }, "traits": ["law"] }
+    ]
+  },
+  {
+    "id": "q81",
+    "text": { "en": "You are the manager for the school's basketball team." },
+    "options": [
+      { "id": "A", "text": { "en": "I tape up the players' ankles and keep the ice baths ready." }, "traits": ["healthcare"] },
+      { "id": "B", "text": { "en": "I design the cool warmup shirts that the players wear." }, "traits": ["arts"] },
+      { "id": "C", "text": { "en": "I organize the concession stand to maximize profits for new uniforms." }, "traits": ["business"] },
+      { "id": "D", "text": { "en": "I check the league rulebook to ensure all players are academically eligible." }, "traits": ["law"] },
+      { "id": "E", "text": { "en": "I fix the broken digital scoreboard buzzer with a soldering iron." }, "traits": ["engineering"] }
+    ]
+  },
+  {
+    "id": "q82",
+    "text": { "en": "Your class gets permission to renovate the dusty senior lounge." },
+    "options": [
+      { "id": "A", "text": { "en": "I pick out the paint swatches and design a relaxing color scheme." }, "traits": ["arts"] },
+      { "id": "B", "text": { "en": "I negotiate discounts with local furniture stores to stay under budget." }, "traits": ["business"] },
+      { "id": "C", "text": { "en": "I check the school fire codes to ensure our couches are compliant." }, "traits": ["law"] },
+      { "id": "D", "text": { "en": "I assemble the heavy coffee tables and mount the TV to the wall." }, "traits": ["engineering"] },
+      { "id": "E", "text": { "en": "I ask everyone for input to ensure the room feels welcoming to all cliques." }, "traits": ["social"] }
+    ]
+  },
+  {
+    "id": "q83",
+    "text": { "en": "You host a weekend car wash to raise money for the band." },
+    "options": [
+      { "id": "A", "text": { "en": "I hold the cash box and quickly calculate change for the drivers." }, "traits": ["business"] },
+      { "id": "B", "text": { "en": "I make sure our signs don't violate the city's advertising ordinances." }, "traits": ["law"] },
+      { "id": "C", "text": { "en": "I fix the leaky power washer pump using a spare rubber gasket." }, "traits": ["engineering"] },
+      { "id": "D", "text": { "en": "I joke around with the drivers and keep the volunteers energized." }, "traits": ["social"] },
+      { "id": "E", "text": { "en": "I ensure we only use biodegradable soap that won't harm the drains." }, "traits": ["environment"] }
+    ]
+  },
+  {
+    "id": "q84",
+    "text": { "en": "You join the school's highly competitive debate club." },
+    "options": [
+      { "id": "A", "text": { "en": "I practice arguing both sides of a complex legal case." }, "traits": ["law"] },
+      { "id": "B", "text": { "en": "I help build the wooden podiums we use during our home tournaments." }, "traits": ["engineering"] },
+      { "id": "C", "text": { "en": "I comfort the younger members who are nervous before their speeches." }, "traits": ["social"] },
+      { "id": "D", "text": { "en": "I focus my arguments entirely on renewable energy legislation." }, "traits": ["environment"] },
+      { "id": "E", "text": { "en": "I dig through library archives to find statistics that crush the opponent." }, "traits": ["research"] }
+    ]
+  },
+  {
+    "id": "q85",
+    "text": { "en": "You are helping a close friend move into a new house." },
+    "options": [
+      { "id": "A", "text": { "en": "I take apart the bunk beds and reassemble them in the new room perfectly." }, "traits": ["engineering"] },
+      { "id": "B", "text": { "en": "I keep everyone laughing and pass out drinks to keep morale high." }, "traits": ["social"] },
+      { "id": "C", "text": { "en": "I make sure all the cardboard boxes are broken down and recycled properly." }, "traits": ["environment"] },
+      { "id": "D", "text": { "en": "I study the floor plans to figure out the best way to pivot the couch." }, "traits": ["research"] },
+      { "id": "E", "text": { "en": "I blast music and turn the unpacking process into a massive dance party." }, "traits": ["extroversion"] }
+    ]
+  },
+  {
+    "id": "q86",
+    "text": { "en": "You get a summer job as a counselor at a sleepaway camp." },
+    "options": [
+      { "id": "A", "text": { "en": "I sit with the homesick kids and listen to their problems patiently." }, "traits": ["social"] },
+      { "id": "B", "text": { "en": "I lead the nature walks and teach the kids not to step on the saplings." }, "traits": ["environment"] },
+      { "id": "C", "text": { "en": "I read books on child psychology to handle camper conflicts better." }, "traits": ["research"] },
+      { "id": "D", "text": { "en": "I stand on the dining hall tables and lead the loudest camp chants." }, "traits": ["extroversion"] },
+      { "id": "E", "text": { "en": "I sweep the cabins by myself while the others are at the noisy bonfire." }, "traits": ["introversion"] }
+    ]
+  },
+  {
+    "id": "q87",
+    "text": { "en": "Your school allows you to build a community garden on an empty lot." },
+    "options": [
+      { "id": "A", "text": { "en": "I select native plants that require less water to help the local ecosystem." }, "traits": ["environment"] },
+      { "id": "B", "text": { "en": "I test the soil's pH levels and research which vegetables will grow best." }, "traits": ["research"] },
+      { "id": "C", "text": { "en": "I enthusiastically give garden tours to the elementary school kids." }, "traits": ["extroversion"] },
+      { "id": "D", "text": { "en": "I spend hours quietly pulling weeds by myself on Sunday mornings." }, "traits": ["introversion"] },
+      { "id": "E", "text": { "en": "I create a strict daily watering schedule and check it off religiously." }, "traits": ["conscientiousness"] }
+    ]
+  },
+  {
+    "id": "q88",
+    "text": { "en": "You are preparing for the hardest standardized test of the year." },
+    "options": [
+      { "id": "A", "text": { "en": "I dig up ten years of past exams to analyze the question patterns." }, "traits": ["research"] },
+      { "id": "B", "text": { "en": "I host a huge study group where I hype everyone up before the test." }, "traits": ["extroversion"] },
+      { "id": "C", "text": { "en": "I put my phone on airplane mode and study completely alone in a quiet room." }, "traits": ["introversion"] },
+      { "id": "D", "text": { "en": "I use a stopwatch to time my practice sections down to the second." }, "traits": ["conscientiousness"] },
+      { "id": "E", "text": { "en": "When I see a question I don't know, I don't panic; I just guess and move on." }, "traits": ["emotional_stability"] }
+    ]
+  },
+  {
+    "id": "q89",
+    "text": { "en": "Your family goes on a huge, crowded cruise ship for vacation." },
+    "options": [
+      { "id": "A", "text": { "en": "I sign up for the karaoke contest and sing in front of hundreds of strangers." }, "traits": ["extroversion"] },
+      { "id": "B", "text": { "en": "I find a secluded deck chair and read my book away from the pool noise." }, "traits": ["introversion"] },
+      { "id": "C", "text": { "en": "I pack my suitcase perfectly so all my outfits are organized by day." }, "traits": ["conscientiousness"] },
+      { "id": "D", "text": { "en": "When the ship hits rough waters, I stay totally relaxed and ignore it." }, "traits": ["emotional_stability"] },
+      { "id": "E", "text": { "en": "I ignore the burgers and head straight for the weirdest exotic food buffet." }, "traits": ["openness"] }
+    ]
+  },
+  {
+    "id": "q90",
+    "text": { "en": "You decide to completely reorganize your incredibly messy closet." },
+    "options": [
+      { "id": "A", "text": { "en": "I lock my door so nobody bothers me while I sort through my stuff." }, "traits": ["introversion"] },
+      { "id": "B", "text": { "en": "I fold every single shirt perfectly and arrange them by color." }, "traits": ["conscientiousness"] },
+      { "id": "C", "text": { "en": "When the clothes pile falls over, I don't get mad, I just restart." }, "traits": ["emotional_stability"] },
+      { "id": "D", "text": { "en": "I keep some really weird, outdated clothes just because they look cool." }, "traits": ["openness"] },
+      { "id": "E", "text": { "en": "I figure out a clever way to fit two rows of shoes in a tiny space." }, "traits": ["problem_solving"] }
+    ]
+  },
+  {
+    "id": "q91",
+    "text": { "en": "You and your friends are planning a trip to a nearby city." },
+    "options": [
+      { "id": "A", "text": { "en": "I make a detailed itinerary with exact train departure times." }, "traits": ["conscientiousness"] },
+      { "id": "B", "text": { "en": "When we miss the bus, I calm everyone down and say we'll catch the next one." }, "traits": ["emotional_stability"] },
+      { "id": "C", "text": { "en": "I convince everyone to visit a bizarre, underground modern art exhibit." }, "traits": ["openness"] },
+      { "id": "D", "text": { "en": "I figure out how to navigate the complicated subway map to save money." }, "traits": ["problem_solving"] },
+      { "id": "E", "text": { "en": "I use an app to easily split the hotel and food costs evenly among us." }, "traits": ["collaboration"] }
+    ]
+  },
+  {
+    "id": "q92",
+    "text": { "en": "You get lost while walking around a busy downtown area." },
+    "options": [
+      { "id": "A", "text": { "en": "I don't freak out; I just enjoy the scenery until I figure it out." }, "traits": ["emotional_stability"] },
+      { "id": "B", "text": { "en": "I decide to just hop on a random bus and see where it takes me." }, "traits": ["openness"] },
+      { "id": "C", "text": { "en": "I deduce which way is north based on the sun and the street numbers." }, "traits": ["problem_solving"] },
+      { "id": "D", "text": { "en": "I flag down a group of locals and ask them nicely for directions." }, "traits": ["collaboration"] },
+      { "id": "E", "text": { "en": "I analyze the city grid map on the bus stop to find the quickest route back." }, "traits": ["critical_thinking"] }
+    ]
+  },
+  {
+    "id": "q93",
+    "text": { "en": "You enter a school baking competition with a strict time limit." },
+    "options": [
+      { "id": "A", "text": { "en": "I invent a crazy jalapeño-chocolate cupcake flavor to stand out." }, "traits": ["openness"] },
+      { "id": "B", "text": { "en": "When my cake burns, I scrape the edges and turn it into cake pops." }, "traits": ["problem_solving"] },
+      { "id": "C", "text": { "en": "I partner with a friend so one mixes while the other handles the oven." }, "traits": ["collaboration"] },
+      { "id": "D", "text": { "en": "I calculate the exact baking times to ensure I don't run out of time." }, "traits": ["critical_thinking"] },
+      { "id": "E", "text": { "en": "I sculpt an incredibly detailed, artistic fondant dragon for the cake." }, "traits": ["creativity_innov"] }
+    ]
+  },
+  {
+    "id": "q94",
+    "text": { "en": "Your phone dies right before the concert starts and you lose your friends." },
+    "options": [
+      { "id": "A", "text": { "en": "I find a security guard and logically explain where I saw them last." }, "traits": ["problem_solving"] },
+      { "id": "B", "text": { "en": "I borrow a stranger's phone to quickly log into my social media and DM them." }, "traits": ["collaboration"] },
+      { "id": "C", "text": { "en": "I realize finding them in the dark is unlikely and just head to our agreed spot." }, "traits": ["critical_thinking"] },
+      { "id": "D", "text": { "en": "I buy a glowing marker and write my friend's name huge on my shirt." }, "traits": ["creativity_innov"] },
+      { "id": "E", "text": { "en": "I recall their phone number from memory, even though I usually rely on contacts." }, "traits": ["learning_agility"] }
+    ]
+  },
+  {
+    "id": "q95",
+    "text": { "en": "You are creating a comprehensive study guide for midterms." },
+    "options": [
+      { "id": "A", "text": { "en": "I share a Google Doc and assign different chapters to my classmates." }, "traits": ["collaboration"] },
+      { "id": "B", "text": { "en": "I analyze the syllabus to predict exactly which topics the teacher will test." }, "traits": ["critical_thinking"] },
+      { "id": "C", "text": { "en": "I draw a massive, colorful mind map to connect all the historical events." }, "traits": ["creativity_innov"] },
+      { "id": "D", "text": { "en": "I learn complex markdown formatting to make the document easily searchable." }, "traits": ["learning_agility"] },
+      { "id": "E", "text": { "en": "I use an AI summarizer to condense a 50-page chapter into bullet points." }, "traits": ["ai_readiness"] }
+    ]
+  },
+  {
+    "id": "q96",
+    "text": { "en": "You find a broken remote-control car at a garage sale." },
+    "options": [
+      { "id": "A", "text": { "en": "I reverse-engineer the steering mechanism to find the jammed gear." }, "traits": ["critical_thinking"] },
+      { "id": "B", "text": { "en": "I strip the plastic shell and paint it to look like a post-apocalyptic buggy." }, "traits": ["creativity_innov"] },
+      { "id": "C", "text": { "en": "I watch a tutorial and successfully solder the tiny broken wires back together." }, "traits": ["learning_agility"] },
+      { "id": "D", "text": { "en": "I ask an AI chatbot for troubleshooting steps for this specific RC model." }, "traits": ["ai_readiness"] },
+      { "id": "E", "text": { "en": "I swap out the broken motor with a stronger one from an old drill." }, "traits": ["technology"] }
+    ]
+  },
+  {
+    "id": "q97",
+    "text": { "en": "You are brainstorming ideas for a new student fitness app." },
+    "options": [
+      { "id": "A", "text": { "en": "I design a weird feature that makes users run away from virtual zombies." }, "traits": ["creativity_innov"] },
+      { "id": "B", "text": { "en": "I quickly learn how to use a drag-and-drop app builder to make a prototype." }, "traits": ["learning_agility"] },
+      { "id": "C", "text": { "en": "I integrate an AI that generates a custom workout plan based on user goals." }, "traits": ["ai_readiness"] },
+      { "id": "D", "text": { "en": "I code the GPS tracking API so the app accurately measures running distance." }, "traits": ["technology"] },
+      { "id": "E", "text": { "en": "I ensure the app includes warm-up stretches to prevent muscle injuries." }, "traits": ["healthcare"] }
+    ]
+  },
+  {
+    "id": "q98",
+    "text": { "en": "Your friend asks you to direct a music video for their song." },
+    "options": [
+      { "id": "A", "text": { "en": "I quickly master the drone camera controls after just a few practice flights." }, "traits": ["learning_agility"] },
+      { "id": "B", "text": { "en": "I use an AI tool to lip-sync and auto-cut the video to the beat." }, "traits": ["ai_readiness"] },
+      { "id": "C", "text": { "en": "I adjust the camera's ISO and shutter speed to shoot in low light." }, "traits": ["technology"] },
+      { "id": "D", "text": { "en": "I make sure everyone stays hydrated and takes breaks during the long shoot." }, "traits": ["healthcare"] },
+      { "id": "E", "text": { "en": "I sketch out a detailed storyboard visualizing the exact cinematic shots." }, "traits": ["arts"] }
+    ]
+  },
+  {
+    "id": "q99",
+    "text": { "en": "You decide to start a neighborhood dog walking business." },
+    "options": [
+      { "id": "A", "text": { "en": "I use an AI assistant to auto-reply to clients and manage my calendar." }, "traits": ["ai_readiness"] },
+      { "id": "B", "text": { "en": "I set up a secure payment portal and GPS tracking app for the owners." }, "traits": ["technology"] },
+      { "id": "C", "text": { "en": "I learn how to safely administer tick medication and handle dog injuries." }, "traits": ["healthcare"] },
+      { "id": "D", "text": { "en": "I draw a cute, recognizable logo of a paw print for my business cards." }, "traits": ["arts"] },
+      { "id": "E", "text": { "en": "I analyze the local market to set competitive, profitable walking rates." }, "traits": ["business"] }
+    ]
+  },
+  {
+    "id": "q100",
+    "text": { "en": "You accidentally crash your expensive camera drone into a tree." },
+    "options": [
+      { "id": "A", "text": { "en": "I re-solder the broken circuit board and recalibrate the gyroscopes." }, "traits": ["technology"] },
+      { "id": "B", "text": { "en": "I wear safety goggles and heavy gloves when handling the shattered propellers." }, "traits": ["healthcare"] },
+      { "id": "C", "text": { "en": "I take the opportunity to paint the drone a cool neon color before reassembling." }, "traits": ["arts"] },
+      { "id": "D", "text": { "en": "I calculate if it's cheaper to order replacement parts or just buy a used drone." }, "traits": ["business"] },
+      { "id": "E", "text": { "en": "I check the local aviation rules to ensure I'm not flying it in restricted airspace." }, "traits": ["law"] }
+    ]
+  }
+]

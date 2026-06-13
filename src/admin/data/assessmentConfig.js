@@ -53,7 +53,7 @@ export const QUESTION_BANK = [
     "sectionId": "interest_matrix",
     "type": "Ipsative",
     "text": {
-      "en": "Your school is hosting a massive science fair. Which part do you want to lead?",
+      "en": "Your school is organizing a massive health awareness week.",
       "hi": "",
       "ml": ""
     },
@@ -61,7 +61,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I make sure everyone is feeling okay and check on their health.",
+          "en": "I volunteer to run the CPR and first-aid demonstration booth.",
           "hi": "",
           "ml": ""
         },
@@ -75,7 +75,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I focus on the creative direction and emotional expression.",
+          "en": "I paint the colorful banners and posters to promote the event.",
           "hi": "",
           "ml": ""
         },
@@ -89,7 +89,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I look for ways to market the idea and reach more people.",
+          "en": "I manage the budget and find local sponsors to fund the activities.",
           "hi": "",
           "ml": ""
         },
@@ -103,7 +103,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I establish clear rules and make sure everyone follows them fairly.",
+          "en": "I ensure all physical activities comply with the school's safety regulations.",
           "hi": "",
           "ml": ""
         },
@@ -117,7 +117,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I try to understand the mechanics and fix the technical issues.",
+          "en": "I build the physical framework for the interactive displays.",
           "hi": "",
           "ml": ""
         },
@@ -136,7 +136,7 @@ export const QUESTION_BANK = [
     "sectionId": "interest_matrix",
     "type": "Ipsative",
     "text": {
-      "en": "You're organizing a weekend trip with your friends. What is your main role?",
+      "en": "The student council wants to revamp the old, unused courtyard.",
       "hi": "",
       "ml": ""
     },
@@ -144,7 +144,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I focus on the creative direction and emotional expression.",
+          "en": "I sketch a beautiful layout for a new mural and seating area.",
           "hi": "",
           "ml": ""
         },
@@ -158,7 +158,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I look for ways to market the idea and reach more people.",
+          "en": "I calculate the costs and run a fundraiser to pay for materials.",
           "hi": "",
           "ml": ""
         },
@@ -172,7 +172,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I establish clear rules and make sure everyone follows them fairly.",
+          "en": "I write a proposal to the principal arguing why students deserve this space.",
           "hi": "",
           "ml": ""
         },
@@ -186,7 +186,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I try to understand the mechanics and fix the technical issues.",
+          "en": "I design a sturdy, weather-proof bench and table system.",
           "hi": "",
           "ml": ""
         },
@@ -200,7 +200,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I teach others what I know so they can succeed too.",
+          "en": "I survey the students to see what kind of space would make them happiest.",
           "hi": "",
           "ml": ""
         },
@@ -219,7 +219,7 @@ export const QUESTION_BANK = [
     "sectionId": "interest_matrix",
     "type": "Ipsative",
     "text": {
-      "en": "You just got a brand new video game. How do you approach playing it for the first time?",
+      "en": "Your town is hosting a massive weekend flea market and you want to participate.",
       "hi": "",
       "ml": ""
     },
@@ -227,7 +227,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I look for ways to market the idea and reach more people.",
+          "en": "I set up a stall to sell my old video games and maximize my profits.",
           "hi": "",
           "ml": ""
         },
@@ -241,7 +241,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I establish clear rules and make sure everyone follows them fairly.",
+          "en": "I read the market guidelines to make sure our booth meets all vendor rules.",
           "hi": "",
           "ml": ""
         },
@@ -255,7 +255,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I try to understand the mechanics and fix the technical issues.",
+          "en": "I construct a clever folding table that is easy to transport and set up.",
           "hi": "",
           "ml": ""
         },
@@ -269,7 +269,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I teach others what I know so they can succeed too.",
+          "en": "I spend my time chatting with other vendors and making new friends.",
           "hi": "",
           "ml": ""
         },
@@ -283,7 +283,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I step up as a leader and guide the group.",
+          "en": "I focus on selling upcycled items to reduce waste.",
           "hi": "",
           "ml": ""
         },
@@ -302,7 +302,7 @@ export const QUESTION_BANK = [
     "sectionId": "interest_matrix",
     "type": "Ipsative",
     "text": {
-      "en": "Your teacher assigns a difficult group project. What is your immediate reaction?",
+      "en": "Your science class is doing a project on the local river's water quality.",
       "hi": "",
       "ml": ""
     },
@@ -310,7 +310,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I establish clear rules and make sure everyone follows them fairly.",
+          "en": "I debate the town's water policies and argue for stricter pollution controls.",
           "hi": "",
           "ml": ""
         },
@@ -324,7 +324,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I try to understand the mechanics and fix the technical issues.",
+          "en": "I build a custom water filtration device to test on the samples.",
           "hi": "",
           "ml": ""
         },
@@ -338,7 +338,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I teach others what I know so they can succeed too.",
+          "en": "I organize a weekend student cleanup crew for the riverbanks.",
           "hi": "",
           "ml": ""
         },
@@ -352,7 +352,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I step up as a leader and guide the group.",
+          "en": "I study how the local fish and plant life are being affected.",
           "hi": "",
           "ml": ""
         },
@@ -366,7 +366,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I spend hours in the library looking up historical water data for comparison.",
           "hi": "",
           "ml": ""
         },
@@ -385,7 +385,7 @@ export const QUESTION_BANK = [
     "sectionId": "interest_matrix",
     "type": "Ipsative",
     "text": {
-      "en": "You are given free time to learn anything you want. What do you choose?",
+      "en": "Your neighborhood is completely snowed in after a massive blizzard.",
       "hi": "",
       "ml": ""
     },
@@ -393,7 +393,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I try to understand the mechanics and fix the technical issues.",
+          "en": "I rig up a makeshift snowplow using my bike and some scrap wood.",
           "hi": "",
           "ml": ""
         },
@@ -407,7 +407,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I teach others what I know so they can succeed too.",
+          "en": "I go door-to-door to check if the elderly neighbors need anything.",
           "hi": "",
           "ml": ""
         },
@@ -421,7 +421,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I step up as a leader and guide the group.",
+          "en": "I make sure the local birds and wildlife have access to food.",
           "hi": "",
           "ml": ""
         },
@@ -435,7 +435,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I look up meteorological maps to track when the storm will finally pass.",
           "hi": "",
           "ml": ""
         },
@@ -449,7 +449,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I loudly volunteer my ideas and try to involve everyone.",
+          "en": "I organize a massive neighborhood snowball fight and hot cocoa party.",
           "hi": "",
           "ml": ""
         },
@@ -468,7 +468,7 @@ export const QUESTION_BANK = [
     "sectionId": "interest_matrix",
     "type": "Ipsative",
     "text": {
-      "en": "You see a student struggling with a heavy box in the hallway. What do you do?",
+      "en": "Your school requires everyone to complete 10 hours of community service.",
       "hi": "",
       "ml": ""
     },
@@ -476,7 +476,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I teach others what I know so they can succeed too.",
+          "en": "I volunteer at the local youth center tutoring younger kids.",
           "hi": "",
           "ml": ""
         },
@@ -490,7 +490,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I step up as a leader and guide the group.",
+          "en": "I join the tree-planting initiative at the community park.",
           "hi": "",
           "ml": ""
         },
@@ -504,7 +504,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I analyze demographic data for a local non-profit to help target campaigns.",
           "hi": "",
           "ml": ""
         },
@@ -518,7 +518,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I loudly volunteer my ideas and try to involve everyone.",
+          "en": "I host a loud and lively charity auction in the school gym.",
           "hi": "",
           "ml": ""
         },
@@ -532,7 +532,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I step back and work independently on a quiet, focused task.",
+          "en": "I silently organize the inventory in the back room of a food bank.",
           "hi": "",
           "ml": ""
         },
@@ -551,7 +551,7 @@ export const QUESTION_BANK = [
     "sectionId": "interest_matrix",
     "type": "Ipsative",
     "text": {
-      "en": "Your team is losing a sports match at halftime. How do you motivate them?",
+      "en": "Your biology teacher assigns a massive end-of-year group presentation.",
       "hi": "",
       "ml": ""
     },
@@ -559,7 +559,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I step up as a leader and guide the group.",
+          "en": "I choose to focus our topic on the effects of climate change on local bugs.",
           "hi": "",
           "ml": ""
         },
@@ -573,7 +573,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I dive deep into the academic journals to find the most accurate facts.",
           "hi": "",
           "ml": ""
         },
@@ -587,7 +587,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I loudly volunteer my ideas and try to involve everyone.",
+          "en": "I volunteer to be the main speaker who presents in front of the whole class.",
           "hi": "",
           "ml": ""
         },
@@ -601,7 +601,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I step back and work independently on a quiet, focused task.",
+          "en": "I handle creating the slides quietly by myself so they look perfect.",
           "hi": "",
           "ml": ""
         },
@@ -615,7 +615,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I organize all the materials and ensure everything is perfect.",
+          "en": "I create a strict timeline so our group doesn't leave anything to the last minute.",
           "hi": "",
           "ml": ""
         },
@@ -634,7 +634,7 @@ export const QUESTION_BANK = [
     "sectionId": "interest_matrix",
     "type": "Ipsative",
     "text": {
-      "en": "You have to write an essay on a topic of your choice. What do you write about?",
+      "en": "You are placed in a debate tournament, and your team is given a tough topic.",
       "hi": "",
       "ml": ""
     },
@@ -642,7 +642,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I dig up obscure statistics and facts to build an unbreakable argument.",
           "hi": "",
           "ml": ""
         },
@@ -656,7 +656,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I loudly volunteer my ideas and try to involve everyone.",
+          "en": "I take the lead on the stage, using my charisma to sway the judges.",
           "hi": "",
           "ml": ""
         },
@@ -670,7 +670,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I step back and work independently on a quiet, focused task.",
+          "en": "I sit back and write down rebuttals for my teammates to use.",
           "hi": "",
           "ml": ""
         },
@@ -684,7 +684,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I organize all the materials and ensure everything is perfect.",
+          "en": "I format our notes meticulously so we can find any point in seconds.",
           "hi": "",
           "ml": ""
         },
@@ -698,7 +698,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I remain grounded and help calm others down.",
+          "en": "When the other team attacks our points, I stay completely calm and collected.",
           "hi": "",
           "ml": ""
         },
@@ -717,7 +717,7 @@ export const QUESTION_BANK = [
     "sectionId": "interest_matrix",
     "type": "Ipsative",
     "text": {
-      "en": "Your phone breaks and you can't afford a new one right away. What is your solution?",
+      "en": "Your family is planning a two-week summer road trip.",
       "hi": "",
       "ml": ""
     },
@@ -725,7 +725,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I loudly volunteer my ideas and try to involve everyone.",
+          "en": "I convince everyone we should stop at the busiest tourist traps and theme parks.",
           "hi": "",
           "ml": ""
         },
@@ -739,7 +739,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I step back and work independently on a quiet, focused task.",
+          "en": "I pack my headphones and a good book to enjoy the quiet time in the backseat.",
           "hi": "",
           "ml": ""
         },
@@ -753,7 +753,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I organize all the materials and ensure everything is perfect.",
+          "en": "I map out the exact route, gas stops, and hotel reservations.",
           "hi": "",
           "ml": ""
         },
@@ -767,7 +767,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I remain grounded and help calm others down.",
+          "en": "When the car gets a flat tire, I keep everyone from panicking.",
           "hi": "",
           "ml": ""
         },
@@ -781,7 +781,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I eagerly try the strangest, most unconventional idea.",
+          "en": "I suggest we ditch the plan and explore a weird, unknown roadside attraction.",
           "hi": "",
           "ml": ""
         },
@@ -800,7 +800,7 @@ export const QUESTION_BANK = [
     "sectionId": "interest_matrix",
     "type": "Ipsative",
     "text": {
-      "en": "You find a complicated puzzle box. How do you open it?",
+      "en": "You're trying to build a complicated 1000-piece puzzle but a piece seems to be missing.",
       "hi": "",
       "ml": ""
     },
@@ -808,7 +808,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I step back and work independently on a quiet, focused task.",
+          "en": "I sit alone in my room for hours, hyper-focused on scanning every piece.",
           "hi": "",
           "ml": ""
         },
@@ -822,7 +822,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I organize all the materials and ensure everything is perfect.",
+          "en": "I sort all the pieces by color and edge type into neat little piles.",
           "hi": "",
           "ml": ""
         },
@@ -836,7 +836,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I remain grounded and help calm others down.",
+          "en": "I don't get frustrated; I just calmly keep working on the rest of the puzzle.",
           "hi": "",
           "ml": ""
         },
@@ -850,7 +850,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I eagerly try the strangest, most unconventional idea.",
+          "en": "I decide to paint a tiny piece of cardboard to match the missing spot.",
           "hi": "",
           "ml": ""
         },
@@ -864,7 +864,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I brainstorm multiple alternative solutions before picking one.",
+          "en": "I deduce exactly what shape and color the missing piece must be based on the gap.",
           "hi": "",
           "ml": ""
         },
@@ -883,7 +883,7 @@ export const QUESTION_BANK = [
     "sectionId": "interest_matrix",
     "type": "Ipsative",
     "text": {
-      "en": "A local community center needs help organizing an event. What do you volunteer for?",
+      "en": "Your group is locked in an escape room with only 10 minutes left.",
       "hi": "",
       "ml": ""
     },
@@ -891,7 +891,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I organize all the materials and ensure everything is perfect.",
+          "en": "I systematically check every drawer and corner we might have missed.",
           "hi": "",
           "ml": ""
         },
@@ -905,7 +905,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I remain grounded and help calm others down.",
+          "en": "I tell everyone to take a deep breath and stop yelling.",
           "hi": "",
           "ml": ""
         },
@@ -919,7 +919,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I eagerly try the strangest, most unconventional idea.",
+          "en": "I try completely ridiculous ideas, like reading the clues backward.",
           "hi": "",
           "ml": ""
         },
@@ -933,7 +933,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I brainstorm multiple alternative solutions before picking one.",
+          "en": "I crack the math code on the final padlock by finding the pattern.",
           "hi": "",
           "ml": ""
         },
@@ -947,7 +947,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I ensure the team is communicating and cooperating smoothly.",
+          "en": "I coordinate everyone so we are all searching different parts of the room.",
           "hi": "",
           "ml": ""
         },
@@ -966,7 +966,7 @@ export const QUESTION_BANK = [
     "sectionId": "interest_matrix",
     "type": "Ipsative",
     "text": {
-      "en": "You are designing a brand new app. What is its main feature?",
+      "en": "During a school play, the main prop breaks right before the curtain opens.",
       "hi": "",
       "ml": ""
     },
@@ -974,7 +974,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I remain grounded and help calm others down.",
+          "en": "I calm down the panicking lead actor and tell them it will be fine.",
           "hi": "",
           "ml": ""
         },
@@ -988,7 +988,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I eagerly try the strangest, most unconventional idea.",
+          "en": "I suggest we completely change the scene to make the broken prop part of the joke.",
           "hi": "",
           "ml": ""
         },
@@ -1002,7 +1002,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I brainstorm multiple alternative solutions before picking one.",
+          "en": "I quickly duct-tape and wire the prop back together so it holds up.",
           "hi": "",
           "ml": ""
         },
@@ -1016,7 +1016,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I ensure the team is communicating and cooperating smoothly.",
+          "en": "I grab three stagehands and we work together to swap it for a backup.",
           "hi": "",
           "ml": ""
         },
@@ -1030,7 +1030,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I analyze which scenes need the prop and figure out if we can just skip it.",
           "hi": "",
           "ml": ""
         },
@@ -1049,7 +1049,7 @@ export const QUESTION_BANK = [
     "sectionId": "interest_matrix",
     "type": "Ipsative",
     "text": {
-      "en": "You get to interview any famous person. Who do you choose?",
+      "en": "Your teacher asks you to submit a final project in any format you want.",
       "hi": "",
       "ml": ""
     },
@@ -1057,7 +1057,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I eagerly try the strangest, most unconventional idea.",
+          "en": "I decide to do an interpretive dance instead of a standard essay.",
           "hi": "",
           "ml": ""
         },
@@ -1071,7 +1071,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I brainstorm multiple alternative solutions before picking one.",
+          "en": "I build a functional mechanical model to demonstrate the concepts.",
           "hi": "",
           "ml": ""
         },
@@ -1085,7 +1085,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I ensure the team is communicating and cooperating smoothly.",
+          "en": "I team up with two classmates to make a comprehensive documentary.",
           "hi": "",
           "ml": ""
         },
@@ -1099,7 +1099,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I write an essay that challenges the core assumptions of the textbook.",
           "hi": "",
           "ml": ""
         },
@@ -1113,7 +1113,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I logically analyze the situation and take decisive action.",
+          "en": "I design an original board game that teaches the subject to players.",
           "hi": "",
           "ml": ""
         },
@@ -1132,7 +1132,7 @@ export const QUESTION_BANK = [
     "sectionId": "interest_matrix",
     "type": "Ipsative",
     "text": {
-      "en": "Your class is debating a controversial new school rule. What is your strategy?",
+      "en": "Your school's WiFi goes down right when you have an online assignment due.",
       "hi": "",
       "ml": ""
     },
@@ -1140,7 +1140,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I brainstorm multiple alternative solutions before picking one.",
+          "en": "I figure out how to tether my phone's data to my laptop to get it submitted.",
           "hi": "",
           "ml": ""
         },
@@ -1154,7 +1154,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I ensure the team is communicating and cooperating smoothly.",
+          "en": "I text my classmates to see who has a connection and if we can share a hotspot.",
           "hi": "",
           "ml": ""
         },
@@ -1168,7 +1168,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I realize the due date will likely be extended and prioritize offline studying instead.",
           "hi": "",
           "ml": ""
         },
@@ -1182,7 +1182,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I logically analyze the situation and take decisive action.",
+          "en": "I draw my assignment by hand and take a photo to submit later.",
           "hi": "",
           "ml": ""
         },
@@ -1196,7 +1196,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I figure it out through rapid trial and error.",
+          "en": "I quickly learn how to use a new offline app to finish the work.",
           "hi": "",
           "ml": ""
         },
@@ -1215,7 +1215,7 @@ export const QUESTION_BANK = [
     "sectionId": "interest_matrix",
     "type": "Ipsative",
     "text": {
-      "en": "You are trapped in an escape room with your friends. What is your strategy?",
+      "en": "You want to start a podcast about high school life with your friends.",
       "hi": "",
       "ml": ""
     },
@@ -1223,7 +1223,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I ensure the team is communicating and cooperating smoothly.",
+          "en": "I make sure everyone gets equal talking time and we brainstorm topics together.",
           "hi": "",
           "ml": ""
         },
@@ -1237,7 +1237,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I listen to our test recordings and analyze what makes them engaging or boring.",
           "hi": "",
           "ml": ""
         },
@@ -1251,7 +1251,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I logically analyze the situation and take decisive action.",
+          "en": "I come up with a highly unique theme and catchy name for our show.",
           "hi": "",
           "ml": ""
         },
@@ -1265,7 +1265,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I figure it out through rapid trial and error.",
+          "en": "I watch a few tutorials and immediately figure out how to mix the audio.",
           "hi": "",
           "ml": ""
         },
@@ -1279,7 +1279,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I use AI tools to generate ideas and automate the boring parts.",
+          "en": "I use an AI tool to clean up our background noise and generate show notes.",
           "hi": "",
           "ml": ""
         },
@@ -1298,7 +1298,7 @@ export const QUESTION_BANK = [
     "sectionId": "interest_matrix",
     "type": "Ipsative",
     "text": {
-      "en": "You are starting a YouTube channel. What kind of videos do you make?",
+      "en": "You're tasked with organizing the school's talent show.",
       "hi": "",
       "ml": ""
     },
@@ -1306,7 +1306,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I review past shows to figure out why some acts dragged and fix the schedule.",
           "hi": "",
           "ml": ""
         },
@@ -1320,7 +1320,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I logically analyze the situation and take decisive action.",
+          "en": "I come up with a spectacular new lighting concept for the stage.",
           "hi": "",
           "ml": ""
         },
@@ -1334,7 +1334,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I figure it out through rapid trial and error.",
+          "en": "I quickly master the school's old soundboard after playing with it for an hour.",
           "hi": "",
           "ml": ""
         },
@@ -1348,7 +1348,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I use AI tools to generate ideas and automate the boring parts.",
+          "en": "I use an AI scheduling assistant to coordinate 30 different student acts.",
           "hi": "",
           "ml": ""
         },
@@ -1362,7 +1362,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I use digital tools to analyze the data and find a solution.",
+          "en": "I set up a multi-camera livestream so parents can watch from home.",
           "hi": "",
           "ml": ""
         },
@@ -1381,7 +1381,7 @@ export const QUESTION_BANK = [
     "sectionId": "interest_matrix",
     "type": "Ipsative",
     "text": {
-      "en": "You have to build a model bridge for a physics project. How do you do it?",
+      "en": "You notice a lot of students are completely stressed out during exam week.",
       "hi": "",
       "ml": ""
     },
@@ -1389,7 +1389,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I logically analyze the situation and take decisive action.",
+          "en": "I design a 'smash room' with bubble wrap for students to relieve stress.",
           "hi": "",
           "ml": ""
         },
@@ -1403,7 +1403,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I figure it out through rapid trial and error.",
+          "en": "I rapidly read up on stress-relief techniques and share the best ones.",
           "hi": "",
           "ml": ""
         },
@@ -1417,7 +1417,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I use AI tools to generate ideas and automate the boring parts.",
+          "en": "I build an AI chatbot that sends encouraging messages and study reminders.",
           "hi": "",
           "ml": ""
         },
@@ -1431,7 +1431,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I use digital tools to analyze the data and find a solution.",
+          "en": "I code an app that tracks sleep and study hours to prevent burnout.",
           "hi": "",
           "ml": ""
         },
@@ -1445,7 +1445,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I volunteer for the medical or caretaking responsibilities.",
+          "en": "I organize a healthy snack station and a meditation circle in the library.",
           "hi": "",
           "ml": ""
         },
@@ -1464,7 +1464,7 @@ export const QUESTION_BANK = [
     "sectionId": "interest_matrix",
     "type": "Ipsative",
     "text": {
-      "en": "You are asked to plan the school's annual talent show. What do you focus on?",
+      "en": "You want to learn how to make your own video game.",
       "hi": "",
       "ml": ""
     },
@@ -1472,7 +1472,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I figure it out through rapid trial and error.",
+          "en": "I jump straight into a new coding language and pick it up as I go.",
           "hi": "",
           "ml": ""
         },
@@ -1486,7 +1486,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I use AI tools to generate ideas and automate the boring parts.",
+          "en": "I use AI image generators to quickly create the background assets.",
           "hi": "",
           "ml": ""
         },
@@ -1500,7 +1500,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I use digital tools to analyze the data and find a solution.",
+          "en": "I focus on the core programming logic and debugging the game engine.",
           "hi": "",
           "ml": ""
         },
@@ -1514,7 +1514,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I volunteer for the medical or caretaking responsibilities.",
+          "en": "I design a game that encourages players to exercise and eat well.",
           "hi": "",
           "ml": ""
         },
@@ -1528,7 +1528,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I design the visual elements and make sure it looks beautiful.",
+          "en": "I spend most of my time drawing the character sprites and composing the music.",
           "hi": "",
           "ml": ""
         },
@@ -1547,7 +1547,7 @@ export const QUESTION_BANK = [
     "sectionId": "interest_matrix",
     "type": "Ipsative",
     "text": {
-      "en": "You find a lost wallet with no ID but a lot of cash. What do you do?",
+      "en": "Your friend wants to start a YouTube channel about fitness and nutrition.",
       "hi": "",
       "ml": ""
     },
@@ -1555,7 +1555,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I use AI tools to generate ideas and automate the boring parts.",
+          "en": "I use AI to write SEO-optimized video titles and descriptions.",
           "hi": "",
           "ml": ""
         },
@@ -1569,7 +1569,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I use digital tools to analyze the data and find a solution.",
+          "en": "I handle the camera equipment, lighting, and video editing software.",
           "hi": "",
           "ml": ""
         },
@@ -1583,7 +1583,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I volunteer for the medical or caretaking responsibilities.",
+          "en": "I help them research accurate nutritional information for the videos.",
           "hi": "",
           "ml": ""
         },
@@ -1597,7 +1597,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I design the visual elements and make sure it looks beautiful.",
+          "en": "I design the thumbnails and create the channel's visual branding.",
           "hi": "",
           "ml": ""
         },
@@ -1611,7 +1611,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I take charge of the budget and resource management.",
+          "en": "I figure out how to monetize the channel and get local gym sponsorships.",
           "hi": "",
           "ml": ""
         },
@@ -1630,7 +1630,7 @@ export const QUESTION_BANK = [
     "sectionId": "interest_matrix",
     "type": "Ipsative",
     "text": {
-      "en": "You are stranded on a deserted island with a group of people. What is your role?",
+      "en": "The school cafeteria is trying to improve its daily lunch menu.",
       "hi": "",
       "ml": ""
     },
@@ -1638,7 +1638,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I use digital tools to analyze the data and find a solution.",
+          "en": "I create a digital voting system where students can rate the meals.",
           "hi": "",
           "ml": ""
         },
@@ -1652,7 +1652,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I volunteer for the medical or caretaking responsibilities.",
+          "en": "I advocate for more fresh vegetables and balanced macros.",
           "hi": "",
           "ml": ""
         },
@@ -1666,7 +1666,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I design the visual elements and make sure it looks beautiful.",
+          "en": "I make the cafeteria look more inviting with new signs and menu boards.",
           "hi": "",
           "ml": ""
         },
@@ -1680,7 +1680,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I take charge of the budget and resource management.",
+          "en": "I calculate how to offer better food without raising the lunch prices.",
           "hi": "",
           "ml": ""
         },
@@ -1694,7 +1694,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I read the guidelines carefully to ensure strict compliance.",
+          "en": "I check the state nutritional guidelines to ensure our new menu is compliant.",
           "hi": "",
           "ml": ""
         },
@@ -1713,7 +1713,7 @@ export const QUESTION_BANK = [
     "sectionId": "personality_lab",
     "type": "Behav.",
     "text": {
-      "en": "Your school is hosting a massive science fair. Which part do you want to lead?",
+      "en": "Your school is hosting a massive track and field sports day.",
       "hi": "",
       "ml": ""
     },
@@ -1721,7 +1721,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I volunteer for the medical or caretaking responsibilities.",
+          "en": "I volunteer at the injury tent, handing out ice packs and bandages.",
           "hi": "",
           "ml": ""
         },
@@ -1735,7 +1735,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I design the visual elements and make sure it looks beautiful.",
+          "en": "I design the logos and paint the faces of everyone on my team.",
           "hi": "",
           "ml": ""
         },
@@ -1749,7 +1749,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I take charge of the budget and resource management.",
+          "en": "I run the snack stand and maximize our profits for the sports club.",
           "hi": "",
           "ml": ""
         },
@@ -1763,7 +1763,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I read the guidelines carefully to ensure strict compliance.",
+          "en": "I act as a referee to ensure no one is breaking the tournament rules.",
           "hi": "",
           "ml": ""
         },
@@ -1777,7 +1777,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I focus on building the physical structure and making sure it works.",
+          "en": "I fix the broken hurdles and measure the long jump sandpit accurately.",
           "hi": "",
           "ml": ""
         },
@@ -1796,7 +1796,7 @@ export const QUESTION_BANK = [
     "sectionId": "personality_lab",
     "type": "Behav.",
     "text": {
-      "en": "You're organizing a weekend trip with your friends. What is your main role?",
+      "en": "The school library is undergoing a complete makeover.",
       "hi": "",
       "ml": ""
     },
@@ -1804,7 +1804,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I design the visual elements and make sure it looks beautiful.",
+          "en": "I arrange the reading nooks with aesthetically pleasing colors and lighting.",
           "hi": "",
           "ml": ""
         },
@@ -1818,7 +1818,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I take charge of the budget and resource management.",
+          "en": "I organize a used book sale to help buy new comfy chairs.",
           "hi": "",
           "ml": ""
         },
@@ -1832,7 +1832,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I read the guidelines carefully to ensure strict compliance.",
+          "en": "I draft a new set of rules regarding noise levels and computer usage.",
           "hi": "",
           "ml": ""
         },
@@ -1846,7 +1846,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I focus on building the physical structure and making sure it works.",
+          "en": "I assemble the new heavy-duty metal bookshelves.",
           "hi": "",
           "ml": ""
         },
@@ -1860,7 +1860,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I focus on helping the community and supporting the vulnerable.",
+          "en": "I set up a peer reading group to help freshmen find good books.",
           "hi": "",
           "ml": ""
         },
@@ -1879,7 +1879,7 @@ export const QUESTION_BANK = [
     "sectionId": "personality_lab",
     "type": "Behav.",
     "text": {
-      "en": "You just got a brand new video game. How do you approach playing it for the first time?",
+      "en": "Your class is organizing a bake sale for a local charity.",
       "hi": "",
       "ml": ""
     },
@@ -1887,7 +1887,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I take charge of the budget and resource management.",
+          "en": "I set the prices and track every single dollar we make.",
           "hi": "",
           "ml": ""
         },
@@ -1901,7 +1901,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I read the guidelines carefully to ensure strict compliance.",
+          "en": "I write down all the allergy warnings so we don't violate food safety rules.",
           "hi": "",
           "ml": ""
         },
@@ -1915,7 +1915,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I focus on building the physical structure and making sure it works.",
+          "en": "I build a tiered wooden display stand to show off the cupcakes.",
           "hi": "",
           "ml": ""
         },
@@ -1929,7 +1929,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I focus on helping the community and supporting the vulnerable.",
+          "en": "I stand at the front, loudly greeting everyone who walks by.",
           "hi": "",
           "ml": ""
         },
@@ -1943,7 +1943,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I step up as a leader and guide the group.",
+          "en": "I make sure we have plenty of vegan and ethically sourced options.",
           "hi": "",
           "ml": ""
         },
@@ -1962,7 +1962,7 @@ export const QUESTION_BANK = [
     "sectionId": "personality_lab",
     "type": "Behav.",
     "text": {
-      "en": "Your teacher assigns a difficult group project. What is your immediate reaction?",
+      "en": "You are participating in the regional science fair.",
       "hi": "",
       "ml": ""
     },
@@ -1970,7 +1970,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I read the guidelines carefully to ensure strict compliance.",
+          "en": "I check the patent databases to make sure my idea hasn't been done.",
           "hi": "",
           "ml": ""
         },
@@ -1984,7 +1984,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I focus on building the physical structure and making sure it works.",
+          "en": "I construct a working robotic arm out of spare parts.",
           "hi": "",
           "ml": ""
         },
@@ -1998,7 +1998,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I focus on helping the community and supporting the vulnerable.",
+          "en": "I cheer on my classmates and help them practice their speeches.",
           "hi": "",
           "ml": ""
         },
@@ -2012,7 +2012,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I step up as a leader and guide the group.",
+          "en": "I present a project on reducing microplastics in the ocean.",
           "hi": "",
           "ml": ""
         },
@@ -2026,7 +2026,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I collect hundreds of data points and organize them into clear tables.",
           "hi": "",
           "ml": ""
         },
@@ -2045,7 +2045,7 @@ export const QUESTION_BANK = [
     "sectionId": "personality_lab",
     "type": "Behav.",
     "text": {
-      "en": "You are given free time to learn anything you want. What do you choose?",
+      "en": "Your community center received a donation of broken bicycles.",
       "hi": "",
       "ml": ""
     },
@@ -2053,7 +2053,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I focus on building the physical structure and making sure it works.",
+          "en": "I weld the cracked frames and tighten the loose chains.",
           "hi": "",
           "ml": ""
         },
@@ -2067,7 +2067,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I focus on helping the community and supporting the vulnerable.",
+          "en": "I teach the younger kids how to ride the bikes once they are fixed.",
           "hi": "",
           "ml": ""
         },
@@ -2081,7 +2081,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I step up as a leader and guide the group.",
+          "en": "I recycle the ruined tires and rubber grips properly.",
           "hi": "",
           "ml": ""
         },
@@ -2095,7 +2095,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I read the original manufacturer manuals to find the exact specs.",
           "hi": "",
           "ml": ""
         },
@@ -2109,7 +2109,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I thrive in the energetic crowd and keep everyone hyped up.",
+          "en": "I organize a massive group bike ride through town to celebrate.",
           "hi": "",
           "ml": ""
         },
@@ -2128,7 +2128,7 @@ export const QUESTION_BANK = [
     "sectionId": "personality_lab",
     "type": "Behav.",
     "text": {
-      "en": "You see a student struggling with a heavy box in the hallway. What do you do?",
+      "en": "You volunteer at the local animal shelter on weekends.",
       "hi": "",
       "ml": ""
     },
@@ -2136,7 +2136,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I focus on helping the community and supporting the vulnerable.",
+          "en": "I spend my time talking to visitors and helping them find the right pet.",
           "hi": "",
           "ml": ""
         },
@@ -2150,7 +2150,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I step up as a leader and guide the group.",
+          "en": "I clean the outdoor pens and plant dog-friendly grass in the yard.",
           "hi": "",
           "ml": ""
         },
@@ -2164,7 +2164,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I track the adoption rates and figure out which breeds are most popular.",
           "hi": "",
           "ml": ""
         },
@@ -2178,7 +2178,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I thrive in the energetic crowd and keep everyone hyped up.",
+          "en": "I hype up the crowd at the shelter's public adoption events.",
           "hi": "",
           "ml": ""
         },
@@ -2192,7 +2192,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I find a peaceful corner to handle my responsibilities alone.",
+          "en": "I sit quietly in the back room rehabilitating the shy, scared cats.",
           "hi": "",
           "ml": ""
         },
@@ -2211,7 +2211,7 @@ export const QUESTION_BANK = [
     "sectionId": "personality_lab",
     "type": "Behav.",
     "text": {
-      "en": "Your team is losing a sports match at halftime. How do you motivate them?",
+      "en": "Your scout troop goes on a weekend camping trip.",
       "hi": "",
       "ml": ""
     },
@@ -2219,7 +2219,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I step up as a leader and guide the group.",
+          "en": "I make sure we follow 'leave no trace' principles and clean up the site.",
           "hi": "",
           "ml": ""
         },
@@ -2233,7 +2233,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I use a guidebook to identify the different plants and tracks we see.",
           "hi": "",
           "ml": ""
         },
@@ -2247,7 +2247,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I thrive in the energetic crowd and keep everyone hyped up.",
+          "en": "I tell loud ghost stories around the campfire to entertain everyone.",
           "hi": "",
           "ml": ""
         },
@@ -2261,7 +2261,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I find a peaceful corner to handle my responsibilities alone.",
+          "en": "I wake up early to enjoy the quiet sunrise completely by myself.",
           "hi": "",
           "ml": ""
         },
@@ -2275,7 +2275,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I create a highly detailed schedule and strict deadlines for myself.",
+          "en": "I double-check everyone's packing list so we don't forget the tent pegs.",
           "hi": "",
           "ml": ""
         },
@@ -2294,7 +2294,7 @@ export const QUESTION_BANK = [
     "sectionId": "personality_lab",
     "type": "Behav.",
     "text": {
-      "en": "You have to write an essay on a topic of your choice. What do you write about?",
+      "en": "Your math team makes it to the state finals.",
       "hi": "",
       "ml": ""
     },
@@ -2302,7 +2302,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I study advanced college-level theorems to prepare for the hardest questions.",
           "hi": "",
           "ml": ""
         },
@@ -2316,7 +2316,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I thrive in the energetic crowd and keep everyone hyped up.",
+          "en": "I lead the team cheer and high-five everyone before the test starts.",
           "hi": "",
           "ml": ""
         },
@@ -2330,7 +2330,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I find a peaceful corner to handle my responsibilities alone.",
+          "en": "I sit in the corner with my headphones on, running practice drills alone.",
           "hi": "",
           "ml": ""
         },
@@ -2344,7 +2344,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I create a highly detailed schedule and strict deadlines for myself.",
+          "en": "I meticulously check my work line by line to avoid silly errors.",
           "hi": "",
           "ml": ""
         },
@@ -2358,7 +2358,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I don't panic; I just keep moving forward steadily.",
+          "en": "When we miss a question, I don't get upset; I just focus on the next one.",
           "hi": "",
           "ml": ""
         },
@@ -2377,7 +2377,7 @@ export const QUESTION_BANK = [
     "sectionId": "personality_lab",
     "type": "Behav.",
     "text": {
-      "en": "Your phone breaks and you can't afford a new one right away. What is your solution?",
+      "en": "You and your friends go to a loud, chaotic music festival.",
       "hi": "",
       "ml": ""
     },
@@ -2385,7 +2385,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I thrive in the energetic crowd and keep everyone hyped up.",
+          "en": "I push my way to the front row and dance wildly in the crowd.",
           "hi": "",
           "ml": ""
         },
@@ -2399,7 +2399,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I find a peaceful corner to handle my responsibilities alone.",
+          "en": "I wear earplugs and stay near the back so I don't get overwhelmed.",
           "hi": "",
           "ml": ""
         },
@@ -2413,7 +2413,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I create a highly detailed schedule and strict deadlines for myself.",
+          "en": "I create a detailed schedule so we see all our favorite bands on time.",
           "hi": "",
           "ml": ""
         },
@@ -2427,7 +2427,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I don't panic; I just keep moving forward steadily.",
+          "en": "When it starts pouring rain, I shrug it off and keep having fun.",
           "hi": "",
           "ml": ""
         },
@@ -2441,7 +2441,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I explore abstract theories to find a unique perspective.",
+          "en": "I ditch the main stage to find a weird, obscure indie band playing in a tent.",
           "hi": "",
           "ml": ""
         },
@@ -2460,7 +2460,7 @@ export const QUESTION_BANK = [
     "sectionId": "personality_lab",
     "type": "Behav.",
     "text": {
-      "en": "You find a complicated puzzle box. How do you open it?",
+      "en": "You get lost in the woods while hiking with your family.",
       "hi": "",
       "ml": ""
     },
@@ -2468,7 +2468,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I find a peaceful corner to handle my responsibilities alone.",
+          "en": "I stop talking to focus entirely on listening for highway sounds.",
           "hi": "",
           "ml": ""
         },
@@ -2482,7 +2482,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I create a highly detailed schedule and strict deadlines for myself.",
+          "en": "I pull out the compass and strictly follow a straight path north.",
           "hi": "",
           "ml": ""
         },
@@ -2496,7 +2496,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I don't panic; I just keep moving forward steadily.",
+          "en": "I stay totally calm and prevent my younger siblings from panicking.",
           "hi": "",
           "ml": ""
         },
@@ -2510,7 +2510,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I explore abstract theories to find a unique perspective.",
+          "en": "I suggest we try climbing a strange rock formation to get a better view.",
           "hi": "",
           "ml": ""
         },
@@ -2524,7 +2524,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I analyze the puzzle methodically until I find the root cause.",
+          "en": "I triangulate our position using the sun and the shadows.",
           "hi": "",
           "ml": ""
         },
@@ -2543,7 +2543,7 @@ export const QUESTION_BANK = [
     "sectionId": "personality_lab",
     "type": "Behav.",
     "text": {
-      "en": "A local community center needs help organizing an event. What do you volunteer for?",
+      "en": "You and your friends are cooking a fancy dinner for your parents.",
       "hi": "",
       "ml": ""
     },
@@ -2551,7 +2551,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I create a highly detailed schedule and strict deadlines for myself.",
+          "en": "I strictly follow the recipe measurements down to the gram.",
           "hi": "",
           "ml": ""
         },
@@ -2565,7 +2565,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I don't panic; I just keep moving forward steadily.",
+          "en": "When the smoke alarm goes off, I calmly turn on the fan and open a window.",
           "hi": "",
           "ml": ""
         },
@@ -2579,7 +2579,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I explore abstract theories to find a unique perspective.",
+          "en": "I throw in some unusual spices just to see how it alters the flavor.",
           "hi": "",
           "ml": ""
         },
@@ -2593,7 +2593,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I analyze the puzzle methodically until I find the root cause.",
+          "en": "The sauce is too salty, so I figure out how to balance it with lemon and sugar.",
           "hi": "",
           "ml": ""
         },
@@ -2607,7 +2607,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I delegate tasks based on everyone's strengths.",
+          "en": "I delegate chopping, stirring, and setting the table so we finish together.",
           "hi": "",
           "ml": ""
         },
@@ -2626,7 +2626,7 @@ export const QUESTION_BANK = [
     "sectionId": "personality_lab",
     "type": "Behav.",
     "text": {
-      "en": "You are designing a brand new app. What is its main feature?",
+      "en": "You host a movie night, but the power suddenly goes out.",
       "hi": "",
       "ml": ""
     },
@@ -2634,7 +2634,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I don't panic; I just keep moving forward steadily.",
+          "en": "I tell everyone to relax and not worry while we wait it out.",
           "hi": "",
           "ml": ""
         },
@@ -2648,7 +2648,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I explore abstract theories to find a unique perspective.",
+          "en": "I suggest we make shadow puppets on the wall with our flashlights.",
           "hi": "",
           "ml": ""
         },
@@ -2662,7 +2662,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I analyze the puzzle methodically until I find the root cause.",
+          "en": "I go check the breaker box to see if I can restore the power safely.",
           "hi": "",
           "ml": ""
         },
@@ -2676,7 +2676,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I delegate tasks based on everyone's strengths.",
+          "en": "I get everyone to pitch in and clean up the snacks in the dark.",
           "hi": "",
           "ml": ""
         },
@@ -2690,7 +2690,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I analyze the grid map on my phone to predict when the blackout will end.",
           "hi": "",
           "ml": ""
         },
@@ -2709,7 +2709,7 @@ export const QUESTION_BANK = [
     "sectionId": "personality_lab",
     "type": "Behav.",
     "text": {
-      "en": "You get to interview any famous person. Who do you choose?",
+      "en": "You are redesigning your bedroom to make it cooler.",
       "hi": "",
       "ml": ""
     },
@@ -2717,7 +2717,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I explore abstract theories to find a unique perspective.",
+          "en": "I paint my ceiling black and cover it with glow-in-the-dark stars.",
           "hi": "",
           "ml": ""
         },
@@ -2731,7 +2731,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I analyze the puzzle methodically until I find the root cause.",
+          "en": "I build a custom shelf that perfectly fits the awkward corner.",
           "hi": "",
           "ml": ""
         },
@@ -2745,7 +2745,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I delegate tasks based on everyone's strengths.",
+          "en": "I ask my siblings to help me move the heavy bed and dresser.",
           "hi": "",
           "ml": ""
         },
@@ -2759,7 +2759,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I measure the space and determine which layout maximizes walking room.",
           "hi": "",
           "ml": ""
         },
@@ -2773,7 +2773,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I logically analyze the situation and take decisive action.",
+          "en": "I make a unique lamp out of an old skateboard and some string lights.",
           "hi": "",
           "ml": ""
         },
@@ -2792,7 +2792,7 @@ export const QUESTION_BANK = [
     "sectionId": "personality_lab",
     "type": "Behav.",
     "text": {
-      "en": "Your class is debating a controversial new school rule. What is your strategy?",
+      "en": "Your neighbor's dog goes missing, and everyone is trying to find it.",
       "hi": "",
       "ml": ""
     },
@@ -2800,7 +2800,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I analyze the puzzle methodically until I find the root cause.",
+          "en": "I figure out the places the dog usually hides and check there first.",
           "hi": "",
           "ml": ""
         },
@@ -2814,7 +2814,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I delegate tasks based on everyone's strengths.",
+          "en": "I form a search party and assign everyone a specific street to check.",
           "hi": "",
           "ml": ""
         },
@@ -2828,7 +2828,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I realize searching randomly won't work and create a grid map instead.",
           "hi": "",
           "ml": ""
         },
@@ -2842,7 +2842,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I logically analyze the situation and take decisive action.",
+          "en": "I use a recording of the owner's voice playing from a drone to lure him.",
           "hi": "",
           "ml": ""
         },
@@ -2856,7 +2856,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I adapt instantly to the new rules and try a different approach.",
+          "en": "I quickly read up on animal tracking techniques to look for paw prints.",
           "hi": "",
           "ml": ""
         },
@@ -2875,7 +2875,7 @@ export const QUESTION_BANK = [
     "sectionId": "personality_lab",
     "type": "Behav.",
     "text": {
-      "en": "You are trapped in an escape room with your friends. What is your strategy?",
+      "en": "You join the school's coding and app development club.",
       "hi": "",
       "ml": ""
     },
@@ -2883,7 +2883,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I delegate tasks based on everyone's strengths.",
+          "en": "I do pair programming, working closely with a partner on the same code.",
           "hi": "",
           "ml": ""
         },
@@ -2897,7 +2897,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I review other people's code to find logical errors and bugs.",
           "hi": "",
           "ml": ""
         },
@@ -2911,7 +2911,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I logically analyze the situation and take decisive action.",
+          "en": "I pitch a completely wild idea for an app that gamifies homework.",
           "hi": "",
           "ml": ""
         },
@@ -2925,7 +2925,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I adapt instantly to the new rules and try a different approach.",
+          "en": "I learn a completely new database language in just a weekend.",
           "hi": "",
           "ml": ""
         },
@@ -2939,7 +2939,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I look for a technological workaround using modern AI algorithms.",
+          "en": "I use an AI assistant to autocompleting my boilerplate code faster.",
           "hi": "",
           "ml": ""
         },
@@ -2958,7 +2958,7 @@ export const QUESTION_BANK = [
     "sectionId": "personality_lab",
     "type": "Behav.",
     "text": {
-      "en": "You are starting a YouTube channel. What kind of videos do you make?",
+      "en": "You are on the editorial team for the school newspaper.",
       "hi": "",
       "ml": ""
     },
@@ -2966,7 +2966,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I fact-check every article to make sure the arguments actually make sense.",
           "hi": "",
           "ml": ""
         },
@@ -2980,7 +2980,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I logically analyze the situation and take decisive action.",
+          "en": "I come up with a completely new layout design that looks like a magazine.",
           "hi": "",
           "ml": ""
         },
@@ -2994,7 +2994,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I adapt instantly to the new rules and try a different approach.",
+          "en": "I quickly figure out how to use the complex publishing software.",
           "hi": "",
           "ml": ""
         },
@@ -3008,7 +3008,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I look for a technological workaround using modern AI algorithms.",
+          "en": "I run the articles through an AI tool to check for tone and clarity.",
           "hi": "",
           "ml": ""
         },
@@ -3022,7 +3022,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I immediately look for a software solution or start coding.",
+          "en": "I manage the newspaper's website and fix the broken image links.",
           "hi": "",
           "ml": ""
         },
@@ -3041,7 +3041,7 @@ export const QUESTION_BANK = [
     "sectionId": "personality_lab",
     "type": "Behav.",
     "text": {
-      "en": "You have to build a model bridge for a physics project. How do you do it?",
+      "en": "Your school is launching an anti-bullying campaign.",
       "hi": "",
       "ml": ""
     },
@@ -3049,7 +3049,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I logically analyze the situation and take decisive action.",
+          "en": "I direct an emotional, creative skit to be performed at the assembly.",
           "hi": "",
           "ml": ""
         },
@@ -3063,7 +3063,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I adapt instantly to the new rules and try a different approach.",
+          "en": "I take a quick course on peer mediation and start applying the techniques.",
           "hi": "",
           "ml": ""
         },
@@ -3077,7 +3077,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I look for a technological workaround using modern AI algorithms.",
+          "en": "I use AI sentiment analysis on school forums to spot toxic trends.",
           "hi": "",
           "ml": ""
         },
@@ -3091,7 +3091,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I immediately look for a software solution or start coding.",
+          "en": "I code an anonymous reporting app for students to use safely.",
           "hi": "",
           "ml": ""
         },
@@ -3105,7 +3105,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I focus on the human impact and try to heal or support people.",
+          "en": "I bring in therapy dogs to comfort students who have been bullied.",
           "hi": "",
           "ml": ""
         },
@@ -3124,7 +3124,7 @@ export const QUESTION_BANK = [
     "sectionId": "personality_lab",
     "type": "Behav.",
     "text": {
-      "en": "You are asked to plan the school's annual talent show. What do you focus on?",
+      "en": "You are part of the school's drama production.",
       "hi": "",
       "ml": ""
     },
@@ -3132,7 +3132,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I adapt instantly to the new rules and try a different approach.",
+          "en": "I memorize all my lines and blocking in record time.",
           "hi": "",
           "ml": ""
         },
@@ -3146,7 +3146,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I look for a technological workaround using modern AI algorithms.",
+          "en": "I use an AI prompt to generate extra dialogue for the background characters.",
           "hi": "",
           "ml": ""
         },
@@ -3160,7 +3160,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I immediately look for a software solution or start coding.",
+          "en": "I program the complicated lighting rig to sync perfectly with the music.",
           "hi": "",
           "ml": ""
         },
@@ -3174,7 +3174,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I focus on the human impact and try to heal or support people.",
+          "en": "I remind the cast to drink tea and do vocal warm-ups to protect their throats.",
           "hi": "",
           "ml": ""
         },
@@ -3188,7 +3188,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I sketch out artistic ideas and brainstorm creative themes.",
+          "en": "I spend hours painting the intricate backdrops for the castle scene.",
           "hi": "",
           "ml": ""
         },
@@ -3207,7 +3207,7 @@ export const QUESTION_BANK = [
     "sectionId": "personality_lab",
     "type": "Behav.",
     "text": {
-      "en": "You find a lost wallet with no ID but a lot of cash. What do you do?",
+      "en": "You and your friends start a tech entrepreneurship club.",
       "hi": "",
       "ml": ""
     },
@@ -3215,7 +3215,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I look for a technological workaround using modern AI algorithms.",
+          "en": "I use AI to generate a business plan and market analysis in minutes.",
           "hi": "",
           "ml": ""
         },
@@ -3229,7 +3229,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I immediately look for a software solution or start coding.",
+          "en": "I set up the club's servers and build our actual prototype website.",
           "hi": "",
           "ml": ""
         },
@@ -3243,7 +3243,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I focus on the human impact and try to heal or support people.",
+          "en": "I make sure we have ergonomic chairs to prevent back pain during hackathons.",
           "hi": "",
           "ml": ""
         },
@@ -3257,7 +3257,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I sketch out artistic ideas and brainstorm creative themes.",
+          "en": "I design a slick, professional logo for our startup.",
           "hi": "",
           "ml": ""
         },
@@ -3271,7 +3271,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I calculate the costs and figure out how to make it profitable.",
+          "en": "I prepare the pitch deck to secure funding from local businesses.",
           "hi": "",
           "ml": ""
         },
@@ -3290,7 +3290,7 @@ export const QUESTION_BANK = [
     "sectionId": "personality_lab",
     "type": "Behav.",
     "text": {
-      "en": "You are stranded on a deserted island with a group of people. What is your role?",
+      "en": "Your school's e-sports team is preparing for a major tournament.",
       "hi": "",
       "ml": ""
     },
@@ -3298,7 +3298,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I immediately look for a software solution or start coding.",
+          "en": "I optimize our PCs and test the ping to ensure we have zero lag.",
           "hi": "",
           "ml": ""
         },
@@ -3312,7 +3312,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I focus on the human impact and try to heal or support people.",
+          "en": "I lead the team in wrist stretches to prevent carpal tunnel syndrome.",
           "hi": "",
           "ml": ""
         },
@@ -3326,7 +3326,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I sketch out artistic ideas and brainstorm creative themes.",
+          "en": "I create the animated overlays for our Twitch stream.",
           "hi": "",
           "ml": ""
         },
@@ -3340,7 +3340,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I calculate the costs and figure out how to make it profitable.",
+          "en": "I secure sponsorships with gaming gear companies to pay for our entry fees.",
           "hi": "",
           "ml": ""
         },
@@ -3354,7 +3354,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I debate the logic and ensure justice is served.",
+          "en": "I read the tournament rulebook carefully to make sure we don't get disqualified.",
           "hi": "",
           "ml": ""
         },
@@ -3373,7 +3373,7 @@ export const QUESTION_BANK = [
     "sectionId": "future_skills",
     "type": "SJT",
     "text": {
-      "en": "Your school is hosting a massive science fair. Which part do you want to lead?",
+      "en": "You are starting a First Responder and First Aid club at school.",
       "hi": "",
       "ml": ""
     },
@@ -3381,7 +3381,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I focus on the human impact and try to heal or support people.",
+          "en": "I demonstrate how to use a defibrillator and do chest compressions.",
           "hi": "",
           "ml": ""
         },
@@ -3395,7 +3395,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I sketch out artistic ideas and brainstorm creative themes.",
+          "en": "I use makeup to create realistic fake wounds for our practice drills.",
           "hi": "",
           "ml": ""
         },
@@ -3409,7 +3409,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I calculate the costs and figure out how to make it profitable.",
+          "en": "I collect the club dues to buy more bandages and medical supplies.",
           "hi": "",
           "ml": ""
         },
@@ -3423,7 +3423,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I debate the logic and ensure justice is served.",
+          "en": "I draft the liability waiver forms that members have to sign.",
           "hi": "",
           "ml": ""
         },
@@ -3437,7 +3437,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I design a machine or write the code to solve it automatically.",
+          "en": "I build a custom splinting device out of 3D-printed plastic.",
           "hi": "",
           "ml": ""
         },
@@ -3456,7 +3456,7 @@ export const QUESTION_BANK = [
     "sectionId": "future_skills",
     "type": "SJT",
     "text": {
-      "en": "You're organizing a weekend trip with your friends. What is your main role?",
+      "en": "You are working on the senior yearbook committee.",
       "hi": "",
       "ml": ""
     },
@@ -3464,7 +3464,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I sketch out artistic ideas and brainstorm creative themes.",
+          "en": "I design the front cover and pick the aesthetic theme for the pages.",
           "hi": "",
           "ml": ""
         },
@@ -3478,7 +3478,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I calculate the costs and figure out how to make it profitable.",
+          "en": "I sell ad space to local restaurants to lower the cost of the yearbook.",
           "hi": "",
           "ml": ""
         },
@@ -3492,7 +3492,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I debate the logic and ensure justice is served.",
+          "en": "I review the senior quotes to ensure none violate the school's code of conduct.",
           "hi": "",
           "ml": ""
         },
@@ -3506,7 +3506,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I design a machine or write the code to solve it automatically.",
+          "en": "I fix the broken binding machine we use to assemble the drafts.",
           "hi": "",
           "ml": ""
         },
@@ -3520,7 +3520,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I gather everyone together to talk about their feelings.",
+          "en": "I interview the shy students to make sure everyone gets featured.",
           "hi": "",
           "ml": ""
         },
@@ -3539,7 +3539,7 @@ export const QUESTION_BANK = [
     "sectionId": "future_skills",
     "type": "SJT",
     "text": {
-      "en": "You just got a brand new video game. How do you approach playing it for the first time?",
+      "en": "You are helping run a pop-up thrift store in the gymnasium.",
       "hi": "",
       "ml": ""
     },
@@ -3547,7 +3547,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I calculate the costs and figure out how to make it profitable.",
+          "en": "I decide the pricing tiers and manage the cash box.",
           "hi": "",
           "ml": ""
         },
@@ -3561,7 +3561,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I debate the logic and ensure justice is served.",
+          "en": "I make sure we charge the correct sales tax according to local laws.",
           "hi": "",
           "ml": ""
         },
@@ -3575,7 +3575,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I design a machine or write the code to solve it automatically.",
+          "en": "I assemble the heavy metal clothing racks so they don't tip over.",
           "hi": "",
           "ml": ""
         },
@@ -3589,7 +3589,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I gather everyone together to talk about their feelings.",
+          "en": "I act as a personal shopper, helping students pick out cool outfits.",
           "hi": "",
           "ml": ""
         },
@@ -3603,7 +3603,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I step up as a leader and guide the group.",
+          "en": "I only accept donations of eco-friendly and biodegradable fabrics.",
           "hi": "",
           "ml": ""
         },
@@ -3622,7 +3622,7 @@ export const QUESTION_BANK = [
     "sectionId": "future_skills",
     "type": "SJT",
     "text": {
-      "en": "Your teacher assigns a difficult group project. What is your immediate reaction?",
+      "en": "Your class is doing a mock trial about a factory polluting a town.",
       "hi": "",
       "ml": ""
     },
@@ -3630,7 +3630,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I debate the logic and ensure justice is served.",
+          "en": "I play the lead attorney and cross-examine the witnesses aggressively.",
           "hi": "",
           "ml": ""
         },
@@ -3644,7 +3644,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I design a machine or write the code to solve it automatically.",
+          "en": "I build a scale model of the factory to use as physical evidence.",
           "hi": "",
           "ml": ""
         },
@@ -3658,7 +3658,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I gather everyone together to talk about their feelings.",
+          "en": "I work with my team to make sure everyone feels heard during deliberations.",
           "hi": "",
           "ml": ""
         },
@@ -3672,7 +3672,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I step up as a leader and guide the group.",
+          "en": "I focus my arguments on the severe damage done to the local ecosystem.",
           "hi": "",
           "ml": ""
         },
@@ -3686,7 +3686,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I read past Supreme Court cases to find precedents for our argument.",
           "hi": "",
           "ml": ""
         },
@@ -3705,7 +3705,7 @@ export const QUESTION_BANK = [
     "sectionId": "future_skills",
     "type": "SJT",
     "text": {
-      "en": "You are given free time to learn anything you want. What do you choose?",
+      "en": "Your school's robotics team is building a battle bot.",
       "hi": "",
       "ml": ""
     },
@@ -3713,7 +3713,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I design a machine or write the code to solve it automatically.",
+          "en": "I solder the wires and assemble the bot's titanium armor.",
           "hi": "",
           "ml": ""
         },
@@ -3727,7 +3727,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I gather everyone together to talk about their feelings.",
+          "en": "I host team dinners to make sure everyone bonds and gets along.",
           "hi": "",
           "ml": ""
         },
@@ -3741,7 +3741,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I step up as a leader and guide the group.",
+          "en": "I scavenge old electronics from the dump to reuse their motors.",
           "hi": "",
           "ml": ""
         },
@@ -3755,7 +3755,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I analyze the designs of past champions to see what weapons work best.",
           "hi": "",
           "ml": ""
         },
@@ -3769,7 +3769,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I confidently take the lead and talk to as many people as possible.",
+          "en": "I get on the microphone and hype up the crowd before our match.",
           "hi": "",
           "ml": ""
         },
@@ -3788,7 +3788,7 @@ export const QUESTION_BANK = [
     "sectionId": "future_skills",
     "type": "SJT",
     "text": {
-      "en": "You see a student struggling with a heavy box in the hallway. What do you do?",
+      "en": "You go on a summer volunteer trip to a remote village.",
       "hi": "",
       "ml": ""
     },
@@ -3796,7 +3796,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I gather everyone together to talk about their feelings.",
+          "en": "I spend all day playing soccer and games with the local kids.",
           "hi": "",
           "ml": ""
         },
@@ -3810,7 +3810,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I step up as a leader and guide the group.",
+          "en": "I help plant drought-resistant crops in the community garden.",
           "hi": "",
           "ml": ""
         },
@@ -3824,7 +3824,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I interview the elders to document the village's oral history.",
           "hi": "",
           "ml": ""
         },
@@ -3838,7 +3838,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I confidently take the lead and talk to as many people as possible.",
+          "en": "I perform a song at the massive town festival.",
           "hi": "",
           "ml": ""
         },
@@ -3852,7 +3852,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I prefer to observe the situation and think deeply before acting.",
+          "en": "I spend my evenings quietly journaling and reflecting by myself.",
           "hi": "",
           "ml": ""
         },
@@ -3871,7 +3871,7 @@ export const QUESTION_BANK = [
     "sectionId": "future_skills",
     "type": "SJT",
     "text": {
-      "en": "Your team is losing a sports match at halftime. How do you motivate them?",
+      "en": "You organize a massive beach cleanup on Saturday morning.",
       "hi": "",
       "ml": ""
     },
@@ -3879,7 +3879,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I step up as a leader and guide the group.",
+          "en": "I focus on safely separating the microplastics from the seaweed.",
           "hi": "",
           "ml": ""
         },
@@ -3893,7 +3893,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I check the tide charts to determine the absolute safest time to clean.",
           "hi": "",
           "ml": ""
         },
@@ -3907,7 +3907,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I confidently take the lead and talk to as many people as possible.",
+          "en": "I run around with a megaphone directing the large crowds of volunteers.",
           "hi": "",
           "ml": ""
         },
@@ -3921,7 +3921,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I prefer to observe the situation and think deeply before acting.",
+          "en": "I walk far down the shoreline so I can pick up trash completely alone.",
           "hi": "",
           "ml": ""
         },
@@ -3935,7 +3935,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I stick to the plan and work meticulously until it's finished.",
+          "en": "I bring a meticulous checklist and sorting bags for different types of waste.",
           "hi": "",
           "ml": ""
         },
@@ -3954,7 +3954,7 @@ export const QUESTION_BANK = [
     "sectionId": "future_skills",
     "type": "SJT",
     "text": {
-      "en": "You have to write an essay on a topic of your choice. What do you write about?",
+      "en": "You are competing in the regional chess club championship.",
       "hi": "",
       "ml": ""
     },
@@ -3962,7 +3962,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I study hundreds of grandmaster games to memorize opening theory.",
           "hi": "",
           "ml": ""
         },
@@ -3976,7 +3976,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I confidently take the lead and talk to as many people as possible.",
+          "en": "I confidently walk around the hall chatting and psyching out opponents.",
           "hi": "",
           "ml": ""
         },
@@ -3990,7 +3990,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I prefer to observe the situation and think deeply before acting.",
+          "en": "I wear noise-canceling headphones to block everyone out during my match.",
           "hi": "",
           "ml": ""
         },
@@ -4004,7 +4004,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I stick to the plan and work meticulously until it's finished.",
+          "en": "I carefully write down every single move in my notebook without failing.",
           "hi": "",
           "ml": ""
         },
@@ -4018,7 +4018,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I stay completely calm and logically handle the stress.",
+          "en": "When I make a huge blunder, I don't panic; I just keep playing my best.",
           "hi": "",
           "ml": ""
         },
@@ -4037,7 +4037,7 @@ export const QUESTION_BANK = [
     "sectionId": "future_skills",
     "type": "SJT",
     "text": {
-      "en": "Your phone breaks and you can't afford a new one right away. What is your solution?",
+      "en": "You go to a massive, crowded theme park for a friend's birthday.",
       "hi": "",
       "ml": ""
     },
@@ -4045,7 +4045,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I confidently take the lead and talk to as many people as possible.",
+          "en": "I scream and throw my hands up in the very front row of the roller coaster.",
           "hi": "",
           "ml": ""
         },
@@ -4059,7 +4059,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I prefer to observe the situation and think deeply before acting.",
+          "en": "I avoid the crowds by riding the slow, quiet observation wheel.",
           "hi": "",
           "ml": ""
         },
@@ -4073,7 +4073,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I stick to the plan and work meticulously until it's finished.",
+          "en": "I plan out our fast-passes so we never waste time walking back and forth.",
           "hi": "",
           "ml": ""
         },
@@ -4087,7 +4087,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I stay completely calm and logically handle the stress.",
+          "en": "When the ride breaks down while we are on it, I just relax and wait.",
           "hi": "",
           "ml": ""
         },
@@ -4101,7 +4101,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I embrace the unknown and look for creative, out-of-the-box solutions.",
+          "en": "I drag everyone to a weird, neon-lit 4D experience nobody has heard of.",
           "hi": "",
           "ml": ""
         },
@@ -4120,7 +4120,7 @@ export const QUESTION_BANK = [
     "sectionId": "future_skills",
     "type": "SJT",
     "text": {
-      "en": "You find a complicated puzzle box. How do you open it?",
+      "en": "You are accidentally locked out of your house without your keys.",
       "hi": "",
       "ml": ""
     },
@@ -4128,7 +4128,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I prefer to observe the situation and think deeply before acting.",
+          "en": "I sit quietly on the porch reading a book on my phone until someone gets home.",
           "hi": "",
           "ml": ""
         },
@@ -4142,7 +4142,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I stick to the plan and work meticulously until it's finished.",
+          "en": "I meticulously retrace my steps to see if I dropped the keys in the grass.",
           "hi": "",
           "ml": ""
         },
@@ -4156,7 +4156,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I stay completely calm and logically handle the stress.",
+          "en": "I don't freak out or get angry; I just accept the situation.",
           "hi": "",
           "ml": ""
         },
@@ -4170,7 +4170,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I embrace the unknown and look for creative, out-of-the-box solutions.",
+          "en": "I try getting in through the dog door or climbing a tree to a balcony.",
           "hi": "",
           "ml": ""
         },
@@ -4184,7 +4184,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I break the complex issue down into smaller, solvable parts.",
+          "en": "I figure out how to pop the garage door latch using a wire hanger.",
           "hi": "",
           "ml": ""
         },
@@ -4203,7 +4203,7 @@ export const QUESTION_BANK = [
     "sectionId": "future_skills",
     "type": "SJT",
     "text": {
-      "en": "A local community center needs help organizing an event. What do you volunteer for?",
+      "en": "You are organizing a massive surprise birthday party for your best friend.",
       "hi": "",
       "ml": ""
     },
@@ -4211,7 +4211,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I stick to the plan and work meticulously until it's finished.",
+          "en": "I meticulously hide the gifts and keep track of the RSVPs.",
           "hi": "",
           "ml": ""
         },
@@ -4225,7 +4225,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I stay completely calm and logically handle the stress.",
+          "en": "When they almost find out early, I stay completely calm and divert their attention.",
           "hi": "",
           "ml": ""
         },
@@ -4239,7 +4239,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I embrace the unknown and look for creative, out-of-the-box solutions.",
+          "en": "I throw out the standard party idea and suggest an alien-invasion theme.",
           "hi": "",
           "ml": ""
         },
@@ -4253,7 +4253,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I break the complex issue down into smaller, solvable parts.",
+          "en": "I figure out how to fix the broken speaker system just before they arrive.",
           "hi": "",
           "ml": ""
         },
@@ -4267,7 +4267,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I ask my friends for their input and we work on it together.",
+          "en": "I make sure everyone has a specific task so we all work together seamlessly.",
           "hi": "",
           "ml": ""
         },
@@ -4286,7 +4286,7 @@ export const QUESTION_BANK = [
     "sectionId": "future_skills",
     "type": "SJT",
     "text": {
-      "en": "You are designing a brand new app. What is its main feature?",
+      "en": "A fire drill goes off right in the middle of a very important final exam.",
       "hi": "",
       "ml": ""
     },
@@ -4294,7 +4294,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I stay completely calm and logically handle the stress.",
+          "en": "I calmly put down my pencil and tell others not to panic.",
           "hi": "",
           "ml": ""
         },
@@ -4308,7 +4308,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I embrace the unknown and look for creative, out-of-the-box solutions.",
+          "en": "I actually enjoy the random disruption and treat it like a fun break.",
           "hi": "",
           "ml": ""
         },
@@ -4322,7 +4322,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I break the complex issue down into smaller, solvable parts.",
+          "en": "I quickly grab a paperweight to keep our exams from blowing away.",
           "hi": "",
           "ml": ""
         },
@@ -4336,7 +4336,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I ask my friends for their input and we work on it together.",
+          "en": "I help the teacher make sure the entire class stays together in line.",
           "hi": "",
           "ml": ""
         },
@@ -4350,7 +4350,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I analyze the situation to determine if the test will likely be voided.",
           "hi": "",
           "ml": ""
         },
@@ -4369,7 +4369,7 @@ export const QUESTION_BANK = [
     "sectionId": "future_skills",
     "type": "SJT",
     "text": {
-      "en": "You get to interview any famous person. Who do you choose?",
+      "en": "You enter a school photography contest with a vague theme.",
       "hi": "",
       "ml": ""
     },
@@ -4377,7 +4377,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I embrace the unknown and look for creative, out-of-the-box solutions.",
+          "en": "I take pictures from completely weird, upside-down angles just to be different.",
           "hi": "",
           "ml": ""
         },
@@ -4391,7 +4391,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I break the complex issue down into smaller, solvable parts.",
+          "en": "I build a custom tripod rig out of PVC pipes to get the perfect shot.",
           "hi": "",
           "ml": ""
         },
@@ -4405,7 +4405,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I ask my friends for their input and we work on it together.",
+          "en": "I share my expensive camera lenses with other students who need them.",
           "hi": "",
           "ml": ""
         },
@@ -4419,7 +4419,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I critique the lighting in my photos and adjust the exposure settings logically.",
           "hi": "",
           "ml": ""
         },
@@ -4433,7 +4433,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I logically analyze the situation and take decisive action.",
+          "en": "I invent a completely new editing style that makes the photos look like paintings.",
           "hi": "",
           "ml": ""
         },
@@ -4452,7 +4452,7 @@ export const QUESTION_BANK = [
     "sectionId": "future_skills",
     "type": "SJT",
     "text": {
-      "en": "Your class is debating a controversial new school rule. What is your strategy?",
+      "en": "Your bike tire pops halfway to school and you are running late.",
       "hi": "",
       "ml": ""
     },
@@ -4460,7 +4460,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I break the complex issue down into smaller, solvable parts.",
+          "en": "I temporarily fix the inner tube using some duct tape from my backpack.",
           "hi": "",
           "ml": ""
         },
@@ -4474,7 +4474,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I ask my friends for their input and we work on it together.",
+          "en": "I text a friend who drives to school and ask them to pick me up.",
           "hi": "",
           "ml": ""
         },
@@ -4488,7 +4488,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I realize I can't make it to first period, so I email my teacher immediately.",
           "hi": "",
           "ml": ""
         },
@@ -4502,7 +4502,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I logically analyze the situation and take decisive action.",
+          "en": "I ditch the bike at a shop and use my skateboard for the rest of the way.",
           "hi": "",
           "ml": ""
         },
@@ -4516,7 +4516,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I quickly look up tutorials and learn the new skill on the spot.",
+          "en": "I quickly look up a video and learn how to patch a tire in two minutes.",
           "hi": "",
           "ml": ""
         },
@@ -4535,7 +4535,7 @@ export const QUESTION_BANK = [
     "sectionId": "future_skills",
     "type": "SJT",
     "text": {
-      "en": "You are trapped in an escape room with your friends. What is your strategy?",
+      "en": "Your history teacher assigns a group project to make an educational TikTok.",
       "hi": "",
       "ml": ""
     },
@@ -4543,7 +4543,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I ask my friends for their input and we work on it together.",
+          "en": "I choreograph a dance that gets all group members involved.",
           "hi": "",
           "ml": ""
         },
@@ -4557,7 +4557,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I analyze the TikTok algorithm to figure out what hooks will get the most views.",
           "hi": "",
           "ml": ""
         },
@@ -4571,7 +4571,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I logically analyze the situation and take decisive action.",
+          "en": "I design a hilarious historical costume out of cardboard and aluminum foil.",
           "hi": "",
           "ml": ""
         },
@@ -4585,7 +4585,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I quickly look up tutorials and learn the new skill on the spot.",
+          "en": "I pick up the complex video editing software incredibly fast.",
           "hi": "",
           "ml": ""
         },
@@ -4599,7 +4599,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I test different AI prompts to see which gets the best result.",
+          "en": "I use an AI voice generator to narrate the script perfectly.",
           "hi": "",
           "ml": ""
         },
@@ -4618,7 +4618,7 @@ export const QUESTION_BANK = [
     "sectionId": "future_skills",
     "type": "SJT",
     "text": {
-      "en": "You are starting a YouTube channel. What kind of videos do you make?",
+      "en": "You are designing a custom organizer for your messy school locker.",
       "hi": "",
       "ml": ""
     },
@@ -4626,7 +4626,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I analyze the flaws in standard lockers and figure out why they waste space.",
           "hi": "",
           "ml": ""
         },
@@ -4640,7 +4640,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I logically analyze the situation and take decisive action.",
+          "en": "I invent a fold-out desk that pops out when the door opens.",
           "hi": "",
           "ml": ""
         },
@@ -4654,7 +4654,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I quickly look up tutorials and learn the new skill on the spot.",
+          "en": "I rapidly build and test multiple cardboard prototypes until one works.",
           "hi": "",
           "ml": ""
         },
@@ -4668,7 +4668,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I test different AI prompts to see which gets the best result.",
+          "en": "I ask an AI to calculate the optimal shelf dimensions based on standard textbooks.",
           "hi": "",
           "ml": ""
         },
@@ -4682,7 +4682,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I build a tech platform to manage the situation.",
+          "en": "I use a CAD program to 3D print the exact pieces I need.",
           "hi": "",
           "ml": ""
         },
@@ -4701,7 +4701,7 @@ export const QUESTION_BANK = [
     "sectionId": "future_skills",
     "type": "SJT",
     "text": {
-      "en": "You have to build a model bridge for a physics project. How do you do it?",
+      "en": "Your best friend breaks their dominant arm and needs help at school.",
       "hi": "",
       "ml": ""
     },
@@ -4709,7 +4709,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I logically analyze the situation and take decisive action.",
+          "en": "I invent a clever shoulder-strap system to carry both our backpacks.",
           "hi": "",
           "ml": ""
         },
@@ -4723,7 +4723,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I quickly look up tutorials and learn the new skill on the spot.",
+          "en": "I learn how to write legibly with my non-dominant hand just to show them how.",
           "hi": "",
           "ml": ""
         },
@@ -4737,7 +4737,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I test different AI prompts to see which gets the best result.",
+          "en": "I set up an AI speech-to-text program on their laptop so they can 'type' essays.",
           "hi": "",
           "ml": ""
         },
@@ -4751,7 +4751,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I build a tech platform to manage the situation.",
+          "en": "I reconfigure their keyboard settings for one-handed accessibility.",
           "hi": "",
           "ml": ""
         },
@@ -4765,7 +4765,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I make sure everyone is feeling okay and check on their health.",
+          "en": "I make sure they are eating calcium-rich foods to help their bone heal faster.",
           "hi": "",
           "ml": ""
         },
@@ -4784,7 +4784,7 @@ export const QUESTION_BANK = [
     "sectionId": "future_skills",
     "type": "SJT",
     "text": {
-      "en": "You are asked to plan the school's annual talent show. What do you focus on?",
+      "en": "You decide to make an indie film with your friends over the summer.",
       "hi": "",
       "ml": ""
     },
@@ -4792,7 +4792,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I quickly look up tutorials and learn the new skill on the spot.",
+          "en": "I learn the basics of cinematography and color grading over a single weekend.",
           "hi": "",
           "ml": ""
         },
@@ -4806,7 +4806,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I test different AI prompts to see which gets the best result.",
+          "en": "I use AI tools to generate crazy sci-fi backgrounds we can't afford to film.",
           "hi": "",
           "ml": ""
         },
@@ -4820,7 +4820,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I build a tech platform to manage the situation.",
+          "en": "I manage the camera equipment, microphones, and the massive video files.",
           "hi": "",
           "ml": ""
         },
@@ -4834,7 +4834,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I make sure everyone is feeling okay and check on their health.",
+          "en": "I ensure all our action scenes and stunts have proper safety pads.",
           "hi": "",
           "ml": ""
         },
@@ -4848,7 +4848,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I focus on the creative direction and emotional expression.",
+          "en": "I spend hours directing the actors to get the perfect emotional performance.",
           "hi": "",
           "ml": ""
         },
@@ -4867,7 +4867,7 @@ export const QUESTION_BANK = [
     "sectionId": "future_skills",
     "type": "SJT",
     "text": {
-      "en": "You find a lost wallet with no ID but a lot of cash. What do you do?",
+      "en": "You start a sneaker resale side hustle to make some extra cash.",
       "hi": "",
       "ml": ""
     },
@@ -4875,7 +4875,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I test different AI prompts to see which gets the best result.",
+          "en": "I use AI models to predict which sneaker drops will skyrocket in value.",
           "hi": "",
           "ml": ""
         },
@@ -4889,7 +4889,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I build a tech platform to manage the situation.",
+          "en": "I write scripts and use bots to automate the checkout process.",
           "hi": "",
           "ml": ""
         },
@@ -4903,7 +4903,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I make sure everyone is feeling okay and check on their health.",
+          "en": "I carefully clean and restore old shoes using special chemicals.",
           "hi": "",
           "ml": ""
         },
@@ -4917,7 +4917,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I focus on the creative direction and emotional expression.",
+          "en": "I take highly aesthetic, stylized photos of the shoes for my Instagram page.",
           "hi": "",
           "ml": ""
         },
@@ -4931,7 +4931,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I look for ways to market the idea and reach more people.",
+          "en": "I track every purchase, sale, and shipping cost in a detailed spreadsheet.",
           "hi": "",
           "ml": ""
         },
@@ -4950,7 +4950,7 @@ export const QUESTION_BANK = [
     "sectionId": "future_skills",
     "type": "SJT",
     "text": {
-      "en": "You are stranded on a deserted island with a group of people. What is your role?",
+      "en": "Your smartphone screen shatters and you decide to fix it yourself.",
       "hi": "",
       "ml": ""
     },
@@ -4958,7 +4958,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I build a tech platform to manage the situation.",
+          "en": "I follow a teardown video to disconnect the tiny ribbon cables.",
           "hi": "",
           "ml": ""
         },
@@ -4972,7 +4972,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I make sure everyone is feeling okay and check on their health.",
+          "en": "I make sure no tiny glass shards cut my fingers during the repair.",
           "hi": "",
           "ml": ""
         },
@@ -4986,7 +4986,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I focus on the creative direction and emotional expression.",
+          "en": "I buy a customized, hand-painted replacement back glass just for fun.",
           "hi": "",
           "ml": ""
         },
@@ -5000,7 +5000,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I look for ways to market the idea and reach more people.",
+          "en": "I find the cheapest wholesale supplier for screens to save money.",
           "hi": "",
           "ml": ""
         },
@@ -5014,7 +5014,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I establish clear rules and make sure everyone follows them fairly.",
+          "en": "I read the warranty terms carefully to see if opening the phone voids it.",
           "hi": "",
           "ml": ""
         },
@@ -5033,7 +5033,7 @@ export const QUESTION_BANK = [
     "sectionId": "academic_alignment",
     "type": "Likert",
     "text": {
-      "en": "Your school is hosting a massive science fair. Which part do you want to lead?",
+      "en": "You volunteer to help run a massive city marathon.",
       "hi": "",
       "ml": ""
     },
@@ -5041,7 +5041,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I make sure everyone is feeling okay and check on their health.",
+          "en": "I stand at the medical tent handing out water and checking for dehydration.",
           "hi": "",
           "ml": ""
         },
@@ -5055,7 +5055,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I focus on the creative direction and emotional expression.",
+          "en": "I paint cool face designs and numbers on the runners before the race.",
           "hi": "",
           "ml": ""
         },
@@ -5069,7 +5069,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I look for ways to market the idea and reach more people.",
+          "en": "I manage the merchandise booth, selling t-shirts to the spectators.",
           "hi": "",
           "ml": ""
         },
@@ -5083,7 +5083,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I establish clear rules and make sure everyone follows them fairly.",
+          "en": "I verify that the running route has all the required city permits.",
           "hi": "",
           "ml": ""
         },
@@ -5097,7 +5097,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I try to understand the mechanics and fix the technical issues.",
+          "en": "I help construct the massive scaffolding for the finish line.",
           "hi": "",
           "ml": ""
         },
@@ -5116,7 +5116,7 @@ export const QUESTION_BANK = [
     "sectionId": "academic_alignment",
     "type": "Likert",
     "text": {
-      "en": "You're organizing a weekend trip with your friends. What is your main role?",
+      "en": "Your art club takes a field trip to an impressive modern museum.",
       "hi": "",
       "ml": ""
     },
@@ -5124,7 +5124,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I focus on the creative direction and emotional expression.",
+          "en": "I sit quietly in front of the statues and try to sketch them accurately.",
           "hi": "",
           "ml": ""
         },
@@ -5138,7 +5138,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I look for ways to market the idea and reach more people.",
+          "en": "I go to the gift shop and calculate what I can buy with my ten dollars.",
           "hi": "",
           "ml": ""
         },
@@ -5152,7 +5152,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I establish clear rules and make sure everyone follows them fairly.",
+          "en": "I make sure everyone follows the strict 'no flash photography' rules.",
           "hi": "",
           "ml": ""
         },
@@ -5166,7 +5166,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I try to understand the mechanics and fix the technical issues.",
+          "en": "I fix a wobbly display stand that was about to fall over.",
           "hi": "",
           "ml": ""
         },
@@ -5180,7 +5180,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I teach others what I know so they can succeed too.",
+          "en": "I talk to the tour guide, asking them lots of questions about their job.",
           "hi": "",
           "ml": ""
         },
@@ -5199,7 +5199,7 @@ export const QUESTION_BANK = [
     "sectionId": "academic_alignment",
     "type": "Likert",
     "text": {
-      "en": "You just got a brand new video game. How do you approach playing it for the first time?",
+      "en": "You are put in charge of the school's student supply store.",
       "hi": "",
       "ml": ""
     },
@@ -5207,7 +5207,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I look for ways to market the idea and reach more people.",
+          "en": "I run sales promotions to get rid of the old pencil inventory.",
           "hi": "",
           "ml": ""
         },
@@ -5221,7 +5221,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I establish clear rules and make sure everyone follows them fairly.",
+          "en": "I check the tax regulations on selling snacks on school property.",
           "hi": "",
           "ml": ""
         },
@@ -5235,7 +5235,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I try to understand the mechanics and fix the technical issues.",
+          "en": "I build new, sturdy display racks out of spare lumber.",
           "hi": "",
           "ml": ""
         },
@@ -5249,7 +5249,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I teach others what I know so they can succeed too.",
+          "en": "I eagerly greet the freshmen and help them find their classes.",
           "hi": "",
           "ml": ""
         },
@@ -5263,7 +5263,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I step up as a leader and guide the group.",
+          "en": "I replace all our plastic products with eco-friendly, recycled alternatives.",
           "hi": "",
           "ml": ""
         },
@@ -5282,7 +5282,7 @@ export const QUESTION_BANK = [
     "sectionId": "academic_alignment",
     "type": "Likert",
     "text": {
-      "en": "Your teacher assigns a difficult group project. What is your immediate reaction?",
+      "en": "You join the school's Model United Nations conference.",
       "hi": "",
       "ml": ""
     },
@@ -5290,7 +5290,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I establish clear rules and make sure everyone follows them fairly.",
+          "en": "I aggressively debate international treaties and international law.",
           "hi": "",
           "ml": ""
         },
@@ -5304,7 +5304,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I try to understand the mechanics and fix the technical issues.",
+          "en": "I run the microphone and timer system to keep the speeches on track.",
           "hi": "",
           "ml": ""
         },
@@ -5318,7 +5318,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I teach others what I know so they can succeed too.",
+          "en": "I pass notes and form alliances with other delegates during breaks.",
           "hi": "",
           "ml": ""
         },
@@ -5332,7 +5332,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I step up as a leader and guide the group.",
+          "en": "I sponsor a resolution focused entirely on global carbon emissions.",
           "hi": "",
           "ml": ""
         },
@@ -5346,7 +5346,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I read hundreds of pages of background guides on the countries.",
           "hi": "",
           "ml": ""
         },
@@ -5365,7 +5365,7 @@ export const QUESTION_BANK = [
     "sectionId": "academic_alignment",
     "type": "Likert",
     "text": {
-      "en": "You are given free time to learn anything you want. What do you choose?",
+      "en": "You decide to build a treehouse in your backyard.",
       "hi": "",
       "ml": ""
     },
@@ -5373,7 +5373,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I try to understand the mechanics and fix the technical issues.",
+          "en": "I hammer the nails and construct the wooden frame myself.",
           "hi": "",
           "ml": ""
         },
@@ -5387,7 +5387,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I teach others what I know so they can succeed too.",
+          "en": "I invite all my friends over to hang out in it once it's built.",
           "hi": "",
           "ml": ""
         },
@@ -5401,7 +5401,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I step up as a leader and guide the group.",
+          "en": "I make sure to use reclaimed wood so I don't harm new trees.",
           "hi": "",
           "ml": ""
         },
@@ -5415,7 +5415,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I calculate the load-bearing capacity of the main branches.",
           "hi": "",
           "ml": ""
         },
@@ -5429,7 +5429,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I loudly volunteer my ideas and try to involve everyone.",
+          "en": "I shout to all the neighbors and throw a massive treehouse party.",
           "hi": "",
           "ml": ""
         },
@@ -5448,7 +5448,7 @@ export const QUESTION_BANK = [
     "sectionId": "academic_alignment",
     "type": "Likert",
     "text": {
-      "en": "You see a student struggling with a heavy box in the hallway. What do you do?",
+      "en": "You organize a weekend cleanup event at the local state park.",
       "hi": "",
       "ml": ""
     },
@@ -5456,7 +5456,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I teach others what I know so they can succeed too.",
+          "en": "I hand out trash bags and make sure every volunteer feels welcome.",
           "hi": "",
           "ml": ""
         },
@@ -5470,7 +5470,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I step up as a leader and guide the group.",
+          "en": "I focus on planting new native flowers near the park entrance.",
           "hi": "",
           "ml": ""
         },
@@ -5484,7 +5484,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I track the types of litter we find to report to the city council.",
           "hi": "",
           "ml": ""
         },
@@ -5498,7 +5498,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I loudly volunteer my ideas and try to involve everyone.",
+          "en": "I stand on a bench and give a loud, motivating speech to the crowd.",
           "hi": "",
           "ml": ""
         },
@@ -5512,7 +5512,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I step back and work independently on a quiet, focused task.",
+          "en": "I put my headphones on and quietly pick up trash deep in the woods alone.",
           "hi": "",
           "ml": ""
         },
@@ -5531,7 +5531,7 @@ export const QUESTION_BANK = [
     "sectionId": "academic_alignment",
     "type": "Likert",
     "text": {
-      "en": "Your team is losing a sports match at halftime. How do you motivate them?",
+      "en": "Your science lab group has to dissect a frog.",
       "hi": "",
       "ml": ""
     },
@@ -5539,7 +5539,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I step up as a leader and guide the group.",
+          "en": "I make sure all biological waste is disposed of in the eco-friendly bin.",
           "hi": "",
           "ml": ""
         },
@@ -5553,7 +5553,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I read the textbook manual ahead of time so I know the anatomy.",
           "hi": "",
           "ml": ""
         },
@@ -5567,7 +5567,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I loudly volunteer my ideas and try to involve everyone.",
+          "en": "I take charge and enthusiastically lead the dissection for the squeamish kids.",
           "hi": "",
           "ml": ""
         },
@@ -5581,7 +5581,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I step back and work independently on a quiet, focused task.",
+          "en": "I prefer to do the cutting quietly and carefully without making jokes.",
           "hi": "",
           "ml": ""
         },
@@ -5595,7 +5595,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I organize all the materials and ensure everything is perfect.",
+          "en": "I meticulously clean and organize the scalpels and trays afterward.",
           "hi": "",
           "ml": ""
         },
@@ -5614,7 +5614,7 @@ export const QUESTION_BANK = [
     "sectionId": "academic_alignment",
     "type": "Likert",
     "text": {
-      "en": "You have to write an essay on a topic of your choice. What do you write about?",
+      "en": "You are writing a massive 20-page research paper for history class.",
       "hi": "",
       "ml": ""
     },
@@ -5622,7 +5622,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I dive into primary source documents and ancient books to find evidence.",
           "hi": "",
           "ml": ""
         },
@@ -5636,7 +5636,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I loudly volunteer my ideas and try to involve everyone.",
+          "en": "I do a highly animated oral presentation of my findings to the class.",
           "hi": "",
           "ml": ""
         },
@@ -5650,7 +5650,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I step back and work independently on a quiet, focused task.",
+          "en": "I lock myself in my room for three days to write in absolute silence.",
           "hi": "",
           "ml": ""
         },
@@ -5664,7 +5664,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I organize all the materials and ensure everything is perfect.",
+          "en": "I format every single citation flawlessly according to the rubric.",
           "hi": "",
           "ml": ""
         },
@@ -5678,7 +5678,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I remain grounded and help calm others down.",
+          "en": "When I get a bad grade on the draft, I just sigh and start rewriting calmly.",
           "hi": "",
           "ml": ""
         },
@@ -5697,7 +5697,7 @@ export const QUESTION_BANK = [
     "sectionId": "academic_alignment",
     "type": "Likert",
     "text": {
-      "en": "Your phone breaks and you can't afford a new one right away. What is your solution?",
+      "en": "You go to a massive, incredibly crowded mall on Black Friday.",
       "hi": "",
       "ml": ""
     },
@@ -5705,7 +5705,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I loudly volunteer my ideas and try to involve everyone.",
+          "en": "I thrive in the chaos and loudly bargain with the kiosk vendors.",
           "hi": "",
           "ml": ""
         },
@@ -5719,7 +5719,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I step back and work independently on a quiet, focused task.",
+          "en": "I retreat to the quietest corner of the bookstore to escape the noise.",
           "hi": "",
           "ml": ""
         },
@@ -5733,7 +5733,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I organize all the materials and ensure everything is perfect.",
+          "en": "I bring a map and strike off every store we need to visit in order.",
           "hi": "",
           "ml": ""
         },
@@ -5747,7 +5747,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I remain grounded and help calm others down.",
+          "en": "I don't get annoyed by the long lines; I just patiently wait my turn.",
           "hi": "",
           "ml": ""
         },
@@ -5761,7 +5761,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I eagerly try the strangest, most unconventional idea.",
+          "en": "I decide to try a completely strange new food from the food court.",
           "hi": "",
           "ml": ""
         },
@@ -5780,7 +5780,7 @@ export const QUESTION_BANK = [
     "sectionId": "academic_alignment",
     "type": "Likert",
     "text": {
-      "en": "You find a complicated puzzle box. How do you open it?",
+      "en": "You are playing a notoriously difficult, frustrating video game.",
       "hi": "",
       "ml": ""
     },
@@ -5788,7 +5788,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I step back and work independently on a quiet, focused task.",
+          "en": "I turn off the multiplayer chat so I can focus on the single-player mode.",
           "hi": "",
           "ml": ""
         },
@@ -5802,7 +5802,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I organize all the materials and ensure everything is perfect.",
+          "en": "I carefully manage my inventory and organize my potions by color.",
           "hi": "",
           "ml": ""
         },
@@ -5816,7 +5816,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I remain grounded and help calm others down.",
+          "en": "When I lose to the boss 50 times, I don't rage-quit, I just try again.",
           "hi": "",
           "ml": ""
         },
@@ -5830,7 +5830,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I eagerly try the strangest, most unconventional idea.",
+          "en": "I equip completely random, bizarre armor just to see what happens.",
           "hi": "",
           "ml": ""
         },
@@ -5844,7 +5844,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I brainstorm multiple alternative solutions before picking one.",
+          "en": "I memorize the boss's attack patterns and calculate the exact dodge timing.",
           "hi": "",
           "ml": ""
         },
@@ -5863,7 +5863,7 @@ export const QUESTION_BANK = [
     "sectionId": "academic_alignment",
     "type": "Likert",
     "text": {
-      "en": "A local community center needs help organizing an event. What do you volunteer for?",
+      "en": "You are putting together a 5,000 piece model kit with friends.",
       "hi": "",
       "ml": ""
     },
@@ -5871,7 +5871,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I organize all the materials and ensure everything is perfect.",
+          "en": "I sort all the tiny plastic pieces into numbered bags before we start.",
           "hi": "",
           "ml": ""
         },
@@ -5885,7 +5885,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I remain grounded and help calm others down.",
+          "en": "When someone accidentally steps on a piece, I tell them it's not a big deal.",
           "hi": "",
           "ml": ""
         },
@@ -5899,7 +5899,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I eagerly try the strangest, most unconventional idea.",
+          "en": "I suggest we build the spaceship backward just for a challenge.",
           "hi": "",
           "ml": ""
         },
@@ -5913,7 +5913,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I brainstorm multiple alternative solutions before picking one.",
+          "en": "I figure out how to substitute a lost gear with a spare part from another set.",
           "hi": "",
           "ml": ""
         },
@@ -5927,7 +5927,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I ensure the team is communicating and cooperating smoothly.",
+          "en": "I pass pieces to the builder and read the instructions out loud.",
           "hi": "",
           "ml": ""
         },
@@ -5946,7 +5946,7 @@ export const QUESTION_BANK = [
     "sectionId": "academic_alignment",
     "type": "Likert",
     "text": {
-      "en": "You are designing a brand new app. What is its main feature?",
+      "en": "A massive thunderstorm knocks out your home's internet for the night.",
       "hi": "",
       "ml": ""
     },
@@ -5954,7 +5954,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I remain grounded and help calm others down.",
+          "en": "I relax and enjoy the break from social media without complaining.",
           "hi": "",
           "ml": ""
         },
@@ -5968,7 +5968,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I eagerly try the strangest, most unconventional idea.",
+          "en": "I dig out a strange, dusty board game my family has never played before.",
           "hi": "",
           "ml": ""
         },
@@ -5982,7 +5982,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I brainstorm multiple alternative solutions before picking one.",
+          "en": "I reset the router and check the IP settings to see if it's a local issue.",
           "hi": "",
           "ml": ""
         },
@@ -5996,7 +5996,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I ensure the team is communicating and cooperating smoothly.",
+          "en": "I gather my siblings in the living room for a game of charades.",
           "hi": "",
           "ml": ""
         },
@@ -6010,7 +6010,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I check the cellular outage map to determine if the whole grid is down.",
           "hi": "",
           "ml": ""
         },
@@ -6029,7 +6029,7 @@ export const QUESTION_BANK = [
     "sectionId": "academic_alignment",
     "type": "Likert",
     "text": {
-      "en": "You get to interview any famous person. Who do you choose?",
+      "en": "You are making a custom Halloween costume for a huge party.",
       "hi": "",
       "ml": ""
     },
@@ -6037,7 +6037,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I eagerly try the strangest, most unconventional idea.",
+          "en": "I come up with a highly abstract, conceptual costume idea.",
           "hi": "",
           "ml": ""
         },
@@ -6051,7 +6051,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I brainstorm multiple alternative solutions before picking one.",
+          "en": "I figure out how to wire battery-powered LEDs into the fabric safely.",
           "hi": "",
           "ml": ""
         },
@@ -6065,7 +6065,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I ensure the team is communicating and cooperating smoothly.",
+          "en": "I coordinate with three friends so we can go as a matching group.",
           "hi": "",
           "ml": ""
         },
@@ -6079,7 +6079,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I analyze the weather forecast to decide if the costume needs a coat.",
           "hi": "",
           "ml": ""
         },
@@ -6093,7 +6093,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I logically analyze the situation and take decisive action.",
+          "en": "I sculpt a completely original monster mask out of foam and clay.",
           "hi": "",
           "ml": ""
         },
@@ -6112,7 +6112,7 @@ export const QUESTION_BANK = [
     "sectionId": "academic_alignment",
     "type": "Likert",
     "text": {
-      "en": "Your class is debating a controversial new school rule. What is your strategy?",
+      "en": "You completely forget your lunch at home and have no money.",
       "hi": "",
       "ml": ""
     },
@@ -6120,7 +6120,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I brainstorm multiple alternative solutions before picking one.",
+          "en": "I figure out a clever way to trade a pencil for an apple.",
           "hi": "",
           "ml": ""
         },
@@ -6134,7 +6134,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I ensure the team is communicating and cooperating smoothly.",
+          "en": "I tell my friends, knowing they will all pitch in and share their snacks.",
           "hi": "",
           "ml": ""
         },
@@ -6148,7 +6148,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I realize missing one meal won't hurt me and just drink water instead.",
           "hi": "",
           "ml": ""
         },
@@ -6162,7 +6162,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I logically analyze the situation and take decisive action.",
+          "en": "I make a bizarre 'soup' out of free ketchup packets and crackers.",
           "hi": "",
           "ml": ""
         },
@@ -6176,7 +6176,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I figure it out through rapid trial and error.",
+          "en": "I learn the cafeteria's policy on free emergency lunch vouchers.",
           "hi": "",
           "ml": ""
         },
@@ -6195,7 +6195,7 @@ export const QUESTION_BANK = [
     "sectionId": "academic_alignment",
     "type": "Likert",
     "text": {
-      "en": "You are trapped in an escape room with your friends. What is your strategy?",
+      "en": "Your class is planning a harmless but legendary senior prank.",
       "hi": "",
       "ml": ""
     },
@@ -6203,7 +6203,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I ensure the team is communicating and cooperating smoothly.",
+          "en": "I coordinate the group chat so nobody accidentally leaks the plan.",
           "hi": "",
           "ml": ""
         },
@@ -6217,7 +6217,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I analyze the school's camera blind spots to find the safest route.",
           "hi": "",
           "ml": ""
         },
@@ -6231,7 +6231,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I logically analyze the situation and take decisive action.",
+          "en": "I come up with the hilarious idea to cover the hallways in sticky notes.",
           "hi": "",
           "ml": ""
         },
@@ -6245,7 +6245,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I figure it out through rapid trial and error.",
+          "en": "I quickly learn how to pick the cheap padlock on the gym doors.",
           "hi": "",
           "ml": ""
         },
@@ -6259,7 +6259,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I use AI tools to generate ideas and automate the boring parts.",
+          "en": "I use an AI voice tool to leave a fake voicemail from the principal.",
           "hi": "",
           "ml": ""
         },
@@ -6278,7 +6278,7 @@ export const QUESTION_BANK = [
     "sectionId": "academic_alignment",
     "type": "Likert",
     "text": {
-      "en": "You are starting a YouTube channel. What kind of videos do you make?",
+      "en": "You are upgrading an old PC to make it run games faster.",
       "hi": "",
       "ml": ""
     },
@@ -6286,7 +6286,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I benchmark the system to see if the CPU or GPU is the bottleneck.",
           "hi": "",
           "ml": ""
         },
@@ -6300,7 +6300,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I logically analyze the situation and take decisive action.",
+          "en": "I design a really cool custom water-cooling loop with neon lights.",
           "hi": "",
           "ml": ""
         },
@@ -6314,7 +6314,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I figure it out through rapid trial and error.",
+          "en": "I read the motherboard manual and figure out the front panel pins fast.",
           "hi": "",
           "ml": ""
         },
@@ -6328,7 +6328,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I use AI tools to generate ideas and automate the boring parts.",
+          "en": "I use an AI utility program to safely auto-overclock the processor.",
           "hi": "",
           "ml": ""
         },
@@ -6342,7 +6342,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I use digital tools to analyze the data and find a solution.",
+          "en": "I carefully apply the thermal paste and slot the new RAM sticks.",
           "hi": "",
           "ml": ""
         },
@@ -6361,7 +6361,7 @@ export const QUESTION_BANK = [
     "sectionId": "academic_alignment",
     "type": "Likert",
     "text": {
-      "en": "You have to build a model bridge for a physics project. How do you do it?",
+      "en": "A friend has a sudden panic attack in the middle of the hallway.",
       "hi": "",
       "ml": ""
     },
@@ -6369,7 +6369,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I logically analyze the situation and take decisive action.",
+          "en": "I invent a silly distraction game to help ground them in reality.",
           "hi": "",
           "ml": ""
         },
@@ -6383,7 +6383,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I figure it out through rapid trial and error.",
+          "en": "I rapidly recall the grounding techniques I read about in health class.",
           "hi": "",
           "ml": ""
         },
@@ -6397,7 +6397,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I use AI tools to generate ideas and automate the boring parts.",
+          "en": "I load up an AI-guided breathing exercise on my phone for them to follow.",
           "hi": "",
           "ml": ""
         },
@@ -6411,7 +6411,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I use digital tools to analyze the data and find a solution.",
+          "en": "I text the school counselor on their secure messaging portal.",
           "hi": "",
           "ml": ""
         },
@@ -6425,7 +6425,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I volunteer for the medical or caretaking responsibilities.",
+          "en": "I get them a cup of water and monitor their heart rate.",
           "hi": "",
           "ml": ""
         },
@@ -6444,7 +6444,7 @@ export const QUESTION_BANK = [
     "sectionId": "academic_alignment",
     "type": "Likert",
     "text": {
-      "en": "You are asked to plan the school's annual talent show. What do you focus on?",
+      "en": "You and your friends decide to start a rock band in a garage.",
       "hi": "",
       "ml": ""
     },
@@ -6452,7 +6452,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I figure it out through rapid trial and error.",
+          "en": "I learn how to play the bass guitar from scratch in two weeks.",
           "hi": "",
           "ml": ""
         },
@@ -6466,7 +6466,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I use AI tools to generate ideas and automate the boring parts.",
+          "en": "I generate cool synth backing tracks using an AI music generator.",
           "hi": "",
           "ml": ""
         },
@@ -6480,7 +6480,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I use digital tools to analyze the data and find a solution.",
+          "en": "I set up the amplifiers, pedals, and PA system so we don't blow a fuse.",
           "hi": "",
           "ml": ""
         },
@@ -6494,7 +6494,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I volunteer for the medical or caretaking responsibilities.",
+          "en": "I make everyone wear earplugs so we don't get hearing damage.",
           "hi": "",
           "ml": ""
         },
@@ -6508,7 +6508,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I design the visual elements and make sure it looks beautiful.",
+          "en": "I draw the edgy skull artwork for our band's first album cover.",
           "hi": "",
           "ml": ""
         },
@@ -6527,7 +6527,7 @@ export const QUESTION_BANK = [
     "sectionId": "academic_alignment",
     "type": "Likert",
     "text": {
-      "en": "You find a lost wallet with no ID but a lot of cash. What do you do?",
+      "en": "You run a highly popular meme page for your high school.",
       "hi": "",
       "ml": ""
     },
@@ -6535,7 +6535,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I use AI tools to generate ideas and automate the boring parts.",
+          "en": "I use an AI bot to generate hilarious captions based on school news.",
           "hi": "",
           "ml": ""
         },
@@ -6549,7 +6549,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I use digital tools to analyze the data and find a solution.",
+          "en": "I write a script that automatically posts at the highest traffic times.",
           "hi": "",
           "ml": ""
         },
@@ -6563,7 +6563,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I volunteer for the medical or caretaking responsibilities.",
+          "en": "I post memes about getting enough sleep and staying hydrated.",
           "hi": "",
           "ml": ""
         },
@@ -6577,7 +6577,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I design the visual elements and make sure it looks beautiful.",
+          "en": "I hand-draw funny caricatures of the teachers to use as templates.",
           "hi": "",
           "ml": ""
         },
@@ -6591,7 +6591,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I take charge of the budget and resource management.",
+          "en": "I sell sponsored shoutouts to local pizza places to make money.",
           "hi": "",
           "ml": ""
         },
@@ -6610,7 +6610,7 @@ export const QUESTION_BANK = [
     "sectionId": "academic_alignment",
     "type": "Likert",
     "text": {
-      "en": "You are stranded on a deserted island with a group of people. What is your role?",
+      "en": "You buy a cheap smart-home hub to control your bedroom lights.",
       "hi": "",
       "ml": ""
     },
@@ -6618,7 +6618,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I use digital tools to analyze the data and find a solution.",
+          "en": "I splice the power wires and solder the LED strips myself.",
           "hi": "",
           "ml": ""
         },
@@ -6632,7 +6632,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I volunteer for the medical or caretaking responsibilities.",
+          "en": "I set the lights to a warm tone that helps reduce eye strain at night.",
           "hi": "",
           "ml": ""
         },
@@ -6646,7 +6646,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I design the visual elements and make sure it looks beautiful.",
+          "en": "I program the lights to sync perfectly with the colors in my favorite movies.",
           "hi": "",
           "ml": ""
         },
@@ -6660,7 +6660,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I take charge of the budget and resource management.",
+          "en": "I track the wattage to see how much money the LEDs save on the electric bill.",
           "hi": "",
           "ml": ""
         },
@@ -6674,7 +6674,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I read the guidelines carefully to ensure strict compliance.",
+          "en": "I read the privacy policy to make sure the microphone isn't recording me.",
           "hi": "",
           "ml": ""
         },
@@ -6693,7 +6693,7 @@ export const QUESTION_BANK = [
     "sectionId": "contextual_compass",
     "type": "SJT",
     "text": {
-      "en": "Your school is hosting a massive science fair. Which part do you want to lead?",
+      "en": "You are the manager for the school's basketball team.",
       "hi": "",
       "ml": ""
     },
@@ -6701,7 +6701,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I volunteer for the medical or caretaking responsibilities.",
+          "en": "I tape up the players' ankles and keep the ice baths ready.",
           "hi": "",
           "ml": ""
         },
@@ -6715,7 +6715,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I design the visual elements and make sure it looks beautiful.",
+          "en": "I design the cool warmup shirts that the players wear.",
           "hi": "",
           "ml": ""
         },
@@ -6729,7 +6729,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I take charge of the budget and resource management.",
+          "en": "I organize the concession stand to maximize profits for new uniforms.",
           "hi": "",
           "ml": ""
         },
@@ -6743,7 +6743,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I read the guidelines carefully to ensure strict compliance.",
+          "en": "I check the league rulebook to ensure all players are academically eligible.",
           "hi": "",
           "ml": ""
         },
@@ -6757,7 +6757,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I focus on building the physical structure and making sure it works.",
+          "en": "I fix the broken digital scoreboard buzzer with a soldering iron.",
           "hi": "",
           "ml": ""
         },
@@ -6776,7 +6776,7 @@ export const QUESTION_BANK = [
     "sectionId": "contextual_compass",
     "type": "SJT",
     "text": {
-      "en": "You're organizing a weekend trip with your friends. What is your main role?",
+      "en": "Your class gets permission to renovate the dusty senior lounge.",
       "hi": "",
       "ml": ""
     },
@@ -6784,7 +6784,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I design the visual elements and make sure it looks beautiful.",
+          "en": "I pick out the paint swatches and design a relaxing color scheme.",
           "hi": "",
           "ml": ""
         },
@@ -6798,7 +6798,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I take charge of the budget and resource management.",
+          "en": "I negotiate discounts with local furniture stores to stay under budget.",
           "hi": "",
           "ml": ""
         },
@@ -6812,7 +6812,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I read the guidelines carefully to ensure strict compliance.",
+          "en": "I check the school fire codes to ensure our couches are compliant.",
           "hi": "",
           "ml": ""
         },
@@ -6826,7 +6826,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I focus on building the physical structure and making sure it works.",
+          "en": "I assemble the heavy coffee tables and mount the TV to the wall.",
           "hi": "",
           "ml": ""
         },
@@ -6840,7 +6840,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I focus on helping the community and supporting the vulnerable.",
+          "en": "I ask everyone for input to ensure the room feels welcoming to all cliques.",
           "hi": "",
           "ml": ""
         },
@@ -6859,7 +6859,7 @@ export const QUESTION_BANK = [
     "sectionId": "contextual_compass",
     "type": "SJT",
     "text": {
-      "en": "You just got a brand new video game. How do you approach playing it for the first time?",
+      "en": "You host a weekend car wash to raise money for the band.",
       "hi": "",
       "ml": ""
     },
@@ -6867,7 +6867,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I take charge of the budget and resource management.",
+          "en": "I hold the cash box and quickly calculate change for the drivers.",
           "hi": "",
           "ml": ""
         },
@@ -6881,7 +6881,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I read the guidelines carefully to ensure strict compliance.",
+          "en": "I make sure our signs don't violate the city's advertising ordinances.",
           "hi": "",
           "ml": ""
         },
@@ -6895,7 +6895,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I focus on building the physical structure and making sure it works.",
+          "en": "I fix the leaky power washer pump using a spare rubber gasket.",
           "hi": "",
           "ml": ""
         },
@@ -6909,7 +6909,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I focus on helping the community and supporting the vulnerable.",
+          "en": "I joke around with the drivers and keep the volunteers energized.",
           "hi": "",
           "ml": ""
         },
@@ -6923,7 +6923,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I step up as a leader and guide the group.",
+          "en": "I ensure we only use biodegradable soap that won't harm the drains.",
           "hi": "",
           "ml": ""
         },
@@ -6942,7 +6942,7 @@ export const QUESTION_BANK = [
     "sectionId": "contextual_compass",
     "type": "SJT",
     "text": {
-      "en": "Your teacher assigns a difficult group project. What is your immediate reaction?",
+      "en": "You join the school's highly competitive debate club.",
       "hi": "",
       "ml": ""
     },
@@ -6950,7 +6950,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I read the guidelines carefully to ensure strict compliance.",
+          "en": "I practice arguing both sides of a complex legal case.",
           "hi": "",
           "ml": ""
         },
@@ -6964,7 +6964,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I focus on building the physical structure and making sure it works.",
+          "en": "I help build the wooden podiums we use during our home tournaments.",
           "hi": "",
           "ml": ""
         },
@@ -6978,7 +6978,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I focus on helping the community and supporting the vulnerable.",
+          "en": "I comfort the younger members who are nervous before their speeches.",
           "hi": "",
           "ml": ""
         },
@@ -6992,7 +6992,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I step up as a leader and guide the group.",
+          "en": "I focus my arguments entirely on renewable energy legislation.",
           "hi": "",
           "ml": ""
         },
@@ -7006,7 +7006,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I dig through library archives to find statistics that crush the opponent.",
           "hi": "",
           "ml": ""
         },
@@ -7025,7 +7025,7 @@ export const QUESTION_BANK = [
     "sectionId": "contextual_compass",
     "type": "SJT",
     "text": {
-      "en": "You are given free time to learn anything you want. What do you choose?",
+      "en": "You are helping a close friend move into a new house.",
       "hi": "",
       "ml": ""
     },
@@ -7033,7 +7033,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I focus on building the physical structure and making sure it works.",
+          "en": "I take apart the bunk beds and reassemble them in the new room perfectly.",
           "hi": "",
           "ml": ""
         },
@@ -7047,7 +7047,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I focus on helping the community and supporting the vulnerable.",
+          "en": "I keep everyone laughing and pass out drinks to keep morale high.",
           "hi": "",
           "ml": ""
         },
@@ -7061,7 +7061,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I step up as a leader and guide the group.",
+          "en": "I make sure all the cardboard boxes are broken down and recycled properly.",
           "hi": "",
           "ml": ""
         },
@@ -7075,7 +7075,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I study the floor plans to figure out the best way to pivot the couch.",
           "hi": "",
           "ml": ""
         },
@@ -7089,7 +7089,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I thrive in the energetic crowd and keep everyone hyped up.",
+          "en": "I blast music and turn the unpacking process into a massive dance party.",
           "hi": "",
           "ml": ""
         },
@@ -7108,7 +7108,7 @@ export const QUESTION_BANK = [
     "sectionId": "contextual_compass",
     "type": "SJT",
     "text": {
-      "en": "You see a student struggling with a heavy box in the hallway. What do you do?",
+      "en": "You get a summer job as a counselor at a sleepaway camp.",
       "hi": "",
       "ml": ""
     },
@@ -7116,7 +7116,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I focus on helping the community and supporting the vulnerable.",
+          "en": "I sit with the homesick kids and listen to their problems patiently.",
           "hi": "",
           "ml": ""
         },
@@ -7130,7 +7130,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I step up as a leader and guide the group.",
+          "en": "I lead the nature walks and teach the kids not to step on the saplings.",
           "hi": "",
           "ml": ""
         },
@@ -7144,7 +7144,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I read books on child psychology to handle camper conflicts better.",
           "hi": "",
           "ml": ""
         },
@@ -7158,7 +7158,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I thrive in the energetic crowd and keep everyone hyped up.",
+          "en": "I stand on the dining hall tables and lead the loudest camp chants.",
           "hi": "",
           "ml": ""
         },
@@ -7172,7 +7172,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I find a peaceful corner to handle my responsibilities alone.",
+          "en": "I sweep the cabins by myself while the others are at the noisy bonfire.",
           "hi": "",
           "ml": ""
         },
@@ -7191,7 +7191,7 @@ export const QUESTION_BANK = [
     "sectionId": "contextual_compass",
     "type": "SJT",
     "text": {
-      "en": "Your team is losing a sports match at halftime. How do you motivate them?",
+      "en": "Your school allows you to build a community garden on an empty lot.",
       "hi": "",
       "ml": ""
     },
@@ -7199,7 +7199,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I step up as a leader and guide the group.",
+          "en": "I select native plants that require less water to help the local ecosystem.",
           "hi": "",
           "ml": ""
         },
@@ -7213,7 +7213,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I test the soil's pH levels and research which vegetables will grow best.",
           "hi": "",
           "ml": ""
         },
@@ -7227,7 +7227,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I thrive in the energetic crowd and keep everyone hyped up.",
+          "en": "I enthusiastically give garden tours to the elementary school kids.",
           "hi": "",
           "ml": ""
         },
@@ -7241,7 +7241,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I find a peaceful corner to handle my responsibilities alone.",
+          "en": "I spend hours quietly pulling weeds by myself on Sunday mornings.",
           "hi": "",
           "ml": ""
         },
@@ -7255,7 +7255,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I create a highly detailed schedule and strict deadlines for myself.",
+          "en": "I create a strict daily watering schedule and check it off religiously.",
           "hi": "",
           "ml": ""
         },
@@ -7274,7 +7274,7 @@ export const QUESTION_BANK = [
     "sectionId": "contextual_compass",
     "type": "SJT",
     "text": {
-      "en": "You have to write an essay on a topic of your choice. What do you write about?",
+      "en": "You are preparing for the hardest standardized test of the year.",
       "hi": "",
       "ml": ""
     },
@@ -7282,7 +7282,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I dig up ten years of past exams to analyze the question patterns.",
           "hi": "",
           "ml": ""
         },
@@ -7296,7 +7296,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I thrive in the energetic crowd and keep everyone hyped up.",
+          "en": "I host a huge study group where I hype everyone up before the test.",
           "hi": "",
           "ml": ""
         },
@@ -7310,7 +7310,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I find a peaceful corner to handle my responsibilities alone.",
+          "en": "I put my phone on airplane mode and study completely alone in a quiet room.",
           "hi": "",
           "ml": ""
         },
@@ -7324,7 +7324,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I create a highly detailed schedule and strict deadlines for myself.",
+          "en": "I use a stopwatch to time my practice sections down to the second.",
           "hi": "",
           "ml": ""
         },
@@ -7338,7 +7338,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I don't panic; I just keep moving forward steadily.",
+          "en": "When I see a question I don't know, I don't panic; I just guess and move on.",
           "hi": "",
           "ml": ""
         },
@@ -7357,7 +7357,7 @@ export const QUESTION_BANK = [
     "sectionId": "contextual_compass",
     "type": "SJT",
     "text": {
-      "en": "Your phone breaks and you can't afford a new one right away. What is your solution?",
+      "en": "Your family goes on a huge, crowded cruise ship for vacation.",
       "hi": "",
       "ml": ""
     },
@@ -7365,7 +7365,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I thrive in the energetic crowd and keep everyone hyped up.",
+          "en": "I sign up for the karaoke contest and sing in front of hundreds of strangers.",
           "hi": "",
           "ml": ""
         },
@@ -7379,7 +7379,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I find a peaceful corner to handle my responsibilities alone.",
+          "en": "I find a secluded deck chair and read my book away from the pool noise.",
           "hi": "",
           "ml": ""
         },
@@ -7393,7 +7393,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I create a highly detailed schedule and strict deadlines for myself.",
+          "en": "I pack my suitcase perfectly so all my outfits are organized by day.",
           "hi": "",
           "ml": ""
         },
@@ -7407,7 +7407,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I don't panic; I just keep moving forward steadily.",
+          "en": "When the ship hits rough waters, I stay totally relaxed and ignore it.",
           "hi": "",
           "ml": ""
         },
@@ -7421,7 +7421,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I explore abstract theories to find a unique perspective.",
+          "en": "I ignore the burgers and head straight for the weirdest exotic food buffet.",
           "hi": "",
           "ml": ""
         },
@@ -7440,7 +7440,7 @@ export const QUESTION_BANK = [
     "sectionId": "contextual_compass",
     "type": "SJT",
     "text": {
-      "en": "You find a complicated puzzle box. How do you open it?",
+      "en": "You decide to completely reorganize your incredibly messy closet.",
       "hi": "",
       "ml": ""
     },
@@ -7448,7 +7448,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I find a peaceful corner to handle my responsibilities alone.",
+          "en": "I lock my door so nobody bothers me while I sort through my stuff.",
           "hi": "",
           "ml": ""
         },
@@ -7462,7 +7462,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I create a highly detailed schedule and strict deadlines for myself.",
+          "en": "I fold every single shirt perfectly and arrange them by color.",
           "hi": "",
           "ml": ""
         },
@@ -7476,7 +7476,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I don't panic; I just keep moving forward steadily.",
+          "en": "When the clothes pile falls over, I don't get mad, I just restart.",
           "hi": "",
           "ml": ""
         },
@@ -7490,7 +7490,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I explore abstract theories to find a unique perspective.",
+          "en": "I keep some really weird, outdated clothes just because they look cool.",
           "hi": "",
           "ml": ""
         },
@@ -7504,7 +7504,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I analyze the puzzle methodically until I find the root cause.",
+          "en": "I figure out a clever way to fit two rows of shoes in a tiny space.",
           "hi": "",
           "ml": ""
         },
@@ -7523,7 +7523,7 @@ export const QUESTION_BANK = [
     "sectionId": "career_motivation",
     "type": "Likert",
     "text": {
-      "en": "A local community center needs help organizing an event. What do you volunteer for?",
+      "en": "You and your friends are planning a trip to a nearby city.",
       "hi": "",
       "ml": ""
     },
@@ -7531,7 +7531,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I create a highly detailed schedule and strict deadlines for myself.",
+          "en": "I make a detailed itinerary with exact train departure times.",
           "hi": "",
           "ml": ""
         },
@@ -7545,7 +7545,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I don't panic; I just keep moving forward steadily.",
+          "en": "When we miss the bus, I calm everyone down and say we'll catch the next one.",
           "hi": "",
           "ml": ""
         },
@@ -7559,7 +7559,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I explore abstract theories to find a unique perspective.",
+          "en": "I convince everyone to visit a bizarre, underground modern art exhibit.",
           "hi": "",
           "ml": ""
         },
@@ -7573,7 +7573,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I analyze the puzzle methodically until I find the root cause.",
+          "en": "I figure out how to navigate the complicated subway map to save money.",
           "hi": "",
           "ml": ""
         },
@@ -7587,7 +7587,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I delegate tasks based on everyone's strengths.",
+          "en": "I use an app to easily split the hotel and food costs evenly among us.",
           "hi": "",
           "ml": ""
         },
@@ -7606,7 +7606,7 @@ export const QUESTION_BANK = [
     "sectionId": "career_motivation",
     "type": "Likert",
     "text": {
-      "en": "You are designing a brand new app. What is its main feature?",
+      "en": "You get lost while walking around a busy downtown area.",
       "hi": "",
       "ml": ""
     },
@@ -7614,7 +7614,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I don't panic; I just keep moving forward steadily.",
+          "en": "I don't freak out; I just enjoy the scenery until I figure it out.",
           "hi": "",
           "ml": ""
         },
@@ -7628,7 +7628,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I explore abstract theories to find a unique perspective.",
+          "en": "I decide to just hop on a random bus and see where it takes me.",
           "hi": "",
           "ml": ""
         },
@@ -7642,7 +7642,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I analyze the puzzle methodically until I find the root cause.",
+          "en": "I deduce which way is north based on the sun and the street numbers.",
           "hi": "",
           "ml": ""
         },
@@ -7656,7 +7656,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I delegate tasks based on everyone's strengths.",
+          "en": "I flag down a group of locals and ask them nicely for directions.",
           "hi": "",
           "ml": ""
         },
@@ -7670,7 +7670,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I analyze the city grid map on the bus stop to find the quickest route back.",
           "hi": "",
           "ml": ""
         },
@@ -7689,7 +7689,7 @@ export const QUESTION_BANK = [
     "sectionId": "career_motivation",
     "type": "Likert",
     "text": {
-      "en": "You get to interview any famous person. Who do you choose?",
+      "en": "You enter a school baking competition with a strict time limit.",
       "hi": "",
       "ml": ""
     },
@@ -7697,7 +7697,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I explore abstract theories to find a unique perspective.",
+          "en": "I invent a crazy jalapeño-chocolate cupcake flavor to stand out.",
           "hi": "",
           "ml": ""
         },
@@ -7711,7 +7711,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I analyze the puzzle methodically until I find the root cause.",
+          "en": "When my cake burns, I scrape the edges and turn it into cake pops.",
           "hi": "",
           "ml": ""
         },
@@ -7725,7 +7725,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I delegate tasks based on everyone's strengths.",
+          "en": "I partner with a friend so one mixes while the other handles the oven.",
           "hi": "",
           "ml": ""
         },
@@ -7739,7 +7739,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I calculate the exact baking times to ensure I don't run out of time.",
           "hi": "",
           "ml": ""
         },
@@ -7753,7 +7753,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I logically analyze the situation and take decisive action.",
+          "en": "I sculpt an incredibly detailed, artistic fondant dragon for the cake.",
           "hi": "",
           "ml": ""
         },
@@ -7772,7 +7772,7 @@ export const QUESTION_BANK = [
     "sectionId": "career_motivation",
     "type": "Likert",
     "text": {
-      "en": "Your class is debating a controversial new school rule. What is your strategy?",
+      "en": "Your phone dies right before the concert starts and you lose your friends.",
       "hi": "",
       "ml": ""
     },
@@ -7780,7 +7780,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I analyze the puzzle methodically until I find the root cause.",
+          "en": "I find a security guard and logically explain where I saw them last.",
           "hi": "",
           "ml": ""
         },
@@ -7794,7 +7794,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I delegate tasks based on everyone's strengths.",
+          "en": "I borrow a stranger's phone to quickly log into my social media and DM them.",
           "hi": "",
           "ml": ""
         },
@@ -7808,7 +7808,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I realize finding them in the dark is unlikely and just head to our agreed spot.",
           "hi": "",
           "ml": ""
         },
@@ -7822,7 +7822,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I logically analyze the situation and take decisive action.",
+          "en": "I buy a glowing marker and write my friend's name huge on my shirt.",
           "hi": "",
           "ml": ""
         },
@@ -7836,7 +7836,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I adapt instantly to the new rules and try a different approach.",
+          "en": "I recall their phone number from memory, even though I usually rely on contacts.",
           "hi": "",
           "ml": ""
         },
@@ -7855,7 +7855,7 @@ export const QUESTION_BANK = [
     "sectionId": "career_motivation",
     "type": "Likert",
     "text": {
-      "en": "You are trapped in an escape room with your friends. What is your strategy?",
+      "en": "You are creating a comprehensive study guide for midterms.",
       "hi": "",
       "ml": ""
     },
@@ -7863,7 +7863,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I delegate tasks based on everyone's strengths.",
+          "en": "I share a Google Doc and assign different chapters to my classmates.",
           "hi": "",
           "ml": ""
         },
@@ -7877,7 +7877,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I analyze the syllabus to predict exactly which topics the teacher will test.",
           "hi": "",
           "ml": ""
         },
@@ -7891,7 +7891,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I logically analyze the situation and take decisive action.",
+          "en": "I draw a massive, colorful mind map to connect all the historical events.",
           "hi": "",
           "ml": ""
         },
@@ -7905,7 +7905,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I adapt instantly to the new rules and try a different approach.",
+          "en": "I learn complex markdown formatting to make the document easily searchable.",
           "hi": "",
           "ml": ""
         },
@@ -7919,7 +7919,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I look for a technological workaround using modern AI algorithms.",
+          "en": "I use an AI summarizer to condense a 50-page chapter into bullet points.",
           "hi": "",
           "ml": ""
         },
@@ -7938,7 +7938,7 @@ export const QUESTION_BANK = [
     "sectionId": "career_motivation",
     "type": "Likert",
     "text": {
-      "en": "You are starting a YouTube channel. What kind of videos do you make?",
+      "en": "You find a broken remote-control car at a garage sale.",
       "hi": "",
       "ml": ""
     },
@@ -7946,7 +7946,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I focus on getting the job done efficiently and correctly.",
+          "en": "I reverse-engineer the steering mechanism to find the jammed gear.",
           "hi": "",
           "ml": ""
         },
@@ -7960,7 +7960,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I logically analyze the situation and take decisive action.",
+          "en": "I strip the plastic shell and paint it to look like a post-apocalyptic buggy.",
           "hi": "",
           "ml": ""
         },
@@ -7974,7 +7974,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I adapt instantly to the new rules and try a different approach.",
+          "en": "I watch a tutorial and successfully solder the tiny broken wires back together.",
           "hi": "",
           "ml": ""
         },
@@ -7988,7 +7988,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I look for a technological workaround using modern AI algorithms.",
+          "en": "I ask an AI chatbot for troubleshooting steps for this specific RC model.",
           "hi": "",
           "ml": ""
         },
@@ -8002,7 +8002,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I immediately look for a software solution or start coding.",
+          "en": "I swap out the broken motor with a stronger one from an old drill.",
           "hi": "",
           "ml": ""
         },
@@ -8021,7 +8021,7 @@ export const QUESTION_BANK = [
     "sectionId": "career_motivation",
     "type": "Likert",
     "text": {
-      "en": "You have to build a model bridge for a physics project. How do you do it?",
+      "en": "You are brainstorming ideas for a new student fitness app.",
       "hi": "",
       "ml": ""
     },
@@ -8029,7 +8029,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I logically analyze the situation and take decisive action.",
+          "en": "I design a weird feature that makes users run away from virtual zombies.",
           "hi": "",
           "ml": ""
         },
@@ -8043,7 +8043,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I adapt instantly to the new rules and try a different approach.",
+          "en": "I quickly learn how to use a drag-and-drop app builder to make a prototype.",
           "hi": "",
           "ml": ""
         },
@@ -8057,7 +8057,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I look for a technological workaround using modern AI algorithms.",
+          "en": "I integrate an AI that generates a custom workout plan based on user goals.",
           "hi": "",
           "ml": ""
         },
@@ -8071,7 +8071,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I immediately look for a software solution or start coding.",
+          "en": "I code the GPS tracking API so the app accurately measures running distance.",
           "hi": "",
           "ml": ""
         },
@@ -8085,7 +8085,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I focus on the human impact and try to heal or support people.",
+          "en": "I ensure the app includes warm-up stretches to prevent muscle injuries.",
           "hi": "",
           "ml": ""
         },
@@ -8104,7 +8104,7 @@ export const QUESTION_BANK = [
     "sectionId": "career_motivation",
     "type": "Likert",
     "text": {
-      "en": "You are asked to plan the school's annual talent show. What do you focus on?",
+      "en": "Your friend asks you to direct a music video for their song.",
       "hi": "",
       "ml": ""
     },
@@ -8112,7 +8112,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I adapt instantly to the new rules and try a different approach.",
+          "en": "I quickly master the drone camera controls after just a few practice flights.",
           "hi": "",
           "ml": ""
         },
@@ -8126,7 +8126,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I look for a technological workaround using modern AI algorithms.",
+          "en": "I use an AI tool to lip-sync and auto-cut the video to the beat.",
           "hi": "",
           "ml": ""
         },
@@ -8140,7 +8140,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I immediately look for a software solution or start coding.",
+          "en": "I adjust the camera's ISO and shutter speed to shoot in low light.",
           "hi": "",
           "ml": ""
         },
@@ -8154,7 +8154,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I focus on the human impact and try to heal or support people.",
+          "en": "I make sure everyone stays hydrated and takes breaks during the long shoot.",
           "hi": "",
           "ml": ""
         },
@@ -8168,7 +8168,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I sketch out artistic ideas and brainstorm creative themes.",
+          "en": "I sketch out a detailed storyboard visualizing the exact cinematic shots.",
           "hi": "",
           "ml": ""
         },
@@ -8187,7 +8187,7 @@ export const QUESTION_BANK = [
     "sectionId": "career_motivation",
     "type": "Likert",
     "text": {
-      "en": "You find a lost wallet with no ID but a lot of cash. What do you do?",
+      "en": "You decide to start a neighborhood dog walking business.",
       "hi": "",
       "ml": ""
     },
@@ -8195,7 +8195,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I look for a technological workaround using modern AI algorithms.",
+          "en": "I use an AI assistant to auto-reply to clients and manage my calendar.",
           "hi": "",
           "ml": ""
         },
@@ -8209,7 +8209,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I immediately look for a software solution or start coding.",
+          "en": "I set up a secure payment portal and GPS tracking app for the owners.",
           "hi": "",
           "ml": ""
         },
@@ -8223,7 +8223,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I focus on the human impact and try to heal or support people.",
+          "en": "I learn how to safely administer tick medication and handle dog injuries.",
           "hi": "",
           "ml": ""
         },
@@ -8237,7 +8237,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I sketch out artistic ideas and brainstorm creative themes.",
+          "en": "I draw a cute, recognizable logo of a paw print for my business cards.",
           "hi": "",
           "ml": ""
         },
@@ -8251,7 +8251,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I calculate the costs and figure out how to make it profitable.",
+          "en": "I analyze the local market to set competitive, profitable walking rates.",
           "hi": "",
           "ml": ""
         },
@@ -8270,7 +8270,7 @@ export const QUESTION_BANK = [
     "sectionId": "career_motivation",
     "type": "Likert",
     "text": {
-      "en": "You are stranded on a deserted island with a group of people. What is your role?",
+      "en": "You accidentally crash your expensive camera drone into a tree.",
       "hi": "",
       "ml": ""
     },
@@ -8278,7 +8278,7 @@ export const QUESTION_BANK = [
       {
         "id": "A",
         "text": {
-          "en": "I immediately look for a software solution or start coding.",
+          "en": "I re-solder the broken circuit board and recalibrate the gyroscopes.",
           "hi": "",
           "ml": ""
         },
@@ -8292,7 +8292,7 @@ export const QUESTION_BANK = [
       {
         "id": "B",
         "text": {
-          "en": "I focus on the human impact and try to heal or support people.",
+          "en": "I wear safety goggles and heavy gloves when handling the shattered propellers.",
           "hi": "",
           "ml": ""
         },
@@ -8306,7 +8306,7 @@ export const QUESTION_BANK = [
       {
         "id": "C",
         "text": {
-          "en": "I sketch out artistic ideas and brainstorm creative themes.",
+          "en": "I take the opportunity to paint the drone a cool neon color before reassembling.",
           "hi": "",
           "ml": ""
         },
@@ -8320,7 +8320,7 @@ export const QUESTION_BANK = [
       {
         "id": "D",
         "text": {
-          "en": "I calculate the costs and figure out how to make it profitable.",
+          "en": "I calculate if it's cheaper to order replacement parts or just buy a used drone.",
           "hi": "",
           "ml": ""
         },
@@ -8334,7 +8334,7 @@ export const QUESTION_BANK = [
       {
         "id": "E",
         "text": {
-          "en": "I debate the logic and ensure justice is served.",
+          "en": "I check the local aviation rules to ensure I'm not flying it in restricted airspace.",
           "hi": "",
           "ml": ""
         },
@@ -8349,6 +8349,7 @@ export const QUESTION_BANK = [
     "imageCategory": "volunteer_work"
   }
 ];
+
 
 
 export const CAREER_CLUSTERS = [

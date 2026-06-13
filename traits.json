@@ -1,0 +1,1002 @@
+[
+  {
+    "id": "q1",
+    "traits": [
+      "healthcare",
+      "arts",
+      "business",
+      "law",
+      "engineering"
+    ]
+  },
+  {
+    "id": "q2",
+    "traits": [
+      "arts",
+      "business",
+      "law",
+      "engineering",
+      "social"
+    ]
+  },
+  {
+    "id": "q3",
+    "traits": [
+      "business",
+      "law",
+      "engineering",
+      "social",
+      "environment"
+    ]
+  },
+  {
+    "id": "q4",
+    "traits": [
+      "law",
+      "engineering",
+      "social",
+      "environment",
+      "research"
+    ]
+  },
+  {
+    "id": "q5",
+    "traits": [
+      "engineering",
+      "social",
+      "environment",
+      "research",
+      "extroversion"
+    ]
+  },
+  {
+    "id": "q6",
+    "traits": [
+      "social",
+      "environment",
+      "research",
+      "extroversion",
+      "introversion"
+    ]
+  },
+  {
+    "id": "q7",
+    "traits": [
+      "environment",
+      "research",
+      "extroversion",
+      "introversion",
+      "conscientiousness"
+    ]
+  },
+  {
+    "id": "q8",
+    "traits": [
+      "research",
+      "extroversion",
+      "introversion",
+      "conscientiousness",
+      "emotional_stability"
+    ]
+  },
+  {
+    "id": "q9",
+    "traits": [
+      "extroversion",
+      "introversion",
+      "conscientiousness",
+      "emotional_stability",
+      "openness"
+    ]
+  },
+  {
+    "id": "q10",
+    "traits": [
+      "introversion",
+      "conscientiousness",
+      "emotional_stability",
+      "openness",
+      "problem_solving"
+    ]
+  },
+  {
+    "id": "q11",
+    "traits": [
+      "conscientiousness",
+      "emotional_stability",
+      "openness",
+      "problem_solving",
+      "collaboration"
+    ]
+  },
+  {
+    "id": "q12",
+    "traits": [
+      "emotional_stability",
+      "openness",
+      "problem_solving",
+      "collaboration",
+      "critical_thinking"
+    ]
+  },
+  {
+    "id": "q13",
+    "traits": [
+      "openness",
+      "problem_solving",
+      "collaboration",
+      "critical_thinking",
+      "creativity_innov"
+    ]
+  },
+  {
+    "id": "q14",
+    "traits": [
+      "problem_solving",
+      "collaboration",
+      "critical_thinking",
+      "creativity_innov",
+      "learning_agility"
+    ]
+  },
+  {
+    "id": "q15",
+    "traits": [
+      "collaboration",
+      "critical_thinking",
+      "creativity_innov",
+      "learning_agility",
+      "ai_readiness"
+    ]
+  },
+  {
+    "id": "q16",
+    "traits": [
+      "critical_thinking",
+      "creativity_innov",
+      "learning_agility",
+      "ai_readiness",
+      "technology"
+    ]
+  },
+  {
+    "id": "q17",
+    "traits": [
+      "creativity_innov",
+      "learning_agility",
+      "ai_readiness",
+      "technology",
+      "healthcare"
+    ]
+  },
+  {
+    "id": "q18",
+    "traits": [
+      "learning_agility",
+      "ai_readiness",
+      "technology",
+      "healthcare",
+      "arts"
+    ]
+  },
+  {
+    "id": "q19",
+    "traits": [
+      "ai_readiness",
+      "technology",
+      "healthcare",
+      "arts",
+      "business"
+    ]
+  },
+  {
+    "id": "q20",
+    "traits": [
+      "technology",
+      "healthcare",
+      "arts",
+      "business",
+      "law"
+    ]
+  },
+  {
+    "id": "q21",
+    "traits": [
+      "healthcare",
+      "arts",
+      "business",
+      "law",
+      "engineering"
+    ]
+  },
+  {
+    "id": "q22",
+    "traits": [
+      "arts",
+      "business",
+      "law",
+      "engineering",
+      "social"
+    ]
+  },
+  {
+    "id": "q23",
+    "traits": [
+      "business",
+      "law",
+      "engineering",
+      "social",
+      "environment"
+    ]
+  },
+  {
+    "id": "q24",
+    "traits": [
+      "law",
+      "engineering",
+      "social",
+      "environment",
+      "research"
+    ]
+  },
+  {
+    "id": "q25",
+    "traits": [
+      "engineering",
+      "social",
+      "environment",
+      "research",
+      "extroversion"
+    ]
+  },
+  {
+    "id": "q26",
+    "traits": [
+      "social",
+      "environment",
+      "research",
+      "extroversion",
+      "introversion"
+    ]
+  },
+  {
+    "id": "q27",
+    "traits": [
+      "environment",
+      "research",
+      "extroversion",
+      "introversion",
+      "conscientiousness"
+    ]
+  },
+  {
+    "id": "q28",
+    "traits": [
+      "research",
+      "extroversion",
+      "introversion",
+      "conscientiousness",
+      "emotional_stability"
+    ]
+  },
+  {
+    "id": "q29",
+    "traits": [
+      "extroversion",
+      "introversion",
+      "conscientiousness",
+      "emotional_stability",
+      "openness"
+    ]
+  },
+  {
+    "id": "q30",
+    "traits": [
+      "introversion",
+      "conscientiousness",
+      "emotional_stability",
+      "openness",
+      "problem_solving"
+    ]
+  },
+  {
+    "id": "q31",
+    "traits": [
+      "conscientiousness",
+      "emotional_stability",
+      "openness",
+      "problem_solving",
+      "collaboration"
+    ]
+  },
+  {
+    "id": "q32",
+    "traits": [
+      "emotional_stability",
+      "openness",
+      "problem_solving",
+      "collaboration",
+      "critical_thinking"
+    ]
+  },
+  {
+    "id": "q33",
+    "traits": [
+      "openness",
+      "problem_solving",
+      "collaboration",
+      "critical_thinking",
+      "creativity_innov"
+    ]
+  },
+  {
+    "id": "q34",
+    "traits": [
+      "problem_solving",
+      "collaboration",
+      "critical_thinking",
+      "creativity_innov",
+      "learning_agility"
+    ]
+  },
+  {
+    "id": "q35",
+    "traits": [
+      "collaboration",
+      "critical_thinking",
+      "creativity_innov",
+      "learning_agility",
+      "ai_readiness"
+    ]
+  },
+  {
+    "id": "q36",
+    "traits": [
+      "critical_thinking",
+      "creativity_innov",
+      "learning_agility",
+      "ai_readiness",
+      "technology"
+    ]
+  },
+  {
+    "id": "q37",
+    "traits": [
+      "creativity_innov",
+      "learning_agility",
+      "ai_readiness",
+      "technology",
+      "healthcare"
+    ]
+  },
+  {
+    "id": "q38",
+    "traits": [
+      "learning_agility",
+      "ai_readiness",
+      "technology",
+      "healthcare",
+      "arts"
+    ]
+  },
+  {
+    "id": "q39",
+    "traits": [
+      "ai_readiness",
+      "technology",
+      "healthcare",
+      "arts",
+      "business"
+    ]
+  },
+  {
+    "id": "q40",
+    "traits": [
+      "technology",
+      "healthcare",
+      "arts",
+      "business",
+      "law"
+    ]
+  },
+  {
+    "id": "q41",
+    "traits": [
+      "healthcare",
+      "arts",
+      "business",
+      "law",
+      "engineering"
+    ]
+  },
+  {
+    "id": "q42",
+    "traits": [
+      "arts",
+      "business",
+      "law",
+      "engineering",
+      "social"
+    ]
+  },
+  {
+    "id": "q43",
+    "traits": [
+      "business",
+      "law",
+      "engineering",
+      "social",
+      "environment"
+    ]
+  },
+  {
+    "id": "q44",
+    "traits": [
+      "law",
+      "engineering",
+      "social",
+      "environment",
+      "research"
+    ]
+  },
+  {
+    "id": "q45",
+    "traits": [
+      "engineering",
+      "social",
+      "environment",
+      "research",
+      "extroversion"
+    ]
+  },
+  {
+    "id": "q46",
+    "traits": [
+      "social",
+      "environment",
+      "research",
+      "extroversion",
+      "introversion"
+    ]
+  },
+  {
+    "id": "q47",
+    "traits": [
+      "environment",
+      "research",
+      "extroversion",
+      "introversion",
+      "conscientiousness"
+    ]
+  },
+  {
+    "id": "q48",
+    "traits": [
+      "research",
+      "extroversion",
+      "introversion",
+      "conscientiousness",
+      "emotional_stability"
+    ]
+  },
+  {
+    "id": "q49",
+    "traits": [
+      "extroversion",
+      "introversion",
+      "conscientiousness",
+      "emotional_stability",
+      "openness"
+    ]
+  },
+  {
+    "id": "q50",
+    "traits": [
+      "introversion",
+      "conscientiousness",
+      "emotional_stability",
+      "openness",
+      "problem_solving"
+    ]
+  },
+  {
+    "id": "q51",
+    "traits": [
+      "conscientiousness",
+      "emotional_stability",
+      "openness",
+      "problem_solving",
+      "collaboration"
+    ]
+  },
+  {
+    "id": "q52",
+    "traits": [
+      "emotional_stability",
+      "openness",
+      "problem_solving",
+      "collaboration",
+      "critical_thinking"
+    ]
+  },
+  {
+    "id": "q53",
+    "traits": [
+      "openness",
+      "problem_solving",
+      "collaboration",
+      "critical_thinking",
+      "creativity_innov"
+    ]
+  },
+  {
+    "id": "q54",
+    "traits": [
+      "problem_solving",
+      "collaboration",
+      "critical_thinking",
+      "creativity_innov",
+      "learning_agility"
+    ]
+  },
+  {
+    "id": "q55",
+    "traits": [
+      "collaboration",
+      "critical_thinking",
+      "creativity_innov",
+      "learning_agility",
+      "ai_readiness"
+    ]
+  },
+  {
+    "id": "q56",
+    "traits": [
+      "critical_thinking",
+      "creativity_innov",
+      "learning_agility",
+      "ai_readiness",
+      "technology"
+    ]
+  },
+  {
+    "id": "q57",
+    "traits": [
+      "creativity_innov",
+      "learning_agility",
+      "ai_readiness",
+      "technology",
+      "healthcare"
+    ]
+  },
+  {
+    "id": "q58",
+    "traits": [
+      "learning_agility",
+      "ai_readiness",
+      "technology",
+      "healthcare",
+      "arts"
+    ]
+  },
+  {
+    "id": "q59",
+    "traits": [
+      "ai_readiness",
+      "technology",
+      "healthcare",
+      "arts",
+      "business"
+    ]
+  },
+  {
+    "id": "q60",
+    "traits": [
+      "technology",
+      "healthcare",
+      "arts",
+      "business",
+      "law"
+    ]
+  },
+  {
+    "id": "q61",
+    "traits": [
+      "healthcare",
+      "arts",
+      "business",
+      "law",
+      "engineering"
+    ]
+  },
+  {
+    "id": "q62",
+    "traits": [
+      "arts",
+      "business",
+      "law",
+      "engineering",
+      "social"
+    ]
+  },
+  {
+    "id": "q63",
+    "traits": [
+      "business",
+      "law",
+      "engineering",
+      "social",
+      "environment"
+    ]
+  },
+  {
+    "id": "q64",
+    "traits": [
+      "law",
+      "engineering",
+      "social",
+      "environment",
+      "research"
+    ]
+  },
+  {
+    "id": "q65",
+    "traits": [
+      "engineering",
+      "social",
+      "environment",
+      "research",
+      "extroversion"
+    ]
+  },
+  {
+    "id": "q66",
+    "traits": [
+      "social",
+      "environment",
+      "research",
+      "extroversion",
+      "introversion"
+    ]
+  },
+  {
+    "id": "q67",
+    "traits": [
+      "environment",
+      "research",
+      "extroversion",
+      "introversion",
+      "conscientiousness"
+    ]
+  },
+  {
+    "id": "q68",
+    "traits": [
+      "research",
+      "extroversion",
+      "introversion",
+      "conscientiousness",
+      "emotional_stability"
+    ]
+  },
+  {
+    "id": "q69",
+    "traits": [
+      "extroversion",
+      "introversion",
+      "conscientiousness",
+      "emotional_stability",
+      "openness"
+    ]
+  },
+  {
+    "id": "q70",
+    "traits": [
+      "introversion",
+      "conscientiousness",
+      "emotional_stability",
+      "openness",
+      "problem_solving"
+    ]
+  },
+  {
+    "id": "q71",
+    "traits": [
+      "conscientiousness",
+      "emotional_stability",
+      "openness",
+      "problem_solving",
+      "collaboration"
+    ]
+  },
+  {
+    "id": "q72",
+    "traits": [
+      "emotional_stability",
+      "openness",
+      "problem_solving",
+      "collaboration",
+      "critical_thinking"
+    ]
+  },
+  {
+    "id": "q73",
+    "traits": [
+      "openness",
+      "problem_solving",
+      "collaboration",
+      "critical_thinking",
+      "creativity_innov"
+    ]
+  },
+  {
+    "id": "q74",
+    "traits": [
+      "problem_solving",
+      "collaboration",
+      "critical_thinking",
+      "creativity_innov",
+      "learning_agility"
+    ]
+  },
+  {
+    "id": "q75",
+    "traits": [
+      "collaboration",
+      "critical_thinking",
+      "creativity_innov",
+      "learning_agility",
+      "ai_readiness"
+    ]
+  },
+  {
+    "id": "q76",
+    "traits": [
+      "critical_thinking",
+      "creativity_innov",
+      "learning_agility",
+      "ai_readiness",
+      "technology"
+    ]
+  },
+  {
+    "id": "q77",
+    "traits": [
+      "creativity_innov",
+      "learning_agility",
+      "ai_readiness",
+      "technology",
+      "healthcare"
+    ]
+  },
+  {
+    "id": "q78",
+    "traits": [
+      "learning_agility",
+      "ai_readiness",
+      "technology",
+      "healthcare",
+      "arts"
+    ]
+  },
+  {
+    "id": "q79",
+    "traits": [
+      "ai_readiness",
+      "technology",
+      "healthcare",
+      "arts",
+      "business"
+    ]
+  },
+  {
+    "id": "q80",
+    "traits": [
+      "technology",
+      "healthcare",
+      "arts",
+      "business",
+      "law"
+    ]
+  },
+  {
+    "id": "q81",
+    "traits": [
+      "healthcare",
+      "arts",
+      "business",
+      "law",
+      "engineering"
+    ]
+  },
+  {
+    "id": "q82",
+    "traits": [
+      "arts",
+      "business",
+      "law",
+      "engineering",
+      "social"
+    ]
+  },
+  {
+    "id": "q83",
+    "traits": [
+      "business",
+      "law",
+      "engineering",
+      "social",
+      "environment"
+    ]
+  },
+  {
+    "id": "q84",
+    "traits": [
+      "law",
+      "engineering",
+      "social",
+      "environment",
+      "research"
+    ]
+  },
+  {
+    "id": "q85",
+    "traits": [
+      "engineering",
+      "social",
+      "environment",
+      "research",
+      "extroversion"
+    ]
+  },
+  {
+    "id": "q86",
+    "traits": [
+      "social",
+      "environment",
+      "research",
+      "extroversion",
+      "introversion"
+    ]
+  },
+  {
+    "id": "q87",
+    "traits": [
+      "environment",
+      "research",
+      "extroversion",
+      "introversion",
+      "conscientiousness"
+    ]
+  },
+  {
+    "id": "q88",
+    "traits": [
+      "research",
+      "extroversion",
+      "introversion",
+      "conscientiousness",
+      "emotional_stability"
+    ]
+  },
+  {
+    "id": "q89",
+    "traits": [
+      "extroversion",
+      "introversion",
+      "conscientiousness",
+      "emotional_stability",
+      "openness"
+    ]
+  },
+  {
+    "id": "q90",
+    "traits": [
+      "introversion",
+      "conscientiousness",
+      "emotional_stability",
+      "openness",
+      "problem_solving"
+    ]
+  },
+  {
+    "id": "q91",
+    "traits": [
+      "conscientiousness",
+      "emotional_stability",
+      "openness",
+      "problem_solving",
+      "collaboration"
+    ]
+  },
+  {
+    "id": "q92",
+    "traits": [
+      "emotional_stability",
+      "openness",
+      "problem_solving",
+      "collaboration",
+      "critical_thinking"
+    ]
+  },
+  {
+    "id": "q93",
+    "traits": [
+      "openness",
+      "problem_solving",
+      "collaboration",
+      "critical_thinking",
+      "creativity_innov"
+    ]
+  },
+  {
+    "id": "q94",
+    "traits": [
+      "problem_solving",
+      "collaboration",
+      "critical_thinking",
+      "creativity_innov",
+      "learning_agility"
+    ]
+  },
+  {
+    "id": "q95",
+    "traits": [
+      "collaboration",
+      "critical_thinking",
+      "creativity_innov",
+      "learning_agility",
+      "ai_readiness"
+    ]
+  },
+  {
+    "id": "q96",
+    "traits": [
+      "critical_thinking",
+      "creativity_innov",
+      "learning_agility",
+      "ai_readiness",
+      "technology"
+    ]
+  },
+  {
+    "id": "q97",
+    "traits": [
+      "creativity_innov",
+      "learning_agility",
+      "ai_readiness",
+      "technology",
+      "healthcare"
+    ]
+  },
+  {
+    "id": "q98",
+    "traits": [
+      "learning_agility",
+      "ai_readiness",
+      "technology",
+      "healthcare",
+      "arts"
+    ]
+  },
+  {
+    "id": "q99",
+    "traits": [
+      "ai_readiness",
+      "technology",
+      "healthcare",
+      "arts",
+      "business"
+    ]
+  },
+  {
+    "id": "q100",
+    "traits": [
+      "technology",
+      "healthcare",
+      "arts",
+      "business",
+      "law"
+    ]
+  }
+]
