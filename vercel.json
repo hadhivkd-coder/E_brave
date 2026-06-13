@@ -1,4 +1,6 @@
 {
+  "buildCommand": "node build_all.js",
+  "outputDirectory": "dist",
   "rewrites": [
     { "source": "/compass/(.*)", "destination": "/compass/index.html" },
     { "source": "/compass", "destination": "/compass/index.html" },
