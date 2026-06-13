@@ -29,7 +29,7 @@ const Outcomes = () => {
     {
       category: "FOR STUDENTS",
       tabName: "Students",
-      image: "/outcome_student.png",
+      image: `${import.meta.env.BASE_URL}outcome_student.png`,
       isPrimary: true,
       points: [
         "Career Clarity",
@@ -42,7 +42,7 @@ const Outcomes = () => {
     {
       category: "FOR PARENTS",
       tabName: "Parents",
-      image: "/outcome_parent.png",
+      image: `${import.meta.env.BASE_URL}outcome_parent.png`,
       isPrimary: false,
       points: [
         "Better Understanding of Their Child",
@@ -54,7 +54,7 @@ const Outcomes = () => {
     {
       category: "FOR SCHOOLS",
       tabName: "Schools",
-      image: "/outcome_school.png",
+      image: `${import.meta.env.BASE_URL}outcome_school.png`,
       isPrimary: false,
       points: [
         "Enhanced Student Development",

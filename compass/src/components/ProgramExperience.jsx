@@ -29,25 +29,25 @@ const ProgramExperience = () => {
       step: "STEP 01",
       title: "Career Assessment",
       description: "Understand strengths, interests, aptitude, personality, and potential through structured assessment.",
-      bgImage: "/pe_assessment_wide.png"
+      bgImage: `${import.meta.env.BASE_URL}pe_assessment_wide.png`
     },
     {
       step: "STEP 02",
       title: "One-to-One Counseling",
       description: "Personalized guidance sessions focused on clarity, confidence, and informed decision-making.",
-      bgImage: "/pe_counseling_wide.png"
+      bgImage: `${import.meta.env.BASE_URL}pe_counseling_wide.png`
     },
     {
       step: "STEP 03",
       title: "Parent Guidance Session",
       description: "Helping parents better understand and support their child's academic and career journey.",
-      bgImage: "/pe_parent_session_wide.png"
+      bgImage: `${import.meta.env.BASE_URL}pe_parent_session_wide.png`
     },
     {
       step: "STEP 04",
       title: "Career Planning Workshop",
       description: "Transform insights into action through planning, goal setting, and future-readiness development.",
-      bgImage: "/pe_workshop_wide.png"
+      bgImage: `${import.meta.env.BASE_URL}pe_workshop_wide.png`
     }
   ];
 
