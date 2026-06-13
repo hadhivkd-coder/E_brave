@@ -73,6 +73,9 @@ export default function Hero() {
                         <a href="/student/assessment" className="btn-main" style={{ background: 'linear-gradient(135deg, #7FA86E, #2E6B3A)', color: '#fff', border: 'none', padding: '14px 28px', borderRadius: '8px', fontWeight: 600, boxShadow: '0 4px 15px rgba(127, 168, 110, 0.4)', transition: 'transform 0.2s ease' }} aria-label="Take Career Assessment">
                             Take Career Assessment 🎯
                         </a>
+                        <a href="/compass/" className="btn-main" style={{ background: 'linear-gradient(135deg, #0c2016, #2E6B3A)', color: '#fff', border: 'none', padding: '14px 28px', borderRadius: '8px', fontWeight: 600, boxShadow: '0 4px 15px rgba(12, 32, 22, 0.4)', transition: 'transform 0.2s ease', width: '100%', textAlign: 'center', marginTop: '8px' }} aria-label="Explore E-Brave Compass">
+                            Explore E-Brave Compass for Schools 🏫
+                        </a>
                     </div>
 
                     <div className="hero-trust">

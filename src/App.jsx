@@ -14,6 +14,7 @@ import Testimonial from './components/Testimonial';
 import Counselor from './components/Counselor';
 import Footer from './components/Footer';
 import PrestigeTicker from './components/PrestigeTicker';
+import CompassHighlight from './components/CompassHighlight';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
 import ScrollToTop from './components/ScrollToTop';
 import SocialProof from './components/SocialProof';
@@ -52,6 +53,7 @@ function PublicSite() {
       <Navbar registrationsList={registrationsList} />
       <main id="main-content">
         <Hero />
+        <CompassHighlight />
         <PrestigeTicker />
         <About />
         <Process />
