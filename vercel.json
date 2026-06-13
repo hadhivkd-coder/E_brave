@@ -1,5 +1,5 @@
 {
-  "buildCommand": "node build_all.js",
+  "buildCommand": "node build_all.cjs",
   "outputDirectory": "dist",
   "rewrites": [
     { "source": "/compass/(.*)", "destination": "/compass/index.html" },

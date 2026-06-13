@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 console.log('Building main site...');
-execSync('vite build', { stdio: 'inherit' });
+execSync('npx vite build', { stdio: 'inherit' });
 
 console.log('Building compass...');
 execSync('npm install', { cwd: 'compass', stdio: 'inherit' });
