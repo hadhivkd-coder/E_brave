@@ -1,0 +1,221 @@
+.program-experience {
+  background-color: #0c2016; /* Dark Green Rhythm */
+  padding: 5rem 0; /* Reduced from 8rem to save vertical height */
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+}
+
+/* --- Premium Watermark Background --- */
+.pe-bg-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  color: #2E6B3A;
+  opacity: 0.04; 
+}
+
+.pe-compass-bg {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 50%;
+  height: 140%;
+}
+
+/* --- Content --- */
+.program-experience .container {
+  position: relative;
+  z-index: 1;
+}
+
+.pe-header {
+  text-align: center;
+  margin-bottom: 4rem; /* Reduced from 5rem */
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pe-header h2 {
+  font-size: 3rem;
+  color: #ffffff;
+  margin-bottom: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.pe-subtitle {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+/* --- 2x2 Image Grid --- */
+.pe-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem; /* Reduced gap for a tighter layout */
+  max-width: 1200px; /* Slightly wider max-width for better balance */
+  margin: 0 auto;
+}
+
+.pe-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9; /* WIDER landscape cards instead of tall posters */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  
+  /* Initial scroll animation state */
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.pe-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Image Backgrounds --- */
+.pe-card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.pe-card-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.pe-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(10, 28, 20, 0.95) 0%, rgba(10, 28, 20, 0.5) 45%, rgba(10, 28, 20, 0.0) 100%);
+  transition: background 0.4s ease;
+}
+
+/* --- Card Content --- */
+.pe-card-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 1.5rem 1.8rem; /* Tighter padding for a more visual-dominant card */
+  color: #ffffff;
+}
+
+.pe-card-top {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.pe-step-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.25); /* Darker blur for more contrast against bright backgrounds */
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.pe-card-bottom {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+}
+
+.pe-title {
+  font-size: 1.4rem; /* Slightly smaller for wide layout */
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+}
+
+.pe-description {
+  font-size: 0.95rem; /* Slightly smaller for wide layout */
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 95%;
+}
+
+/* --- Hover Physics --- */
+.pe-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(10, 28, 20, 0.2);
+}
+
+.pe-card:hover .pe-card-bg img {
+  transform: scale(1.05);
+}
+
+.pe-card:hover .pe-card-overlay {
+  background: linear-gradient(to top, rgba(10, 28, 20, 0.98) 0%, rgba(10, 28, 20, 0.6) 45%, rgba(10, 28, 20, 0.1) 100%);
+}
+
+
+/* --- Media Queries --- */
+@media (max-width: 1024px) {
+  .pe-grid {
+    gap: 1.5rem;
+  }
+  .pe-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .program-experience {
+    padding: 4rem 0; /* Reduced padding */
+  }
+  .pe-header {
+    margin-bottom: 3rem;
+  }
+  .pe-header h2 {
+    font-size: 2rem;
+  }
+  
+  /* Horizontal Swipe Carousel */
+  .pe-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .pe-grid::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .pe-card {
+    min-width: 85vw; /* Show part of the next card */
+    scroll-snap-align: center;
+    aspect-ratio: 4 / 3; /* Taller on mobile for text readability */
+  }
+}

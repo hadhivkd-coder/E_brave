@@ -1,0 +1,306 @@
+.why-compass {
+  background-color: var(--color-white);
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+  color: var(--color-dark-bg);
+}
+
+/* --- Premium Watermark Background --- */
+.why-bg-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  color: #2E6B3A;
+  opacity: 0.04; /* 3-5% opacity watermark */
+}
+
+.bg-compass-circles {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 50%;
+  height: 120%;
+}
+
+.bg-direction-lines {
+  position: absolute;
+  bottom: 10%;
+  left: -5%;
+  width: 40%;
+  height: 40%;
+}
+
+/* --- Content --- */
+.why-compass .container {
+  position: relative;
+  z-index: 1;
+}
+
+.why-header {
+  text-align: center;
+  margin-bottom: 5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.why-header h2 {
+  font-size: 3rem;
+  color: var(--color-dark-bg);
+  margin-bottom: 2rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.why-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.why-intro p {
+  font-size: 1.15rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* --- Visual Journey Flow --- */
+.why-journey-flow {
+  position: relative;
+  margin-top: 3rem;
+}
+
+/* Connecting Line */
+.journey-connector-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(46, 107, 58, 0.2) 10%, rgba(46, 107, 58, 0.2) 90%, transparent 100%);
+  z-index: 0;
+  transform: translateY(-50%);
+}
+
+.why-journey-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.why-journey-step {
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  
+  /* Initial scroll animation state */
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.why-journey-step.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* The small dot connecting the card to the line */
+.step-connector-dot {
+  position: absolute;
+  top: 50%;
+  left: -20px; /* Align with gap, not strictly perfect but gives pathway feel */
+  width: 10px;
+  height: 10px;
+  background-color: #2E6B3A;
+  border-radius: 50%;
+  opacity: 0; /* Hidden by default, maybe visible on mobile */
+}
+
+/* Hover Effects */
+.why-journey-step:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.why-journey-step:hover .step-icon-wrapper svg {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Alternating Styles */
+
+/* Primary Green (1st & 4th) */
+.step-primary-green {
+  background-color: #0c2016; /* Hero dark green */
+  color: #ffffff;
+  border: 1px solid rgba(58, 181, 98, 0.2);
+}
+
+.step-primary-green .step-number {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.step-primary-green .step-icon-wrapper {
+  color: #3AB562; /* Bright green accent for dark background */
+}
+
+.step-primary-green .step-title {
+  color: #ffffff;
+}
+
+.step-primary-green .step-description {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.step-primary-green:hover {
+  border-color: rgba(58, 181, 98, 0.5);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* White (2nd) */
+.step-white {
+  background-color: #ffffff;
+  color: var(--color-dark-bg);
+  border: 1px solid rgba(46, 107, 58, 0.1);
+}
+
+.step-white .step-number {
+  color: rgba(46, 107, 58, 0.2);
+}
+
+.step-white .step-icon-wrapper {
+  color: #2E6B3A;
+}
+
+.step-white .step-title {
+  color: var(--color-dark-bg);
+}
+
+.step-white .step-description {
+  color: var(--color-text-secondary);
+}
+
+.step-white:hover {
+  border-color: rgba(46, 107, 58, 0.3);
+}
+
+/* Light Green (3rd) */
+.step-light-green {
+  background-color: #E6F0E2;
+  color: var(--color-dark-bg);
+  border: 1px solid rgba(46, 107, 58, 0.1);
+}
+
+.step-light-green .step-number {
+  color: rgba(46, 107, 58, 0.25);
+}
+
+.step-light-green .step-icon-wrapper {
+  color: #2E6B3A;
+}
+
+.step-light-green .step-title {
+  color: var(--color-dark-bg);
+}
+
+.step-light-green .step-description {
+  color: #4a5d50;
+}
+
+.step-light-green:hover {
+  border-color: rgba(46, 107, 58, 0.4);
+}
+
+/* Internal Card Layout */
+.step-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.step-number {
+  font-size: 1.5rem;
+  font-weight: 800;
+  font-family: var(--font-body);
+}
+
+.step-icon-wrapper {
+  width: 32px;
+  height: 32px;
+}
+
+.step-icon-wrapper svg {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.step-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 0.8rem;
+  line-height: 1.3;
+  letter-spacing: -0.3px;
+}
+
+.step-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* --- Media Queries --- */
+@media (max-width: 1024px) {
+  .journey-connector-line {
+    display: none; /* Remove horizontal line on tablet/mobile */
+  }
+  .why-journey-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .why-compass {
+    padding: 4rem 0; /* Reduced padding for mobile */
+  }
+  .why-header h2 {
+    font-size: 2rem; /* Reduced heading size */
+  }
+  .why-intro p {
+    font-size: 1.05rem;
+  }
+  .why-header {
+    margin-bottom: 3rem;
+  }
+  
+  /* Horizontal Swipe Carousel */
+  .why-journey-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+  }
+  .why-journey-grid::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+  
+  .why-journey-step {
+    min-width: 85vw; /* Show a peek of the next card */
+    scroll-snap-align: center;
+    padding: 2rem 1.5rem;
+  }
+}

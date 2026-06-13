@@ -1,0 +1,191 @@
+/* ============================================================
+   E-BRAVE PREMIUM DASHBOARD STYLES
+   Glassmorphism, Bento Grid, and Advanced Animations
+   ============================================================ */
+
+:root {
+  --adm-radius-xl: 24px;
+  --adm-shadow-glow: 0 0 20px rgba(16, 185, 129, 0.15);
+  --adm-transition-bounce: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --adm-glass-bg: rgba(255, 255, 255, 0.8);
+  --adm-glass-border: rgba(255, 255, 255, 0.5);
+}
+
+/* ── KEYFRAMES ─────────────────────────────────────────────── */
+@keyframes adm-fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes adm-pulse-glow {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+@keyframes adm-chart-grow {
+  from { height: 0; opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes adm-shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+/* ── COMPONENTS ────────────────────────────────────────────── */
+
+/* Premium Glassmorphic Card */
+.adm-card-glass {
+  background: var(--adm-glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--adm-glass-border);
+  border-radius: var(--adm-radius-xl);
+  padding: 32px;
+  box-shadow: var(--adm-shadow-lg);
+  transition: all var(--adm-transition-bounce);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: block; /* For a tags */
+}
+
+.adm-card-glass::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--adm-green), var(--adm-blue));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.adm-card-glass:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--adm-shadow-glow), var(--adm-shadow-lg);
+}
+
+.adm-card-glass:hover::before {
+  opacity: 1;
+}
+
+/* Bento Box Grid */
+.adm-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.adm-bento-item {
+  animation: adm-fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+/* Stagger animations for bento items */
+.adm-bento-item:nth-child(1) { animation-delay: 0.05s; }
+.adm-bento-item:nth-child(2) { animation-delay: 0.1s; }
+.adm-bento-item:nth-child(3) { animation-delay: 0.15s; }
+.adm-bento-item:nth-child(4) { animation-delay: 0.2s; }
+.adm-bento-item:nth-child(5) { animation-delay: 0.25s; }
+.adm-bento-item:nth-child(6) { animation-delay: 0.3s; }
+.adm-bento-item:nth-child(7) { animation-delay: 0.35s; }
+.adm-bento-item:nth-child(8) { animation-delay: 0.4s; }
+
+/* Interactive Metrics */
+.adm-metric-value {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, var(--adm-text) 0%, var(--adm-muted) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform var(--adm-transition-bounce);
+  margin: 16px 0;
+}
+
+.adm-card-glass:hover .adm-metric-value {
+  transform: scale(1.05) translateX(4px);
+}
+
+.adm-metric-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--adm-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Custom CSS Charts */
+.adm-chart-container {
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--adm-border);
+}
+
+.adm-chart-bar-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  group: hover;
+}
+
+.adm-chart-bar {
+  width: 100%;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  animation: adm-chart-grow 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-origin: bottom;
+  position: relative;
+  overflow: hidden;
+}
+
+.adm-chart-bar::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 100%);
+}
+
+.adm-chart-bar-wrapper:hover .adm-chart-bar {
+  filter: brightness(1.1);
+  box-shadow: 0 0 15px currentColor;
+}
+
+.adm-chart-label {
+  font-size: 0.75rem;
+  color: var(--adm-text-secondary);
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+.adm-chart-tooltip {
+  position: absolute;
+  top: -40px;
+  background: var(--adm-text);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.2s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.adm-chart-bar-wrapper:hover .adm-chart-tooltip {
+  opacity: 1;
+  transform: translateY(0);
+}

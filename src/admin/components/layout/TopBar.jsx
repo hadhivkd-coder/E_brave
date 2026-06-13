@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { useData } from '../../context/DataContext';
 import { useNotifications } from '../../context/NotificationContext';
+import QuickAddModal from '../ui/QuickAddModal';
 import '../../admin.css';
 
 function formatTimeAgo(dateStr) {
@@ -27,6 +28,7 @@ export default function TopBar({ title, onToggleSidebar }) {
   const [showSearch, setShowSearch] = useState(false);
 
   const [showQuickAdd, setShowQuickAdd] = useState(false);
+  const [quickAddType, setQuickAddType] = useState(null); // 'lead' | 'task' | 'session'
   const [showNotifications, setShowNotifications] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
 
@@ -88,7 +90,7 @@ export default function TopBar({ title, onToggleSidebar }) {
     ? (user.name || user.email || 'A').slice(0, 2).toUpperCase()
     : 'A';
 
-  return (
+  return (<>
     <header className="adm-topbar">
       {/* Left: hamburger + title */}
       <div className="adm-topbar-left">
@@ -168,14 +170,14 @@ export default function TopBar({ title, onToggleSidebar }) {
           {showQuickAdd && (
             <div className="adm-dropdown adm-dropdown--quick-add">
               <div className="adm-dropdown-header">Quick Add</div>
-              <button className="adm-dropdown-item" onClick={() => { navigate('/admin/leads/new'); setShowQuickAdd(false); }}>
+              <button className="adm-dropdown-item" onClick={() => { setQuickAddType('lead'); setShowQuickAdd(false); }}>
                 <span className="adm-dropdown-item-icon">🎯</span> Add Lead
               </button>
-              <button className="adm-dropdown-item" onClick={() => { navigate('/admin/tasks/new'); setShowQuickAdd(false); }}>
+              <button className="adm-dropdown-item" onClick={() => { setQuickAddType('task'); setShowQuickAdd(false); }}>
                 <span className="adm-dropdown-item-icon">✅</span> Add Task
               </button>
-              <button className="adm-dropdown-item" onClick={() => { navigate('/admin/counseling/new'); setShowQuickAdd(false); }}>
-                <span className="adm-dropdown-item-icon">💬</span> Add Session
+              <button className="adm-dropdown-item" onClick={() => { setQuickAddType('session'); setShowQuickAdd(false); }}>
+                <span className="adm-dropdown-item-icon">💬</span> Book Session
               </button>
             </div>
           )}
@@ -277,5 +279,14 @@ export default function TopBar({ title, onToggleSidebar }) {
         </div>
       </div>
     </header>
-  );
+
+    {/* Global Quick Add Modal */}
+    {quickAddType && (
+      <QuickAddModal
+        type={quickAddType}
+        onClose={() => setQuickAddType(null)}
+        onSuccess={() => setQuickAddType(null)}
+      />
+    )}
+  </>);
 }

@@ -1,0 +1,185 @@
+.why-trust-section {
+  background-color: #E6F0E2; /* Alternating Light Green Rhythm */
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+  color: var(--color-dark-bg);
+}
+
+/* --- Premium Watermark Background --- */
+.trust-bg-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  color: #2E6B3A;
+  opacity: 0.05;
+}
+
+.trust-watermark-1 {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 50%;
+  height: 120%;
+}
+
+.trust-watermark-2 {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  width: 30%;
+  height: 50%;
+}
+
+/* --- Layout --- */
+.why-trust-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.trust-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.trust-header h2 {
+  font-size: 3rem;
+  color: var(--color-dark-bg);
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.trust-line {
+  width: 60px;
+  height: 4px;
+  background-color: #3AB562;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* --- 4-Card Grid --- */
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.trust-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(46, 107, 58, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  
+  /* Initial scroll animation state */
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.trust-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.trust-card-icon {
+  width: 70px;
+  height: 70px;
+  background-color: rgba(46, 107, 58, 0.08);
+  color: #2E6B3A;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.trust-card-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.trust-card h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-dark-bg);
+  margin-bottom: 0.8rem;
+  line-height: 1.3;
+}
+
+.trust-card p {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* --- Hover Physics --- */
+.trust-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(46, 107, 58, 0.12);
+  border-color: rgba(58, 181, 98, 0.2);
+}
+
+.trust-card:hover .trust-card-icon {
+  background-color: #3AB562;
+  color: #ffffff;
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* --- Media Queries --- */
+@media (max-width: 1024px) {
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .why-trust-section {
+    padding: 4rem 0; /* Reduced padding */
+  }
+  .trust-header h2 {
+    font-size: 2rem;
+  }
+  .trust-header {
+    margin-bottom: 3rem;
+  }
+  .trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem; /* tighter spacing for compact grid */
+  }
+  .trust-card {
+    padding: 1.5rem 1rem;
+  }
+  .trust-card-icon {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+  }
+  .trust-card-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  .trust-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .trust-card p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+}

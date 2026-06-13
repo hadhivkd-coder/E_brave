@@ -1,0 +1,314 @@
+.program-outcomes {
+  background-color: var(--color-white);
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+  color: var(--color-dark-bg);
+}
+
+/* --- Premium Watermark Background --- */
+.outcomes-bg-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  color: #2E6B3A;
+  opacity: 0.04; /* 3-5% opacity */
+}
+
+.outcomes-compass-bg {
+  position: absolute;
+  top: 10%;
+  left: -5%;
+  width: 60%;
+  height: 80%;
+}
+
+/* --- Content --- */
+.program-outcomes .container {
+  position: relative;
+  z-index: 1;
+}
+
+.outcomes-header {
+  text-align: center;
+  margin-bottom: 5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.outcomes-header h2 {
+  font-size: 3rem;
+  color: var(--color-dark-bg);
+  margin-bottom: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.outcomes-subtitle {
+  font-size: 1.15rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* --- 3-Column Grid --- */
+.outcomes-mobile-tabs {
+  display: none; /* Hidden on desktop */
+}
+
+.outcomes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.outcome-card {
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  background-color: #ffffff;
+  
+  /* Initial scroll animation state */
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.outcome-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Top Image Section --- */
+.outcome-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 240px; /* fixed height for uniformity */
+  overflow: hidden;
+}
+
+.outcome-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.outcome-category-badge {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(4px);
+  color: #0c2016;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 0.4rem 1.2rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Bottom Content Section --- */
+.outcome-content {
+  padding: 2.5rem 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.outcome-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.outcome-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.outcome-check {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.outcome-check svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* --- Distinct Styling for Primary vs Standard --- */
+
+/* Standard (Parents & Schools) */
+.outcome-card-standard {
+  border: 1px solid rgba(46, 107, 58, 0.1);
+}
+
+.outcome-card-standard .outcome-content {
+  background-color: #ffffff;
+}
+
+.outcome-card-standard .outcome-list-item {
+  color: var(--color-dark-bg);
+}
+
+.outcome-card-standard .outcome-check {
+  background-color: rgba(58, 181, 98, 0.1);
+  color: #3AB562;
+}
+
+.outcome-card-standard:hover {
+  border-color: rgba(46, 107, 58, 0.25);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* Primary Emphasis (Students) */
+.outcome-card-primary {
+  border: 1px solid rgba(58, 181, 98, 0.3);
+  box-shadow: 0 10px 30px rgba(46, 107, 58, 0.15);
+}
+
+.outcome-card-primary .outcome-category-badge {
+  background-color: #3AB562;
+  color: #ffffff;
+}
+
+.outcome-card-primary .outcome-content {
+  background-color: #0c2016; /* E-Brave Dark Green */
+}
+
+.outcome-card-primary .outcome-list-item {
+  color: #ffffff;
+}
+
+.outcome-card-primary .outcome-check {
+  background-color: #3AB562;
+  color: #ffffff;
+}
+
+.outcome-card-primary:hover {
+  border-color: rgba(58, 181, 98, 0.6);
+  box-shadow: 0 20px 45px rgba(46, 107, 58, 0.25);
+}
+
+/* --- Shared Hover Physics --- */
+.outcome-card:hover {
+  transform: translateY(-8px);
+}
+
+.outcome-card:hover .outcome-image {
+  transform: scale(1.03); /* 3% zoom */
+}
+
+
+/* --- Media Queries --- */
+@media (max-width: 1024px) {
+  .outcomes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  /* Make the primary card span full width on tablet to preserve importance */
+  .outcome-card-primary {
+    grid-column: 1 / -1;
+    flex-direction: row; /* Horizontal layout for wide card */
+  }
+  .outcome-card-primary .outcome-image-wrapper {
+    height: auto;
+    width: 50%;
+  }
+  .outcome-card-primary .outcome-content {
+    width: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .program-outcomes {
+    padding: 4rem 0;
+  }
+  .outcomes-header h2 {
+    font-size: 2rem;
+  }
+  .outcomes-header {
+    margin-bottom: 2rem;
+  }
+  
+  /* Mobile Tabs */
+  .outcomes-mobile-tabs {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f7fbf8;
+    padding: 0.5rem;
+    border-radius: 50px;
+    margin-bottom: 2.5rem;
+    border: 1px solid rgba(46, 107, 58, 0.1);
+  }
+  
+  .outcome-tab-btn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 0.8rem 0;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-text-secondary);
+    border-radius: 50px;
+    transition: all 0.3s ease;
+  }
+  
+  .outcome-tab-btn.active {
+    background-color: #3AB562;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(58, 181, 98, 0.2);
+  }
+
+  .outcomes-grid {
+    grid-template-columns: 1fr;
+    gap: 0; /* Tab handles switching, no gap needed */
+  }
+  
+  /* Hidden / Active State Logic for Mobile */
+  .hidden-mobile-card {
+    display: none !important;
+  }
+  
+  .active-mobile-card {
+    display: flex !important;
+    animation: fadeIn 0.4s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .outcome-card-primary {
+    flex-direction: column;
+  }
+  .outcome-card-primary .outcome-image-wrapper {
+    width: 100%;
+    height: 240px;
+  }
+  .outcome-card-primary .outcome-content {
+    width: 100%;
+  }
+}

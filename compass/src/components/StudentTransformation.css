@@ -1,0 +1,280 @@
+.student-transformation {
+  background-color: #E6F0E2;
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+  color: var(--color-dark-bg);
+}
+
+/* --- Premium Watermark Background --- */
+.transform-bg-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  color: #2E6B3A;
+  opacity: 0.04; /* 3-5% opacity */
+}
+
+.bg-pathway {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  width: 100%;
+  height: 40%;
+}
+
+.bg-compass-curve {
+  position: absolute;
+  bottom: -10%;
+  left: -5%;
+  width: 30%;
+  height: 60%;
+}
+
+/* --- Header --- */
+.student-transformation .container {
+  position: relative;
+  z-index: 1;
+}
+
+.transform-header {
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
+.transform-header h2 {
+  font-size: 3rem;
+  color: var(--color-dark-bg);
+  margin-bottom: 1rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.transform-subtitle {
+  font-size: 1.2rem;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+/* --- Horizontal Journey Flow --- */
+.transform-journey-container {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-top: 3rem;
+}
+
+/* The static background line */
+.transform-line-bg {
+  position: absolute;
+  top: 3rem; /* aligns with center of node (3rem pt + 30px half node) */
+  left: 50px;
+  right: 50px;
+  height: 2px;
+  background-color: rgba(46, 107, 58, 0.1);
+  z-index: 0;
+  transform: translateY(30px); /* 60px node height / 2 */
+}
+
+/* The animated fill line */
+.transform-line-fill {
+  position: absolute;
+  top: 3rem;
+  left: 50px;
+  width: 0; /* Animates to 100% minus edges */
+  height: 2px;
+  background: linear-gradient(90deg, #2E6B3A 0%, #3AB562 100%);
+  z-index: 1;
+  transform: translateY(30px);
+  transition: width 1.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.transform-line-fill.visible {
+  width: calc(100% - 100px);
+}
+
+.transform-stages-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  position: relative;
+  z-index: 2;
+  gap: 1rem;
+}
+
+.transform-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  
+  /* Initial scroll animation state */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.transform-stage.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Stage Node --- */
+.stage-node-container {
+  background-color: var(--color-white); /* blocks the line behind it */
+  padding: 0 10px;
+  margin-bottom: 2rem;
+}
+
+.stage-node {
+  width: 60px;
+  height: 60px;
+  background-color: #ffffff;
+  border: 2px solid rgba(46, 107, 58, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2E6B3A;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+}
+
+.stage-node svg {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+/* --- Stage Card Content --- */
+.stage-card {
+  background-color: #ffffff;
+  border: 1px solid transparent;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.stage-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--color-dark-bg);
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.5px;
+}
+
+.stage-description {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  max-width: 220px;
+  margin: 0 auto;
+}
+
+/* --- Hover Effects --- */
+.transform-stage:hover .stage-node {
+  transform: scale(1.1);
+  border-color: #3AB562;
+  box-shadow: 0 0 20px rgba(58, 181, 98, 0.3);
+  background-color: #f7fbf8;
+}
+
+.transform-stage:hover .stage-node svg {
+  transform: scale(1.1) translateY(-2px);
+  color: #3AB562;
+}
+
+.transform-stage:hover .stage-card {
+  transform: translateY(-5px);
+  background-color: #ffffff;
+  border-color: rgba(46, 107, 58, 0.1);
+  box-shadow: 0 10px 25px rgba(46, 107, 58, 0.06);
+}
+
+/* --- Final Stage Emphasis (FUTURE READY) --- */
+.stage-final .stage-node {
+  border-color: #3AB562;
+  background-color: #2E6B3A;
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(46, 107, 58, 0.2);
+  width: 70px; /* Slightly larger */
+  height: 70px;
+  margin-top: -5px; /* offset the larger size */
+}
+
+.stage-final .stage-title {
+  color: #2E6B3A;
+}
+
+.stage-final:hover .stage-node {
+  background-color: #3AB562;
+  border-color: #2E6B3A;
+  color: #ffffff;
+  box-shadow: 0 0 25px rgba(58, 181, 98, 0.5);
+}
+
+.stage-final:hover .stage-node svg {
+  color: #ffffff;
+  transform: translateY(-3px) scale(1.1);
+}
+
+
+/* --- Media Queries --- */
+@media (max-width: 1024px) {
+  .transform-line-bg, .transform-line-fill {
+    display: none; /* remove horizontal line on tablet/mobile */
+  }
+  
+  .transform-stages-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem 1rem;
+  }
+
+  .transform-journey-container {
+    padding-top: 1rem;
+  }
+  
+  .stage-final .stage-node {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .student-transformation {
+    padding: 4rem 0; /* Reduced padding for mobile */
+  }
+  .transform-header {
+    margin-bottom: 3rem;
+  }
+  .transform-header h2 {
+    font-size: 2rem;
+  }
+  
+  /* Horizontal Swipe Carousel */
+  .transform-stages-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .transform-stages-grid::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .transform-stage {
+    min-width: 75vw; /* Show a peek of the next stage */
+    scroll-snap-align: center;
+  }
+  .stage-description {
+    max-width: 100%;
+  }
+}

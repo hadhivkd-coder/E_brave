@@ -1,0 +1,414 @@
+.hero {
+  background-color: #0A1C14;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 80px 80px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  color: var(--color-white);
+  padding-top: 100px;
+  padding-bottom: 4rem;
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5rem;
+  z-index: 2;
+  width: 100%;
+}
+
+/* Left Side: Content (60-65%) */
+.hero-content {
+  flex: 1.6; /* Takes roughly 62% of the space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 650px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--color-accent-green);
+  margin-bottom: 2rem;
+  align-self: flex-start;
+  text-transform: uppercase;
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-accent-green);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--color-accent-green);
+}
+
+.headline {
+  font-size: 3.8rem;
+  color: var(--color-white);
+  margin-bottom: 1.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+}
+
+.text-light-green {
+  color: #3ab562;
+}
+
+.sub-headline {
+  font-size: 1.3rem;
+  color: var(--color-white);
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+.hero-description {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  font-family: var(--font-body);
+  max-width: 95%;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* Right Side: Roadmap Card (35-40%) */
+.hero-visual {
+  flex: 1; /* Takes roughly 38% of the space */
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+
+/* Reduced Roadmap Size */
+.roadmap-card {
+  width: 100%;
+  max-width: 400px; /* Reduced by ~20% */
+  background-color: rgba(14, 38, 27, 0.6); 
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 30px 30px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1.8rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+/* Header */
+.roadmap-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.roadmap-logo-text {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.roadmap-logo {
+  width: 32px;
+  height: 32px;
+  background-color: #0c2016;
+  border: 1px solid rgba(58, 181, 98, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+}
+
+.roadmap-logo svg {
+  width: 16px;
+  height: 16px;
+}
+
+.roadmap-brand {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--color-white);
+  line-height: 1.1;
+}
+
+.roadmap-subtitle {
+  font-size: 0.65rem;
+  color: #3ab562;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.roadmap-badge {
+  border: 1px solid rgba(58, 181, 98, 0.5);
+  color: #3ab562;
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 0.3rem 0.6rem;
+  border-radius: 50px;
+  background-color: rgba(58, 181, 98, 0.05);
+  letter-spacing: 1px;
+}
+
+.roadmap-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+  margin: 1.2rem 0;
+}
+
+/* Timeline elements */
+.roadmap-timeline {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+/* Vertical line */
+.roadmap-timeline::before {
+  content: '';
+  position: absolute;
+  top: 25px;
+  bottom: 25px;
+  left: 17px;
+  width: 2px;
+  background-color: #1b422a;
+  z-index: 0;
+  transition: background-color 0.3s ease;
+}
+
+.rt-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+  position: relative;
+  z-index: 1;
+  cursor: default;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.rt-item:last-child {
+  margin-bottom: 0;
+}
+
+.rt-marker {
+  width: 36px;
+  height: 36px;
+  background-color: #0c2016;
+  border: 1px solid #3ab562;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--color-white);
+  box-shadow: 0 0 10px rgba(58, 181, 98, 0.2);
+  flex-shrink: 0;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.rt-content-box {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  text-align: left;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.rt-content-box h5 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 0.2rem;
+}
+
+.rt-content-box p {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.4;
+}
+
+/* --- Premium Hover Interactions --- */
+.rt-item:hover {
+  transform: translateY(-2px);
+}
+
+.rt-item:hover .rt-content-box {
+  background-color: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 255, 255, 0.02);
+}
+
+.rt-item:hover .rt-marker {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(58, 181, 98, 0.5);
+  background-color: #112d1f;
+}
+
+/* Connecting line highlight effect (subtle) */
+.roadmap-timeline:hover::before {
+  background-color: #275d3d;
+}
+
+/* Final Item Specifics */
+.rt-marker-final {
+  border-color: #ffd166;
+  box-shadow: 0 0 10px rgba(255, 209, 102, 0.15);
+}
+
+.rt-content-box-final {
+  background-color: rgba(255, 209, 102, 0.02);
+  border-color: rgba(255, 209, 102, 0.15);
+}
+
+.rt-item:hover .rt-marker-final {
+  box-shadow: 0 0 20px rgba(255, 209, 102, 0.4);
+}
+
+.rt-item:hover .rt-content-box-final {
+  background-color: rgba(255, 209, 102, 0.04);
+  border-color: rgba(255, 209, 102, 0.3);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 209, 102, 0.05);
+}
+
+.text-yellow {
+  color: #ffd166 !important;
+}
+
+/* Footer */
+.roadmap-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-top: 0.2rem;
+}
+
+.live-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #3ab562;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #3ab562;
+}
+
+.roadmap-footer p {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+
+
+/* Media Queries */
+@media (max-width: 1024px) {
+  .hero-container {
+    flex-direction: column;
+    padding-top: 2rem;
+    gap: 4rem;
+  }
+  
+  .hero-content {
+    align-items: center;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .badge {
+    align-self: center;
+  }
+
+  .hero-description {
+    max-width: 100%;
+  }
+
+  .hero-visual {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .roadmap-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 80px;
+    padding-bottom: 2rem;
+  }
+  .headline {
+    font-size: 2.2rem;
+  }
+  .sub-headline {
+    font-size: 1.1rem;
+  }
+  .hero-description {
+    font-size: 0.95rem;
+  }
+  .hero-ctas {
+    flex-direction: column;
+    width: 100%;
+  }
+  .btn {
+    width: 100%;
+  }
+}
+
+/* Initial Load Animations */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUpAnim 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeUpAnim {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Typewriter Effect ───────────────────────────────── */
+.typewriter-text {
+  display: inline-block;
+  min-height: 1.1em;
+}
+
+.typewriter-cursor {
+  animation: blink 1s step-end infinite;
+  font-weight: 300;
+  opacity: 1;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}

@@ -1,0 +1,102 @@
+.partner-logos-section {
+  background-color: #0c2016;
+  padding: 3rem 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.partner-logos-label {
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.partner-logos-track-wrapper {
+  position: relative;
+  overflow: hidden;
+  /* Fade edges */
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+.partner-logos-track {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  animation: scrollLogos 35s linear infinite;
+}
+
+.partner-logos-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollLogos {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.partner-logo-item {
+  flex-shrink: 0;
+  cursor: default;
+}
+
+.partner-logo-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 50px;
+  padding: 0.8rem 1.8rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.partner-logo-inner:hover {
+  background: rgba(58, 181, 98, 0.08);
+  border-color: rgba(58, 181, 98, 0.25);
+  transform: translateY(-2px);
+}
+
+.partner-logo-icon {
+  width: 20px;
+  height: 20px;
+  color: #3AB562;
+  flex-shrink: 0;
+}
+
+.partner-logo-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.partner-logo-inner span {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: 0.3px;
+}
+
+@media (max-width: 768px) {
+  .partner-logos-section {
+    padding: 2.5rem 0;
+  }
+}

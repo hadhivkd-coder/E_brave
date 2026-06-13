@@ -1,0 +1,212 @@
+/* ============================================================
+   FAQ Section — E-Brave Compass
+   Dark institutional design with animated accordion
+   ============================================================ */
+
+/* ---- Section ---- */
+.faq-section {
+  background: #0c2016;
+  padding: 8rem 0;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle radial glow in the background */
+.faq-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 400px;
+  background: radial-gradient(ellipse at center, rgba(58, 181, 98, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ---- Container ---- */
+.faq-container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- Section Header ---- */
+.faq-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.25, 0.8, 0.25, 1),
+              transform 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.faq-header--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.faq-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+/* ---- Accent Line ---- */
+.faq-accent-line {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #3ab562, #5cd980);
+  border-radius: 999px;
+  margin: 0 auto 1.25rem auto;
+}
+
+/* ---- Subtitle ---- */
+.faq-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* ---- FAQ List ---- */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---- FAQ Item ---- */
+.faq-item {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: background 0.3s ease,
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.faq-item:hover:not(.faq-item--active) {
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+}
+
+.faq-item--active {
+  background: rgba(58, 181, 98, 0.08);
+  border-color: rgba(58, 181, 98, 0.3);
+  box-shadow: 0 8px 32px rgba(58, 181, 98, 0.08);
+}
+
+/* ---- FAQ Question Button ---- */
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  gap: 1rem;
+  line-height: 1.45;
+  transition: color 0.2s ease;
+}
+
+.faq-question:focus-visible {
+  outline: 2px solid #3ab562;
+  outline-offset: -2px;
+  border-radius: 16px;
+}
+
+.faq-question-text {
+  flex: 1;
+}
+
+/* ---- Icon Wrapper ---- */
+.faq-icon-wrapper {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.3s ease,
+              border-color 0.3s ease,
+              transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.faq-icon-wrapper--active {
+  background: #3ab562;
+  border-color: #3ab562;
+  transform: rotate(45deg);
+}
+
+/* ---- FAQ Answer ---- */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.faq-item--active .faq-answer {
+  max-height: 500px;
+}
+
+/* ---- Answer Inner ---- */
+.faq-answer-inner {
+  padding: 0 2rem 1.5rem 2rem;
+}
+
+.faq-answer-inner p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ============================================================
+   Mobile Responsive
+   ============================================================ */
+@media (max-width: 640px) {
+  .faq-section {
+    padding: 4rem 0;
+  }
+
+  .faq-title {
+    font-size: 2rem;
+  }
+
+  .faq-subtitle {
+    font-size: 1rem;
+  }
+
+  .faq-question {
+    font-size: 0.95rem;
+    padding: 1.2rem 1.5rem;
+  }
+
+  .faq-answer-inner {
+    padding: 0 1.5rem 1.25rem 1.5rem;
+  }
+
+  .faq-answer-inner p {
+    font-size: 0.95rem;
+  }
+}

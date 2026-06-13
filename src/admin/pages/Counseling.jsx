@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useData } from '../context/DataContext';
+import { useAuth } from '../context/AuthContext';
 import { useNotifications } from '../context/NotificationContext';
 import AdminLayout from '../components/layout/AdminLayout';
 import Badge from '../components/ui/Badge';
@@ -106,12 +107,87 @@ function BookingModal({ onSubmit, onClose, team, students }) {
   );
 }
 
-import { useAuth } from '../context/AuthContext';
-
 export default function Counseling() {
-  const { sessions, students, team, updateSession, addSession } = useData();
   const { user } = useAuth();
   const { showToast } = useNotifications();
+  
+  const [sessions, setSessions] = useState([]);
+  const [students, setStudents] = useState([]);
+  const [team, setTeam] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchBookings();
+    fetchSupportData();
+  }, [user]);
+
+  const fetchBookings = async () => {
+    if (!user) return;
+    setLoading(true);
+    let query = supabase.from('bookings').select(`
+      *,
+      student:student_id(name),
+      counselor:counselor_id(name)
+    `);
+
+    // If Counselor, only fetch their bookings. Ops/Admin can see all.
+    if (user.role === 'Counselor') {
+      query = query.eq('counselor_id', user.id);
+    }
+
+    const { data, error } = await query;
+    if (data) {
+      // Map to component format
+      const mapped = data.map(b => ({
+        id: b.id,
+        studentId: b.student_id,
+        studentName: b.student?.name || 'Unknown Student',
+        counselorId: b.counselor_id,
+        counselorName: b.counselor?.name || 'Unknown Counselor',
+        scheduledAt: b.start_datetime,
+        endAt: b.end_datetime,
+        status: b.status,
+        sessionType: 'Initial', // Hardcoded for now as DB doesn't have session_type yet
+        notes: { summary: b.notes || '', actionPlan: '' }
+      }));
+      setSessions(mapped);
+    }
+    setLoading(false);
+  };
+
+  const fetchSupportData = async () => {
+    // Fetch profiles for counselors drop down
+    const { data: teamData } = await supabase.from('profiles').select('*');
+    if (teamData) setTeam(teamData);
+
+    // Fetch students for booking drop down
+    const { data: studentData } = await supabase.from('persons').select('*').limit(200);
+    if (studentData) setStudents(studentData);
+  };
+
+  const updateSession = async (updated) => {
+    await supabase.from('bookings').update({
+      status: updated.status,
+      notes: updated.notes.summary
+    }).eq('id', updated.id);
+    showToast('Session updated successfully', 'success');
+    fetchBookings();
+  };
+
+  const addSession = async (form) => {
+    const startDatetime = new Date(form.scheduledAt);
+    const endDatetime = new Date(startDatetime.getTime() + form.duration * 60000);
+    await supabase.from('bookings').insert([{
+      student_id: form.studentId,
+      counselor_id: form.counselorId,
+      start_datetime: startDatetime.toISOString(),
+      end_datetime: endDatetime.toISOString(),
+      status: 'Scheduled',
+      meeting_link: 'https://meet.google.com/mock-link'
+    }]);
+    showToast('Session booked successfully', 'success');
+    fetchBookings();
+  };
   const [statusFilter, setStatusFilter] = useState('All');
   const [typeFilter, setTypeFilter] = useState('All');
   const [search, setSearch] = useState('');
@@ -120,9 +196,7 @@ export default function Counseling() {
   const [notesSession, setNotesSession] = useState(null);
   const [selectedSession, setSelectedSession] = useState(null);
 
-  const scopeSessions = user?.role === 'Counselor' ? sessions.filter(s => s.counselorId === user.id) : sessions;
-
-  const filtered = scopeSessions.filter(s => {
+  const filtered = sessions.filter(s => {
     const matchStatus = statusFilter === 'All' || s.status === statusFilter;
     const matchType = typeFilter === 'All' || s.sessionType === typeFilter;
     const q = search.toLowerCase();
@@ -131,11 +205,11 @@ export default function Counseling() {
   });
 
   const today = new Date().toISOString().split('T')[0];
-  const todaySessions = scopeSessions.filter(s => s.scheduledAt?.startsWith(today));
-  const completedTotal = scopeSessions.filter(s => s.status === 'Completed').length;
-  const scheduledTotal = scopeSessions.filter(s => s.status === 'Scheduled').length;
-  const cancelledTotal = scopeSessions.filter(s => s.status === 'Cancelled').length;
-  const noShowTotal = scopeSessions.filter(s => s.status === 'No Show').length;
+  const todaySessions = sessions.filter(s => s.scheduledAt?.startsWith(today));
+  const completedTotal = sessions.filter(s => s.status === 'Completed').length;
+  const scheduledTotal = sessions.filter(s => s.status === 'Scheduled').length;
+  const cancelledTotal = sessions.filter(s => s.status === 'Cancelled').length;
+  const noShowTotal = sessions.filter(s => s.status === 'No Show').length;
 
   // Weekly calendar view
   const getWeekDays = () => {
@@ -158,7 +232,7 @@ export default function Counseling() {
       <div className="adm-page-header">
         <div>
           <h1 className="adm-page-title">Counseling Management</h1>
-          <p className="adm-page-subtitle">{scopeSessions.length} total sessions · {scheduledTotal} upcoming</p>
+          <p className="adm-page-subtitle">{sessions.length} total sessions · {scheduledTotal} upcoming</p>
         </div>
         <div className="adm-page-actions">
           <div className="adm-view-toggle">
@@ -211,7 +285,7 @@ export default function Counseling() {
           <div className="adm-calendar-grid">
             {weekDays.map(day => {
               const ds = day.toISOString().split('T')[0];
-              const daySessions = scopeSessions.filter(s => s.scheduledAt?.startsWith(ds));
+              const daySessions = sessions.filter(s => s.scheduledAt?.startsWith(ds));
               const isToday = ds === today;
               return (
                 <div key={ds} className={`adm-calendar-day ${isToday ? 'adm-calendar-day-today' : ''}`}>

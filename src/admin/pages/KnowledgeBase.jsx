@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import AdminLayout from '../components/layout/AdminLayout';
 import Modal from '../components/ui/Modal';
 import { useNotifications } from '../context/NotificationContext';
+import { useAuth } from '../context/AuthContext';
 
 const CATEGORY_META = {
   All:                   { icon: '📚', color: 'var(--adm-accent)',  bg: 'var(--adm-accent-dim)' },
@@ -82,6 +83,7 @@ function renderMarkdown(content) {
 
 export default function KnowledgeBase() {
   const { showToast } = useNotifications();
+  const { user } = useAuth();
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedArticle, setSelectedArticle] = useState(null);
@@ -96,9 +98,16 @@ export default function KnowledgeBase() {
     { id: 'a3', title: 'Decoded Stream Webinar Slide Script', category: 'Webinar Scripts', preview: 'Script structure and audience interaction prompts for the post-10th stream choice webinars.', content: `### Decoded Stream Webinar Slide Script\n\nUse this pitch structure to host Zoom webinars for stream selection.\n\n#### Introduction (15 mins)\n* Host introduction & credentials.\n* Poll: "Who here is taking science purely because of parents?"\n\n#### The Problem: The 11th Grade Shock (30 mins)\n* Contrast 10th grade ease vs 11th grade deep syllabus.\n* Highlight drop-out trends and stream mismatch.\n\n#### Interactive Workshop: Choices Breakdown (45 mins)\n* Science (PCM vs PCB), Commerce, Arts pathways comparison.\n* Student success case studies.\n\n#### Call to Action (30 mins)\n* Direct attendees to book career counselling diagnostic assessments.\n* Launch limited seats coupon code.`, updatedAt: '2026-05-15', author: 'Priya Iyer' }
   ]);
 
-  const categories = ['All', 'SOPs', 'Counseling Frameworks', 'Webinar Scripts', 'Sales Scripts', 'Onboarding Guides', 'AI Instructions'];
+  let categories = ['All', 'SOPs', 'Counseling Frameworks', 'Webinar Scripts', 'Sales Scripts', 'Onboarding Guides', 'AI Instructions'];
+  
+  if (user?.role === 'Sales Representative') {
+    categories = ['All', 'SOPs', 'Sales Scripts', 'Onboarding Guides'];
+  }
 
-  const filteredArticles = articles.filter(art => {
+  const allowedCategories = new Set(categories);
+  const filteredByRole = articles.filter(a => allowedCategories.has(a.category) || allowedCategories.has('All'));
+
+  const filteredArticles = filteredByRole.filter(art => {
     const matchesCat = activeCategory === 'All' || art.category === activeCategory;
     const matchesSearch = !searchQuery || art.title.toLowerCase().includes(searchQuery.toLowerCase()) || art.content.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCat && matchesSearch;

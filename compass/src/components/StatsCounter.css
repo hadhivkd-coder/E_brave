@@ -1,0 +1,287 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   StatsCounter.css  –  E-Brave Impact Stats Section
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* ── Custom Properties ───────────────────────────────────────────────────────── */
+:root {
+  --stats-bg: #0c2016;
+  --stats-green: #3AB562;
+  --stats-green-dark: #2E6B3A;
+  --stats-green-glow: rgba(58, 181, 98, 0.25);
+  --stats-glass-bg: rgba(255, 255, 255, 0.04);
+  --stats-glass-border: rgba(255, 255, 255, 0.08);
+  --stats-glass-border-hover: rgba(58, 181, 98, 0.30);
+  --stats-text-muted: rgba(255, 255, 255, 0.60);
+}
+
+/* ── Keyframes ───────────────────────────────────────────────────────────────── */
+
+@keyframes statFloat {
+  0%,
+  100% { transform: translateY(0px);   }
+  50%  { transform: translateY(-14px); }
+}
+
+@keyframes iconPulse {
+  0%,
+  100% { box-shadow: 0 0  0   0   rgba(58, 181, 98, 0),
+                     0 0  12px 0   rgba(58, 181, 98, 0.10); }
+  50%  { box-shadow: 0 0  0   4px rgba(58, 181, 98, 0.15),
+                     0 0  24px 0   rgba(58, 181, 98, 0.25); }
+}
+
+@keyframes underlineExpand {
+  from { width: 0;    opacity: 0; }
+  to   { width: 60px; opacity: 1; }
+}
+
+@keyframes titleFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* ── Section ─────────────────────────────────────────────────────────────────── */
+
+.stats-section {
+  position: relative;
+  background-color: var(--stats-bg);
+  padding: 8rem 0;
+  overflow: hidden;
+}
+
+/* ── Floating Particles ──────────────────────────────────────────────────────── */
+
+.stats-section__particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.stats-particle {
+  position: absolute;
+  background: var(--stats-green);
+  border-radius: 50%;
+  animation: statFloat linear infinite;
+  will-change: transform;
+}
+
+/* ── Section Header ──────────────────────────────────────────────────────────── */
+
+.stats-section__header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-bottom: 5rem;
+  padding: 0 1.5rem;
+}
+
+.stats-section__title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  margin: 0 0 1.2rem 0;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.stats-section__title--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animated green underline */
+.stats-section__underline {
+  width: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--stats-green) 0%, var(--stats-green-dark) 100%);
+  border-radius: 2px;
+  margin: 0 auto 1.6rem auto;
+  opacity: 0;
+  transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.35s,
+              opacity 0.4s ease 0.35s;
+}
+
+.stats-section__underline--visible {
+  width: 60px;
+  opacity: 1;
+}
+
+.stats-section__subtitle {
+  font-size: 1.05rem;
+  color: var(--stats-text-muted);
+  margin: 0;
+  letter-spacing: 0.2px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.45s,
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.45s;
+}
+
+.stats-section__subtitle--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Stats Grid ──────────────────────────────────────────────────────────────── */
+
+.stats-section__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.75rem;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ── Stat Card ───────────────────────────────────────────────────────────────── */
+
+.stat-card {
+  background: var(--stats-glass-bg);
+  border: 1px solid var(--stats-glass-border);
+  border-radius: 24px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 3rem 2rem;
+  text-align: center;
+  cursor: default;
+
+  /* Entrance animation – starts invisible */
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity   0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    border    0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.stat-card--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover lift */
+.stat-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--stats-glass-border-hover);
+  box-shadow:
+    0 16px 48px rgba(58, 181, 98, 0.14),
+    0  0   0  1px rgba(58, 181, 98, 0.08) inset;
+}
+
+/* ── Icon Wrapper ────────────────────────────────────────────────────────────── */
+
+.stat-card__icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(58, 181, 98, 0.10);
+  border: 1.5px solid rgba(58, 181, 98, 0.20);
+  color: var(--stats-green);
+  margin: 0 auto 1.5rem auto;
+  animation: iconPulse 3s ease-in-out infinite;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.stat-card:hover .stat-card__icon-wrapper {
+  background: rgba(58, 181, 98, 0.16);
+  transform: scale(1.08);
+}
+
+/* ── Number ──────────────────────────────────────────────────────────────────── */
+
+.stat-card__number {
+  font-size: clamp(2.8rem, 4vw, 4rem);
+  font-weight: 900;
+  line-height: 1;
+  margin: 0 0 0.75rem 0;
+  background: linear-gradient(135deg, var(--stats-green) 0%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -1px;
+}
+
+.stat-card__suffix {
+  font-size: 2.2rem;
+  font-weight: 800;
+}
+
+/* ── Label ───────────────────────────────────────────────────────────────────── */
+
+.stat-card__label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--stats-text-muted);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* ── Responsive – Tablet (≤ 900px) ──────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .stats-section {
+    padding: 6rem 0;
+  }
+
+  .stats-section__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .stats-section__header {
+    margin-bottom: 3.5rem;
+  }
+}
+
+/* ── Responsive – Mobile (≤ 600px) ──────────────────────────────────────────── */
+
+@media (max-width: 600px) {
+  .stats-section {
+    padding: 5rem 0;
+  }
+
+  .stats-section__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .stat-card {
+    padding: 2rem 1.25rem;
+    border-radius: 18px;
+  }
+
+  .stat-card__icon-wrapper {
+    width: 56px;
+    height: 56px;
+  }
+
+  .stat-card__number {
+    font-size: 2.4rem;
+  }
+
+  .stat-card__suffix {
+    font-size: 1.8rem;
+  }
+
+  .stat-card__label {
+    font-size: 0.72rem;
+    letter-spacing: 1px;
+  }
+
+  .stats-section__header {
+    margin-bottom: 2.5rem;
+    padding: 0 1rem;
+  }
+}

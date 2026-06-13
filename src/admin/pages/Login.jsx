@@ -7,6 +7,7 @@ const DEMO_ACCOUNTS = [
   { email: 'admin@ebrave.in', password: 'admin123', role: 'Super Admin', color: '#6366f1' },
   { email: 'ops@ebrave.in', password: 'ops123', role: 'Operations Manager', color: '#10b981' },
   { email: 'counsel@ebrave.in', password: 'counsel123', role: 'Counselor', color: '#f59e0b' },
+  { email: 'sales@ebrave.in', password: 'sales123', role: 'Sales', color: '#ec4899' },
   { email: 'content@ebrave.in', password: 'content123', role: 'Content Manager', color: '#3b82f6' },
 ];
 

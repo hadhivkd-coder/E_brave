@@ -1,0 +1,321 @@
+/* ============================================================
+   InstitutionalPartner.css
+   Premium Institutional Partnership Section — E-Brave Compass
+   ============================================================ */
+
+/* ── CSS Custom Properties ── */
+:root {
+  --ip-bg: #E6F0E2;
+  --ip-dark: #0c2016;
+  --ip-green-deep: #2E6B3A;
+  --ip-green-mid: #3AB562;
+  --ip-white: #ffffff;
+  --ip-ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ── Section Shell ── */
+.institutional-partner {
+  background: var(--ip-bg);
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Compass-Rose Watermark ── */
+.ip-watermark {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cg fill='%232E6B3A'%3E%3Cpolygon points='100,10 108,90 100,100 92,90'/%3E%3Cpolygon points='190,100 110,108 100,100 110,92'/%3E%3Cpolygon points='100,190 92,110 100,100 108,110'/%3E%3Cpolygon points='10,100 90,92 100,100 90,108'/%3E%3Cpolygon points='127,27 117,97 100,100 107,83'/%3E%3Cpolygon points='173,73 103,83 100,100 117,93'/%3E%3Cpolygon points='173,127 103,117 100,100 117,107'/%3E%3Cpolygon points='127,173 117,103 100,100 107,117'/%3E%3Cpolygon points='73,173 83,103 100,100 93,117'/%3E%3Cpolygon points='27,127 97,117 100,100 83,107'/%3E%3Cpolygon points='27,73 97,83 100,100 83,93'/%3E%3Cpolygon points='73,27 83,97 100,100 93,83'/%3E%3Ccircle cx='100' cy='100' r='12' fill='none' stroke='%232E6B3A' stroke-width='3'/%3E%3Ccircle cx='100' cy='100' r='5'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center right -5%;
+  background-size: 55%;
+}
+
+/* ── Container ── */
+.ip-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* ════════════════════════════════════════════
+   LEFT COLUMN
+   ════════════════════════════════════════════ */
+
+/* Scroll-reveal: initial state → visible */
+.ip-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition:
+    opacity 0.7s var(--ip-ease),
+    transform 0.7s var(--ip-ease);
+}
+
+.ip-left.ip-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Badge */
+.ip-badge {
+  background: rgba(46, 107, 58, 0.1);
+  color: var(--ip-green-deep);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  border: 1px solid rgba(46, 107, 58, 0.12);
+}
+
+/* Heading */
+.ip-heading {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: var(--ip-dark);
+  margin: 0 0 1.2rem;
+  line-height: 1.15;
+}
+
+/* Subtitle */
+.ip-subtitle {
+  font-size: 1.1rem;
+  color: rgba(12, 32, 22, 0.7);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  max-width: 540px;
+}
+
+/* Feature List */
+.ip-features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ip-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ip-dark);
+}
+
+/* Checkmark circle */
+.ip-check {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  background: var(--ip-green-mid);
+  color: var(--ip-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(58, 181, 98, 0.35);
+}
+
+/* CTA Row */
+.ip-cta-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+}
+
+/* Primary CTA Button */
+.ip-cta-btn {
+  background: var(--ip-dark);
+  color: var(--ip-white);
+  padding: 1.2rem 3rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  display: inline-block;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.ip-cta-btn:hover {
+  background: var(--ip-green-mid);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(58, 181, 98, 0.3);
+}
+
+.ip-cta-btn:active {
+  transform: translateY(-1px);
+}
+
+/* Secondary link */
+.ip-secondary-link {
+  color: var(--ip-green-deep);
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-left: 1.5rem;
+  text-decoration: none;
+  transition: color 0.25s ease;
+  white-space: nowrap;
+}
+
+.ip-secondary-link:hover {
+  color: var(--ip-green-mid);
+}
+
+/* ════════════════════════════════════════════
+   RIGHT COLUMN
+   ════════════════════════════════════════════ */
+
+/* Scroll-reveal: initial state → visible */
+.ip-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition:
+    opacity 0.7s var(--ip-ease) 0.2s,
+    transform 0.7s var(--ip-ease) 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.ip-right.ip-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Cards */
+.ip-card {
+  background: var(--ip-white);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(46, 107, 58, 0.08);
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  transition:
+    transform 0.3s var(--ip-ease),
+    box-shadow 0.3s var(--ip-ease),
+    border-color 0.3s ease;
+  cursor: default;
+}
+
+.ip-card:last-child {
+  margin-bottom: 0;
+}
+
+.ip-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  border-color: rgba(58, 181, 98, 0.2);
+}
+
+/* Card icon container: 56 × 56 px square */
+.ip-card-icon {
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  background: rgba(46, 107, 58, 0.08);
+  border-radius: 16px;
+  color: var(--ip-green-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.ip-card:hover .ip-card-icon {
+  background: rgba(58, 181, 98, 0.12);
+  color: var(--ip-green-mid);
+}
+
+/* Card text */
+.ip-card-body {
+  flex: 1;
+}
+
+.ip-card-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--ip-dark);
+  margin: 0 0 0.4rem;
+  line-height: 1.2;
+}
+
+.ip-card-desc {
+  font-size: 0.9rem;
+  color: rgba(12, 32, 22, 0.65);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ════════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════════ */
+
+@media (max-width: 900px) {
+  .ip-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .ip-heading {
+    font-size: 2rem;
+  }
+
+  .ip-watermark {
+    background-position: bottom center;
+    background-size: 80%;
+  }
+
+  .ip-secondary-link {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .institutional-partner {
+    padding: 5rem 0;
+  }
+
+  .ip-cta-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .ip-cta-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ip-card {
+    padding: 1.5rem;
+  }
+}
+

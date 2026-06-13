@@ -1,0 +1,132 @@
+.footer-section {
+  background-color: #081710; /* Darkest premium brand green */
+  padding: 6rem 0 2rem 0;
+  color: #ffffff;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 5rem;
+}
+
+/* --- Left: Brand --- */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 320px;
+}
+
+.footer-logo {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -1px;
+  margin: 0;
+}
+
+.footer-description {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+/* --- Columns Typography --- */
+.footer-grid h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.footer-grid ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-grid a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.footer-grid a:hover {
+  color: #3AB562; /* Brand green highlight */
+  padding-left: 5px; /* Subtle interaction */
+}
+
+/* --- Contact Details --- */
+.contact-details li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.contact-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.contact-details a {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.contact-details a:hover {
+  padding-left: 0; /* Override the padding shift for contact links */
+  color: #3AB562;
+}
+
+/* --- Bottom Bar --- */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+/* --- Media Queries --- */
+@media (max-width: 768px) {
+  .footer-section {
+    padding: 3.5rem 0 2rem 0; /* Reduced top padding */
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+  }
+  .footer-brand {
+    max-width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+  .footer-logo {
+    font-size: 1.8rem;
+  }
+  .footer-links, .footer-contact {
+    text-align: center;
+  }
+  .contact-details li {
+    align-items: center;
+  }
+  .footer-grid h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+

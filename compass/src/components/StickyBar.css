@@ -1,0 +1,121 @@
+/* ── Sticky CTA Bar ───────────────────────────────────── */
+.sticky-bar {
+  position: fixed;
+  bottom: -100px;
+  left: 0;
+  width: 100%;
+  background: rgba(12, 32, 22, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(58, 181, 98, 0.2);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 998;
+  transition: bottom 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.sticky-bar.sticky-bar-visible {
+  bottom: 0;
+}
+
+/* ── Brand ──────────────────────────────────────────── */
+.sticky-bar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-shrink: 0;
+}
+
+.sticky-bar-brand span {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: white;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* ── Tagline ─────────────────────────────────────────── */
+.sticky-bar-tagline {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  margin: 0;
+  text-align: center;
+  flex: 1;
+  padding: 0 1.5rem;
+}
+
+/* ── Action Buttons ──────────────────────────────────── */
+.sticky-bar-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.sticky-btn-primary {
+  background: #3AB562;
+  color: white;
+  padding: 0.7rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.sticky-btn-primary:hover {
+  background: #4cd177;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(58, 181, 98, 0.4);
+}
+
+.sticky-btn-outline {
+  background: transparent;
+  color: white;
+  padding: 0.7rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.sticky-btn-outline:hover {
+  border-color: white;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 768px) {
+  .sticky-bar {
+    padding: 0.8rem 1.2rem;
+  }
+
+  .sticky-bar-tagline {
+    display: none;
+  }
+
+  .sticky-bar-brand span {
+    font-size: 0.9rem;
+  }
+
+  .sticky-btn-primary,
+  .sticky-btn-outline {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .sticky-btn-outline {
+    display: none;
+  }
+}

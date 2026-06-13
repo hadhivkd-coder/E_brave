@@ -10,42 +10,42 @@ const NAV_GROUPS = [
   {
     label: 'OPERATIONS',
     items: [
-      { path: '/admin/dashboard',     label: 'Dashboard',         icon: '⊞',  key: 'dashboard' },
-      { path: '/admin/leads',         label: 'Leads',             icon: '🎯', key: 'leads',    badge: 'newLeads',    permission: 'leads' },
-      { path: '/admin/students',      label: 'Students',          icon: '🎓', key: 'students', permission: 'students' },
-      { path: '/admin/counseling',    label: 'Counseling',        icon: '💬', key: 'counseling', permission: 'counseling' },
-      { path: '/admin/tasks',         label: 'Tasks',             icon: '✅', key: 'tasks',     permission: 'tasks' },
+      { path: '/admin/dashboard',     label: 'Dashboard',     icon: '📈', key: 'dashboard', permission: 'dashboard' },
+      { path: '/admin/action-center', label: 'Execution Queue', icon: '⚡', key: 'action-center', permission: 'action-center' },
+      { path: '/admin/pipeline',      label: 'Global Pipeline', icon: '📊', key: 'pipeline', permission: 'pipeline' },
     ],
   },
   {
-    label: 'MARKETING',
+    label: 'B2C (STUDENTS)',
     items: [
-      { path: '/admin/webinars',      label: 'Webinars',          icon: '📡', key: 'webinars', permission: 'webinars' },
-      { path: '/admin/campaigns',     label: 'Ads & Campaigns',   icon: '📣', key: 'campaigns', permission: 'campaigns' },
-      { path: '/admin/content',       label: 'Content',           icon: '📄', key: 'content',  permission: 'content' },
+      { path: '/admin/directory',     label: 'Directory',     icon: '🔍', key: 'directory', permission: 'directory' },
+      { path: '/admin/counseling',    label: 'Counseling',    icon: '💬', key: 'counseling', permission: 'counseling' },
     ],
   },
   {
-    label: 'TEAM',
+    label: 'B2B (INSTITUTIONS)',
     items: [
-      { path: '/admin/team',          label: 'Team',              icon: '👥', key: 'team',          permission: 'team' },
-      { path: '/admin/finance',       label: 'Finance',           icon: '💰', key: 'finance',       permission: 'finance' },
-      { path: '/admin/notifications', label: 'Notifications',     icon: '🔔', key: 'notifications', badge: 'notifications', permission: 'notifications' },
+      { path: '/admin/b2b-institutions', label: 'Partners', icon: '🏫', key: 'b2b-institutions', permission: 'directory' },
     ],
   },
   {
-    label: 'AI ASSISTANT',
+    label: 'PRODUCTS & EVENTS',
     items: [
-      { path: '/admin/eos-ai',        label: 'EOS AI',            icon: '🤖', key: 'eos-ai',    isAI: true, permission: 'eos_ai' },
+      { path: '/admin/courses',       label: 'Courses & LMS', icon: '🎓', key: 'courses', permission: 'courses' },
+      { path: '/admin/events',        label: 'Events',        icon: '🎟️', key: 'events', permission: 'events' },
+    ],
+  },
+  {
+    label: 'INTELLIGENCE',
+    items: [
+      { path: '/admin/intelligence',  label: 'AI & Analytics', icon: '🧠', key: 'intelligence', permission: 'analytics' },
+      { path: '/admin/knowledge-base',label: 'Knowledge Base', icon: '📚', key: 'knowledge-base', permission: 'knowledge-base' },
     ],
   },
   {
     label: 'SYSTEM',
     items: [
-      { path: '/admin/knowledge-base',    label: 'Knowledge Base',    icon: '📚', key: 'knowledge-base', permission: 'knowledge_base' },
-      { path: '/admin/integrations',      label: 'Integrations',      icon: '🔗', key: 'integrations',   permission: 'integrations' },
-      { path: '/admin/permissions',       label: 'Permissions',       icon: '🛡️', key: 'permissions',    permission: 'permissions' },
-      { path: '/admin/settings',          label: 'Settings',          icon: '🔧', key: 'settings',       permission: 'settings' },
+      { path: '/admin/settings',      label: 'Settings',      icon: '🔧', key: 'settings', permission: 'settings' },
     ],
   },
 ];
@@ -114,6 +114,12 @@ export default function Sidebar({ collapsed, setCollapsed }) {
         return hasPermission(item.permission);
       }
       return true; // Always allow dashboard
+    }).map(item => {
+      // Dynamic renaming based on role
+      if (role === 'Counselor' && item.key === 'pipeline') {
+        return { ...item, label: 'My Students' };
+      }
+      return item;
     });
     return { ...group, items: visibleItems };
   }).filter(group => group.items.length > 0);

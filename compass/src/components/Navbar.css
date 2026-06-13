@@ -1,0 +1,87 @@
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 0;
+  z-index: 100;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.logo-icon {
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+}
+
+.logo-text {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--color-white);
+}
+
+.navbar-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar-links a {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.navbar-links a:hover {
+  color: var(--color-white);
+}
+
+@media (max-width: 992px) {
+  .navbar-links {
+    display: none;
+  }
+  .navbar-container {
+    padding: 0 1rem;
+  }
+  .btn-whatsapp {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* ── Scroll Progress Bar ─────────────────────────────── */
+.scroll-progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #3AB562 0%, #ffffff 50%, #3AB562 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+  transition: width 0.1s linear;
+  border-radius: 0 2px 2px 0;
+  box-shadow: 0 0 10px rgba(58, 181, 98, 0.5);
+  z-index: 10;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
