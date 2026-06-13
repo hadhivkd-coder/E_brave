@@ -23,6 +23,7 @@ const Permissions = lazy(() => import('./pages/Permissions'));
 const APIConfig = lazy(() => import('./pages/APIConfig'));
 const AssessmentConfig = lazy(() => import('./pages/AssessmentConfig'));
 const Dashboard = lazy(() => import('./pages/Dashboard'));
+const TestReport = lazy(() => import('./pages/TestReport'));
 
 // Phase 1 Universal Entities
 const Directory = lazy(() => import('./pages/Directory'));
@@ -102,6 +103,7 @@ function AdminRoutes() {
         <Route path="permissions" element={<ProtectedRoute><Permissions /></ProtectedRoute>} />
         <Route path="api-config" element={<ProtectedRoute><APIConfig /></ProtectedRoute>} />
         <Route path="assessment-config" element={<ProtectedRoute><AssessmentConfig /></ProtectedRoute>} />
+        <Route path="test-report" element={<ProtectedRoute><TestReport /></ProtectedRoute>} />
         <Route path="" element={<Navigate to="/admin/dashboard" replace />} />
         <Route path="*" element={<Navigate to="/admin/dashboard" replace />} />
       </Routes>

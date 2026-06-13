@@ -12,6 +12,9 @@ export function DataProvider({ children }) {
   
   // Pipeline Data (Macro view)
   const [pipelineData, setPipelineData] = useState([]);
+  
+  // Financial Data
+  const [finances, setFinances] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const fetchQueues = useCallback(async () => {
@@ -73,9 +76,40 @@ export function DataProvider({ children }) {
         pipeline = pData || [];
       }
 
+      // Fetch Financials (Super Admin / Operations only)
+      let financeData = [];
+      if (user.role === 'Super Admin' || user.role === 'Operations Manager') {
+        const [ { data: pmtData }, { data: ledgerData } ] = await Promise.all([
+          supabase.from('payments').select('*'),
+          supabase.from('accounting_ledger').select('*')
+        ]);
+        
+        // Normalize payments to ledger format
+        const normalizedPayments = (pmtData || []).map(p => ({
+          id: p.id,
+          type: 'Revenue',
+          amount: parseFloat(p.amount),
+          category: 'Course Enrollment',
+          description: p.description || 'Student Payment',
+          date: new Date(p.created_at).toISOString().split('T')[0]
+        }));
+        
+        const normalizedLedger = (ledgerData || []).map(l => ({
+          id: l.id,
+          type: l.transaction_type,
+          amount: parseFloat(l.amount),
+          category: l.category,
+          description: l.description,
+          date: l.transaction_date
+        }));
+        
+        financeData = [...normalizedPayments, ...normalizedLedger].sort((a, b) => new Date(b.date) - new Date(a.date));
+      }
+
       setSalesQueue(salesData);
       setCounselorQueue(counselorData);
       setPipelineData(pipeline);
+      setFinances(financeData);
 
     } catch (error) {
       console.error("Error fetching queues from Supabase:", error);
@@ -139,16 +173,59 @@ export function DataProvider({ children }) {
     return data || [];
   };
 
+  const sendMessage = async (personId, message, provider = 'WhatsApp') => {
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      
+      const response = await fetch('https://ndoteayinrpxqvwfsftc.supabase.co/functions/v1/send-message', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session?.access_token}`
+        },
+        body: JSON.stringify({ person_id: personId, message, provider })
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+      
+      // Re-fetch queues/timeline to show the new message
+      fetchQueues();
+      return await response.json();
+    } catch (error) {
+      console.error('Error in sendMessage:', error);
+      throw error;
+    }
+  };
+
+  const addTransaction = async (tx) => {
+    const { data: { session } } = await supabase.auth.getSession();
+    const { error } = await supabase.from('accounting_ledger').insert([{
+      user_id: session?.user?.id,
+      transaction_type: tx.type,
+      category: tx.category,
+      amount: tx.amount,
+      description: tx.description,
+      transaction_date: tx.date
+    }]);
+    if (error) throw error;
+    fetchQueues();
+  };
+
   return (
     <DataContext.Provider value={{
       salesQueue,
       counselorQueue,
       pipelineData,
+      finances,
       loading,
       fetchQueues,
       logActivity,
       updatePerson,
-      getTimeline
+      getTimeline,
+      sendMessage,
+      addTransaction
     }}>
       {children}
     </DataContext.Provider>

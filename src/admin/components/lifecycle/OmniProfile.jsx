@@ -4,15 +4,19 @@ import TimelineFeed from './TimelineFeed';
 import { useData } from '../../context/DataContext';
 import { useAuth } from '../../context/AuthContext';
 import { supabase } from '../../../lib/supabase';
-import { Calendar as CalendarIcon, CheckCircle, DollarSign, IndianRupee } from 'lucide-react';
+import { Calendar as CalendarIcon, CheckCircle, DollarSign, IndianRupee, Send } from 'lucide-react';
 
 export default function OmniProfile({ personId, personName, onClose }) {
-  const { getTimeline, updatePerson, logActivity } = useData();
+  const { getTimeline, updatePerson, logActivity, sendMessage } = useData();
   const { user } = useAuth();
   const [activities, setActivities] = useState([]);
   const [note, setNote] = useState('');
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState('Timeline');
+  const [activeTab, setActiveTab] = useState('Chat');
+  
+  // Chat State
+  const [chatMessage, setChatMessage] = useState('');
+  const [sendingChat, setSendingChat] = useState(false);
   
   // Scheduling State
   const [counselors, setCounselors] = useState([]);
@@ -140,6 +144,21 @@ export default function OmniProfile({ personId, personName, onClose }) {
     setPaymentLoading(false);
   };
 
+  const handleSendChat = async (e) => {
+    e.preventDefault();
+    if (!chatMessage.trim()) return;
+    setSendingChat(true);
+    try {
+      await sendMessage(personId, chatMessage, 'WhatsApp');
+      setChatMessage('');
+      loadTimeline();
+    } catch (err) {
+      alert('Failed to send message.');
+    }
+    setSendingChat(false);
+  };
+
+
   if (!personId) {
     return (
       <div style={{ display: 'flex', height: '100%', alignItems: 'center', justifyContent: 'center', color: 'var(--adm-text-secondary)' }}>
@@ -196,7 +215,7 @@ export default function OmniProfile({ personId, personName, onClose }) {
 
       {/* Universal Data Tabs */}
       <div style={{ display: 'flex', borderBottom: '1px solid var(--adm-border)', background: 'var(--adm-bg)', overflowX: 'auto' }}>
-        {['Timeline', 'Payments', 'Schedule', 'Engagements'].map(tab => (
+        {['Chat', 'Timeline', 'Payments', 'Schedule', 'Engagements'].map(tab => (
           <button 
             key={tab}
             onClick={() => setActiveTab(tab)}
@@ -367,6 +386,43 @@ export default function OmniProfile({ personId, personName, onClose }) {
                 </div>
                 <Badge variant="indigo" size="sm">In Progress</Badge>
               </div>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'Chat' && (
+          <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+            <div style={{ padding: '16px', background: 'var(--adm-bg)', borderBottom: '1px solid var(--adm-border)' }}>
+              <h3 style={{ fontSize: '15px', fontWeight: 600, margin: 0, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Send size={16} color="#25D366" /> WhatsApp Cloud Interface
+              </h3>
+            </div>
+            <div style={{ flex: 1, overflowY: 'auto', padding: '16px' }}>
+              {loading ? (
+                <div style={{ color: 'var(--adm-text-secondary)' }}>Loading chat...</div>
+              ) : (
+                <TimelineFeed activities={activities.filter(a => a.action_type.includes('WhatsApp'))} />
+              )}
+            </div>
+            <div style={{ padding: '16px', borderTop: '1px solid var(--adm-border)', background: 'var(--adm-surface)' }}>
+              <form onSubmit={handleSendChat} style={{ display: 'flex', gap: '12px' }}>
+                <input 
+                  type="text" 
+                  value={chatMessage}
+                  onChange={e => setChatMessage(e.target.value)}
+                  placeholder="Type a WhatsApp message..."
+                  className="adm-input"
+                  style={{ flex: 1, padding: '12px', borderRadius: '24px', border: '1px solid var(--adm-border)', background: 'var(--adm-bg)', color: 'var(--adm-text)' }}
+                />
+                <button 
+                  type="submit" 
+                  disabled={sendingChat || !chatMessage.trim()}
+                  className="adm-btn adm-btn-primary" 
+                  style={{ borderRadius: '24px', padding: '0 24px', background: '#25D366', color: '#fff', border: 'none' }}
+                >
+                  {sendingChat ? 'Sending...' : 'Send'}
+                </button>
+              </form>
             </div>
           </div>
         )}
