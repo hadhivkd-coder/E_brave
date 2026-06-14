@@ -69,6 +69,8 @@ function AdminRoutes() {
         <Routes>
           <Route path="login" element={<Login />} />
           <Route path="test-report" element={<TestReport />} />
+          <Route path="test report" element={<TestReport />} />
+          <Route path="test_report" element={<TestReport />} />
           <Route path="*" element={<Navigate to="/admin/login" replace />} />
         </Routes>
       </Suspense>
@@ -105,6 +107,8 @@ function AdminRoutes() {
         <Route path="api-config" element={<ProtectedRoute><APIConfig /></ProtectedRoute>} />
         <Route path="assessment-config" element={<ProtectedRoute><AssessmentConfig /></ProtectedRoute>} />
         <Route path="test-report" element={<TestReport />} />
+        <Route path="test report" element={<TestReport />} />
+        <Route path="test_report" element={<TestReport />} />
         <Route path="" element={<Navigate to="/admin/dashboard" replace />} />
         <Route path="*" element={<Navigate to="/admin/dashboard" replace />} />
       </Routes>
