@@ -1,22 +1,22 @@
 import React from 'react';
 import { colors, commonStyles } from './ReportStyles';
-import { Layers, Headphones, BookA, Activity, Image, Brain, Users, UserCircle, TreePine, Phone, Mail } from 'lucide-react';
+import { Layers, Headphones, BookA, Activity, Image, Brain, Users, UserCircle, TreePine, Phone, Mail, CheckCircle } from 'lucide-react';
 
 export const Page17SkillsIntro = () => (
-  <div id="student-page-17" style={{ ...commonStyles.page, backgroundColor: '#bfdbfe' }}>
-    <div style={{ position: 'absolute', right: 0, top: 0, width: '400px', height: '1080px', backgroundColor: '#475569', transform: 'skewX(-20deg)', transformOrigin: 'top' }}></div>
-    <div style={{ position: 'absolute', right: '-100px', top: 0, width: '400px', height: '1080px', backgroundColor: '#312e81', transform: 'skewX(-20deg)', transformOrigin: 'top' }}></div>
-    <div style={{ position: 'absolute', right: '-200px', top: 0, width: '400px', height: '1080px', backgroundColor: '#1e3a8a', transform: 'skewX(-20deg)', transformOrigin: 'top' }}></div>
+  <div id="student-page-17" style={{ ...commonStyles.page, backgroundColor: colors.primaryLight }}>
+    <div style={{ position: 'absolute', right: 0, top: 0, width: '400px', height: '1080px', backgroundColor: colors.accentYellow, transform: 'skewX(-20deg)', transformOrigin: 'top' }}></div>
+    <div style={{ position: 'absolute', right: '-100px', top: 0, width: '400px', height: '1080px', backgroundColor: colors.accentGreen, transform: 'skewX(-20deg)', transformOrigin: 'top' }}></div>
+    <div style={{ position: 'absolute', right: '-200px', top: 0, width: '400px', height: '1080px', backgroundColor: colors.primaryDark, transform: 'skewX(-20deg)', transformOrigin: 'top' }}></div>
 
     <div style={{ position: 'absolute', left: '200px', top: '400px' }}>
-      <div style={{ position: 'absolute', left: '-50px', top: '-50px', width: '300px', height: '300px', backgroundColor: '#93c5fd', borderRadius: '50%', zIndex: 0 }}></div>
-      <h1 style={{ ...commonStyles.titleHuge, fontSize: '220px', color: '#1e3a8a', position: 'relative', zIndex: 1, margin: 0, lineHeight: '0.8' }}>SKILLS</h1>
-      <h2 style={{ fontSize: '100px', fontWeight: 800, color: '#1e3a8a', margin: 0, position: 'relative', zIndex: 1 }}>ORIENTATION</h2>
+      <div style={{ position: 'absolute', left: '-50px', top: '-50px', width: '300px', height: '300px', backgroundColor: colors.accentGreen, borderRadius: '50%', zIndex: 0, opacity: 0.2 }}></div>
+      <h1 style={{ ...commonStyles.titleHuge, fontSize: '220px', color: colors.primaryDark, position: 'relative', zIndex: 1, margin: 0, lineHeight: '0.8' }}>SKILLS</h1>
+      <h2 style={{ fontSize: '100px', fontWeight: 800, color: colors.traitStructure, margin: 0, position: 'relative', zIndex: 1 }}>ORIENTATION</h2>
     </div>
 
     {/* Graphic Simulation Right side */}
-    <div style={{ position: 'absolute', right: '300px', top: '250px', width: '600px', height: '600px', backgroundColor: '#bbf7d0', borderRadius: '50%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', zIndex: 10 }}>
-      <Layers size={300} color="#047857" strokeWidth={1} />
+    <div style={{ position: 'absolute', right: '300px', top: '250px', width: '600px', height: '600px', backgroundColor: colors.white, borderRadius: '50%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', zIndex: 10, boxShadow: '0 20px 50px rgba(0,0,0,0.1)' }}>
+      <Layers size={300} color={colors.primaryDark} strokeWidth={1} />
     </div>
   </div>
 );
@@ -25,35 +25,35 @@ export const Page18SkillsChart = ({ data }) => {
   const max = 100;
   
   const skills = [
-    { label: 'MUSIC SMART', val: data.smarts.music, color: '#ef4444' },
-    { label: 'WORD SMART', val: data.smarts.word, color: '#1e3a8a' },
-    { label: 'BODY SMART', val: data.smarts.body, color: '#312e81' },
-    { label: 'PICTURE SMART', val: data.smarts.picture, color: '#a3e635' },
-    { label: 'LOGIC SMART', val: data.smarts.logic, color: '#65a30d' },
-    { label: 'PEOPLE SMART', val: data.smarts.people, color: '#15803d' },
-    { label: 'SELF SMART', val: data.smarts.self, color: '#166534' },
-    { label: 'NATURE SMART', val: data.smarts.nature, color: '#0f766e' }
+    { label: 'MUSIC SMART', val: data.smarts.music, color: colors.accentYellow },
+    { label: 'WORD SMART', val: data.smarts.word, color: colors.primaryDark },
+    { label: 'BODY SMART', val: data.smarts.body, color: colors.traitStructure },
+    { label: 'PICTURE SMART', val: data.smarts.picture, color: colors.accentGreen },
+    { label: 'LOGIC SMART', val: data.smarts.logic, color: colors.primaryDark },
+    { label: 'PEOPLE SMART', val: data.smarts.people, color: colors.traitStructure },
+    { label: 'SELF SMART', val: data.smarts.self, color: colors.accentYellow },
+    { label: 'NATURE SMART', val: data.smarts.nature, color: colors.accentGreen }
   ];
 
   return (
     <div id="student-page-18" style={commonStyles.page}>
-      <h1 style={{ width: '100%', textAlign: 'center', fontSize: '70px', color: '#1e3a8a', fontWeight: 900, marginTop: '80px' }}>SKILLS ORIENTATION</h1>
+      <h1 style={{ width: '100%', textAlign: 'center', fontSize: '80px', color: colors.primaryDark, fontWeight: 900, marginTop: '80px', letterSpacing: '2px' }}>SKILLS ORIENTATION</h1>
 
       <div style={{ position: 'absolute', left: '150px', top: '250px', width: '1600px', height: '650px', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between' }}>
         {/* Y Axis Grid Lines */}
-        <div style={{ position: 'absolute', width: '100%', borderTop: '1px solid #94a3b8', bottom: '0%' }}><span style={{ position: 'absolute', left: '-50px', top: '-15px', fontSize: '24px', fontWeight: 700, color: '#475569' }}>0</span></div>
-        <div style={{ position: 'absolute', width: '100%', borderTop: '1px solid #94a3b8', bottom: '14.28%' }}><span style={{ position: 'absolute', left: '-50px', top: '-15px', fontSize: '24px', fontWeight: 700, color: '#475569' }}>10</span></div>
-        <div style={{ position: 'absolute', width: '100%', borderTop: '1px solid #94a3b8', bottom: '28.57%' }}><span style={{ position: 'absolute', left: '-50px', top: '-15px', fontSize: '24px', fontWeight: 700, color: '#475569' }}>20</span></div>
-        <div style={{ position: 'absolute', width: '100%', borderTop: '1px solid #94a3b8', bottom: '42.85%' }}><span style={{ position: 'absolute', left: '-50px', top: '-15px', fontSize: '24px', fontWeight: 700, color: '#475569' }}>30</span></div>
-        <div style={{ position: 'absolute', width: '100%', borderTop: '1px solid #94a3b8', bottom: '57.14%' }}><span style={{ position: 'absolute', left: '-50px', top: '-15px', fontSize: '24px', fontWeight: 700, color: '#475569' }}>40</span></div>
-        <div style={{ position: 'absolute', width: '100%', borderTop: '1px solid #94a3b8', bottom: '71.42%' }}><span style={{ position: 'absolute', left: '-50px', top: '-15px', fontSize: '24px', fontWeight: 700, color: '#475569' }}>50</span></div>
-        <div style={{ position: 'absolute', width: '100%', borderTop: '1px solid #94a3b8', bottom: '85.71%' }}><span style={{ position: 'absolute', left: '-50px', top: '-15px', fontSize: '24px', fontWeight: 700, color: '#475569' }}>60</span></div>
-        <div style={{ position: 'absolute', width: '100%', borderTop: '1px solid #94a3b8', bottom: '100%' }}><span style={{ position: 'absolute', left: '-50px', top: '-15px', fontSize: '24px', fontWeight: 700, color: '#475569' }}>70</span></div>
+        <div style={{ position: 'absolute', width: '100%', borderTop: `2px dashed ${colors.textMut}`, bottom: '0%' }}><span style={{ position: 'absolute', left: '-60px', top: '-20px', fontSize: '30px', fontWeight: 700, color: colors.textMut }}>0</span></div>
+        <div style={{ position: 'absolute', width: '100%', borderTop: `2px dashed ${colors.textMut}`, bottom: '14.28%' }}><span style={{ position: 'absolute', left: '-70px', top: '-20px', fontSize: '30px', fontWeight: 700, color: colors.textMut }}>10</span></div>
+        <div style={{ position: 'absolute', width: '100%', borderTop: `2px dashed ${colors.textMut}`, bottom: '28.57%' }}><span style={{ position: 'absolute', left: '-70px', top: '-20px', fontSize: '30px', fontWeight: 700, color: colors.textMut }}>20</span></div>
+        <div style={{ position: 'absolute', width: '100%', borderTop: `2px dashed ${colors.textMut}`, bottom: '42.85%' }}><span style={{ position: 'absolute', left: '-70px', top: '-20px', fontSize: '30px', fontWeight: 700, color: colors.textMut }}>30</span></div>
+        <div style={{ position: 'absolute', width: '100%', borderTop: `2px dashed ${colors.textMut}`, bottom: '57.14%' }}><span style={{ position: 'absolute', left: '-70px', top: '-20px', fontSize: '30px', fontWeight: 700, color: colors.textMut }}>40</span></div>
+        <div style={{ position: 'absolute', width: '100%', borderTop: `2px dashed ${colors.textMut}`, bottom: '71.42%' }}><span style={{ position: 'absolute', left: '-70px', top: '-20px', fontSize: '30px', fontWeight: 700, color: colors.textMut }}>50</span></div>
+        <div style={{ position: 'absolute', width: '100%', borderTop: `2px dashed ${colors.textMut}`, bottom: '85.71%' }}><span style={{ position: 'absolute', left: '-70px', top: '-20px', fontSize: '30px', fontWeight: 700, color: colors.textMut }}>60</span></div>
+        <div style={{ position: 'absolute', width: '100%', borderTop: `2px dashed ${colors.textMut}`, bottom: '100%' }}><span style={{ position: 'absolute', left: '-70px', top: '-20px', fontSize: '30px', fontWeight: 700, color: colors.textMut }}>70</span></div>
 
         {skills.map((skill, i) => (
-          <div key={i} style={{ width: '180px', height: `${(skill.val / 70) * 100}%`, backgroundColor: skill.color, borderTopLeftRadius: '20px', borderTopRightRadius: '20px', position: 'relative', zIndex: 1 }}>
-            <div style={{ position: 'absolute', top: '20px', width: '100%', textAlign: 'center', fontSize: '24px', fontWeight: 700, color: 'white' }}>{skill.val}</div>
-            <div style={{ position: 'absolute', bottom: '-40px', width: '100%', textAlign: 'center', fontSize: '22px', fontWeight: 800, color: '#1e293b', whiteSpace: 'nowrap' }}>{skill.label}</div>
+          <div key={i} style={{ width: '180px', height: `${(skill.val / 70) * 100}%`, backgroundColor: skill.color, borderTopLeftRadius: '30px', borderTopRightRadius: '30px', position: 'relative', zIndex: 1, boxShadow: '0 10px 20px rgba(0,0,0,0.1)' }}>
+            <div style={{ position: 'absolute', top: '20px', width: '100%', textAlign: 'center', fontSize: '30px', fontWeight: 800, color: 'white' }}>{skill.val}</div>
+            <div style={{ position: 'absolute', bottom: '-50px', width: '100%', textAlign: 'center', fontSize: '24px', fontWeight: 800, color: colors.textDark, whiteSpace: 'nowrap' }}>{skill.label}</div>
           </div>
         ))}
       </div>
@@ -62,18 +62,18 @@ export const Page18SkillsChart = ({ data }) => {
 };
 
 const SmartDetailPage = ({ id, title, text, Icon }) => (
-  <div id={id} style={commonStyles.page}>
-    <div style={{ position: 'absolute', right: '100px', top: '100px', width: '1000px', backgroundColor: '#93c5fd', borderRadius: '40px', padding: '60px', paddingTop: '100px' }}>
+  <div id={id} style={{ ...commonStyles.page, backgroundColor: colors.primaryLight }}>
+    <div style={{ position: 'absolute', right: '100px', top: '150px', width: '1000px', backgroundColor: colors.white, borderRadius: '40px', padding: '80px', paddingTop: '100px', boxShadow: '0 20px 50px rgba(0,0,0,0.05)' }}>
        {/* Badge Title */}
-       <div style={{ position: 'absolute', top: '-30px', right: '50px', backgroundColor: '#1e3a8a', color: 'white', padding: '20px 40px', transform: 'rotate(-3deg)', fontSize: '60px', fontWeight: 900, textTransform: 'uppercase' }}>
+       <div style={{ position: 'absolute', top: '-40px', right: '50px', backgroundColor: colors.primaryDark, color: 'white', padding: '20px 50px', transform: 'rotate(-2deg)', fontSize: '60px', fontWeight: 900, textTransform: 'uppercase', boxShadow: '0 10px 20px rgba(0,0,0,0.2)' }}>
          {title}
        </div>
-       <p style={{ fontSize: '32px', color: '#0f172a', lineHeight: '1.6', margin: 0, textAlign: 'justify' }}>{text}</p>
+       <p style={{ fontSize: '34px', color: colors.textDark, lineHeight: '1.8', margin: 0, textAlign: 'justify', fontWeight: 500 }}>{text}</p>
     </div>
 
     {/* Left Icon Graphic */}
-    <div style={{ position: 'absolute', left: '150px', top: '300px', width: '600px', height: '600px', display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#1e3a8a' }}>
-       <Icon size={500} strokeWidth={1} />
+    <div style={{ position: 'absolute', left: '150px', top: '300px', width: '600px', height: '600px', display: 'flex', justifyContent: 'center', alignItems: 'center', color: colors.primaryDark, backgroundColor: colors.white, borderRadius: '50%', border: `20px solid ${colors.accentGreen}`, boxShadow: '0 20px 50px rgba(0,0,0,0.1)' }}>
+       <Icon size={300} strokeWidth={1.5} />
     </div>
   </div>
 );
@@ -112,23 +112,24 @@ export const Page26Nature = () => (
 
 export const Page27CareerFitment = ({ data }) => (
   <div id="student-page-27" style={commonStyles.page}>
-    <h1 style={{ ...commonStyles.sectionTitle, color: '#1e3a8a', fontSize: '90px', margin: '100px 0 20px 150px' }}>Career Fitment</h1>
+    <h1 style={{ ...commonStyles.sectionTitle, color: colors.primaryDark, fontSize: '100px', margin: '100px 0 20px 150px' }}>Career Fitment</h1>
     
     <div style={{ padding: '0 150px' }}>
-      <div style={{ width: '100%', height: '20px', borderTop: '20px dashed #1e3a8a', marginBottom: '40px' }}></div>
-      <p style={{ ...commonStyles.bodyText, color: '#334155', marginBottom: '100px' }}>
+      <div style={{ width: '100%', height: '20px', borderTop: `20px dashed ${colors.primaryDark}`, marginBottom: '40px' }}></div>
+      <p style={{ ...commonStyles.bodyText, color: colors.textDark, marginBottom: '100px', fontSize: '36px' }}>
         Following an individual counseling session with your counselor, based on the test report, the counselor selects the top three career fits for you. These selections are then refined and updated after a personalized one-on-one counseling session. This process ensures that the chosen career paths align closely with your strengths, interests, and aspirations, providing you with the best possible guidance for your professional journey.
       </p>
     </div>
 
     <div style={{ display: 'flex', justifyContent: 'space-around', width: '100%', padding: '0 150px' }}>
-      {data.careers.map(career => (
-        <div key={career.id} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '400px', textAlign: 'center', borderRight: career.id !== 3 ? '2px solid #64748b' : 'none' }}>
-           <div style={{ width: '200px', height: '200px', borderRadius: '50%', backgroundColor: '#a855f7', border: '20px solid #7e22ce', display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '60px' }}>
-             <span style={{ fontSize: '100px', fontWeight: 900, color: '#1e3a8a' }}>{career.id}</span>
+      {data.careers.map((career, index) => (
+        <div key={career.id} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '400px', textAlign: 'center', position: 'relative' }}>
+           {index !== 2 && <div style={{ position: 'absolute', right: '-150px', top: '100px', borderTop: `10px solid ${colors.accentGreen}`, width: '200px' }}></div>}
+           <div style={{ width: '220px', height: '220px', borderRadius: '50%', backgroundColor: colors.white, border: `20px solid ${colors.primaryDark}`, display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '60px', boxShadow: '0 10px 30px rgba(0,0,0,0.15)' }}>
+             <span style={{ fontSize: '100px', fontWeight: 900, color: colors.accentYellow }}>{career.id}</span>
            </div>
-           <h3 style={{ fontSize: '36px', color: '#1e3a8a', margin: '0 0 10px 0' }}>{career.title}</h3>
-           <p style={{ fontSize: '30px', color: '#475569', margin: 0 }}>{career.subtitle}</p>
+           <h3 style={{ fontSize: '40px', color: colors.primaryDark, margin: '0 0 15px 0', fontWeight: 800 }}>{career.title}</h3>
+           <p style={{ fontSize: '28px', color: colors.textMut, margin: 0, fontWeight: 500 }}>{career.subtitle}</p>
         </div>
       ))}
     </div>
@@ -136,37 +137,37 @@ export const Page27CareerFitment = ({ data }) => (
 );
 
 export const Page28Contact = ({ data }) => (
-  <div id="student-page-28" style={{ ...commonStyles.page, backgroundColor: '#f8fafc', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-    <h1 style={{ fontSize: '160px', color: '#0f172a', fontWeight: 900, margin: '0 0 100px 0' }}>E-BRAVE</h1>
+  <div id="student-page-28" style={{ ...commonStyles.page, backgroundColor: colors.white, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+    <h1 style={{ fontSize: '200px', color: colors.primaryDark, fontWeight: 900, margin: '0 0 100px 0', letterSpacing: '-5px' }}>E-BRAVE</h1>
     
     <div style={{ display: 'flex', alignItems: 'center', gap: '50px', marginBottom: '100px' }}>
       <div style={{ textAlign: 'left' }}>
-        <h2 style={{ fontSize: '60px', color: '#1e3a8a', margin: 0 }}>Contact us for</h2>
-        <h2 style={{ fontSize: '60px', color: '#1e3a8a', margin: 0 }}>more information</h2>
+        <h2 style={{ fontSize: '70px', color: colors.traitStructure, margin: 0, fontWeight: 800 }}>Contact us for</h2>
+        <h2 style={{ fontSize: '70px', color: colors.primaryDark, margin: 0, fontWeight: 800 }}>more information</h2>
       </div>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '20px', backgroundColor: '#e2e8f0', padding: '20px 40px', borderRadius: '40px' }}>
-         <div style={{ width: '80px', height: '80px', backgroundColor: '#1e3a8a', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white' }}>
-            <Phone size={40} />
+      <div style={{ display: 'flex', alignItems: 'center', gap: '30px', backgroundColor: colors.primaryLight, padding: '30px 50px', borderRadius: '50px', boxShadow: '0 20px 40px rgba(0,0,0,0.05)' }}>
+         <div style={{ width: '100px', height: '100px', backgroundColor: colors.primaryDark, borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', color: 'white' }}>
+            <Phone size={50} />
          </div>
-         <span style={{ fontSize: '40px', color: '#0f172a', fontWeight: 700 }}>{data.contact.mobile}</span>
+         <span style={{ fontSize: '50px', color: colors.primaryDark, fontWeight: 800 }}>{data.contact.mobile}</span>
       </div>
     </div>
 
-    <div style={{ display: 'flex', gap: '20px', position: 'absolute', bottom: '100px', backgroundColor: '#0f766e', padding: '30px', borderRadius: '60px', width: '1600px', justifyContent: 'space-between', alignItems: 'center', color: 'white' }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-        <div style={{ display: 'flex', gap: '10px' }}>
-          <div style={{ width: '50px', height: '50px', backgroundColor: '#3b82f6', borderRadius: '10px' }}></div>
-          <div style={{ width: '50px', height: '50px', backgroundColor: '#ec4899', borderRadius: '10px' }}></div>
-          <div style={{ width: '50px', height: '50px', backgroundColor: '#0ea5e9', borderRadius: '10px' }}></div>
+    <div style={{ display: 'flex', gap: '20px', position: 'absolute', bottom: '100px', backgroundColor: colors.primaryDark, padding: '40px', borderRadius: '80px', width: '1600px', justifyContent: 'space-between', alignItems: 'center', color: 'white', boxShadow: '0 20px 50px rgba(0,0,0,0.2)' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '30px' }}>
+        <div style={{ display: 'flex', gap: '15px' }}>
+          <div style={{ width: '60px', height: '60px', backgroundColor: colors.accentYellow, borderRadius: '15px' }}></div>
+          <div style={{ width: '60px', height: '60px', backgroundColor: colors.traitStructure, borderRadius: '15px' }}></div>
+          <div style={{ width: '60px', height: '60px', backgroundColor: colors.accentGreen, borderRadius: '15px' }}></div>
         </div>
-        <span style={{ fontSize: '40px', fontWeight: 600, marginLeft: '20px' }}>{data.contact.social}</span>
+        <span style={{ fontSize: '50px', fontWeight: 700, marginLeft: '30px' }}>{data.contact.social}</span>
       </div>
       
-      <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-        <div style={{ width: '60px', height: '60px', backgroundColor: '#3b82f6', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <Mail size={30} />
+      <div style={{ display: 'flex', alignItems: 'center', gap: '30px' }}>
+        <div style={{ width: '80px', height: '80px', backgroundColor: colors.accentGreen, borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', color: colors.primaryDark }}>
+          <Mail size={40} />
         </div>
-        <span style={{ fontSize: '40px', fontWeight: 600 }}>{data.contact.email}</span>
+        <span style={{ fontSize: '50px', fontWeight: 700 }}>{data.contact.email}</span>
       </div>
     </div>
   </div>

@@ -1,22 +1,21 @@
 export const colors = {
-  primaryDark: '#1a365d', // Dark Navy Blue
-  primaryLight: '#bfdbfe', // Light Blue Background
-  accentPurple: '#7c3aed', // Purple for cards/accents
+  primaryDark: '#2E6B3A', // Deep Green
+  primaryLight: '#E6F0E2', // Tint Green
+  accentGreen: '#7FA86E', // Light Green
   accentYellow: '#fbbf24', // Yellow for highlights
-  accentGreen: '#10b981', // Green for positive indicators
-  accentRed: '#ef4444', // Red for warnings/low indicators
+  accentPurple: '#14b8a6', // Teal as a complementary accent instead of purple
   white: '#ffffff',
-  textDark: '#1e293b',
+  textDark: '#22242A',
   textLight: '#f8fafc',
+  textMut: '#6E7278',
   
-  // Specific trait colors from the PDF
-  traitRelationship: '#6366f1', // Indigo
-  traitTheoretical: '#7dd3fc', // Light blue
-  traitStructure: '#1e3a8a', // Very dark blue
-  traitAction: '#0d9488', // Teal
+  // Specific trait colors using the green/teal/gold ecosystem
+  traitRelationship: '#2E6B3A', // Deep Green
+  traitTheoretical: '#7FA86E', // Light Green
+  traitStructure: '#0d9488', // Teal
+  traitAction: '#ca8a04', // Gold/Yellow
 };
 
-// Landscape Slide Aspect Ratio
 export const slideWidth = 1920;
 export const slideHeight = 1080;
 
@@ -24,7 +23,7 @@ export const commonStyles = {
   page: {
     width: `${slideWidth}px`,
     height: `${slideHeight}px`,
-    backgroundColor: colors.primaryLight, // Default to light blue like most slides
+    backgroundColor: colors.primaryLight,
     position: 'relative',
     overflow: 'hidden',
     pageBreakAfter: 'always',
@@ -37,18 +36,21 @@ export const commonStyles = {
     fontWeight: 900,
     color: colors.primaryDark,
     lineHeight: '1.1',
-    margin: 0
+    margin: 0,
+    letterSpacing: '-2px'
   },
   sectionTitle: {
     fontSize: '80px',
     fontWeight: 800,
     color: colors.primaryDark,
-    margin: '0 0 40px 0'
+    margin: '0 0 40px 0',
+    letterSpacing: '-1px'
   },
   bodyText: {
-    fontSize: '36px',
-    lineHeight: '1.6',
+    fontSize: '32px',
+    lineHeight: '1.8',
     color: colors.textDark,
-    margin: 0
+    margin: 0,
+    fontWeight: 500
   }
 };

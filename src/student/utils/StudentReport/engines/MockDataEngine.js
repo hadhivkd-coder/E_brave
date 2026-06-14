@@ -70,8 +70,8 @@ export const generateReportData = (studentInfo, assessmentData) => {
     contact: {
       name: "MUHAMMED RAMEEZ C",
       mobile: "+91 9048 446 840",
-      email: "rameezvkd1@gmail.com",
-      social: "@rameezvazhakkad"
+      email: "ebravestudies@gmail.com",
+      social: "@ebravestudies"
     }
   };
 };
