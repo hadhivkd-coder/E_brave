@@ -68,6 +68,7 @@ function AdminRoutes() {
       <Suspense fallback={<PageLoader />}>
         <Routes>
           <Route path="login" element={<Login />} />
+          <Route path="test-report" element={<TestReport />} />
           <Route path="*" element={<Navigate to="/admin/login" replace />} />
         </Routes>
       </Suspense>
@@ -103,7 +104,7 @@ function AdminRoutes() {
         <Route path="permissions" element={<ProtectedRoute><Permissions /></ProtectedRoute>} />
         <Route path="api-config" element={<ProtectedRoute><APIConfig /></ProtectedRoute>} />
         <Route path="assessment-config" element={<ProtectedRoute><AssessmentConfig /></ProtectedRoute>} />
-        <Route path="test-report" element={<ProtectedRoute><TestReport /></ProtectedRoute>} />
+        <Route path="test-report" element={<TestReport />} />
         <Route path="" element={<Navigate to="/admin/dashboard" replace />} />
         <Route path="*" element={<Navigate to="/admin/dashboard" replace />} />
       </Routes>
