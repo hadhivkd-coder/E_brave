@@ -1,6 +1,6 @@
 import React from 'react';
 import { colors, commonStyles } from './ReportStyles';
-import { Layers, Headphones, BookA, Activity, Image, Brain, Users, UserCircle, TreePine } from 'lucide-react';
+import { Layers, Headphones, BookA, Activity, Image, Brain, Users, UserCircle, TreePine, Phone, Mail } from 'lucide-react';
 
 export const Page17SkillsIntro = () => (
   <div id="student-page-17" style={{ ...commonStyles.page, backgroundColor: '#bfdbfe' }}>
