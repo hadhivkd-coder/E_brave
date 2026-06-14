@@ -21,7 +21,7 @@ const StudentReportTemplate = forwardRef(({ studentInfo, assessmentData }, ref) 
     <div ref={ref} style={{ position: 'absolute', top: '-9999px', left: '-9999px', zIndex: -1000 }}>
       {/* Batch 1: Pages 1-8 */}
       <Page01Cover data={data} />
-      <Page02Title />
+      <Page02Title data={data} />
       <Page03Brief />
       <Page04Preface />
       <Page05StarAssessment />
