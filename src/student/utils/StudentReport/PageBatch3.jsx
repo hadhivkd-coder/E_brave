@@ -30,6 +30,8 @@ const MeshBackground = () => (
 export const Page17SkillsIntro = () => (
   <div id="student-page-17" style={{ ...commonStyles.page, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
     <MeshBackground />
+    {/* Aspirational Image Overlay */}
+    <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundImage: 'url(/images/ebrave_dynamic_growth.png)', backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.15, zIndex: 0, mixBlendMode: 'screen' }}></div>
 
     <div style={{ zIndex: 10, textAlign: 'center', marginBottom: '120px', position: 'relative' }}>
       <h1 style={{ ...commonStyles.titleHuge, fontSize: '200px', color: colors.white, margin: 0, lineHeight: '0.9', textShadow: '0 20px 40px rgba(0,0,0,0.5)' }}>SKILLS</h1>
@@ -125,9 +127,10 @@ export const Page18SkillsChart = ({ data }) => {
   );
 };
 
-// Premium Glassmorphic Detail Page
+// Premium Glassmorphic Detail Page with Elite Gamification Badges
 const SmartDetailPage = ({ id, title, text, Icon, dataKey, data }) => {
   const percentage = data ? data.smarts[dataKey] : 0;
+  const isElite = percentage >= 85;
   
   return (
     <div id={id} style={{ ...commonStyles.page, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
@@ -135,8 +138,16 @@ const SmartDetailPage = ({ id, title, text, Icon, dataKey, data }) => {
       
       <div style={{ zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', padding: '0 80px' }}>
         
+        {/* Elite Badge Gamification */}
+        {isElite && (
+          <div style={{ position: 'absolute', top: '80px', right: '80px', backgroundColor: colors.accentYellow, padding: '20px 40px', borderRadius: '50px', display: 'flex', alignItems: 'center', gap: '15px', boxShadow: '0 20px 40px rgba(0,0,0,0.5)', zIndex: 20 }}>
+            <Award size={40} color={colors.primaryDark} />
+            <span style={{ fontSize: '26px', fontWeight: 900, color: colors.primaryDark, textTransform: 'uppercase', letterSpacing: '2px' }}>Elite Top Percentile</span>
+          </div>
+        )}
+
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', marginBottom: '80px' }}>
-           <div style={{ width: '300px', height: '300px', display: 'flex', justifyContent: 'center', alignItems: 'center', color: colors.white, backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: '50%', border: `4px solid rgba(255,255,255,0.2)`, backdropFilter: 'blur(10px)', boxShadow: '0 30px 60px rgba(0,0,0,0.5)' }}>
+           <div style={{ width: '300px', height: '300px', display: 'flex', justifyContent: 'center', alignItems: 'center', color: isElite ? colors.accentYellow : colors.white, backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: '50%', border: `4px solid ${isElite ? colors.accentYellow : 'rgba(255,255,255,0.2)'}`, backdropFilter: 'blur(10px)', boxShadow: isElite ? `0 0 80px ${colors.accentYellow}40` : '0 30px 60px rgba(0,0,0,0.5)' }}>
              <Icon size={150} strokeWidth={1} />
            </div>
            
@@ -146,7 +157,7 @@ const SmartDetailPage = ({ id, title, text, Icon, dataKey, data }) => {
            </div>
         </div>
 
-        <div style={{ backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: '40px', padding: '80px', boxShadow: '0 40px 80px rgba(0,0,0,0.5)', position: 'relative', width: '100%', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(30px)' }}>
+        <div style={{ backgroundColor: 'rgba(255,255,255,0.05)', borderRadius: '40px', padding: '80px', boxShadow: '0 40px 80px rgba(0,0,0,0.5)', position: 'relative', width: '100%', border: `1px solid ${isElite ? colors.accentYellow : 'rgba(255,255,255,0.1)'}`, backdropFilter: 'blur(30px)' }}>
            <h1 style={{ fontSize: '70px', color: colors.white, margin: '0 0 40px 0', fontWeight: 900, textTransform: 'uppercase' }}>{title}</h1>
            <div style={{ width: '100px', height: '6px', backgroundColor: colors.accentGreen, marginBottom: '40px' }}></div>
            <p style={{ fontSize: '32px', color: colors.primaryLight, lineHeight: '2.0', margin: 0, textAlign: 'justify', fontWeight: 400 }}>{text}</p>

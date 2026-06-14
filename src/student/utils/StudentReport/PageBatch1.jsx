@@ -159,24 +159,25 @@ export const Page04Preface = () => (
 );
 
 export const Page05StarAssessment = () => (
-  <div id="student-page-5" style={{ ...commonStyles.page, justifyContent: 'space-between' }}>
-    <PremiumBackground />
+  <div id="student-page-5" style={{ ...commonStyles.page, justifyContent: 'space-between', backgroundColor: colors.primaryDark }}>
+    {/* Aspirational Photography Background */}
+    <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundImage: 'url(/images/ebrave_abstract_future.png)', backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.15, zIndex: 0 }}></div>
     
     <div style={{ padding: '120px 100px 0 100px', textAlign: 'center', zIndex: 10 }}>
-      <h1 style={{ ...commonStyles.titleHuge, fontSize: '140px', letterSpacing: '-2px' }}>STAR CAREER</h1>
-      <h1 style={{ ...commonStyles.titleHuge, fontSize: '140px', color: colors.accentGreen, letterSpacing: '-2px' }}>ASSESSMENT</h1>
+      <h1 style={{ ...commonStyles.titleHuge, fontSize: '140px', letterSpacing: '-2px', color: colors.white }}>STAR CAREER</h1>
+      <h1 style={{ ...commonStyles.titleHuge, fontSize: '140px', color: colors.accentYellow, letterSpacing: '-2px' }}>ASSESSMENT</h1>
     </div>
 
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flex: 1, zIndex: 10 }}>
       {/* Intricate Radial Data Visualization */}
       <div style={{ width: '700px', height: '700px', borderRadius: '50%', position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <svg width="800" height="800" style={{ position: 'absolute' }}>
-          <circle cx="400" cy="400" r="380" fill="none" stroke={colors.primaryLight} strokeWidth="40" />
+          <circle cx="400" cy="400" r="380" fill="none" stroke={colors.accentGreen} strokeWidth="40" opacity="0.3" />
           <circle cx="400" cy="400" r="380" fill="none" stroke={colors.accentGreen} strokeWidth="40" strokeDasharray="600 2000" strokeLinecap="round" transform="rotate(-90 400 400)" />
           <circle cx="400" cy="400" r="320" fill="none" stroke={colors.accentYellow} strokeWidth="20" strokeDasharray="400 2000" strokeLinecap="round" transform="rotate(45 400 400)" />
-          <circle cx="400" cy="400" r="260" fill="none" stroke={colors.primaryDark} strokeWidth="10" strokeDasharray="30 20" />
+          <circle cx="400" cy="400" r="260" fill="none" stroke={colors.white} strokeWidth="10" strokeDasharray="30 20" opacity="0.5" />
         </svg>
-        <div style={{ width: '450px', height: '450px', backgroundColor: colors.white, borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', boxShadow: '0 30px 60px rgba(0,0,0,0.15)', zIndex: 2 }}>
+        <div style={{ width: '450px', height: '450px', backgroundColor: colors.white, borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', boxShadow: '0 30px 60px rgba(0,0,0,0.5)', zIndex: 2 }}>
            <div style={{ textAlign: 'center' }}>
              <span style={{ color: colors.primaryDark, fontSize: '90px', fontWeight: 900, display: 'block', lineHeight: '1' }}>STAR</span>
              <span style={{ color: colors.textMut, fontSize: '30px', fontWeight: 700, letterSpacing: '5px' }}>MODEL</span>
@@ -185,8 +186,8 @@ export const Page05StarAssessment = () => (
       </div>
     </div>
 
-    <div style={{ width: '100%', height: '180px', backgroundColor: colors.primaryDark, display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 10 }}>
-      <h2 style={{ color: colors.white, fontSize: '42px', margin: 0, fontWeight: 700, letterSpacing: '4px', textTransform: 'uppercase' }}>Behaviour • Skills • Aptitude</h2>
+    <div style={{ width: '100%', height: '180px', backgroundColor: colors.white, display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 10 }}>
+      <h2 style={{ color: colors.primaryDark, fontSize: '42px', margin: 0, fontWeight: 900, letterSpacing: '4px', textTransform: 'uppercase' }}>Behaviour • Skills • Aptitude</h2>
     </div>
   </div>
 );
@@ -211,13 +212,8 @@ export const Page06BehaviourIntro = () => (
 
 export const Page07StarQuadrants = () => (
   <div id="student-page-7" style={{ ...commonStyles.page, backgroundColor: colors.primaryDark, padding: '80px' }}>
-    {/* Geometric mesh for dark background */}
-    <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', opacity: 0.1, zIndex: 0 }}>
-       <svg width="100%" height="100%">
-          <path d="M 0 0 L 1200 1697 M 1200 0 L 0 1697" stroke={colors.white} strokeWidth="2" />
-          <circle cx="600" cy="848" r="400" fill="none" stroke={colors.white} strokeWidth="4" />
-       </svg>
-    </div>
+    {/* Aspirational Image Overlay */}
+    <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundImage: 'url(/images/ebrave_student_success.png)', backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.1, zIndex: 0, mixBlendMode: 'luminosity' }}></div>
 
     <h1 style={{ ...commonStyles.sectionTitle, color: colors.white, fontSize: '75px', textAlign: 'center', marginBottom: '80px', zIndex: 10, position: 'relative' }}>BEHAVIOURAL TRAITS</h1>
     
@@ -257,11 +253,11 @@ export const Page07StarQuadrants = () => (
   </div>
 );
 
-// Advanced SVG Radar Chart for Page 8
+// Advanced SVG Radar Chart for Page 8 with Dynamic Archetype
 export const Page08StarChart = ({ data }) => {
-  const size = 800;
+  const size = 650;
   const center = size / 2;
-  const radius = size * 0.35; // 280px radius for 100%
+  const radius = size * 0.35; // 227px radius for 100%
   const max = 100;
 
   // Calculate points for the 4 axes
@@ -280,14 +276,16 @@ export const Page08StarChart = ({ data }) => {
   const polygonPoints = `${pStructure} ${pTheoretical} ${pAction} ${pRelationship}`;
 
   return (
-    <div id="student-page-8" style={{ ...commonStyles.page, padding: '100px', alignItems: 'center' }}>
+    <div id="student-page-8" style={{ ...commonStyles.page, padding: '80px', alignItems: 'center' }}>
       <PremiumBackground opacity={0.1} />
       
-      <h1 style={{ ...commonStyles.sectionTitle, textAlign: 'center', fontSize: '75px', marginBottom: '20px', zIndex: 10 }}>STAR RADAR ANALYSIS</h1>
-      <p style={{ fontSize: '30px', color: colors.textMut, textAlign: 'center', marginBottom: '80px', zIndex: 10 }}>A visual representation of your core behavioural archetype.</p>
+      <h1 style={{ ...commonStyles.sectionTitle, textAlign: 'center', fontSize: '75px', marginBottom: '10px', zIndex: 10 }}>STAR RADAR ANALYSIS</h1>
+      <p style={{ fontSize: '28px', color: colors.textMut, textAlign: 'center', marginBottom: '40px', zIndex: 10 }}>A visual representation of your core behavioural archetype.</p>
       
-      <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 10 }}>
-        <div style={{ width: `${size}px`, height: `${size}px`, position: 'relative' }}>
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', zIndex: 10, width: '100%' }}>
+        
+        {/* Radar Chart */}
+        <div style={{ width: `${size}px`, height: `${size}px`, position: 'relative', marginBottom: '40px' }}>
           <svg width={size} height={size}>
             {/* Grid Circles */}
             {[20, 40, 60, 80, 100].map((val) => (
@@ -310,22 +308,32 @@ export const Page08StarChart = ({ data }) => {
           
           {/* Labels outside the SVG for perfect text rendering */}
           <div style={{ position: 'absolute', top: '10px', left: '50%', transform: 'translateX(-50%)', textAlign: 'center' }}>
-             <div style={{ fontSize: '36px', fontWeight: 900, color: colors.traitStructure }}>STRUCTURE</div>
-             <div style={{ fontSize: '30px', fontWeight: 700, color: colors.primaryDark }}>{data.star.structure}%</div>
+             <div style={{ fontSize: '32px', fontWeight: 900, color: colors.traitStructure }}>STRUCTURE</div>
+             <div style={{ fontSize: '26px', fontWeight: 700, color: colors.primaryDark }}>{data.star.structure}%</div>
           </div>
           <div style={{ position: 'absolute', bottom: '10px', left: '50%', transform: 'translateX(-50%)', textAlign: 'center' }}>
-             <div style={{ fontSize: '30px', fontWeight: 700, color: colors.primaryDark }}>{data.star.action}%</div>
-             <div style={{ fontSize: '36px', fontWeight: 900, color: colors.traitAction }}>ACTION</div>
+             <div style={{ fontSize: '26px', fontWeight: 700, color: colors.primaryDark }}>{data.star.action}%</div>
+             <div style={{ fontSize: '32px', fontWeight: 900, color: colors.traitAction }}>ACTION</div>
           </div>
           <div style={{ position: 'absolute', right: '-40px', top: '50%', transform: 'translateY(-50%)', textAlign: 'center' }}>
-             <div style={{ fontSize: '36px', fontWeight: 900, color: colors.traitTheoretical }}>THEORETICAL</div>
-             <div style={{ fontSize: '30px', fontWeight: 700, color: colors.primaryDark }}>{data.star.theoretical}%</div>
+             <div style={{ fontSize: '32px', fontWeight: 900, color: colors.traitTheoretical }}>THEORETICAL</div>
+             <div style={{ fontSize: '26px', fontWeight: 700, color: colors.primaryDark }}>{data.star.theoretical}%</div>
           </div>
           <div style={{ position: 'absolute', left: '-40px', top: '50%', transform: 'translateY(-50%)', textAlign: 'center' }}>
-             <div style={{ fontSize: '36px', fontWeight: 900, color: colors.traitRelationship }}>RELATIONSHIP</div>
-             <div style={{ fontSize: '30px', fontWeight: 700, color: colors.primaryDark }}>{data.star.relationship}%</div>
+             <div style={{ fontSize: '32px', fontWeight: 900, color: colors.traitRelationship }}>RELATIONSHIP</div>
+             <div style={{ fontSize: '26px', fontWeight: 700, color: colors.primaryDark }}>{data.star.relationship}%</div>
           </div>
         </div>
+
+        {/* Dynamic Archetype Storytelling Box */}
+        <div style={{ width: '100%', backgroundColor: colors.white, borderRadius: '30px', padding: '50px', boxShadow: '0 20px 40px rgba(0,0,0,0.1)', borderTop: `10px solid ${colors.accentYellow}` }}>
+          <div style={{ fontSize: '24px', fontWeight: 800, color: colors.textMut, textTransform: 'uppercase', marginBottom: '10px', letterSpacing: '2px' }}>Your Dominant Archetype</div>
+          <h2 style={{ fontSize: '60px', fontWeight: 900, color: colors.primaryDark, margin: '0 0 20px 0' }}>{data?.archetype?.title || 'The Visionary'}</h2>
+          <p style={{ fontSize: '28px', color: colors.textDark, lineHeight: '1.8', margin: 0, fontWeight: 500, textAlign: 'justify' }}>
+            {data?.archetype?.description || "Your balanced scores across multiple traits suggest a well-rounded and versatile personality."}
+          </p>
+        </div>
+
       </div>
     </div>
   );

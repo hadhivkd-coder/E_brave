@@ -129,7 +129,7 @@ export const generateStudentPDF = async (studentInfo, assessmentData, progressCa
         const widthMm = 210;
         const heightMm = 297;
 
-        const totalPages = 28;
+        const totalPages = 31;
         
         for (let i = 1; i <= totalPages; i++) {
           const pageId = `student-page-${i}`;

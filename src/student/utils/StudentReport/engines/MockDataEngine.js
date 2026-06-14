@@ -4,6 +4,53 @@
  */
 
 export const generateReportData = (studentInfo, assessmentData) => {
+  // Base STAR scores
+  const star = {
+    relationship: 88,
+    theoretical: 70,
+    structure: 60,
+    action: 40
+  };
+
+  // Dynamic Archetype Logic
+  const getArchetype = (scores) => {
+    let highestTrait = 'relationship';
+    let maxScore = scores.relationship;
+    
+    Object.keys(scores).forEach(key => {
+      if (scores[key] > maxScore) {
+        maxScore = scores[key];
+        highestTrait = key;
+      }
+    });
+
+    switch(highestTrait) {
+      case 'action':
+        return {
+          title: "The Catalyst",
+          description: `Because you scored exceptionally high in Action (${maxScore}%), you are a natural 'Catalyst'. You thrive in fast-paced environments and love turning ideas into reality instantly. To reach your absolute peak, partner with individuals who excel in Structure to help manage the finer details while you drive the vision forward.`
+        };
+      case 'structure':
+        return {
+          title: "The Architect",
+          description: `With a dominant score in Structure (${maxScore}%), you are an 'Architect' of systems. You build the foundations that others rely on. Your superpower is organization and predictability. Push yourself out of your comfort zone occasionally to embrace the unexpected, which will accelerate your leadership growth.`
+        };
+      case 'theoretical':
+        return {
+          title: "The Visionary",
+          description: `Scoring highly in Theoretical (${maxScore}%) makes you a 'Visionary'. You see patterns, concepts, and strategies that others miss. You are built for innovation. Ensure you anchor your grand ideas with actionable steps so they don't remain purely conceptual.`
+        };
+      case 'relationship':
+      default:
+        return {
+          title: "The Empathic Leader",
+          description: `Your exceptionally high Relationship score (${maxScore}%) marks you as an 'Empathic Leader'. You possess a rare ability to unite people, inspire teams, and mediate conflict naturally. In the modern workforce, emotional intelligence is your greatest asset. Protect your energy and learn to set firm boundaries.`
+        };
+    }
+  };
+
+  const archetype = getArchetype(star);
+
   return {
     student: {
       name: studentInfo?.fullName || 'Fathima Faiha',
@@ -12,15 +59,9 @@ export const generateReportData = (studentInfo, assessmentData) => {
       class: studentInfo?.grade || 'PLUS TWO',
       email: 'raseenapoyil763@gmail.com'
     },
+    archetype: archetype,
+    star: star,
     
-    // STAR Behavioural Abilities
-    star: {
-      relationship: 63,
-      theoretical: 66,
-      structure: 58,
-      action: 77
-    },
-
     // 8 Multiple Intelligences (Smarts)
     smarts: {
       music: 40,

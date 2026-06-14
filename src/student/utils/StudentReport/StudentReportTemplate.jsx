@@ -13,6 +13,7 @@ import {
   Page22Picture, Page23Logic, Page24People, Page25Self, Page26Nature, 
   Page27CareerFitment, Page28Contact 
 } from './PageBatch3';
+import { Page29ActionPlan, Page30CounselorNotes, Page31DigitalBridge } from './PageBatch4';
 
 const StudentReportTemplate = forwardRef(({ studentInfo, assessmentData }, ref) => {
   const data = generateReportData(studentInfo, assessmentData);
@@ -42,16 +43,21 @@ const StudentReportTemplate = forwardRef(({ studentInfo, assessmentData }, ref) 
       {/* Batch 3: Pages 17-28 */}
       <Page17SkillsIntro />
       <Page18SkillsChart data={data} />
-      <Page19Word />
-      <Page20Music />
-      <Page21Body />
-      <Page22Picture />
-      <Page23Logic />
-      <Page24People />
-      <Page25Self />
-      <Page26Nature />
+      <Page19Word data={data} />
+      <Page20Music data={data} />
+      <Page21Body data={data} />
+      <Page22Picture data={data} />
+      <Page23Logic data={data} />
+      <Page24People data={data} />
+      <Page25Self data={data} />
+      <Page26Nature data={data} />
       <Page27CareerFitment data={data} />
       <Page28Contact data={data} />
+
+      {/* Batch 4: Pages 29-31 (Interactive Workbook & Digital Bridge) */}
+      <Page29ActionPlan />
+      <Page30CounselorNotes />
+      <Page31DigitalBridge />
     </div>
   );
 });
