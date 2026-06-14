@@ -30,10 +30,10 @@ const StudentReportTemplate = forwardRef(({ studentInfo, assessmentData }, ref) 
       <Page08StarChart data={data} />
 
       {/* Batch 2: Pages 9-16 */}
-      <Page09Structure />
-      <Page10Theoretical />
-      <Page11Action />
-      <Page12Relationship />
+      <Page09Structure data={data} />
+      <Page10Theoretical data={data} />
+      <Page11Action data={data} />
+      <Page12Relationship data={data} />
       <Page13Growth1 data={data} />
       <Page14Growth2 data={data} />
       <Page15Growth3 data={data} />
