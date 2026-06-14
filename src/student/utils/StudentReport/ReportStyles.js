@@ -2,8 +2,8 @@ export const colors = {
   primaryDark: '#2E6B3A', // Deep Green
   primaryLight: '#E6F0E2', // Tint Green
   accentGreen: '#7FA86E', // Light Green
-  accentYellow: '#fbbf24', // Yellow for highlights
-  accentPurple: '#14b8a6', // Teal as a complementary accent instead of purple
+  accentYellow: '#fbbf24', // Gold for highlights
+  accentPurple: '#14b8a6', // Teal (retained variable name for ease but colored teal)
   white: '#ffffff',
   textDark: '#22242A',
   textLight: '#f8fafc',
@@ -16,8 +16,8 @@ export const colors = {
   traitAction: '#ca8a04', // Gold/Yellow
 };
 
-export const slideWidth = 1920;
-export const slideHeight = 1080;
+export const slideWidth = 1200;
+export const slideHeight = 1697; // A4 ratio (1 : 1.414)
 
 export const commonStyles = {
   page: {
@@ -29,10 +29,11 @@ export const commonStyles = {
     pageBreakAfter: 'always',
     fontFamily: '"Plus Jakarta Sans", "DM Sans", sans-serif',
     display: 'flex',
+    flexDirection: 'column', // Essential change for portrait layout
     boxSizing: 'border-box'
   },
   titleHuge: {
-    fontSize: '120px',
+    fontSize: '100px',
     fontWeight: 900,
     color: colors.primaryDark,
     lineHeight: '1.1',
@@ -40,14 +41,14 @@ export const commonStyles = {
     letterSpacing: '-2px'
   },
   sectionTitle: {
-    fontSize: '80px',
+    fontSize: '60px',
     fontWeight: 800,
     color: colors.primaryDark,
-    margin: '0 0 40px 0',
+    margin: '0 0 30px 0',
     letterSpacing: '-1px'
   },
   bodyText: {
-    fontSize: '32px',
+    fontSize: '28px',
     lineHeight: '1.8',
     color: colors.textDark,
     margin: 0,

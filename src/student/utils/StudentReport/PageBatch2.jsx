@@ -2,16 +2,16 @@ import React from 'react';
 import { colors, commonStyles } from './ReportStyles';
 import { Settings, Lightbulb, Zap, Users } from 'lucide-react';
 
-const StarDetailPage = ({ id, title, text, bgColor, textColor, Icon, colorTheme }) => (
-  <div id={id} style={{ ...commonStyles.page, backgroundColor: bgColor }}>
-    {/* Left Icon Representation */}
-    <div style={{ position: 'absolute', left: '200px', top: '50%', transform: 'translateY(-50%)', color: colorTheme, opacity: 0.15 }}>
-      <Icon size={800} strokeWidth={1} />
+const StarDetailPage = ({ id, title, text, bgColor, textColor, colorTheme, Icon }) => (
+  <div id={id} style={{ ...commonStyles.page, backgroundColor: bgColor, padding: '100px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+    
+    <div style={{ color: colorTheme, opacity: 0.15, marginBottom: '60px' }}>
+      <Icon size={400} strokeWidth={1} />
     </div>
 
-    <div style={{ position: 'absolute', right: '100px', top: '200px', width: '900px', backgroundColor: colors.primaryLight, borderRadius: '40px', padding: '80px', boxShadow: '0 20px 50px rgba(0,0,0,0.1)' }}>
-      <h1 style={{ fontSize: '90px', color: textColor, margin: '0 0 40px 0', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '2px' }}>{title}</h1>
-      <p style={{ fontSize: '32px', color: colors.textDark, lineHeight: '1.8', margin: 0, textAlign: 'justify', fontWeight: 500 }}>{text}</p>
+    <div style={{ backgroundColor: colors.primaryLight, borderRadius: '40px', padding: '80px', boxShadow: '0 30px 60px rgba(0,0,0,0.15)', borderTop: `15px solid ${textColor}`, width: '100%' }}>
+      <h1 style={{ fontSize: '80px', color: textColor, margin: '0 0 40px 0', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '2px', textAlign: 'center' }}>{title}</h1>
+      <p style={{ fontSize: '30px', color: colors.textDark, lineHeight: '1.8', margin: 0, textAlign: 'justify', fontWeight: 500 }}>{text}</p>
     </div>
   </div>
 );
@@ -64,52 +64,39 @@ export const Page12Relationship = () => (
   />
 );
 
-// Abstract component for the Growth Area pages
-const GrowthAreaRow = ({ title, text, percentage, colorLeft, colorRight, align }) => {
-  const isLeft = align === 'left';
+// Growth Area layout adapted for vertical A4
+const GrowthAreaRow = ({ title, text, percentage, colorLeft, colorRight }) => {
   return (
-    <div style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: isLeft ? 'flex-start' : 'flex-end', marginBottom: '60px' }}>
-      {isLeft && (
-        <div style={{ width: '600px', textAlign: 'right', paddingRight: '50px' }}>
-          <h2 style={{ fontSize: '40px', color: colorLeft, marginBottom: '20px', fontWeight: 800 }}>{title}</h2>
-          <p style={{ fontSize: '26px', lineHeight: '1.5', margin: 0, color: colors.textDark, fontWeight: 500 }}>{text}</p>
-        </div>
-      )}
-      <div style={{ width: '220px', height: '220px', borderRadius: '50%', backgroundColor: colorRight, display: 'flex', justifyContent: 'center', alignItems: 'center', margin: isLeft ? '0' : '0', zIndex: 10, border: `12px solid ${colors.white}`, boxShadow: '0 10px 30px rgba(0,0,0,0.15)' }}>
-        <span style={{ fontSize: '40px', fontWeight: 900, color: colors.white }}>{percentage}%</span>
+    <div style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'space-between', marginBottom: '50px', backgroundColor: colors.white, borderRadius: '30px', padding: '30px', boxShadow: '0 15px 30px rgba(0,0,0,0.05)' }}>
+      <div style={{ flex: 1, paddingRight: '40px' }}>
+        <h2 style={{ fontSize: '32px', color: colorLeft, marginBottom: '15px', fontWeight: 800 }}>{title}</h2>
+        <p style={{ fontSize: '24px', lineHeight: '1.5', margin: 0, color: colors.textDark, fontWeight: 500 }}>{text}</p>
       </div>
-      {!isLeft && (
-        <div style={{ width: '600px', textAlign: 'left', paddingLeft: '50px' }}>
-          <h2 style={{ fontSize: '40px', color: colorLeft, marginBottom: '20px', fontWeight: 800 }}>{title}</h2>
-          <p style={{ fontSize: '26px', lineHeight: '1.5', margin: 0, color: colors.textDark, fontWeight: 500 }}>{text}</p>
-        </div>
-      )}
+      <div style={{ width: '150px', height: '150px', borderRadius: '50%', backgroundColor: colorRight, display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 10, border: `8px solid ${colors.white}`, boxShadow: '0 10px 20px rgba(0,0,0,0.1)' }}>
+        <span style={{ fontSize: '36px', fontWeight: 900, color: colors.white }}>{percentage}%</span>
+      </div>
     </div>
   );
 };
 
 const GrowthPage = ({ id, children }) => (
-  <div id={id} style={commonStyles.page}>
-    <div style={{ position: 'absolute', left: '100px', top: '150px' }}>
-       <h1 style={{ fontSize: '60px', fontWeight: 900, color: colors.primaryDark, textTransform: 'uppercase', transform: 'rotate(-90deg)', transformOrigin: 'left bottom', position: 'absolute', bottom: '-400px', left: '0', whiteSpace: 'nowrap', opacity: 0.8 }}>KEY AREAS FOR GROWTH</h1>
-       <h1 style={{ fontSize: '60px', fontWeight: 900, color: colors.primaryDark, textTransform: 'uppercase', transform: 'rotate(-90deg)', transformOrigin: 'left bottom', position: 'absolute', bottom: '-950px', left: '80px', whiteSpace: 'nowrap', opacity: 0.8 }}>AND IMPROVEMENT</h1>
+  <div id={id} style={{ ...commonStyles.page, padding: '80px', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ marginBottom: '60px', textAlign: 'center' }}>
+       <h1 style={{ fontSize: '60px', fontWeight: 900, color: colors.primaryDark, textTransform: 'uppercase', lineHeight: '1.1' }}>KEY AREAS FOR GROWTH<br/>AND IMPROVEMENT</h1>
     </div>
 
-    {/* Abstract Wavy SVG Roadmap aligned with E-Brave brand colors */}
-    <div style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)', top: 0, width: '400px', height: '1080px', zIndex: 0 }}>
-       <svg width="400" height="1080" viewBox="0 0 400 1080">
-          <path d="M 200,0 C 400,300 0,500 200,800 C 400,1000 200,1080 200,1080" fill="none" stroke={colors.accentGreen} strokeWidth="80" strokeLinecap="round" opacity="0.4" />
-          <path d="M 200,0 C 400,300 0,500 200,800 C 400,1000 200,1080 200,1080" fill="none" stroke={colors.primaryDark} strokeWidth="15" strokeDasharray="30 40" strokeLinecap="round" />
-       </svg>
-    </div>
-
-    <div style={{ position: 'absolute', top: '100px', width: '1500px', left: '200px', display: 'flex', flexDirection: 'column' }}>
-      {children}
+    <div style={{ display: 'flex', flexDirection: 'column', flex: 1, position: 'relative' }}>
+       {/* Background vertical stripe line tying them together */}
+       <div style={{ position: 'absolute', right: '95px', top: '50px', bottom: '50px', width: '10px', backgroundColor: colors.primaryLight, zIndex: 0 }}></div>
+       
+       <div style={{ zIndex: 1 }}>
+         {children}
+       </div>
     </div>
   </div>
 );
 
-// We map colors to the new brand:
+// Mapping colors
 const c1 = colors.primaryDark; // Deep Green
 const c2 = colors.traitStructure; // Teal
 const c3 = colors.traitAction; // Yellow
@@ -117,40 +104,40 @@ const c4 = colors.accentGreen; // Light Green
 
 export const Page13Growth1 = ({ data }) => (
   <GrowthPage id="student-page-13">
-    <GrowthAreaRow title="Stability & Order" text="Stability and order in a career provide a predictable environment, reducing stress and enabling long-term planning." percentage={data.growth.stability} colorLeft={c1} colorRight={c1} align="left" />
-    <GrowthAreaRow title="Predictability" text="Predictability in a career ensures a clear understanding of roles, responsibilities, and future prospects, allowing for better decision-making." percentage={data.growth.predictability} colorLeft={c2} colorRight={c2} align="right" />
-    <GrowthAreaRow title="Credentials and Titles" text="Credentials and titles validate expertise, enhance credibility, and open doors to advanced opportunities in a chosen career." percentage={data.growth.credentials} colorLeft={c3} colorRight={c3} align="left" />
-    <GrowthAreaRow title="Responsibility and Dependability" text="Responsibility and dependability are crucial as they build trust, enhance reputation, and foster long-term success in any career." percentage={data.growth.responsibility} colorLeft={c4} colorRight={c4} align="right" />
-    <GrowthAreaRow title="Belonging and Tradition" text="Belonging and tradition provide a sense of identity, purpose, and connection to a community, making a career feel meaningful." percentage={data.growth.belonging} colorLeft={c1} colorRight={c1} align="left" />
+    <GrowthAreaRow title="Stability & Order" text="Stability and order in a career provide a predictable environment, reducing stress and enabling long-term planning." percentage={data.growth.stability} colorLeft={c1} colorRight={c1} />
+    <GrowthAreaRow title="Predictability" text="Predictability in a career ensures a clear understanding of roles, responsibilities, and future prospects, allowing for better decision-making." percentage={data.growth.predictability} colorLeft={c2} colorRight={c2} />
+    <GrowthAreaRow title="Credentials and Titles" text="Credentials and titles validate expertise, enhance credibility, and open doors to advanced opportunities in a chosen career." percentage={data.growth.credentials} colorLeft={c3} colorRight={c3} />
+    <GrowthAreaRow title="Responsibility and Dependability" text="Responsibility and dependability are crucial as they build trust, enhance reputation, and foster long-term success in any career." percentage={data.growth.responsibility} colorLeft={c4} colorRight={c4} />
+    <GrowthAreaRow title="Belonging and Tradition" text="Belonging and tradition provide a sense of identity, purpose, and connection to a community, making a career feel meaningful." percentage={data.growth.belonging} colorLeft={c1} colorRight={c1} />
   </GrowthPage>
 );
 
 export const Page14Growth2 = ({ data }) => (
   <GrowthPage id="student-page-14">
-    <GrowthAreaRow title="Knowledge and Learning" text="Knowledge and learning are essential for staying competitive and adaptable in a rapidly evolving job market." percentage={data.growth.knowledge} colorLeft={c1} colorRight={c1} align="left" />
-    <GrowthAreaRow title="Strategic Thinking" text="Strategic thinking is crucial for making informed decisions and solving complex problems in a career." percentage={data.growth.strategic} colorLeft={c2} colorRight={c2} align="right" />
-    <GrowthAreaRow title="Progress and Innovation" text="Progress and innovation drive career growth by fostering creativity, adaptability, and forward-thinking solutions." percentage={data.growth.progress} colorLeft={c3} colorRight={c3} align="left" />
-    <GrowthAreaRow title="Logical Consistency" text="Logical consistency ensures clear, rational decision-making and problem-solving in a career." percentage={data.growth.logical} colorLeft={c4} colorRight={c4} align="right" />
-    <GrowthAreaRow title="Ethics and Universal Truths" text="Ethics and universal truths provide a moral compass, ensuring integrity and trustworthiness in a career." percentage={data.growth.ethics} colorLeft={c1} colorRight={c1} align="left" />
+    <GrowthAreaRow title="Knowledge and Learning" text="Knowledge and learning are essential for staying competitive and adaptable in a rapidly evolving job market." percentage={data.growth.knowledge} colorLeft={c1} colorRight={c1} />
+    <GrowthAreaRow title="Strategic Thinking" text="Strategic thinking is crucial for making informed decisions and solving complex problems in a career." percentage={data.growth.strategic} colorLeft={c2} colorRight={c2} />
+    <GrowthAreaRow title="Progress and Innovation" text="Progress and innovation drive career growth by fostering creativity, adaptability, and forward-thinking solutions." percentage={data.growth.progress} colorLeft={c3} colorRight={c3} />
+    <GrowthAreaRow title="Logical Consistency" text="Logical consistency ensures clear, rational decision-making and problem-solving in a career." percentage={data.growth.logical} colorLeft={c4} colorRight={c4} />
+    <GrowthAreaRow title="Ethics and Universal Truths" text="Ethics and universal truths provide a moral compass, ensuring integrity and trustworthiness in a career." percentage={data.growth.ethics} colorLeft={c1} colorRight={c1} />
   </GrowthPage>
 );
 
 export const Page15Growth3 = ({ data }) => (
   <GrowthPage id="student-page-15">
-    <GrowthAreaRow title="Freedom of Action" text="Freedom of action empowers individuals to make independent decisions, fostering creativity and personal growth." percentage={data.growth.freedom} colorLeft={c1} colorRight={c1} align="left" />
-    <GrowthAreaRow title="Adaptability and Flexibility" text="Adaptability and flexibility enable individuals to navigate change and uncertainty effectively in their careers." percentage={data.growth.adaptability} colorLeft={c2} colorRight={c2} align="right" />
-    <GrowthAreaRow title="Negotiation and Troubleshooting" text="Negotiation and troubleshooting skills are vital for resolving conflicts, overcoming challenges, and achieving mutually beneficial outcomes." percentage={data.growth.negotiation} colorLeft={c3} colorRight={c3} align="left" />
-    <GrowthAreaRow title="Spontaneity, Stimulation & Excitement" text="Spontaneity, stimulation, and excitement bring energy and creativity to a career, making work more engaging and fulfilling." percentage={data.growth.spontaneity} colorLeft={c4} colorRight={c4} align="right" />
-    <GrowthAreaRow title="Passion and Entertaining" text="Passion fuels motivation and dedication, making work more enjoyable and meaningful in a career." percentage={data.growth.passion} colorLeft={c1} colorRight={c1} align="left" />
+    <GrowthAreaRow title="Freedom of Action" text="Freedom of action empowers individuals to make independent decisions, fostering creativity and personal growth." percentage={data.growth.freedom} colorLeft={c1} colorRight={c1} />
+    <GrowthAreaRow title="Adaptability and Flexibility" text="Adaptability and flexibility enable individuals to navigate change and uncertainty effectively in their careers." percentage={data.growth.adaptability} colorLeft={c2} colorRight={c2} />
+    <GrowthAreaRow title="Negotiation and Troubleshooting" text="Negotiation and troubleshooting skills are vital for resolving conflicts, overcoming challenges, and achieving mutually beneficial outcomes." percentage={data.growth.negotiation} colorLeft={c3} colorRight={c3} />
+    <GrowthAreaRow title="Spontaneity, Stimulation & Excitement" text="Spontaneity, stimulation, and excitement bring energy and creativity to a career, making work more engaging and fulfilling." percentage={data.growth.spontaneity} colorLeft={c4} colorRight={c4} />
+    <GrowthAreaRow title="Passion and Entertaining" text="Passion fuels motivation and dedication, making work more enjoyable and meaningful in a career." percentage={data.growth.passion} colorLeft={c1} colorRight={c1} />
   </GrowthPage>
 );
 
 export const Page16Growth4 = ({ data }) => (
   <GrowthPage id="student-page-16">
-    <GrowthAreaRow title="Empathic Relationships" text="Empathic relationships build trust, collaboration, and emotional intelligence in a career. They enhance teamwork." percentage={data.growth.empathic} colorLeft={c1} colorRight={c1} align="left" />
-    <GrowthAreaRow title="Identity and Significance" text="Identity and significance provide a sense of purpose and self-worth in a career, aligning work with personal values." percentage={data.growth.identity} colorLeft={c2} colorRight={c2} align="right" />
-    <GrowthAreaRow title="Ethical Leadership" text="Ethical leadership inspires trust, integrity, and accountability, creating a positive and sustainable impact." percentage={data.growth.ethical} colorLeft={c3} colorRight={c3} align="left" />
-    <GrowthAreaRow title="Cooperation and Involvement" text="Cooperation and involvement promote teamwork, shared goals, and active participation in a career." percentage={data.growth.cooperation} colorLeft={c4} colorRight={c4} align="right" />
-    <GrowthAreaRow title="Recognition and Appreciation" text="Recognition and appreciation boost morale, motivation, and job satisfaction in a career." percentage={data.growth.recognition} colorLeft={c1} colorRight={c1} align="left" />
+    <GrowthAreaRow title="Empathic Relationships" text="Empathic relationships build trust, collaboration, and emotional intelligence in a career. They enhance teamwork." percentage={data.growth.empathic} colorLeft={c1} colorRight={c1} />
+    <GrowthAreaRow title="Identity and Significance" text="Identity and significance provide a sense of purpose and self-worth in a career, aligning work with personal values." percentage={data.growth.identity} colorLeft={c2} colorRight={c2} />
+    <GrowthAreaRow title="Ethical Leadership" text="Ethical leadership inspires trust, integrity, and accountability, creating a positive and sustainable impact." percentage={data.growth.ethical} colorLeft={c3} colorRight={c3} />
+    <GrowthAreaRow title="Cooperation and Involvement" text="Cooperation and involvement promote teamwork, shared goals, and active participation in a career." percentage={data.growth.cooperation} colorLeft={c4} colorRight={c4} />
+    <GrowthAreaRow title="Recognition and Appreciation" text="Recognition and appreciation boost morale, motivation, and job satisfaction in a career." percentage={data.growth.recognition} colorLeft={c1} colorRight={c1} />
   </GrowthPage>
 );

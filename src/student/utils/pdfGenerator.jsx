@@ -121,13 +121,13 @@ export const generateStudentPDF = async (studentInfo, assessmentData, progressCa
         });
 
         const doc = new jsPDF({
-          orientation: 'landscape',
+          orientation: 'portrait',
           unit: 'mm',
-          format: [297, 167] // 16:9 aspect ratio in mm roughly matches 1920x1080
+          format: 'a4'
         });
 
-        const widthMm = 297;
-        const heightMm = 167;
+        const widthMm = 210;
+        const heightMm = 297;
 
         const totalPages = 28;
         
