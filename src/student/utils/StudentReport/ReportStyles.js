@@ -1,82 +1,54 @@
 export const colors = {
-  pGreen: '#2E6B3A',
-  sGreen: '#7FA86E',
-  tPrim: '#22242A',
-  tSec: '#6E7278',
-  tMut: '#8A9099',
-  bgLight: '#FAFAFA',
-  bgWhite: '#FFFFFF',
-  bgTint: '#E6F0E2',
-  bLine: '#E2E2E3',
+  primaryDark: '#1a365d', // Dark Navy Blue
+  primaryLight: '#bfdbfe', // Light Blue Background
+  accentPurple: '#7c3aed', // Purple for cards/accents
+  accentYellow: '#fbbf24', // Yellow for highlights
+  accentGreen: '#10b981', // Green for positive indicators
+  accentRed: '#ef4444', // Red for warnings/low indicators
+  white: '#ffffff',
+  textDark: '#1e293b',
+  textLight: '#f8fafc',
+  
+  // Specific trait colors from the PDF
+  traitRelationship: '#6366f1', // Indigo
+  traitTheoretical: '#7dd3fc', // Light blue
+  traitStructure: '#1e3a8a', // Very dark blue
+  traitAction: '#0d9488', // Teal
 };
 
-// A4 aspect ratio at 96 DPI
-export const a4Width = 794;
-export const a4Height = 1123;
+// Landscape Slide Aspect Ratio
+export const slideWidth = 1920;
+export const slideHeight = 1080;
 
 export const commonStyles = {
   page: {
-    width: `${a4Width}px`,
-    height: `${a4Height}px`,
-    backgroundColor: colors.bgLight,
-    padding: '60px 70px',
-    boxSizing: 'border-box',
-    fontFamily: '"Plus Jakarta Sans", "DM Sans", sans-serif',
-    color: colors.tPrim,
+    width: `${slideWidth}px`,
+    height: `${slideHeight}px`,
+    backgroundColor: colors.primaryLight, // Default to light blue like most slides
     position: 'relative',
     overflow: 'hidden',
-    pageBreakAfter: 'always'
-  },
-  header: {
+    pageBreakAfter: 'always',
+    fontFamily: '"Plus Jakarta Sans", "DM Sans", sans-serif',
     display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    borderBottom: `2px solid ${colors.bLine}`,
-    paddingBottom: '20px',
-    marginBottom: '40px'
+    boxSizing: 'border-box'
   },
-  title: {
-    margin: 0,
-    fontSize: '32px',
-    color: colors.pGreen,
-    fontWeight: 800,
-    fontFamily: '"Plus Jakarta Sans", sans-serif'
+  titleHuge: {
+    fontSize: '120px',
+    fontWeight: 900,
+    color: colors.primaryDark,
+    lineHeight: '1.1',
+    margin: 0
   },
   sectionTitle: {
-    fontSize: '24px',
-    color: colors.pGreen,
-    borderBottom: `2px solid ${colors.sGreen}`,
-    paddingBottom: '10px',
-    marginBottom: '25px',
+    fontSize: '80px',
     fontWeight: 800,
-    fontFamily: '"Plus Jakarta Sans", sans-serif'
-  },
-  card: {
-    backgroundColor: colors.bgWhite,
-    padding: '30px',
-    borderRadius: '16px',
-    border: `1px solid ${colors.bLine}`,
-    marginBottom: '30px',
-    boxShadow: '0 4px 15px rgba(0,0,0,0.02)'
+    color: colors.primaryDark,
+    margin: '0 0 40px 0'
   },
   bodyText: {
-    fontSize: '15px',
-    color: colors.tSec,
-    lineHeight: '1.8',
-    fontFamily: '"DM Sans", sans-serif',
-    margin: '0 0 15px 0'
-  },
-  footer: (pageNum) => ({
-    position: 'absolute',
-    bottom: '40px',
-    left: '70px',
-    right: '70px',
-    borderTop: `1px solid ${colors.bLine}`,
-    paddingTop: '15px',
-    display: 'flex',
-    justifyContent: 'space-between',
-    color: colors.tMut,
-    fontSize: '12px',
-    fontWeight: 600
-  })
+    fontSize: '36px',
+    lineHeight: '1.6',
+    color: colors.textDark,
+    margin: 0
+  }
 };

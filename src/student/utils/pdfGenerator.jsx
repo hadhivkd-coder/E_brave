@@ -121,15 +121,15 @@ export const generateStudentPDF = async (studentInfo, assessmentData, progressCa
         });
 
         const doc = new jsPDF({
-          orientation: 'portrait',
+          orientation: 'landscape',
           unit: 'mm',
-          format: 'a4'
+          format: [297, 167] // 16:9 aspect ratio in mm roughly matches 1920x1080
         });
 
-        const a4WidthMm = 210;
-        const a4HeightMm = 297;
+        const widthMm = 297;
+        const heightMm = 167;
 
-        const totalPages = 30;
+        const totalPages = 28;
         
         for (let i = 1; i <= totalPages; i++) {
           const pageId = `student-page-${i}`;
@@ -157,7 +157,7 @@ export const generateStudentPDF = async (studentInfo, assessmentData, progressCa
             doc.addPage();
           }
 
-          doc.addImage(imgData, 'JPEG', 0, 0, a4WidthMm, a4HeightMm);
+          doc.addImage(imgData, 'JPEG', 0, 0, widthMm, heightMm);
         }
 
         if (progressCallback) {

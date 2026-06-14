@@ -1,16 +1,17 @@
 import React, { forwardRef } from 'react';
 import { generateReportData } from './engines/MockDataEngine';
 import { 
-  Page01Cover, Page02Welcome, Page03Executive, Page04Snapshot, Page05Personality, 
-  Page06Strength, Page07Talents, Page08Interest, Page09Motivation, Page10LearningStyle 
+  Page01Cover, Page02Title, Page03Brief, Page04Preface, Page05StarAssessment, 
+  Page06BehaviourIntro, Page07StarQuadrants, Page08StarChart 
 } from './PageBatch1';
 import { 
-  Page11Communication, Page12DecisionMaking, Page13FutureSkills, Page14CareerReadiness, 
-  Page15Challenges, Page16Growth, Page17Exploration, Page18Career1, Page19Career2, Page20Career3 
+  Page09Structure, Page10Theoretical, Page11Action, Page12Relationship, 
+  Page13Growth1, Page14Growth2, Page15Growth3, Page16Growth4 
 } from './PageBatch2';
 import { 
-  Page21Education, Page22SkillsDev, Page23ParentGuidance, Page24ParentAction, Page25StudentAction, 
-  Page26Roadmap, Page27LongTerm, Page28Resources, Page29Counselor, Page30Conclusion 
+  Page17SkillsIntro, Page18SkillsChart, Page19Word, Page20Music, Page21Body, 
+  Page22Picture, Page23Logic, Page24People, Page25Self, Page26Nature, 
+  Page27CareerFitment, Page28Contact 
 } from './PageBatch3';
 
 const StudentReportTemplate = forwardRef(({ studentInfo, assessmentData }, ref) => {
@@ -18,41 +19,39 @@ const StudentReportTemplate = forwardRef(({ studentInfo, assessmentData }, ref) 
 
   return (
     <div ref={ref} style={{ position: 'absolute', top: '-9999px', left: '-9999px', zIndex: -1000 }}>
-      {/* Batch 1: Pages 1-10 */}
+      {/* Batch 1: Pages 1-8 */}
       <Page01Cover data={data} />
-      <Page02Welcome data={data} />
-      <Page03Executive data={data} />
-      <Page04Snapshot data={data} />
-      <Page05Personality data={data} />
-      <Page06Strength data={data} />
-      <Page07Talents data={data} />
-      <Page08Interest data={data} />
-      <Page09Motivation data={data} />
-      <Page10LearningStyle data={data} />
+      <Page02Title />
+      <Page03Brief />
+      <Page04Preface />
+      <Page05StarAssessment />
+      <Page06BehaviourIntro />
+      <Page07StarQuadrants />
+      <Page08StarChart data={data} />
 
-      {/* Batch 2: Pages 11-20 */}
-      <Page11Communication data={data} />
-      <Page12DecisionMaking data={data} />
-      <Page13FutureSkills data={data} />
-      <Page14CareerReadiness data={data} />
-      <Page15Challenges data={data} />
-      <Page16Growth data={data} />
-      <Page17Exploration data={data} />
-      <Page18Career1 data={data} />
-      <Page19Career2 data={data} />
-      <Page20Career3 data={data} />
+      {/* Batch 2: Pages 9-16 */}
+      <Page09Structure />
+      <Page10Theoretical />
+      <Page11Action />
+      <Page12Relationship />
+      <Page13Growth1 data={data} />
+      <Page14Growth2 data={data} />
+      <Page15Growth3 data={data} />
+      <Page16Growth4 data={data} />
 
-      {/* Batch 3: Pages 21-30 */}
-      <Page21Education data={data} />
-      <Page22SkillsDev data={data} />
-      <Page23ParentGuidance data={data} />
-      <Page24ParentAction data={data} />
-      <Page25StudentAction data={data} />
-      <Page26Roadmap data={data} />
-      <Page27LongTerm data={data} />
-      <Page28Resources data={data} />
-      <Page29Counselor data={data} />
-      <Page30Conclusion data={data} />
+      {/* Batch 3: Pages 17-28 */}
+      <Page17SkillsIntro />
+      <Page18SkillsChart data={data} />
+      <Page19Word />
+      <Page20Music />
+      <Page21Body />
+      <Page22Picture />
+      <Page23Logic />
+      <Page24People />
+      <Page25Self />
+      <Page26Nature />
+      <Page27CareerFitment data={data} />
+      <Page28Contact data={data} />
     </div>
   );
 });
