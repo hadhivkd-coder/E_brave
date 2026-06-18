@@ -13,7 +13,7 @@ export default function Navbar({ registrationsList }) {
     // Close mobile menu on link click
     const closeMenu = () => setMenuOpen(false);
 
-    const waNum = '919162829122';
+    const waNum = '916282819122';
     const waText = '?text=' + encodeURIComponent('Hello, I want to get more information about this');
 
 

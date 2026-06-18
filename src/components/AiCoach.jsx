@@ -208,7 +208,7 @@ export default function AiCoach({ onRegister }) {
     const roadmap = compileRoadmap();
 
     const getPrefilledWaMsg = () => {
-        const waNum = '919162829122';
+        const waNum = '916282819122';
         const text = `Hi! My name is ${formData.name}. I just completed my E-Brave AI Career Coach assessment and generated my Career Roadmap for: "${roadmap.coreTrack}". I want to book a 1-on-1 professional session to finalize my plan!`;
         return `https://wa.me/${waNum}?text=${encodeURIComponent(text)}`;
     };

@@ -120,7 +120,7 @@ export default function Registration({ onRegister }) {
         setErrors({});
 
         // Direct fallback and hardcoded new number to override any hosting environment variable cached values
-        const waNum = '919162829122';
+        const waNum = '916282819122';
         const msg = `Hi! My name is ${newRegistration.name}. I'd like to book a career counseling session.`;
         window.location.href = `https://wa.me/${waNum}?text=${encodeURIComponent(msg)}`;
     };
