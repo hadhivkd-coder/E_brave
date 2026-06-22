@@ -13,15 +13,15 @@ export const EbraveLogo = ({ width = 120, height = 120, className = "" }) => (
         width={width} 
         height={height} 
         className={className}
-        fill="#ffffff"
+        fill="var(--card)"
     >
         {/* Graduation Cap */}
         <path d="M100 35 L150 50 L100 65 L50 50 Z" />
         {/* Tassel */}
-        <path d="M148 50 V68" stroke="#ffffff" strokeWidth="5" fill="none" />
+        <path d="M148 50 V68" stroke="var(--card)" strokeWidth="5" fill="none" />
         <circle cx="148" cy="72" r="4" />
         {/* Cap Base */}
-        <path d="M75 58 L75 68 Q100 78 125 68 L125 58" stroke="#ffffff" strokeWidth="14" fill="none" />
+        <path d="M75 58 L75 68 Q100 78 125 68 L125 58" stroke="var(--card)" strokeWidth="14" fill="none" />
 
         {/* Open Book */}
         <path d="M100 78 Q60 58 20 75 L28 85 Q70 65 100 86 Q130 65 172 85 L180 75 Q140 58 100 78 Z" />

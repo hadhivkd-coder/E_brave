@@ -30,13 +30,12 @@ export default function Navbar({ registrationsList }) {
 
                 {/* Desktop nav links */}
                 <ul className="nav-links" role="list">
-                    <li><a href="#about">About</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#foundation">Foundation Program</a></li>
                     <li><a href="#how-it-works">How It Works</a></li>
-                    <li><a href="#experts">Experts</a></li>
-                    <li><a href="/student/assessment">Assessment</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#reviews">Reviews</a></li>
-                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#career">Career Guidance</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                    <li><a href="#about">About Us</a></li>
                 </ul>
 
                 <div className="nav-r">
@@ -73,14 +72,12 @@ export default function Navbar({ registrationsList }) {
                 <div className="mobile-menu-inner">
                     <ul className="mobile-nav-links" role="list">
                         {[
-                            ['#about', 'About'],
+                            ['#', 'Home'],
+                            ['#foundation', 'Foundation Program'],
                             ['#how-it-works', 'How It Works'],
-                            ['#experts', 'Our Experts'],
-                            ['/student/assessment', 'Assessment'],
-                            ['#pricing', 'Pricing'],
-                            ['#reviews', 'Reviews'],
-                            ['#faq', 'FAQ'],
-                            ['#resources', 'Free Guides'],
+                            ['#career', 'Career Guidance'],
+                            ['#faq', 'FAQs'],
+                            ['#about', 'About Us'],
                         ].map(([href, label]) => (
                             <li key={href}><a href={href} onClick={closeMenu}>{label}</a></li>
                         ))}

@@ -3,11 +3,15 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SplashScreen from './components/SplashScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import WhyStudentsStruggle from './components/WhyStudentsStruggle';
+import HowTheProgramWorks from './components/HowTheProgramWorks';
+import SecondaryServices from './components/SecondaryServices';
+import HorizontalRoadmap from './components/HorizontalRoadmap';
+import QuickActionsSlider from './components/QuickActionsSlider';
 import About from './components/About';
-import Process from './components/Process';
+import FuturePrograms from './components/FuturePrograms';
 import VideoSection from './components/VideoSection';
 import AiCoach from './components/AiCoach';
-import Registration from './components/Registration';
 import Resources from './components/Resources';
 import FAQ from './components/FAQ';
 import Testimonial from './components/Testimonial';
@@ -23,7 +27,9 @@ import ExitIntent from './components/ExitIntent';
 import AdminApp from './admin/AdminApp';
 import StudentApp from './student/StudentApp';
 
-// Public website component (unchanged)
+import MathsRegistration from './components/MathsRegistration';
+
+// Public website component
 function PublicSite() {
   const [registrationsList, setRegistrationsList] = useState([]);
 
@@ -53,17 +59,16 @@ function PublicSite() {
       <Navbar registrationsList={registrationsList} />
       <main id="main-content">
         <Hero />
-        <CompassHighlight />
-        <PrestigeTicker />
+        <WhyStudentsStruggle />
+        <HowTheProgramWorks />
+        <HorizontalRoadmap />
+        <SecondaryServices />
         <About />
-        <Process />
-        <VideoSection />
-        <AiCoach onRegister={handleRegister} />
         <Counselor />
         <Testimonial />
-        <Registration onRegister={handleRegister} />
         <Resources />
         <FAQ />
+        <MathsRegistration onRegister={handleRegister} />
       </main>
       <Footer />
       <FloatingWhatsApp />

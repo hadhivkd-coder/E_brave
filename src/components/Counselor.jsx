@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+import DynamicRegistrationModal from './DynamicRegistrationModal';
 
 export default function Counselor() {
+    const [isModalOpen, setModalOpen] = useState(false);
+
     const experts = [
         {
             name: 'CKM Rafeek',
@@ -77,11 +80,17 @@ export default function Counselor() {
                     ))}
                 </div>
 
-                <div className="counselor-cta">
+                <div className="counselor-cta" style={{ position: 'relative', zIndex: 10 }}>
                     <p>All counselors are background-verified and hold recognized certifications in career counseling.</p>
-                    <a href="#register" className="btn-main">Book a Session with an Expert</a>
+                    <button onClick={() => setModalOpen(true)} className="btn-main" style={{ background: 'var(--neon)', color: 'var(--dk)', fontWeight: 'bold', border: 'none', cursor: 'pointer', fontFamily: 'inherit', fontSize: '1.1rem', padding: '16px 36px', borderRadius: '100px', boxShadow: '0 10px 30px rgba(74, 222, 128, 0.2)', transition: 'all 0.3s' }}>Book a Session with an Expert</button>
                 </div>
             </div>
+
+            <DynamicRegistrationModal 
+                isOpen={isModalOpen}
+                serviceTitle="1-on-1 Expert Session"
+                onClose={() => setModalOpen(false)}
+            />
         </section>
     );
 }
